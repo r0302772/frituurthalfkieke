@@ -1,9 +1,7 @@
 package be.thomasmore.graduaten.frituurthalfkieke.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class ArtikelBestelling {
@@ -14,6 +12,13 @@ public class ArtikelBestelling {
     private  Long bestellingId;
     private  Long artikelId;
     private  double aantal;
+
+    //relatie naar Artikel
+    @OneToMany(mappedBy = "artikelbestelling")
+private List<Artikel> artikelen;
+
+    //@OneToMany(mappedBy = "bestlling")
+    //private  List<Bestelling> bestellingen;
 
     public ArtikelBestelling() {
 
