@@ -44,8 +44,8 @@
             Bekijk ons menu en bestel nu online de lekkerste frietjes en snacks!
         </p>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <a type="button" class="btn btn-primary btn-lg px-4 gap-3" href=""><i class="fa-solid fa-utensils"></i> Menu</a>
-            <a type="button" class="btn btn-outline-secondary btn-lg px-4"><i class="fa-solid fa-address-book"></i>
+            <a type="button" class="btn btn-primary btn-lg px-4 gap-3" href="/menu"><i class="fa-solid fa-utensils"></i> Menu</a>
+            <a type="button" class="btn btn-outline-secondary btn-lg px-4" href="/contact"><i class="fa-solid fa-address-book"></i>
                 Contact</a>
         </div>
     </main>

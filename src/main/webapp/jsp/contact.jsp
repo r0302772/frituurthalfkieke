@@ -5,10 +5,10 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <script src="https://kit.fontawesome.com/29addfb8ae.js" crossorigin="anonymous"></script>
-    <title>Frituur t'Half Kieke</title>
+    <title>Frituur t'Half Kieke | Contact</title>
     <link rel="icon" type="image/x-icon" href="/images/drumstick-bite-solid.svg">
 </head>
-<body class="d-flex h-100 text-center">
+<body class="d-flex h-100">
 <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
     <header class="mb-auto">
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -37,8 +37,25 @@
     </header>
 
     <main class="px-3">
-        <h1 class="display-5 fw-bold"><i class="fa-solid fa-address-book"></i> Contact</h1>
-
+        <div class="row">
+            <div class="col">
+                <h1 class="display-5 fw-bold"><i class="fa-solid fa-address-book"></i> Contact</h1>
+                <strong>Frituur t'Half Kieke</strong> <br>
+                Kerkstraat 2 <br>
+                2500 Lier <br>
+                Uw gsm nummer hier
+            </div>
+            <div class="col">
+                <h1 class="display-5 fw-bold"><i class="bi bi-calendar-week-fill"></i> Openingsuren</h1>
+                <strong>Maandag: </strong> <br>
+                <strong>Dinsdag: </strong> <br>
+                <strong>Woensdag: </strong> <br>
+                <strong>Donderdag: </strong> <br>
+                <strong>Vrijdag: </strong> <br>
+                <strong>Zaterdag: </strong> <br>
+                <strong>Zondag: </strong>
+            </div>
+        </div>
     </main>
 
     <footer class="mt-auto">
