@@ -34,19 +34,19 @@
                 </div>
             </div>
         </nav>
+        <hr>
     </header>
-
-    <main class="px-3">
+    <main>
         <div class="row">
-            <div class="col">
-                <h1 class="display-5 fw-bold"><i class="fa-solid fa-address-book"></i> Contact</h1>
+            <div class="col-lg p-3">
+                <h2 class="display-5 fw-bold"><i class="fa-solid fa-address-book"></i> Contact</h2>
                 <strong>Frituur t'Half Kieke</strong> <br>
                 Kerkstraat 2 <br>
                 2500 Lier <br>
-                Uw gsm nummer hier
+                04....
             </div>
-            <div class="col">
-                <h1 class="display-5 fw-bold"><i class="bi bi-calendar-week-fill"></i> Openingsuren</h1>
+            <div class="col-lg p-3">
+                <h2 class="display-5 fw-bold"><i class="bi bi-calendar-week-fill"></i> Openingsuren</h2>
                 <strong>Maandag: </strong> <br>
                 <strong>Dinsdag: </strong> <br>
                 <strong>Woensdag: </strong> <br>
@@ -56,9 +56,15 @@
                 <strong>Zondag: </strong>
             </div>
         </div>
+        <hr>
+        <div class="row p-3">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2503.783688866503!2d4.5710405156209255!3d51.13089787957503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3fc89f308b9c3%3A0xc701aa29d9924fec!2sKerkstraat%202%2C%202500%20Lier!5e0!3m2!1snl!2sbe!4v1650875841633!5m2!1snl!2sbe"
+                    style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
     </main>
-
-    <footer class="mt-auto">
+    <footer class="mt-auto text-center pt-3">
+        <hr>
         <p>Frituur t'Half Kieke - Copyright &copy; 2022</p>
     </footer>
 </div>

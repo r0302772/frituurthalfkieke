@@ -5,10 +5,10 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <script src="https://kit.fontawesome.com/29addfb8ae.js" crossorigin="anonymous"></script>
-    <title>Frituur t'Half Kieke</title>
+    <title>Frituur t'Half Kieke | Contact</title>
     <link rel="icon" type="image/x-icon" href="/images/drumstick-bite-solid.svg">
 </head>
-<body class="d-flex h-100 text-center">
+<body class="d-flex h-100">
 <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
     <header class="mb-auto">
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -34,17 +34,50 @@
                 </div>
             </div>
         </nav>
+        <hr>
     </header>
 
-    <main class="px-3">
+    <main>
         <h1 class="display-5 fw-bold"><i class="fa-solid fa-utensils"></i> Menu</h1>
-
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+            </tr>
+            </tbody>
+        </table>
     </main>
 
-    <footer class="mt-auto">
+    <footer class="mt-auto text-center pt-3">
+        <hr>
         <p>Frituur t'Half Kieke - Copyright &copy; 2022</p>
     </footer>
-
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
 </body>
 </html>

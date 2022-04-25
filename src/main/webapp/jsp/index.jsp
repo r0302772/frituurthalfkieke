@@ -8,7 +8,7 @@
     <title>Frituur t'Half Kieke</title>
     <link rel="icon" type="image/x-icon" href="/images/drumstick-bite-solid.svg">
 </head>
-<body class="d-flex h-100 text-center">
+<body class="d-flex h-100">
 <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
     <header class="mb-auto">
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -34,9 +34,10 @@
                 </div>
             </div>
         </nav>
+        <hr>
     </header>
 
-    <main class="px-3">
+    <main class="px-3 text-center">
         <h1><i class="fa-solid fa-drumstick-bite"></i></h1>
         <h1 class="display-5 fw-bold">Frituur t'Half Kieke</h1>
         <p class="lead mb-4">
@@ -44,13 +45,16 @@
             Bekijk ons menu en bestel nu online de lekkerste frietjes en snacks!
         </p>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <a type="button" class="btn btn-primary btn-lg px-4 gap-3" href="/menu"><i class="fa-solid fa-utensils"></i> Menu</a>
-            <a type="button" class="btn btn-outline-secondary btn-lg px-4" href="/contact"><i class="fa-solid fa-address-book"></i>
+            <a type="button" class="btn btn-primary btn-lg px-4 gap-3" href="/menu"><i class="fa-solid fa-utensils"></i>
+                Menu</a>
+            <a type="button" class="btn btn-outline-secondary btn-lg px-4" href="/contact"><i
+                    class="fa-solid fa-address-book"></i>
                 Contact</a>
         </div>
     </main>
 
-    <footer class="mt-auto">
+    <footer class="mt-auto text-center pt-3">
+        <hr>
         <p>Frituur t'Half Kieke - Copyright &copy; 2022</p>
     </footer>
 </div>
