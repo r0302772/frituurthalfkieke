@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'frituurthalfkieke'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D26758C0B16C4B4DBDEC5DE95D336BE5 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C82A0D3C380C4483A5D69F3B1579F354 }}
           package: '*.war'
