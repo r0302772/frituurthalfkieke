@@ -22,6 +22,11 @@ public class MainController {
         return "contact";
     }
 
+    @RequestMapping("/winkelwagen")
+    public String navigateToWinkelmand() {
+        return "winkelwagen";
+    }
+
     @RequestMapping("/scriptlet")
     public String navigateToScriptlet() {
         return "scriptlet";
