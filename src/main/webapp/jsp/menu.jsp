@@ -38,36 +38,119 @@
     </header>
 
     <main>
-        <h1 class="display-5 fw-bold"><i class="fa-solid fa-utensils"></i> Menu</h1>
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
-            </tbody>
-        </table>
+        <div class="row px-3 text-center">
+            <h2 class="display-5 fw-bold"><i class="fa-solid fa-utensils"></i> Menu</h2>
+        </div>
+        <div class="row p-3">
+            <table class="table table-bordered border-dark">
+                <h3 class="p-1">Frieten <img src="/images/fries.png" style="width: 25px;"></h3>
+                <thead>
+                <%--                <tr>
+                                    <th scope="col">Grootte</th>
+                                    <th scope="col">Prijs</th>
+                                    <th scope="col">Bestellen</th>
+                                </tr>--%>
+                </thead>
+                <tbody class="align-middle">
+                <tr>
+                    <td>Kinder Friet</td>
+                    <td class="text-center">€2.00</td>
+                    <td class="text-center">
+                        <button type="button" class="btn btn-primary">Voeg toe</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Medium Friet</td>
+                    <td class="text-center">€2.50</td>
+                    <td class="text-center">
+                        <button type="button" class="btn btn-primary">Voeg toe</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Grote Friet</td>
+                    <td class="text-center">€3.00</td>
+                    <td class="text-center">
+                        <button type="button" class="btn btn-primary">Voeg toe</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Friet Stoofvlees
+                        <p class="text-danger">Nieuw</p>
+                    </td>
+                    <td class="text-center">€4.00</td>
+                    <td class="text-center">
+                        <button type="button" class="btn btn-primary">Voeg toe</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <hr>
+        <div class="row p-3">
+            <table class="table table-bordered border-dark">
+                <h3 class="p-1">Burgers <i class="fa-solid fa-burger"></i></h3>
+                <thead>
+                <%--                <tr>
+                                    <th scope="col">Grootte</th>
+                                    <th scope="col">Prijs</th>
+                                    <th scope="col">Bestellen</th>
+                                </tr>--%>
+                </thead>
+                <tbody class="align-middle">
+                <tr>
+                    <td>
+                        Bicky Classic
+                        <p class="fw-light">Runds, Bicky Uitjes, Bicky Saus</p>
+                    </td>
+                    <td class="text-center">€3.00</td>
+                    <td class="text-center">
+                        <button type="button" class="btn btn-primary">Voeg toe</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Bicky Cheese
+                        <p class="fw-light">Runds, Bicky Uitjes, Bicky Saus, Kaas</p>
+                    </td>
+                    <td class="text-center">€3.50</td>
+                    <td class="text-center">
+                        <p class="text-danger">Niet op voorraad...</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Bicky Chicken
+                        <p class="fw-light">Kip, Bicky Uitjes, Bicky Saus</p>
+                    </td>
+                    <td class="text-center">€3.50</td>
+                    <td class="text-center">
+                        <button type="button" class="btn btn-primary">Voeg toe</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Cheeseburger
+                        <p class="fw-light">Runds, Groenten, Kaas, Saus</p>
+                    </td>
+                    <td class="text-center">€4.00</td>
+                    <td class="text-center">
+                        <button type="button" class="btn btn-primary">Voeg toe</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Chickenburger
+                        <p class="fw-light">Kip, Groenten, Saus</p>
+                    </td>
+                    <td class="text-center">€4.00</td>
+                    <td class="text-center">
+                        <button type="button" class="btn btn-primary">Voeg toe</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </main>
 
     <footer class="mt-auto text-center pt-3">
