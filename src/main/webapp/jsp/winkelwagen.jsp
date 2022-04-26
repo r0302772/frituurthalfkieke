@@ -38,8 +38,161 @@
     </header>
 
     <main>
-        <div class="row px-3 text-center">
+        <div class="row p-3 text-center">
             <h2 class="display-5 fw-bold"><i class="bi bi-cart-fill"></i> Winkelwagen</h2>
+        </div>
+        <div class="row">
+            <div class="col border">
+                <div class="row bg-secondary text-white">
+                    <h4 class="bg-secondary">Winkelwagen (Stap 1/3)</h4>
+                </div>
+                <div class="row pt-3">
+                    <h5 class="text-danger"><i class="bi bi-info-circle-fill"></i> Enkel afhalen. Betalen bij
+                        afhaling.
+                    </h5>
+
+                    <a href="menu.jsp" class="btn btn-primary">TERUG NAAR MENU</a>
+                </div>
+                <hr>
+                <form class="row">
+                    <table class="table table-borderless">
+                        <thead>
+                        <tr>
+                            <th scope="col">Aantal</th>
+                            <th scope="col">Item</th>
+                            <th scope="col">Saus</th>
+                            <th scope="col">Kruiden</th>
+                            <th scope="col"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option value="0">0</option>
+                                    <option selected value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="3">4</option>
+                                    <option value="3">5</option>
+                                    <option value="3">6</option>
+                                    <option value="3">7</option>
+                                    <option value="3">8</option>
+                                    <option value="3">9</option>
+                                    <option value="3">10</option>
+                                </select>
+                            </td>
+                            <td>Grote Friet</td>
+                            <td>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option value="0">Zonder</option>
+                                    <option value="Andalouse">Andalouse</option>
+                                    <option value="Gewone Mayo">Gewone Mayo</option>
+                                    <option value="Zure Mayo">Zure Mayo</option>
+                                    <option value="Hollandse Mayo">Hollandse Mayo</option>
+                                    <option value="Tomatenketchup">Tomatenketchup</option>
+                                    <option value="Curryketchup">Curryketchup</option>
+                                    <option selected value="Joppiesaus">Joppiesaus</option>
+                                    <option value="Tartaar">Tartaar</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected value="Zonder">Zonder</option>
+                                    <option value="Zout">Zout</option>
+                                    <option value="Sate-kruiden">Saté-kruiden</option>
+                                    <option value="Zout + Sate-kruiden">Zout + Saté-kruiden</option>
+                                </select>
+                            </td>
+                            <td>
+                                <button class="btn"><i class="bi bi-x-circle-fill"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" class="text-end">
+                                €3.00
+                                <hr>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option value="0">0</option>
+                                    <option selected value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="3">4</option>
+                                    <option value="3">5</option>
+                                    <option value="3">6</option>
+                                    <option value="3">7</option>
+                                    <option value="3">8</option>
+                                    <option value="3">9</option>
+                                    <option value="3">10</option>
+                                </select>
+                            </td>
+                            <td>Curryworst Speciaal</td>
+                            <td>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option value="0">Zonder</option>
+                                    <option value="Andalouse">Andalouse</option>
+                                    <option value="Gewone Mayo">Gewone Mayo</option>
+                                    <option value="Zure Mayo">Zure Mayo</option>
+                                    <option value="Hollandse Mayo">Hollandse Mayo</option>
+                                    <option selected value="Tomatenketchup">Tomatenketchup</option>
+                                    <option value="Curryketchup">Curryketchup</option>
+                                    <option value="Joppiesaus">Joppiesaus</option>
+                                    <option value="Tartaar">Tartaar</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected value="Zonder">Zonder</option>
+                                    <option value="Zout">Zout</option>
+                                    <option value="Sate-kruiden">Saté-kruiden</option>
+                                    <option value="Zout + Sate-kruiden">Zout + Saté-kruiden</option>
+                                </select>
+                            </td>
+                            <td>
+                                <button class="btn"><i class="bi bi-x-circle-fill"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" class="text-end">
+                                €2.00
+                                <hr>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </form>
+                <div class="row mt-auto">
+                    <div class="col-auto border">
+                        <p>TOTAAL <br>
+                            €5.OO</p>
+                    </div>
+                    <div class="col bg-secondary text-dark bg-opacity-10">
+                        <a href="#" class="btn btn-primary">NAAR UW GEGEVENS (2/3)</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col border">
+                <div class="row bg-secondary text-white">
+                    <h4 class="bg-secondary">Uw gegevens (Stap 2/3)</h4>
+                </div>
+                <div class="row">
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 border">
+                <div class="row bg-secondary text-white">
+                    <h4>Stap 3/3</h4>
+                </div>
+                <div class="row">
+
+                </div>
+            </div>
         </div>
     </main>
 
