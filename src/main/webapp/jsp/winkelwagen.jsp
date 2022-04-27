@@ -5,7 +5,7 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <script src="https://kit.fontawesome.com/29addfb8ae.js" crossorigin="anonymous"></script>
-    <title>Frituur t'Half Kieke | Menu</title>
+    <title>Frituur t'Half Kieke | Winkelwagen</title>
     <link rel="icon" type="image/x-icon" href="/images/drumstick-bite-solid.svg">
 </head>
 <body class="d-flex h-100">
@@ -42,6 +42,7 @@
             <h2 class="display-5 fw-bold"><i class="bi bi-cart-fill"></i> Winkelwagen</h2>
         </div>
         <div class="row">
+            <%--Winkelwagen STAP 1--%>
             <div class="col-12 border">
                 <div class="row p-3 bg-secondary text-white">
                     <h4>Winkelwagen (Stap 1/3)</h4>
@@ -54,64 +55,34 @@
                 <hr>
                 <a href="/menu" class="btn btn-primary">TERUG NAAR MENU</a>
                 <div class="row p-1">
+                    <%--Bestelling--%>
                     <table class="table table-borderless">
                         <thead>
                         <tr>
-                            <th scope="col">Aantal</th>
+                            <th scope="col"></th>
                             <th scope="col">Item</th>
                             <th scope="col">Saus</th>
                             <th scope="col">Kruiden</th>
                             <th scope="col">Opmerking</th>
-                            <th scope="col"></th>
                         </tr>
                         </thead>
                         <tbody>
+                        <%--Grote friet snelly eddy--%>
                         <tr>
                             <td>
-                                1
-                                <%--                                <select class="form-select" aria-label="Default select example">
-                                                                    <option value="0">0</option>
-                                                                    <option selected value="1">1</option>
-                                                                    <option value="2">2</option>
-                                                                    <option value="3">3</option>
-                                                                    <option value="3">4</option>
-                                                                    <option value="3">5</option>
-                                                                    <option value="3">6</option>
-                                                                    <option value="3">7</option>
-                                                                    <option value="3">8</option>
-                                                                    <option value="3">9</option>
-                                                                    <option value="3">10</option>
-                                                                </select>--%>
+                                <button class="btn"><i class="bi bi-x-circle-fill"></i></button>
                             </td>
-                            <td>Grote Friet</td>
+                            <td>
+                                1 Grote Friet
+                            </td>
                             <td>
                                 Joppiesaus
-                                <%--                                <select class="form-select" aria-label="Default select example">
-                                                                    <option value="0">Zonder</option>
-                                                                    <option value="Andalouse">Andalouse</option>
-                                                                    <option value="Gewone Mayo">Gewone Mayo</option>
-                                                                    <option value="Zure Mayo">Zure Mayo</option>
-                                                                    <option value="Hollandse Mayo">Hollandse Mayo</option>
-                                                                    <option value="Tomatenketchup">Tomatenketchup</option>
-                                                                    <option value="Curryketchup">Curryketchup</option>
-                                                                    <option selected value="Joppiesaus">Joppiesaus</option>
-                                                                    <option value="Tartaar">Tartaar</option>
-                                                                </select>--%>
                             </td>
                             <td>
                                 Zonder
-                                <%--                                <select class="form-select" aria-label="Default select example">
-                                                                    <option selected value="Zonder">Zonder</option>
-                                                                    <option value="Zout">Zout</option>
-                                                                    <option value="Sate-kruiden">Saté-kruiden</option>
-                                                                    <option value="Zout + Sate-kruiden">Zout + Saté-kruiden</option>
-                                                                </select>--%>
                             </td>
                             <td>
                                 Snelle Eddy
-                            </td>
-                            <td>
-                                <button class="btn"><i class="bi bi-x-circle-fill"></i></button>
                             </td>
                         </tr>
                         <tr>
@@ -120,49 +91,22 @@
                                 <hr>
                             </td>
                         </tr>
+                        <%--Curryworst speciaal Kelly--%>
                         <tr>
                             <td>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option value="0">0</option>
-                                    <option selected value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="3">4</option>
-                                    <option value="3">5</option>
-                                    <option value="3">6</option>
-                                    <option value="3">7</option>
-                                    <option value="3">8</option>
-                                    <option value="3">9</option>
-                                    <option value="3">10</option>
-                                </select>
-                            </td>
-                            <td>Curryworst Speciaal</td>
-                            <td>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option value="0">Zonder</option>
-                                    <option value="Andalouse">Andalouse</option>
-                                    <option value="Gewone Mayo">Gewone Mayo</option>
-                                    <option value="Zure Mayo">Zure Mayo</option>
-                                    <option value="Hollandse Mayo">Hollandse Mayo</option>
-                                    <option selected value="Tomatenketchup">Tomatenketchup</option>
-                                    <option value="Curryketchup">Curryketchup</option>
-                                    <option value="Joppiesaus">Joppiesaus</option>
-                                    <option value="Tartaar">Tartaar</option>
-                                </select>
+                                <button class="btn"><i class="bi bi-x-circle-fill"></i></button>
                             </td>
                             <td>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected value="Zonder">Zonder</option>
-                                    <option value="Zout">Zout</option>
-                                    <option value="Sate-kruiden">Saté-kruiden</option>
-                                    <option value="Zout + Sate-kruiden">Zout + Saté-kruiden</option>
-                                </select>
+                                1 Curryworst Speciaal
+                            </td>
+                            <td>
+                                Tomatenketchup
+                            </td>
+                            <td>
+                                Zonder
                             </td>
                             <td>
                                 Kelly
-                            </td>
-                            <td>
-                                <button class="btn"><i class="bi bi-x-circle-fill"></i></button>
                             </td>
                         </tr>
                         <tr>
@@ -172,20 +116,132 @@
                             </td>
                         </tr>
                         </tbody>
+                        <%--Totaal--%>
                         <tfoot class="bg-secondary bg-opacity-10">
-                        <td colspan="6">
+                        <td colspan="5">
                             TOTAAL: €5.OO
                         </td>
                         </tfoot>
                     </table>
                 </div>
             </div>
+            <%--Uw gegevens STAP 2--%>
             <div class="col-12 border">
                 <div class="row p-3 bg-secondary text-white">
                     <h4>Uw gegevens (Stap 2/3)</h4>
                 </div>
                 <div class="row">
+                    <form>
+                        <div class="row">
+                            <div class="col-auto p-3">
+                                <i class="bi bi-person-fill"></i>
+                            </div>
+                            <div class="col">
+                                <%--Voornaam en achternaam--%>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row pt-3">
+                                            <div class="col-auto pe-1">
+                                                <label for="voornaam" class="form-label">Voornaam: </label>
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="form-control" id="voornaam" placeholder=""
+                                                       value=""
+                                                       required="">
+                                                <div class="invalid-feedback">
+                                                    Voornaam is verplicht!
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row pt-3">
+                                            <div class="col-auto pe-1">
+                                                <label for="achternaam" class="form-label">Achternaam: </label>
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="form-control" id="achternaam" placeholder=""
+                                                       value=""
+                                                       required="">
+                                                <div class="invalid-feedback">
+                                                    Achternaam is verplicht!
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <%--gsm en email--%>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row pt-3">
+                                            <div class="col-auto pe-1">
+                                                <label for="gsm" class="form-label">GSM: </label>
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="form-control" id="gsm" placeholder="" value=""
+                                                       required="">
+                                                <div class="invalid-feedback">
+                                                    GSM is verplicht!
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row pt-3">
+                                            <div class="col-auto pe-1">
+                                                <label for="email" class="form-label">Email: </label>
+                                            </div>
+                                            <div class="col">
+                                                <input type="email" class="form-control" id="email" placeholder=""
+                                                       value=""
+                                                       required="">
+                                                <div class="invalid-feedback">
+                                                    Email is verplicht!
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+                        <%--Afhalen--%>
+                        <div class="row">
+                            <div class="col-auto">
+                                <i class="bi bi-calendar-event-fill"></i>
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        AFHALEN
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <select class="form-select" aria-label="selecte date">
+                                            <option selected>Kies een datum.</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                        <select class="form-select" aria-label="selecte time">
+                                            <option selected>Kies een uur.</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
 
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <button type="submit" class="btn btn-primary">Sign in</button>
+                    </form>
                 </div>
             </div>
             <div class="col-12 border">

@@ -47,13 +47,13 @@
             </div>
             <div class="col-lg p-3">
                 <h2 class="display-5 fw-bold"><i class="bi bi-calendar-week-fill"></i> Openingsuren</h2>
-                <strong>Maandag: </strong> <br>
-                <strong>Dinsdag: </strong> <br>
-                <strong>Woensdag: </strong> <br>
-                <strong>Donderdag: </strong> <br>
-                <strong>Vrijdag: </strong> <br>
-                <strong>Zaterdag: </strong> <br>
-                <strong>Zondag: </strong>
+                <strong>Maandag: </strong> Gesloten<br>
+                <strong>Dinsdag: </strong> 12:00 - 21:00<br>
+                <strong>Woensdag: </strong> 12:00 - 21:00<br>
+                <strong>Donderdag: </strong> 12:00 - 21:00<br>
+                <strong>Vrijdag: </strong> 12:00 - 21:00<br>
+                <strong>Zaterdag: </strong> 12:00 - 21:00<br>
+                <strong>Zondag: </strong> 12:00 - 21:00
             </div>
         </div>
         <hr>
