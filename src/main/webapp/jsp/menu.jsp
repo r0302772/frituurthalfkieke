@@ -97,7 +97,7 @@
                                         <textarea class="form-control" id="opmerking" rows="3"
                                                   placeholder="Bv. Bij een grote bestelling, de naam van de persoon, zo bewaard u zelf ook het overzicht van uw winkelwagen."></textarea>
                                     </div>
-                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end pe-3 pb-3">
+                                    <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                             Annuleer
                                         </button>

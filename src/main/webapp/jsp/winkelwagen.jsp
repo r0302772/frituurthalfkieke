@@ -148,9 +148,6 @@
                                                 <input type="text" class="form-control" id="voornaam" placeholder=""
                                                        value=""
                                                        required="">
-                                                <div class="invalid-feedback">
-                                                    Voornaam is verplicht!
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -163,9 +160,6 @@
                                                 <input type="text" class="form-control" id="achternaam" placeholder=""
                                                        value=""
                                                        required="">
-                                                <div class="invalid-feedback">
-                                                    Achternaam is verplicht!
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -180,9 +174,6 @@
                                             <div class="col">
                                                 <input type="text" class="form-control" id="gsm" placeholder="" value=""
                                                        required="">
-                                                <div class="invalid-feedback">
-                                                    GSM is verplicht!
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -195,9 +186,6 @@
                                                 <input type="email" class="form-control" id="email" placeholder=""
                                                        value=""
                                                        required="">
-                                                <div class="invalid-feedback">
-                                                    Email is verplicht!
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -218,16 +206,16 @@
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <select class="form-select" aria-label="select date">
-                                            <option selected>Kies een datum.</option>
+                                        <select class="form-select" aria-label="select date" required="">
+                                            <option selected disabled value="">Kies een datum.</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
                                             <option value="3">Three</option>
                                         </select>
                                     </div>
                                     <div class="col">
-                                        <select class="form-select" aria-label="select time">
-                                            <option selected>Kies een uur.</option>
+                                        <select class="form-select" aria-label="select time" required="">
+                                            <option selected disabled value="">Kies een uur.</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
                                             <option value="3">Three</option>
