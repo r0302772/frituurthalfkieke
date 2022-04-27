@@ -218,7 +218,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <select class="form-select" aria-label="selecte date">
+                                        <select class="form-select" aria-label="select date">
                                             <option selected>Kies een datum.</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
@@ -226,7 +226,7 @@
                                         </select>
                                     </div>
                                     <div class="col">
-                                        <select class="form-select" aria-label="selecte time">
+                                        <select class="form-select" aria-label="select time">
                                             <option selected>Kies een uur.</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>

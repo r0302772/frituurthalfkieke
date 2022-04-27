@@ -56,7 +56,52 @@
                     <td>Kinder Friet</td>
                     <td class="text-center">€2.00</td>
                     <td class="text-center">
-                        <button type="button" class="btn btn-primary">Voeg toe</button>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#addToCart">Voeg toe
+                        </button>
+                        <div class="modal fade" id="addToCart" tabindex="-1" aria-labelledby="addToCartLabel"
+                             aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Kinder Friet</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p><strong>Saus: </strong></p>
+                                        <select class="form-select" aria-label="select saus">
+                                            <option selected>Kies een saus.</option>
+                                            <option value="Geen saus">Geen saus</option>
+                                            <option value="Gewone mayo">Gewone mayo</option>
+                                            <option value="Hollandse mayo">Hollandse mayo</option>
+                                            <option value="Tomatenketchup">Tomatenketchup</option>
+                                            <option value="Curryketchup">Curryketchup</option>
+                                            <option value="Tartaar">Tartaar</option>
+                                            <option value="Andalouse">Andalouse</option>
+                                            <option value="Joppiesaus">Joppiesaus</option>
+                                        </select>
+                                        <hr>
+                                        <p><strong>Kruiden: </strong></p>
+                                        <select class="form-select" aria-label="select kruiden">
+                                            <option selected>Kies kruiden.</option>
+                                            <option value="Geen kruiden">Geen kruiden</option>
+                                            <option value="Zout">Zout</option>
+                                            <option value="Sate">Sate</option>
+                                            <option value="Zout + Sate">Zout + Sate</option>
+                                        </select>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                            Annuleer
+                                        </button>
+                                        <button type="button" class="btn btn-primary">
+                                            Bevestig
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </td>
                 </tr>
                 <tr>
