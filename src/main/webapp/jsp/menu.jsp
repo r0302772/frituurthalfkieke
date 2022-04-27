@@ -69,9 +69,9 @@
                                                 aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <p><strong>Saus: </strong></p>
-                                        <select class="form-select" aria-label="select saus">
-                                            <option selected>Kies een saus.</option>
+                                        <label for="saus" class="form-label"><strong>Saus: </strong></label>
+                                        <select class="form-select" aria-label="select saus" id="saus" required>
+                                            <option selected disabled value="">Kies een saus.</option>
                                             <option value="Geen saus">Geen saus</option>
                                             <option value="Gewone mayo">Gewone mayo</option>
                                             <option value="Hollandse mayo">Hollandse mayo</option>
@@ -82,16 +82,22 @@
                                             <option value="Joppiesaus">Joppiesaus</option>
                                         </select>
                                         <hr>
-                                        <p><strong>Kruiden: </strong></p>
-                                        <select class="form-select" aria-label="select kruiden">
-                                            <option selected>Kies kruiden.</option>
+                                        <label for="kruiden" class="form-label"><strong>Kruiden: </strong></label>
+                                        <select class="form-select" aria-label="select kruiden" id="kruiden"
+                                                required>
+                                            <option selected disabled value="">Kies kruiden.</option>
                                             <option value="Geen kruiden">Geen kruiden</option>
                                             <option value="Zout">Zout</option>
                                             <option value="Sate">Sate</option>
                                             <option value="Zout + Sate">Zout + Sate</option>
                                         </select>
+                                        <hr>
+                                        <label for="opmerking"
+                                               class="form-label"><strong>Opmerking: </strong></label>
+                                        <textarea class="form-control" id="opmerking" rows="3"
+                                                  placeholder="Bv. Bij een grote bestelling, de naam van de persoon, zo bewaard u zelf ook het overzicht van uw winkelwagen."></textarea>
                                     </div>
-                                    <div class="modal-footer">
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end pe-3 pb-3">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                             Annuleer
                                         </button>
