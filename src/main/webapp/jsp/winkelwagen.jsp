@@ -212,7 +212,7 @@
                             </div>
                             <div class="col">
                                 <div class="row">
-                                    <div class="col">
+                                    <div class="col pb-3">
                                         AFHALEN
                                     </div>
                                 </div>
@@ -233,23 +233,26 @@
                                             <option value="3">Three</option>
                                         </select>
                                     </div>
-
                                 </div>
+                                <hr>
                             </div>
-
                         </div>
-
-
-                        <button type="submit" class="btn btn-primary">Sign in</button>
+                        <div class="row">
+                            <div class="col-auto">
+                                <i class="bi bi-info-circle-fill text-danger h5"></i>
+                            </div>
+                            <div class="col">
+                                <h5 class="text-danger"> Zijn er geen vrije
+                                    tijdstippen meer, gelieve niet te bellen, telefonisch worden er geen bestellingen
+                                    meer
+                                    opgenomen.
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="row d-grid p-3">
+                            <button type="submit" class="btn btn-primary btn-lg">BESTELLEN</button>
+                        </div>
                     </form>
-                </div>
-            </div>
-            <div class="col-12 border">
-                <div class="row p-3 bg-secondary text-white">
-                    <h4>Stap 3/3</h4>
-                </div>
-                <div class="row">
-
                 </div>
             </div>
         </div>
