@@ -27,6 +27,11 @@ public class MainController {
         return "winkelwagen";
     }
 
+    @RequestMapping("/bevestigingbestelling")
+    public String navigateToBevestigingbestelling() {
+        return "bevestigingbestelling";
+    }
+
     @RequestMapping("/scriptlet")
     public String navigateToScriptlet() {
         return "scriptlet";
