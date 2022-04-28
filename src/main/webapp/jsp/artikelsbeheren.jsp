@@ -55,105 +55,119 @@
                 <tr>
                     <td>Kinder Friet</td>
                     <td class="text-center">€2.00</td>
+                    <td class="text-center">Op voorraad</td>
                     <td class="text-center">
-                        <%--                        Bewerk artikel--%>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#bewerkArtikel">Bewerken
-                        </button>
-                        <div class="modal fade" id="bewerkArtikel" tabindex="-1" aria-labelledby="bewerkArtikelLabel"
-                             aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="bewerkArtikelLabel">Kinder Friet</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <label for="saus" class="form-label"><strong>Saus: </strong></label>
-                                        <select class="form-select" aria-label="select saus" id="saus" required>
-                                            <option selected disabled value="">Kies een saus.</option>
-                                            <option value="Geen saus">Geen saus</option>
-                                            <option value="Gewone mayo">Gewone mayo</option>
-                                            <option value="Hollandse mayo">Hollandse mayo</option>
-                                            <option value="Tomatenketchup">Tomatenketchup</option>
-                                            <option value="Curryketchup">Curryketchup</option>
-                                            <option value="Tartaar">Tartaar</option>
-                                            <option value="Andalouse">Andalouse</option>
-                                            <option value="Joppiesaus">Joppiesaus</option>
-                                        </select>
-                                        <hr>
-                                        <label for="kruiden" class="form-label"><strong>Kruiden: </strong></label>
-                                        <select class="form-select" aria-label="select kruiden" id="kruiden"
-                                                required>
-                                            <option selected disabled value="">Kies kruiden.</option>
-                                            <option value="Geen kruiden">Geen kruiden</option>
-                                            <option value="Zout">Zout</option>
-                                            <option value="Sate">Sate</option>
-                                            <option value="Zout + Sate">Zout + Sate</option>
-                                        </select>
-                                        <hr>
-                                        <label for="opmerking"
-                                               class="form-label"><strong>Opmerking: </strong></label>
-                                        <textarea class="form-control" id="opmerking" rows="3"
-                                                  placeholder="Bv. Bij een grote bestelling, de naam van de persoon, zo bewaard u zelf ook het overzicht van uw winkelwagen."></textarea>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                            Annuleer
-                                        </button>
-                                        <button type="button" class="btn btn-primary">
-                                            Bevestig
-                                        </button>
-                                    </div>
-                                </div>
+                        <div class="row gap-3">
+                            <div class="col">
+                                <%--Bewerk artikel--%>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#bewerkArtikel">Bewerken
+                                </button>
                             </div>
-                        </div>
-                        <%--Delete artikel--%>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#deleteArtikel">Delete
-                        </button>
-                        <div class="modal fade" id="deleteArtikel" tabindex="-1" aria-labelledby="deleteArtikelLabel"
-                             aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title text-danger" id="deleteArtikelLabel"><i
-                                                class="bi bi-exclamation-triangle-fill"></i> Waarschuwing</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p><strong>U staat op het punt om "Kinder Friet" te verwijderen! Bent u
-                                            zeker?</strong></p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                            Annuleer
-                                        </button>
-                                        <button type="button" class="btn btn-primary">
-                                            Bevestig
-                                        </button>
-                                    </div>
-                                </div>
+                            <div class="col">
+                                <%--Delete artikel--%>
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#deleteArtikel">Delete
+                                </button>
                             </div>
                         </div>
                     </td>
                 </tr>
+                <%--Bewerk artikel MODAL--%>
+                <div class="modal fade" id="bewerkArtikel" tabindex="-1" aria-labelledby="bewerkArtikelLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="bewerkArtikelLabel">Kinder Friet</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row pb-3">
+                                    <div class="col">
+                                        <label for="naamArtikel" class="form-label"><strong>Artikel</strong></label>
+                                        <input type="text" class="form-control" id="naamArtikel"
+                                               value="Kinder Friet" required>
+                                    </div>
+                                    <div class="col">
+                                        <label for="prijsArtikel" class="form-label"><strong>Prijs</strong></label>
+                                        <input type="number" class="form-control" id="prijsArtikel" min=0
+                                               value=2 required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="info"
+                                               class="form-label"><strong>Opmerking</strong></label>
+                                        <textarea class="form-control" id="info" rows="3"
+                                                  placeholder="Bv. Extra info over de ingredienten. Bevat gluten."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                    Annuleer
+                                </button>
+                                <button type="button" class="btn btn-primary">
+                                    Bevestig
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%--Delete artikel MODAL--%>
+                <div class="modal fade" id="deleteArtikel" tabindex="-1" aria-labelledby="deleteArtikelLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-danger" id="deleteArtikelLabel"><i
+                                        class="bi bi-exclamation-triangle-fill"></i> Waarschuwing</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p><strong>U staat op het punt om "Kinder Friet" te verwijderen! <br>
+                                    Bent u zeker?</strong></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                    Annuleer
+                                </button>
+                                <button type="button" class="btn btn-primary">
+                                    Bevestig
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <tr>
                     <td>Medium Friet</td>
                     <td class="text-center">€2.50</td>
+                    <td class="text-center">Op voorraad</td>
                     <td class="text-center">
-                        <button type="button" class="btn btn-primary">Bewerken</button>
-                        <button type="button" class="btn btn-danger">Delete</button>
+                        <div class="row gap-3">
+                            <div class="col">
+                                <button type="button" class="btn btn-primary">Bewerken</button>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-danger">Delete</button>
+                            </div>
                     </td>
                 </tr>
                 <tr>
                     <td>Grote Friet</td>
                     <td class="text-center">€3.00</td>
+                    <td class="text-center">Op voorraad</td>
                     <td class="text-center">
-                        <button type="button" class="btn btn-primary">Bewerken</button>
-                        <button type="button" class="btn btn-danger">Delete</button>
+                        <div class="row gap-3">
+                            <div class="col">
+                                <button type="button" class="btn btn-primary">Bewerken</button>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-danger">Delete</button>
+                            </div>
                     </td>
                 </tr>
                 <tr>
@@ -162,9 +176,15 @@
                         <p class="text-danger">Nieuw</p>
                     </td>
                     <td class="text-center">€4.00</td>
+                    <td class="text-center">Op voorraad</td>
                     <td class="text-center">
-                        <button type="button" class="btn btn-primary">Voeg toe</button>
-                        <button type="button" class="btn btn-primary">Voeg toe</button>
+                        <div class="row gap-3">
+                            <div class="col">
+                                <button type="button" class="btn btn-primary">Bewerken</button>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-danger">Delete</button>
+                            </div>
                     </td>
                 </tr>
                 </tbody>
@@ -188,8 +208,15 @@
                         <p class="fw-light">Runds, Bicky Uitjes, Bicky Saus</p>
                     </td>
                     <td class="text-center">€3.00</td>
+                    <td class="text-center">Op voorraad</td>
                     <td class="text-center">
-                        <button type="button" class="btn btn-primary">Voeg toe</button>
+                        <div class="row gap-3">
+                            <div class="col">
+                                <button type="button" class="btn btn-primary">Bewerken</button>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-danger">Delete</button>
+                            </div>
                     </td>
                 </tr>
                 <tr>
@@ -198,8 +225,15 @@
                         <p class="fw-light">Runds, Bicky Uitjes, Bicky Saus, Kaas</p>
                     </td>
                     <td class="text-center">€3.50</td>
+                    <td class="text-center text-danger">Niet op voorraad</td>
                     <td class="text-center">
-                        <p class="text-danger">Niet op voorraad...</p>
+                        <div class="row gap-3">
+                            <div class="col">
+                                <button type="button" class="btn btn-primary">Bewerken</button>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-danger">Delete</button>
+                            </div>
                     </td>
                 </tr>
                 <tr>
@@ -208,8 +242,15 @@
                         <p class="fw-light">Kip, Bicky Uitjes, Bicky Saus</p>
                     </td>
                     <td class="text-center">€3.50</td>
+                    <td class="text-center">Op voorraad</td>
                     <td class="text-center">
-                        <button type="button" class="btn btn-primary">Voeg toe</button>
+                        <div class="row gap-3">
+                            <div class="col">
+                                <button type="button" class="btn btn-primary">Bewerken</button>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-danger">Delete</button>
+                            </div>
                     </td>
                 </tr>
                 <tr>
@@ -218,8 +259,15 @@
                         <p class="fw-light">Runds, Groenten, Kaas, Saus</p>
                     </td>
                     <td class="text-center">€4.00</td>
+                    <td class="text-center">Op voorraad</td>
                     <td class="text-center">
-                        <button type="button" class="btn btn-primary">Voeg toe</button>
+                        <div class="row gap-3">
+                            <div class="col">
+                                <button type="button" class="btn btn-primary">Bewerken</button>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-danger">Delete</button>
+                            </div>
                     </td>
                 </tr>
                 <tr>
@@ -228,8 +276,15 @@
                         <p class="fw-light">Kip, Groenten, Saus</p>
                     </td>
                     <td class="text-center">€4.00</td>
+                    <td class="text-center">Op voorraad</td>
                     <td class="text-center">
-                        <button type="button" class="btn btn-primary">Voeg toe</button>
+                        <div class="row gap-3">
+                            <div class="col">
+                                <button type="button" class="btn btn-primary">Bewerken</button>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-danger">Delete</button>
+                            </div>
                     </td>
                 </tr>
                 </tbody>
