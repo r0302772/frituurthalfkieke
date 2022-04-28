@@ -41,6 +41,66 @@
         <div class="row px-3 text-center">
             <h2 class="display-5 fw-bold"><i class="fa-solid fa-warehouse"></i> Artikels Beheren</h2>
         </div>
+        <%--Nieuw Artikel--%>
+        <div>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#nieuwArtikel"><i class="bi bi-plus"></i> Nieuw Artikel
+            </button>
+        </div>
+        <%--Niew Artikel MODAL--%>
+        <div class="modal fade" id="nieuwArtikel" tabindex="-1" aria-labelledby="nieuwArtikelLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="nieuwArtikelLabel">Nieuw Artikel</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row pb-3">
+                            <div class="col">
+                                <label for="naamNieuwArtikel" class="form-label"><strong>Artikel</strong></label>
+                                <input type="text" class="form-control" id="naamNieuwArtikel"
+                                       value="" required>
+                            </div>
+                            <div class="col">
+                                <label for="prijsNieuwArtikel" class="form-label"><strong>Prijs</strong></label>
+                                <input type="number" class="form-control" id="prijsNieuwArtikel" min=0 required>
+                            </div>
+                        </div>
+                        <div class="row pb-3">
+                            <div class="col">
+                                <label for="info"
+                                       class="form-label"><strong>Opmerking</strong></label>
+                                <textarea class="form-control" id="infoNieuwArtikel" rows="3"
+                                          placeholder="Bv. Extra info over de ingredienten. Bevat gluten."></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value=""
+                                           id="voorraadNieuwArtikelCheck"
+                                           checked>
+                                    <label class="form-check-label" for="voorraadNieuwArtikelCheck">
+                                        Op voorraad
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            Annuleer
+                        </button>
+                        <button type="button" class="btn btn-primary">
+                            Bevestig
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row p-3">
             <table class="table table-bordered border-dark">
                 <h3 class="p-1">Frieten <img src="/images/fries.png" style="width: 25px;"></h3>
@@ -100,8 +160,7 @@
                                     <div class="col">
                                         <label for="info"
                                                class="form-label"><strong>Opmerking</strong></label>
-                                        <textarea class="form-control" id="info" rows="3"
-                                                  placeholder="Bv. Extra info over de ingredienten. Bevat gluten."></textarea>
+                                        <textarea class="form-control" id="info" rows="3"></textarea>
                                     </div>
                                 </div>
                                 <div class="row">
