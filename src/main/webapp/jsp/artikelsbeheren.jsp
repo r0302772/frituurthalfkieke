@@ -96,12 +96,22 @@
                                                value=2 required>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row pb-3">
                                     <div class="col">
                                         <label for="info"
                                                class="form-label"><strong>Opmerking</strong></label>
                                         <textarea class="form-control" id="info" rows="3"
                                                   placeholder="Bv. Extra info over de ingredienten. Bevat gluten."></textarea>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="voorraadCheck" checked>
+                                            <label class="form-check-label" for="voorraadCheck">
+                                                Op voorraad
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -173,7 +183,6 @@
                 <tr>
                     <td>
                         Friet Stoofvlees
-                        <p class="text-danger">Nieuw</p>
                     </td>
                     <td class="text-center">€4.00</td>
                     <td class="text-center">Op voorraad</td>
