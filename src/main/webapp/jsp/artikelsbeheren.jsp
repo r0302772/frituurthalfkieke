@@ -107,7 +107,8 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="voorraadCheck" checked>
+                                            <input class="form-check-input" type="checkbox" value="" id="voorraadCheck"
+                                                   checked>
                                             <label class="form-check-label" for="voorraadCheck">
                                                 Op voorraad
                                             </label>
@@ -164,6 +165,7 @@
                             <div class="col">
                                 <button type="button" class="btn btn-danger">Delete</button>
                             </div>
+                        </div>
                     </td>
                 </tr>
                 <tr>
@@ -178,6 +180,7 @@
                             <div class="col">
                                 <button type="button" class="btn btn-danger">Delete</button>
                             </div>
+                        </div>
                     </td>
                 </tr>
                 <tr>
@@ -194,6 +197,7 @@
                             <div class="col">
                                 <button type="button" class="btn btn-danger">Delete</button>
                             </div>
+                        </div>
                     </td>
                 </tr>
                 </tbody>
@@ -226,6 +230,7 @@
                             <div class="col">
                                 <button type="button" class="btn btn-danger">Delete</button>
                             </div>
+                        </div>
                     </td>
                 </tr>
                 <tr>
@@ -243,6 +248,7 @@
                             <div class="col">
                                 <button type="button" class="btn btn-danger">Delete</button>
                             </div>
+                        </div>
                     </td>
                 </tr>
                 <tr>
@@ -260,6 +266,7 @@
                             <div class="col">
                                 <button type="button" class="btn btn-danger">Delete</button>
                             </div>
+                        </div>
                     </td>
                 </tr>
                 <tr>
@@ -277,6 +284,7 @@
                             <div class="col">
                                 <button type="button" class="btn btn-danger">Delete</button>
                             </div>
+                        </div>
                     </td>
                 </tr>
                 <tr>
@@ -294,6 +302,7 @@
                             <div class="col">
                                 <button type="button" class="btn btn-danger">Delete</button>
                             </div>
+                        </div>
                     </td>
                 </tr>
                 </tbody>
