@@ -32,6 +32,16 @@ public class MainController {
         return "bevestigingbestelling";
     }
 
+    @RequestMapping("/login")
+    public String navigateToLogin() {
+        return "login";
+    }
+
+    @RequestMapping("/artikelsbeheren")
+    public String navigateToArtikelsbeheren() {
+        return "artikelsbeheren";
+    }
+
     @RequestMapping("/scriptlet")
     public String navigateToScriptlet() {
         return "scriptlet";

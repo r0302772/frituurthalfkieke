@@ -11,7 +11,7 @@ import java.util.List;
 
 @Controller
 public class DataController {
-    private final StudentRepository studentRepository;
+    private StudentRepository studentRepository;
 
     public DataController(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
@@ -33,7 +33,7 @@ public class DataController {
     }
 
     @RequestMapping("/studenten/toevoegen")
-    public String navigateToAdStudentForm() {
+    public String navigateToAddStudentForm() {
         return "add-student";
     }
 

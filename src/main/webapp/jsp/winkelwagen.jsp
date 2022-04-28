@@ -45,7 +45,7 @@
             <%--Winkelwagen STAP 1--%>
             <div class="col-12 border">
                 <div class="row p-3 bg-secondary text-white">
-                    <h4>Winkelwagen (Stap 1/3)</h4>
+                    <h4>Winkelwagen (Stap 1/2)</h4>
                 </div>
                 <div class="row pt-3">
                     <h5 class="text-danger"><i class="bi bi-info-circle-fill"></i> Enkel afhalen. Betalen bij
@@ -128,7 +128,7 @@
             <%--Uw gegevens STAP 2--%>
             <div class="col-12 border">
                 <div class="row p-3 bg-secondary text-white">
-                    <h4>Uw gegevens (Stap 2/3)</h4>
+                    <h4>Uw gegevens (Stap 2/2)</h4>
                 </div>
                 <div class="row">
                     <form>
@@ -238,7 +238,8 @@
                             </div>
                         </div>
                         <div class="row d-grid p-3">
-                            <button type="submit" class="btn btn-primary btn-lg">BESTELLEN</button>
+<%--                            <button type="submit" class="btn btn-primary btn-lg">BESTELLEN</button>--%>
+                            <a href="/bevestigingbestelling" class="btn btn-primary btn-lg">BESTELLEN</a>
                         </div>
                     </form>
                 </div>

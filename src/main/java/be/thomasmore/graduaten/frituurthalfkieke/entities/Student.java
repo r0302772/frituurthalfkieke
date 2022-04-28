@@ -14,6 +14,10 @@ public class Student {
     private String familienaam;
     private String klas;
 
+    public Student() {
+
+    }
+
     public Student(Long id, String voornaam, String familienaam, String klas) {
         this.id = id;
         this.voornaam = voornaam;
@@ -22,39 +26,34 @@ public class Student {
     }
 
     public Student(String voornaam, String familienaam, String klas) {
-
-    }
-
-    public Student() {
-
     }
 
     public Long getId() {
         return id;
     }
 
-    public String getVoornaam() {
-        return voornaam;
-    }
-
-    public String getFamilienaam() {
-        return familienaam;
-    }
-
-    public String getKlas() {
-        return klas;
-    }
-
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getVoornaam() {
+        return voornaam;
     }
 
     public void setVoornaam(String voornaam) {
         this.voornaam = voornaam;
     }
 
+    public String getFamilienaam() {
+        return familienaam;
+    }
+
     public void setFamilienaam(String familienaam) {
         this.familienaam = familienaam;
+    }
+
+    public String getKlas() {
+        return klas;
     }
 
     public void setKlas(String klas) {

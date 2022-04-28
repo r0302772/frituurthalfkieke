@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Dennis Nijs
-  Date: 23/04/2022
-  Time: 16:45
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.Student" %>
 <%@ page import="java.util.List" %>
 <%
