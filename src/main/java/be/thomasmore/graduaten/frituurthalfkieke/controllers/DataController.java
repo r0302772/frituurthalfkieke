@@ -4,6 +4,7 @@ import be.thomasmore.graduaten.frituurthalfkieke.entities.Student;
 import be.thomasmore.graduaten.frituurthalfkieke.repositories.StudentRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
@@ -37,7 +38,7 @@ public class DataController {
         return "add-student";
     }
 
-    @RequestMapping("/studenten/toevoegen/result")
+    @PostMapping("/studenten/toevoegen/result")
     public String getResult(Model model, HttpServletRequest request) {
         String voornaam = request.getParameter("voornaam");
         String familienaam = request.getParameter("familienaam");
