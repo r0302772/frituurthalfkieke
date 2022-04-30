@@ -19,7 +19,28 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <ul class="navbar-nav navbar-collapse">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login"><i class="bi bi-box-arrow-in-right"></i> Inloggen</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/"><i class="bi bi-box-arrow-left"></i> Uitloggen</a>
+                    </li>
+                </ul>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/artikelsbeheren"><i class="fa-solid fa-warehouse"></i>
+                                Artikels</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/bestellingenbeheren"><i class="fa-solid fa-cash-register"></i>
+                                Bestellingen</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/tijdslotenbeheren"><i class="bi bi-lock-fill"></i> Tijdsloten</a>
+                        </li>
+                    </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="/menu"><i class="fa-solid fa-utensils"></i> Menu</a>
@@ -371,7 +392,7 @@
 
     <footer class="mt-auto text-center pt-3">
         <hr>
-        <p>Frituur t'Half Kieke - Copyright &copy; 2022</p>
+        <p>Frituur t'Half Kieke - Copyright &copy; 2022 - <a href="/login">Admin</a></p>
     </footer>
 </div>
 

@@ -19,7 +19,28 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <ul class="navbar-nav navbar-collapse">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login"><i class="bi bi-box-arrow-in-right"></i> Inloggen</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/"><i class="bi bi-box-arrow-left"></i> Uitloggen</a>
+                    </li>
+                </ul>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/artikelsbeheren"><i class="fa-solid fa-warehouse"></i>
+                                Artikels</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/bestellingenbeheren"><i class="fa-solid fa-cash-register"></i>
+                                Bestellingen</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/tijdslotenbeheren"><i class="bi bi-lock-fill"></i> Tijdsloten</a>
+                        </li>
+                    </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="/menu"><i class="fa-solid fa-utensils"></i> Menu</a>
@@ -39,30 +60,33 @@
 
     <main class="px-3">
         <h1 class="display-5 fw-bold text-center">Login</h1>
-        <form class="row justify-content-center">
-            <div class="col-4 d-grid gap-3">
-                <div>
-                    <label for="gebruikersnaam" class="form-label">Gebruikersnaam</label>
-                    <input type="text" class="form-control" id="gebruikersnaam" value="" required>
+        <div class="row justify-content-center">
+            <form class="col-lg-4">
+                <div class="d-grid gap-3">
+                    <div>
+                        <label for="gebruikersnaam" class="form-label">Gebruikersnaam</label>
+                        <input type="text" class="form-control" id="gebruikersnaam" value="" required>
+                    </div>
+                    <div>
+                        <label for="wachtwoord" class="form-label">Wachtwoord</label>
+                        <input type="password" class="form-control" id="wachtwoord" value="" required>
+                    </div>
+                    <div class="text-center">
+                        <%--                <button class="btn btn-primary" type="submit">Inloggen</button>--%>
+                        <a class="btn btn-primary btn-lg" href="/bestellingenbeheren">Inloggen</a>
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-link">Wachtwoord/gebruikersnaam vergeten?</button>
+                    </div>
                 </div>
-                <div>
-                    <label for="wachtwoord" class="form-label">Wachtwoord</label>
-                    <input type="password" class="form-control" id="wachtwoord" value="" required>
-                </div>
-                <div class="text-center">
-                    <%--                <button class="btn btn-primary" type="submit">Inloggen</button>--%>
-                    <a class="btn btn-primary btn-lg" href="">Inloggen</a>
-                </div>
-                <div class="text-center">
-                    <button class="btn btn-link">Wachtwoord/gebruikersnaam vergeten?</button>
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
+
     </main>
 
     <footer class="mt-auto text-center pt-3">
         <hr>
-        <p>Frituur t'Half Kieke - Copyright &copy; 2022</p>
+        <p>Frituur t'Half Kieke - Copyright &copy; 2022 - <a href="/login">Admin</a></p>
     </footer>
 </div>
 

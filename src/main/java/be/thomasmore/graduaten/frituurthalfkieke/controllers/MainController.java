@@ -47,6 +47,11 @@ public class MainController {
         return "tijdslotenbeheren";
     }
 
+    @RequestMapping("/bestellingenbeheren")
+    public String navigateToBestellingenbeheren() {
+        return "bestellingenbeheren";
+    }
+
     @RequestMapping("/scriptlet")
     public String navigateToScriptlet() {
         return "scriptlet";
