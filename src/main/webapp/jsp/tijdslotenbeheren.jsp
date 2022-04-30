@@ -377,7 +377,7 @@
         <%--Nieuw tijdslot instellen--%>
         <div>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                    data-bs-target="#nieuwTijdslotInstellen"><i class="bi bi-plus"></i> Nieuw tijdslot instellen
+                    data-bs-target="#nieuwTijdslotInstellen"><i class="bi bi-plus"></i> Nieuw tijdslot
             </button>
         </div>
         <%--Online bestellingen blokkeren! MODAL--%>
@@ -387,7 +387,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="nieuwTijdslotInstellenLabel">Nieuw tijdslot instellen:</h5>
+                        <h5 class="modal-title" id="nieuwTijdslotInstellenLabel">Nieuw tijdslot</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                 aria-label="Close"></button>
                     </div>
