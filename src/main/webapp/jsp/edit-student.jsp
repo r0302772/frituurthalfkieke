@@ -5,12 +5,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Student toevoegen</title>
+    <title>Student aanpassen</title>
 </head>
 <body>
 <h1>Student aanpassen</h1>
 
 <form action="/studenten/edit/result" method="get">
+    <input type="hidden" id="id" name="id" value="<%=student.getId()%>">
     <label for="voornaam">Voornaam:</label><br>
     <input type="text" id="voornaam" name="voornaam" value="<%=student.getVoornaam()%>"><br>
     <label for="familienaam">Familienaam:</label><br>

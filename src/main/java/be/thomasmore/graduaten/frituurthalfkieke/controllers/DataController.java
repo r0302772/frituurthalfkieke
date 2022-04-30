@@ -61,24 +61,19 @@ public class DataController {
 
     @RequestMapping("/studenten/edit/result")
     public String getEditResult(Model model, HttpServletRequest request) {
-        try{
-            Long id = Long.parseLong(request.getParameter("id"));
-            Student student = studentRepository.getById(id);
-            student.setId(id);
-            student.setVoornaam(request.getParameter("voornaam"));
-            student.setFamilienaam(request.getParameter("familienaam"));
-            student.setKlas(request.getParameter("klas"));
+        Long id = Long.parseLong(request.getParameter("id"));
+        Student student = studentRepository.getById(id);
 
+        student.setId(id);
+        student.setVoornaam(request.getParameter("voornaam"));
+        student.setFamilienaam(request.getParameter("familienaam"));
+        student.setKlas(request.getParameter("klas"));
 
-            studentRepository.save(student);
+        studentRepository.save(student);
 
-            List<Student> studenten = studentRepository.findAll();
-            model.addAttribute("studenten", studenten);
-            return "studenten";
-        }
-        catch(Exception e){
-            System.out.println("Something went wrong.");
-        }
+        List<Student> studenten = studentRepository.findAll();
+        model.addAttribute("studenten", studenten);
+
         return "studenten";
     }
 
