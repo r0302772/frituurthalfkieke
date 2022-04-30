@@ -41,97 +41,97 @@
         <div class="row p-3 text-center">
             <h2 class="display-5 fw-bold"><i class="bi bi-cart-fill"></i> Winkelwagen</h2>
         </div>
-        <div class="row">
-            <%--Winkelwagen STAP 1--%>
-            <div class="col-12 border">
-                <div class="row p-3 bg-secondary text-white">
-                    <h4>Winkelwagen (Stap 1/2)</h4>
-                </div>
-                <div class="row pt-3">
-                    <h5 class="text-danger"><i class="bi bi-info-circle-fill"></i> Enkel afhalen. Betalen bij
-                        afhaling.
-                    </h5>
-                </div>
-                <hr>
-                <a href="/menu" class="btn btn-primary">TERUG NAAR MENU</a>
-                <div class="row p-1">
-                    <%--Bestelling--%>
-                    <table class="table table-borderless">
-                        <thead>
-                        <tr>
-                            <th scope="col"></th>
-                            <th scope="col">Item</th>
-                            <th scope="col">Saus</th>
-                            <th scope="col">Kruiden</th>
-                            <th scope="col">Opmerking</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <%--Grote friet snelly eddy--%>
-                        <tr>
-                            <td>
-                                <button class="btn"><i class="bi bi-x-circle-fill"></i></button>
-                            </td>
-                            <td>
-                                1 Grote Friet
-                            </td>
-                            <td>
-                                Joppiesaus
-                            </td>
-                            <td>
-                                Zonder
-                            </td>
-                            <td>
-                                Snelle Eddy
-                            </td>
-                        </tr>
-                        <tr>
+        <form>
+            <div class="row">
+                <%--Winkelwagen STAP 1--%>
+                <div class="col-12 border">
+                    <div class="row p-3 bg-secondary text-white">
+                        <h4>Winkelwagen (Stap 1/2)</h4>
+                    </div>
+                    <div class="row pt-3">
+                        <h5 class="text-danger"><i class="bi bi-info-circle-fill"></i> Enkel afhalen. Betalen bij
+                            afhaling.
+                        </h5>
+                    </div>
+                    <hr>
+                    <a href="/menu" class="btn btn-primary">TERUG NAAR MENU</a>
+                    <div class="row p-1">
+                        <%--Bestelling--%>
+                        <table class="table table-borderless">
+                            <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">Item</th>
+                                <th scope="col">Saus</th>
+                                <th scope="col">Kruiden</th>
+                                <th scope="col">Opmerking</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <%--Grote friet snelly eddy--%>
+                            <tr>
+                                <td>
+                                    <button class="btn"><i class="bi bi-x-circle-fill"></i></button>
+                                </td>
+                                <td>
+                                    1 Grote Friet
+                                </td>
+                                <td>
+                                    Joppiesaus
+                                </td>
+                                <td>
+                                    Zonder
+                                </td>
+                                <td>
+                                    Snelle Eddy
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="5">
+                                    €3.00
+                                    <hr>
+                                </td>
+                            </tr>
+                            <%--Curryworst speciaal Kelly--%>
+                            <tr>
+                                <td>
+                                    <button class="btn"><i class="bi bi-x-circle-fill"></i></button>
+                                </td>
+                                <td>
+                                    1 Curryworst Speciaal
+                                </td>
+                                <td>
+                                    Tomatenketchup
+                                </td>
+                                <td>
+                                    Zonder
+                                </td>
+                                <td>
+                                    Kelly
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="5">
+                                    €2.00
+                                    <hr>
+                                </td>
+                            </tr>
+                            </tbody>
+                            <%--Totaal--%>
+                            <tfoot class="bg-secondary bg-opacity-10">
                             <td colspan="5">
-                                €3.00
-                                <hr>
+                                TOTAAL: €5.OO
                             </td>
-                        </tr>
-                        <%--Curryworst speciaal Kelly--%>
-                        <tr>
-                            <td>
-                                <button class="btn"><i class="bi bi-x-circle-fill"></i></button>
-                            </td>
-                            <td>
-                                1 Curryworst Speciaal
-                            </td>
-                            <td>
-                                Tomatenketchup
-                            </td>
-                            <td>
-                                Zonder
-                            </td>
-                            <td>
-                                Kelly
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="5">
-                                €2.00
-                                <hr>
-                            </td>
-                        </tr>
-                        </tbody>
-                        <%--Totaal--%>
-                        <tfoot class="bg-secondary bg-opacity-10">
-                        <td colspan="5">
-                            TOTAAL: €5.OO
-                        </td>
-                        </tfoot>
-                    </table>
+                            </tfoot>
+                        </table>
+                    </div>
                 </div>
-            </div>
-            <%--Uw gegevens STAP 2--%>
-            <div class="col-12 border">
-                <div class="row p-3 bg-secondary text-white">
-                    <h4>Uw gegevens (Stap 2/2)</h4>
-                </div>
-                <div class="row">
-                    <form>
+                <%--Uw gegevens STAP 2--%>
+                <div class="col-12 border">
+                    <div class="row p-3 bg-secondary text-white">
+                        <h4>Uw gegevens (Stap 2/2)</h4>
+                    </div>
+                    <div class="row">
                         <div class="row">
                             <div class="col-auto p-3">
                                 <i class="bi bi-person-fill"></i>
@@ -238,13 +238,14 @@
                             </div>
                         </div>
                         <div class="row d-grid p-3">
-<%--                            <button type="submit" class="btn btn-primary btn-lg">BESTELLEN</button>--%>
+                            <%--<button type="submit" class="btn btn-primary btn-lg">BESTELLEN</button>--%>
                             <a href="/bevestigingbestelling" class="btn btn-primary btn-lg">BESTELLEN</a>
                         </div>
-                    </form>
+                    </div>
                 </div>
+
             </div>
-        </div>
+        </form>
     </main>
 
     <footer class="mt-auto text-center pt-3">

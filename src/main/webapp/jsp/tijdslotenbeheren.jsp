@@ -41,8 +41,9 @@
         <div class="row px-3 text-center">
             <h2 class="display-5 fw-bold"><i class="bi bi-stopwatch-fill"></i> Tijdsloten Beheren</h2>
         </div>
+        <hr>
         <div class="row">
-            <div class="col">
+            <div class="col border-end">
                 <h4>Dagen</h4>
                 <nav>
                     <div class="nav flex-column nav-pills" id="nav-tabdagen" role="tablist">
@@ -81,7 +82,7 @@
                     </div>
                 </nav>
             </div>
-            <div class="col">
+            <div class="col border-end">
                 <h4>Uren</h4>
                 <div class="tab-content" id="nav-tabdagenContent">
                     <div class="tab-pane fade show active" id="nav-maandag" role="tabpanel"
@@ -227,10 +228,121 @@
                 </div>
             </div>
             <div class="col">
+                <h4>Tijdsloten</h4>
                 <div class="tab-content" id="nav-taburenContent">
-                    <div class="tab-pane fade show active" id="nav-maandag" role="tabpanel"
-                         aria-labelledby="nav-maandag-tab">
-
+                    <div class="tab-pane fade show active" id="nav-ma1112" role="tabpanel"
+                         aria-labelledby="nav-ma1112-tab">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheck11-1">
+                            <label class="form-check-label" for="flexCheck11-1">
+                                11u
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheck11-2">
+                            <label class="form-check-label" for="flexCheck11-2">
+                                11u10
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheck11-3">
+                            <label class="form-check-label" for="flexCheck11-3">
+                                11u20
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheck11-4">
+                            <label class="form-check-label" for="flexCheck11-4">
+                                11u30
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheck11-5">
+                            <label class="form-check-label" for="flexCheck11-5">
+                                11u40
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheck11-6">
+                            <label class="form-check-label" for="flexCheck11-6">
+                                11u50
+                            </label>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade show" id="nav-ma1213" role="tabpanel"
+                         aria-labelledby="nav-ma1213-tab">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheck12-1">
+                            <label class="form-check-label" for="flexCheck12-1">
+                                12u
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheck12-2">
+                            <label class="form-check-label" for="flexCheck12-2">
+                                12u10
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheck12-3">
+                            <label class="form-check-label" for="flexCheck12-3">
+                                12u20
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheck12-4">
+                            <label class="form-check-label" for="flexCheck12-4">
+                                12u30
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheck12-5">
+                            <label class="form-check-label" for="flexCheck12-5">
+                                12u40
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheck12-6">
+                            <label class="form-check-label" for="flexCheck12-6">
+                                12u50
+                            </label>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade show " id="nav-ma1314" role="tabpanel"
+                         aria-labelledby="nav-ma1314-tab">
+                        ...
+                    </div>
+                    <div class="tab-pane fade show" id="nav-ma1415" role="tabpanel"
+                         aria-labelledby="nav-ma1415-tab">
+                        ...
+                    </div>
+                    <div class="tab-pane fade show" id="nav-ma1516" role="tabpanel"
+                         aria-labelledby="nav-ma1516-tab">
+                        ...
+                    </div>
+                    <div class="tab-pane fade show" id="nav-ma1617" role="tabpanel"
+                         aria-labelledby="nav-ma1617-tab">
+                        ...
+                    </div>
+                    <div class="tab-pane fade show" id="nav-ma1718" role="tabpanel"
+                         aria-labelledby="nav-ma1718-tab">
+                        ...
+                    </div>
+                    <div class="tab-pane fade show" id="nav-ma1819" role="tabpanel"
+                         aria-labelledby="nav-ma1819-tab">
+                        ...
+                    </div>
+                    <div class="tab-pane fade show" id="nav-ma1920" role="tabpanel"
+                         aria-labelledby="nav-ma1920-tab">
+                        ...
+                    </div>
+                    <div class="tab-pane fade show" id="nav-ma2021" role="tabpanel"
+                         aria-labelledby="nav-ma2021-tab">
+                        ...
+                    </div>
+                    <div class="tab-pane fade show" id="nav-ma2122" role="tabpanel"
+                         aria-labelledby="nav-ma2122-tab">
+                        ...
                     </div>
                 </div>
             </div>
