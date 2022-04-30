@@ -24,7 +24,8 @@
             out.print("<tr>"
                     + "<td>" + student.getVoornaam() + " " + student.getFamilienaam() + "</td>"
                     + "<td>" + student.getKlas() + "</td>"
-                    + "<td><a href='/studenten/detail?id=" + student.getId() + "'>Details</a></td>"
+                    + "<td><a href='/studenten/detail?id=" + student.getId() + "'>Details</a> | <a href='/studenten/edit?id="
+                    + student.getId() + "'>Edit</a> | <a href='/studenten/delete?id=" + student.getId() + "'>Delete</a></td>"
                     + "</tr>");
         }
     %>
