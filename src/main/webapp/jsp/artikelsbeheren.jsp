@@ -67,6 +67,9 @@
             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                     data-bs-target="#nieuwArtikel"><i class="bi bi-plus"></i> Nieuw Artikel
             </button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#nieuweCategorie"><i class="bi bi-plus"></i> Nieuwe categorie
+            </button>
         </div>
         <%--Niew Artikel MODAL--%>
         <div class="modal fade" id="nieuwArtikel" tabindex="-1" aria-labelledby="nieuwArtikelLabel"
@@ -133,7 +136,39 @@
                 </div>
             </div>
         </div>
+        <%--Niew Artikel MODAL--%>
+        <div class="modal fade" id="nieuweCategorie" tabindex="-1" aria-labelledby="nieuweCategorieLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="nieuweCategorieLabel">Nieuw Categorie</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row pb-3">
+                            <div class="col">
+                                <label for="naamNieuweCategorie" class="form-label"><strong>Naam</strong></label>
+                                <input type="text" class="form-control" id="naamNieuweCategorie"
+                                       value="" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            Annuleer
+                        </button>
+                        <button type="button" class="btn btn-primary">
+                            Bevestig
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="row p-3">
+            <%--Frietentabel--%>
             <table class="table table-bordered border-dark">
                 <h3 class="p-1">Frieten <img src="/images/fries.png" style="width: 25px;"></h3>
                 <thead>
@@ -313,6 +348,7 @@
         </div>
         <hr>
         <div class="row p-3">
+            <%--Burgerstabel--%>
             <table class="table table-bordered border-dark">
                 <h3 class="p-1">Burgers <i class="fa-solid fa-burger"></i></h3>
                 <thead>
