@@ -1,9 +1,6 @@
 package be.thomasmore.graduaten.frituurthalfkieke.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
 @Entity
@@ -14,6 +11,12 @@ public class Artikel {
     private  String naam;
     private  double prijs;
     private  boolean beschikbaar;
+//relatie
+    @ManyToOne
+    @JoinColumn(name = "artikelbestelling_id")
+    private  ArtikelBestelling artikelbestelling ;
+
+
 
     public Long getId() {
         return id;
