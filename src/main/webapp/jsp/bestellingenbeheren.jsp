@@ -64,14 +64,59 @@
         </div>
         <div class="d-grid gap-2 pb-3 d-md-flex justify-content-md-center">
             <button type="button" class="btn btn-success btn-lg">Online bestellingen toestaan!</button>
-            <button type="button" class="btn btn-warning btn-lg">Blokkeren voor het komende uur! <span
-                    class="badge bg-secondary">30 : 45</span></button>
-            <button type="button" class="btn btn-danger btn-lg">Blokkeren tot het einde van de dag!</button>
+            <button type="button" class="btn btn-danger btn-lg" data-bs-toggle="modal"
+                    data-bs-target="#extraTijdslot">Extra tijdslot!
+            </button>
+        </div>
+
+        <%--Extra tijdslot! MODAL--%>
+        <div class="modal fade" id="extraTijdslot" tabindex="-1"
+             aria-labelledby="extraTijdslotLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form>
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="extraTijdslotLabel">Extra tijdslot</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row pb-3">
+                                <div class="col">
+                                    <label for="startTijdslot" class="form-label"><strong>Start</strong></label>
+                                    <input type="datetime-local" class="form-control" id="startTijdslot" required>
+                                </div>
+                                <div class="col">
+                                    <label for="stopTijdslot" class="form-label"><strong>Stop</strong></label>
+                                    <input type="datetime-local" class="form-control" id="stopTijdslot" required>
+                                </div>
+                            </div>
+                            <div class="row pb-3">
+                                <div class="col">
+                                    <label for="infoNieuwTijdslot"
+                                           class="form-label"><strong>Opmerking</strong></label>
+                                    <textarea class="form-control" id="infoNieuwTijdslot" rows="3"
+                                              placeholder="Bv. Omwille van een grote bestelling op naam van..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                Annuleer
+                            </button>
+                            <button type="button" class="btn btn-primary">
+                                Bevestig
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
 
         <div class="row p-3">
             <%--Wanneer--%>
-            <div class="col border-end">
+            <div class="col-md border-end">
                 <h4>Wanneer</h4>
                 <hr>
                 <nav>
@@ -105,7 +150,7 @@
                 </nav>
             </div>
             <%--Bestellingen--%>
-            <div class="col border-end">
+            <div class="col-md border-end">
                 <h4>Bestellingen</h4>
                 <hr>
                 <div class="tab-content" id="nav-tabWanneerContent">
@@ -176,7 +221,7 @@
                 </div>
             </div>
             <%--Details--%>
-            <div class="col">
+            <div class="col-md border-end">
                 <h4>Details</h4>
                 <hr>
                 <div class="tab-content" id="nav-tabDetailsContent">

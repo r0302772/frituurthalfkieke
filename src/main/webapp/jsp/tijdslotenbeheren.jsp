@@ -380,7 +380,7 @@
                     data-bs-target="#nieuwTijdslotInstellen"><i class="bi bi-plus"></i> Nieuw tijdslot
             </button>
         </div>
-        <%--Online bestellingen blokkeren! MODAL--%>
+        <%--Nieuw tijdslot MODAL--%>
         <div class="modal fade" id="nieuwTijdslotInstellen" tabindex="-1"
              aria-labelledby="nieuwTijdslotInstellenLabel"
              aria-hidden="true">
