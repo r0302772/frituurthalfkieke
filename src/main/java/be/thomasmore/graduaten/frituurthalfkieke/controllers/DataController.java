@@ -11,7 +11,7 @@ import java.util.List;
 
 @Controller
 public class DataController {
-    private final StudentRepository studentRepository;
+    private StudentRepository studentRepository;
 
     public DataController(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
@@ -33,7 +33,7 @@ public class DataController {
     }
 
     @RequestMapping("/studenten/toevoegen")
-    public String navigateToAdStudentForm() {
+    public String navigateToAddStudentForm() {
         return "add-student";
     }
 
@@ -45,6 +45,44 @@ public class DataController {
 
         Student student = new Student(voornaam, familienaam, klas);
         studentRepository.save(student);
+
+        List<Student> studenten = studentRepository.findAll();
+        model.addAttribute("studenten", studenten);
+        return "studenten";
+    }
+
+    @RequestMapping("/studenten/edit")
+    public String navigateToEditStudent(Model model, HttpServletRequest request) {
+        Long id = Long.parseLong(request.getParameter("id"));
+        Student student = studentRepository.getById(id);
+        model.addAttribute("student", student);
+        return "edit-student";
+    }
+
+    @RequestMapping("/studenten/edit/result")
+    public String getEditResult(Model model, HttpServletRequest request) {
+        Long id = Long.parseLong(request.getParameter("id"));
+        Student student = studentRepository.getById(id);
+
+        student.setId(id);
+        student.setVoornaam(request.getParameter("voornaam"));
+        student.setFamilienaam(request.getParameter("familienaam"));
+        student.setKlas(request.getParameter("klas"));
+
+        studentRepository.save(student);
+
+        List<Student> studenten = studentRepository.findAll();
+        model.addAttribute("studenten", studenten);
+
+        return "studenten";
+    }
+
+    @RequestMapping("/studenten/delete")
+    public String getDeleteResult(Model model, HttpServletRequest request) {
+        Long id = Long.parseLong(request.getParameter("id"));
+        Student student = studentRepository.getById(id);
+
+        studentRepository.delete(student);
 
         List<Student> studenten = studentRepository.findAll();
         model.addAttribute("studenten", studenten);

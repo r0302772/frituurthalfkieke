@@ -12,6 +12,46 @@ public class MainController {
         return "index";
     }
 
+    @RequestMapping("/menu")
+    public String navigateToMenu() {
+        return "menu";
+    }
+
+    @RequestMapping("/contact")
+    public String navigateToContact() {
+        return "contact";
+    }
+
+    @RequestMapping("/winkelwagen")
+    public String navigateToWinkelmand() {
+        return "winkelwagen";
+    }
+
+    @RequestMapping("/bevestigingbestelling")
+    public String navigateToBevestigingbestelling() {
+        return "bevestigingbestelling";
+    }
+
+    @RequestMapping("/login")
+    public String navigateToLogin() {
+        return "login";
+    }
+
+    @RequestMapping("/artikelsbeheren")
+    public String navigateToArtikelsbeheren() {
+        return "artikelsbeheren";
+    }
+
+    @RequestMapping("/tijdslotenbeheren")
+    public String navigateToTijdslotenbeheren() {
+        return "tijdslotenbeheren";
+    }
+
+    @RequestMapping("/bestellingenbeheren")
+    public String navigateToBestellingenbeheren() {
+        return "bestellingenbeheren";
+    }
+
     @RequestMapping("/scriptlet")
     public String navigateToScriptlet() {
         return "scriptlet";

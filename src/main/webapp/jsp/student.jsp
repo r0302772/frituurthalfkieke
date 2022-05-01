@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Dennis Nijs
-  Date: 23/04/2022
-  Time: 17:11
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.Student" %>
 <%
     Student student = (Student) request.getAttribute("student");

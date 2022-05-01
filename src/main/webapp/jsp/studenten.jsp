@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Dennis Nijs
-  Date: 23/04/2022
-  Time: 16:45
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.Student" %>
 <%@ page import="java.util.List" %>
 <%
@@ -31,7 +24,8 @@
             out.print("<tr>"
                     + "<td>" + student.getVoornaam() + " " + student.getFamilienaam() + "</td>"
                     + "<td>" + student.getKlas() + "</td>"
-                    + "<td><a href='/studenten/detail?id=" + student.getId() + "'>Details</a></td>"
+                    + "<td><a href='/studenten/detail?id=" + student.getId() + "'>Details</a> | <a href='/studenten/edit?id="
+                    + student.getId() + "'>Edit</a> | <a href='/studenten/delete?id=" + student.getId() + "'>Delete</a></td>"
                     + "</tr>");
         }
     %>
