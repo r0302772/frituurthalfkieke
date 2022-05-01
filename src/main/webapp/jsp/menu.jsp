@@ -123,7 +123,7 @@
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                                 Annuleer
                                             </button>
-                                            <button type="submit" class="btn btn-primary">
+                                            <button type="button" class="btn btn-primary">
                                                 Bevestig
                                             </button>
                                         </div>

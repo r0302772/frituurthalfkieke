@@ -92,7 +92,7 @@
                             <%--Grote friet snelly eddy--%>
                             <tr>
                                 <td>
-                                    <button class="btn"><i class="bi bi-x-circle-fill"></i></button>
+                                    <button class="btn" type="button"><i class="bi bi-x-circle-fill"></i></button>
                                 </td>
                                 <td>
                                     1 Grote Friet
@@ -116,7 +116,7 @@
                             <%--Curryworst speciaal Kelly--%>
                             <tr>
                                 <td>
-                                    <button class="btn"><i class="bi bi-x-circle-fill"></i></button>
+                                    <button class="btn" type="button"><i class="bi bi-x-circle-fill"></i></button>
                                 </td>
                                 <td>
                                     1 Curryworst Speciaal
@@ -227,12 +227,13 @@
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <select class="form-select" aria-label="select date" required="">
+                                        <input type="date" id="start" name="trip-start" class="form-control">
+<%--                                        <select class="form-select" aria-label="select date" required="">
                                             <option selected disabled value="">Kies een datum.</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
                                             <option value="3">Three</option>
-                                        </select>
+                                        </select>--%>
                                     </div>
                                     <div class="col">
                                         <select class="form-select" aria-label="select time" required="">
