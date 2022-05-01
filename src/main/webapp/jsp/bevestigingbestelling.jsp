@@ -5,7 +5,7 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <script src="https://kit.fontawesome.com/29addfb8ae.js" crossorigin="anonymous"></script>
-    <title>Frituur t'Half Kieke</title>
+    <title>Frituur t'Half Kieke | Bevestiging Bestelling</title>
     <link rel="icon" type="image/x-icon" href="/images/drumstick-bite-solid.svg">
 </head>
 <body class="d-flex h-100">
@@ -58,20 +58,19 @@
         <hr>
     </header>
 
-    <main class="px-3 text-center">
-        <h1><i class="fa-solid fa-drumstick-bite"></i></h1>
-        <h1 class="display-5 fw-bold">Frituur t'Half Kieke</h1>
-        <p class="lead mb-4">
-            De beste frituur van Lier en omstreken verovert nu het wereldwijde web! <br>
-            Bekijk ons menu en bestel nu online de lekkerste frietjes en snacks!
-        </p>
-        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <a type="button" class="btn btn-primary btn-lg px-4 gap-3" href="/menu"><i class="fa-solid fa-utensils"></i>
-                Menu</a>
-            <a type="button" class="btn btn-outline-secondary btn-lg px-4" href="/contact"><i
-                    class="fa-solid fa-address-book"></i>
-                Contact</a>
+    <main class="text-center">
+        <div class="row px-3">
+            <h2 class="display-5 fw-bold"><i class="bi bi-check2"></i> Bestelling bevestigd!</h2>
         </div>
+        <hr>
+        <div class="row p-3">
+            <h5>U wordt verwacht op "geselecteerde datum" om "geselecteerd uur" !</h5>
+        </div>
+        <hr>
+        <div class="row p-3">
+            <h5 class="text-danger"><i class="bi bi-info-circle-fill"></i> Check uw mailbox/spam voor de bevestiginsmail.</h5>
+        </div>
+
     </main>
 
     <footer class="mt-auto text-center pt-3">
