@@ -59,7 +59,7 @@
     </header>
 
     <main class="px-3">
-        <div class="row px-3 text-center">
+        <div class="row py-3 text-center">
             <h2 class="display-5 fw-bold"><i class="bi bi-lock-fill"></i> Tijdsloten Beheren</h2>
         </div>
         <%--Tijdsloten berhenen mogelijkheid 1 met block comment--%>

@@ -84,48 +84,50 @@
                              aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Kinder Friet</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <label for="saus" class="form-label"><strong>Saus: </strong></label>
-                                        <select class="form-select" aria-label="select saus" id="saus" required>
-                                            <option selected disabled value="">Kies een saus.</option>
-                                            <option value="Geen saus">Geen saus</option>
-                                            <option value="Gewone mayo">Gewone mayo</option>
-                                            <option value="Hollandse mayo">Hollandse mayo</option>
-                                            <option value="Tomatenketchup">Tomatenketchup</option>
-                                            <option value="Curryketchup">Curryketchup</option>
-                                            <option value="Tartaar">Tartaar</option>
-                                            <option value="Andalouse">Andalouse</option>
-                                            <option value="Joppiesaus">Joppiesaus</option>
-                                        </select>
-                                        <hr>
-                                        <label for="kruiden" class="form-label"><strong>Kruiden: </strong></label>
-                                        <select class="form-select" aria-label="select kruiden" id="kruiden"
-                                                required>
-                                            <option selected disabled value="">Kies kruiden.</option>
-                                            <option value="Geen kruiden">Geen kruiden</option>
-                                            <option value="Zout">Zout</option>
-                                            <option value="Sate">Sate</option>
-                                            <option value="Zout + Sate">Zout + Sate</option>
-                                        </select>
-                                        <hr>
-                                        <label for="opmerking"
-                                               class="form-label"><strong>Opmerking: </strong></label>
-                                        <textarea class="form-control" id="opmerking" rows="3"
-                                                  placeholder="Bv. Bij een grote bestelling, de naam van de persoon, zo bewaard u zelf ook het overzicht van uw winkelwagen."></textarea>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                            Annuleer
-                                        </button>
-                                        <button type="button" class="btn btn-primary">
-                                            Bevestig
-                                        </button>
-                                    </div>
+                                    <form>
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Kinder Friet</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <label for="saus" class="form-label"><strong>Saus: </strong></label>
+                                            <select class="form-select" aria-label="select saus" id="saus" required>
+                                                <option selected disabled value="">Kies een saus.</option>
+                                                <option value="Geen saus">Geen saus</option>
+                                                <option value="Gewone mayo">Gewone mayo</option>
+                                                <option value="Hollandse mayo">Hollandse mayo</option>
+                                                <option value="Tomatenketchup">Tomatenketchup</option>
+                                                <option value="Curryketchup">Curryketchup</option>
+                                                <option value="Tartaar">Tartaar</option>
+                                                <option value="Andalouse">Andalouse</option>
+                                                <option value="Joppiesaus">Joppiesaus</option>
+                                            </select>
+                                            <hr>
+                                            <label for="kruiden" class="form-label"><strong>Kruiden: </strong></label>
+                                            <select class="form-select" aria-label="select kruiden" id="kruiden"
+                                                    required>
+                                                <option selected disabled value="">Kies kruiden.</option>
+                                                <option value="Geen kruiden">Geen kruiden</option>
+                                                <option value="Zout">Zout</option>
+                                                <option value="Sate">Sate</option>
+                                                <option value="Zout + Sate">Zout + Sate</option>
+                                            </select>
+                                            <hr>
+                                            <label for="opmerking"
+                                                   class="form-label"><strong>Opmerking: </strong></label>
+                                            <textarea class="form-control" id="opmerking" rows="3"
+                                                      placeholder="Bv. Bij een grote bestelling, de naam van de persoon, zo bewaard u zelf ook het overzicht van uw winkelwagen."></textarea>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                Annuleer
+                                            </button>
+                                            <button type="submit" class="btn btn-primary">
+                                                Bevestig
+                                            </button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>

@@ -92,6 +92,17 @@
                         </div>
                         <div class="row pb-3">
                             <div class="col">
+                                <label for="categorieNieuwArtikel" class="form-label"><strong>Categorie</strong></label>
+                                <select class="form-select" aria-label="Select categorie" id="categorieNieuwArtikel"
+                                        required>
+                                    <option disabled selected>Selecteer categorie.</option>
+                                    <option value="frieten">Frieten</option>
+                                    <option value="burgers">Burgers</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row pb-3">
+                            <div class="col">
                                 <label for="info"
                                        class="form-label"><strong>Opmerking</strong></label>
                                 <textarea class="form-control" id="infoNieuwArtikel" rows="3"
@@ -159,51 +170,66 @@
                      aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="bewerkArtikelLabel">Kinder Friet</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row pb-3">
-                                    <div class="col">
-                                        <label for="naamArtikel" class="form-label"><strong>Artikel</strong></label>
-                                        <input type="text" class="form-control" id="naamArtikel"
-                                               value="Kinder Friet" required>
-                                    </div>
-                                    <div class="col">
-                                        <label for="prijsArtikel" class="form-label"><strong>Prijs</strong></label>
-                                        <input type="number" class="form-control" id="prijsArtikel" min=0
-                                               value=2 required>
-                                    </div>
+                            <form>
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="bewerkArtikelLabel">Kinder Friet</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
                                 </div>
-                                <div class="row pb-3">
-                                    <div class="col">
-                                        <label for="info"
-                                               class="form-label"><strong>Opmerking</strong></label>
-                                        <textarea class="form-control" id="info" rows="3"></textarea>
+                                <div class="modal-body">
+                                    <div class="row pb-3">
+                                        <div class="col">
+                                            <label for="naamArtikel" class="form-label"><strong>Artikel</strong></label>
+                                            <input type="text" class="form-control" id="naamArtikel"
+                                                   value="Kinder Friet" required>
+                                        </div>
+                                        <div class="col">
+                                            <label for="prijsArtikel" class="form-label"><strong>Prijs</strong></label>
+                                            <input type="number" class="form-control" id="prijsArtikel" min=0
+                                                   value=2 required>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="voorraadCheck"
-                                                   checked>
-                                            <label class="form-check-label" for="voorraadCheck">
-                                                Op voorraad
-                                            </label>
+                                    <div class="row pb-3">
+                                        <div class="col">
+                                            <label for="categorieArtikel"
+                                                   class="form-label"><strong>Categorie</strong></label>
+                                            <select class="form-select" aria-label="Select categorie bewerk"
+                                                    id="categorieArtikel" required>
+                                                <option disabled>Selecteer categorie.</option>
+                                                <option value="frieten" selected>Frieten</option>
+                                                <option value="burgers">Burgers</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row pb-3">
+                                        <div class="col">
+                                            <label for="info"
+                                                   class="form-label"><strong>Opmerking</strong></label>
+                                            <textarea class="form-control" id="info" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                       id="voorraadCheck"
+                                                       checked>
+                                                <label class="form-check-label" for="voorraadCheck">
+                                                    Op voorraad
+                                                </label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                    Annuleer
-                                </button>
-                                <button type="button" class="btn btn-primary">
-                                    Bevestig
-                                </button>
-                            </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                        Annuleer
+                                    </button>
+                                    <button type="button" class="btn btn-primary">
+                                        Bevestig
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -212,24 +238,26 @@
                      aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title text-danger" id="deleteArtikelLabel"><i
-                                        class="bi bi-exclamation-triangle-fill"></i> Waarschuwing</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <p><strong>U staat op het punt om "Kinder Friet" te verwijderen! <br>
-                                    Bent u zeker?</strong></p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                    Annuleer
-                                </button>
-                                <button type="button" class="btn btn-primary">
-                                    Bevestig
-                                </button>
-                            </div>
+                            <form>
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-danger" id="deleteArtikelLabel"><i
+                                            class="bi bi-exclamation-triangle-fill"></i> Waarschuwing</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p><strong>U staat op het punt om "Kinder Friet" te verwijderen! <br>
+                                        Bent u zeker?</strong></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                        Annuleer
+                                    </button>
+                                    <button type="button" class="btn btn-primary">
+                                        Bevestig
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
