@@ -5,7 +5,7 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <script src="https://kit.fontawesome.com/29addfb8ae.js" crossorigin="anonymous"></script>
-    <title>Frituur t'Half Kieke</title>
+    <title>Frituur t'Half Kieke | Login</title>
     <link rel="icon" type="image/x-icon" href="/images/drumstick-bite-solid.svg">
 </head>
 <body class="d-flex h-100">
@@ -58,20 +58,30 @@
         <hr>
     </header>
 
-    <main class="px-3 text-center">
-        <h1><i class="fa-solid fa-drumstick-bite"></i></h1>
-        <h1 class="display-5 fw-bold">Frituur t'Half Kieke</h1>
-        <p class="lead mb-4">
-            De beste frituur van Lier en omstreken verovert nu het wereldwijde web! <br>
-            Bekijk ons menu en bestel nu online de lekkerste frietjes en snacks!
-        </p>
-        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <a type="button" class="btn btn-primary btn-lg px-4 gap-3" href="/menu"><i class="fa-solid fa-utensils"></i>
-                Menu</a>
-            <a type="button" class="btn btn-outline-secondary btn-lg px-4" href="/contact"><i
-                    class="fa-solid fa-address-book"></i>
-                Contact</a>
+    <main class="px-3">
+        <h1 class="display-5 fw-bold text-center">Login</h1>
+        <div class="row justify-content-center">
+            <form class="col-lg-4">
+                <div class="d-grid gap-3">
+                    <div>
+                        <label for="gebruikersnaam" class="form-label">Gebruikersnaam</label>
+                        <input type="text" class="form-control" id="gebruikersnaam" value="" required>
+                    </div>
+                    <div>
+                        <label for="wachtwoord" class="form-label">Wachtwoord</label>
+                        <input type="password" class="form-control" id="wachtwoord" value="" required>
+                    </div>
+                    <div class="text-center">
+                        <%--                <button class="btn btn-primary" type="submit">Inloggen</button>--%>
+                        <a class="btn btn-primary btn-lg" href="/bestellingenbeheren">Inloggen</a>
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-link">Wachtwoord/gebruikersnaam vergeten?</button>
+                    </div>
+                </div>
+            </form>
         </div>
+
     </main>
 
     <footer class="mt-auto text-center pt-3">

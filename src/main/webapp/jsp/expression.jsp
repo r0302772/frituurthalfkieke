@@ -1,11 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Dennis Nijs
-  Date: 23/04/2022
-  Time: 15:20
-  To change this template use File | Settings | File Templates.
---%>
-
 <%
     String kleur = "oranje";
     String hexCode = "#f04c03";
