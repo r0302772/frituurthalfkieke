@@ -63,7 +63,7 @@
             <h2 class="display-5 fw-bold"><i class="fa-solid fa-cash-register"></i> Bestellingen Beheren</h2>
         </div>
         <div class="d-grid gap-2 pb-3 d-md-flex justify-content-md-center">
-            <button type="button" class="btn btn-success btn-lg">Online bestellingen toestaan!</button>
+            <%--<button type="button" class="btn btn-success btn-lg">Online bestellingen toestaan!</button>--%>
             <button type="button" class="btn btn-danger btn-lg" data-bs-toggle="modal"
                     data-bs-target="#extraTijdslot">Extra tijdslot!
             </button>
