@@ -12,10 +12,10 @@ public class MainController {
         return "index";
     }
 
-    @RequestMapping("/menu")
+   /* @RequestMapping("/menu")
     public String navigateToMenu() {
         return "menu";
-    }
+    }*/
 
     @RequestMapping("/contact")
     public String navigateToContact() {

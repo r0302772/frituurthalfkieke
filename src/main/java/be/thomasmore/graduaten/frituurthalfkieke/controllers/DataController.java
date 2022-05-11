@@ -1,6 +1,8 @@
 package be.thomasmore.graduaten.frituurthalfkieke.controllers;
 
+import be.thomasmore.graduaten.frituurthalfkieke.entities.Artikel;
 import be.thomasmore.graduaten.frituurthalfkieke.entities.Student;
+import be.thomasmore.graduaten.frituurthalfkieke.repositories.ArtikelRepository;
 import be.thomasmore.graduaten.frituurthalfkieke.repositories.StudentRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,12 +13,12 @@ import java.util.List;
 
 @Controller
 public class DataController {
+
     private StudentRepository studentRepository;
 
     public DataController(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
     }
-
     @RequestMapping("/studenten")
     public String navigateToStudenten(Model model) {
         List<Student> studenten = studentRepository.findAll();

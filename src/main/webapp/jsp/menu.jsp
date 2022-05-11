@@ -1,4 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.Artikel" %>
+<%@ page import="java.util.List" %>
+<%
+    List<Artikel> artikels = (List<Artikel>) request.getAttribute("artikels");
+%>
 <html lang="nl" class="h-100">
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -59,6 +64,32 @@
     </header>
 
     <main>
+        <table>
+       <%--     <tr>
+                <th>Naam</th>
+                <th>Prijs</th>
+                <th>Voorraad</th>
+            </tr>--%>
+        <%--    <%
+                for (Artikel artikel : artikels) {
+                    String voorraad="";
+                    /*if(artikel.getBeschikbaar()==true)
+                    {
+                        voorraad="Op voorraad";
+                    }else
+                    {
+                        voorraad="Niet op voorraad";
+                    }*/
+                    out.print("<tr>"
+                            + "<td>" + artikel.getNaam() + "</td>"
+                            + "<td>" + artikel.getPrijs() + "</td>"
+                            +"<td>" + voorraad + "</td>"
+                            /*+ "<td><a href='/artikels/detail?id=" + artikel.getId() + "'>Details</a> | <a href='/artikels/edit?id="
+                            + artikel.getId() + "'>Edit</a> | <a href='/artikels/delete?id=" + artikel.getId() + "'>Delete</a></td>"*/
+                            + "</tr>");
+                }
+            %>--%>
+        </table>
         <div class="row px-3 text-center">
             <h2 class="display-5 fw-bold"><i class="fa-solid fa-utensils"></i> Menu</h2>
         </div>
@@ -74,6 +105,27 @@
                 </thead>
                 <tbody class="align-middle">
                 <tr>
+                   <%-- <%
+
+
+                        for (Artikel artikel : artikels) {
+                            String voorraad="";
+                            if(artikel.getBeschikbaar()==true)
+                            {
+                                voorraad="Op voorraad";
+                            }else
+                            {
+                                voorraad="Niet op voorraad";
+                            }
+                            out.print("<tr>"
+                                    + "<td>" + artikel.getNaam() + "</td>"
+                                    + "<td>" + artikel.getPrijs() + "</td>"
+                                    +"<td>" + voorraad + "</td>"
+                                    + "<td><a href='/studenten/detail?id=" + artikel.getId() + "'>Details</a> | <a href='/studenten/edit?id="
+                                    + artikel.getId() + "'>Edit</a> | <a href='/studenten/delete?id=" + artikel.getId() + "'>Delete</a></td>"
+                                    + "</tr>");
+                        }
+                    %>--%>
                     <td>Kinder Friet</td>
                     <td class="text-center">€2.00</td>
                     <td class="text-center">

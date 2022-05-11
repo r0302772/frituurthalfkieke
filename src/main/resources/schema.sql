@@ -5,7 +5,7 @@ CREATE TABLE STUDENT(
     voornaam VARCHAR (50) NOT NULL,
     familienaam VARCHAR (50) NOT NULL,
     klas VARCHAR (10) NOT NULL, PRIMARY KEY (id)
-)
+);
 
 /*DROP TABLE IF EXISTS BESTELLING
 
@@ -16,14 +16,14 @@ CREATE TABLE BESTELLING(
     emailKlant VARCHAR(50) NOT NULL,
     telefoonKlant VARCHAR(50) NOT NULL,
 
-    PRIMARY KEY (id) );
+    PRIMARY KEY (id) );*/
 
 
-DROP TABLE IF EXISTS ARTIKEL
+DROP TABLE IF EXISTS ARTIKEL;
 
 CREATE TABLE ARTIKEL(
                            id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
                            naam VARCHAR(50) NOT NULL,
                            prijs FLOAT NOT NULL,
                            beschikbaar BIT NOT NULL,
-                           PRIMARY KEY (id);)*/
+                           PRIMARY KEY (id));

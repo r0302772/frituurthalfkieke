@@ -17,7 +17,19 @@ public class Artikel {
     private  ArtikelBestelling artikelbestelling ;
 
 
+    public  Artikel(){}
 
+    public Artikel(Long id, String naam, double prijs, boolean beschikbaar) {
+        this.id = id;
+        this.naam = naam;
+        this.prijs = prijs;
+        this.beschikbaar = beschikbaar;
+    }
+    public Artikel(String naam, double prijs, boolean beschikbaar) {
+        this.naam = naam;
+        this.prijs = prijs;
+        this.beschikbaar = beschikbaar;
+    }
     public Long getId() {
         return id;
     }
@@ -49,14 +61,7 @@ public class Artikel {
     public void setBeschikbaar(boolean beschikbaar) {
         this.beschikbaar = beschikbaar;
     }
-public  Artikel(){}
 
-    public Artikel(Long id, String naam, double prijs, boolean beschikbaar) {
-        this.id = id;
-        this.naam = naam;
-        this.prijs = prijs;
-        this.beschikbaar = beschikbaar;
-    }
 
 
 }
