@@ -24,6 +24,6 @@ DROP TABLE IF EXISTS ARTIKEL;
 CREATE TABLE ARTIKEL(
                            id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
                            naam VARCHAR(50) NOT NULL,
-                           prijs FLOAT NOT NULL,
+                           prijs DECIMAL(7,2) NOT NULL,
                            beschikbaar BIT NOT NULL,
                            PRIMARY KEY (id));

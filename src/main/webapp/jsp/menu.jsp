@@ -64,32 +64,6 @@
     </header>
 
     <main>
-        <table>
-       <%--     <tr>
-                <th>Naam</th>
-                <th>Prijs</th>
-                <th>Voorraad</th>
-            </tr>--%>
-        <%--    <%
-                for (Artikel artikel : artikels) {
-                    String voorraad="";
-                    /*if(artikel.getBeschikbaar()==true)
-                    {
-                        voorraad="Op voorraad";
-                    }else
-                    {
-                        voorraad="Niet op voorraad";
-                    }*/
-                    out.print("<tr>"
-                            + "<td>" + artikel.getNaam() + "</td>"
-                            + "<td>" + artikel.getPrijs() + "</td>"
-                            +"<td>" + voorraad + "</td>"
-                            /*+ "<td><a href='/artikels/detail?id=" + artikel.getId() + "'>Details</a> | <a href='/artikels/edit?id="
-                            + artikel.getId() + "'>Edit</a> | <a href='/artikels/delete?id=" + artikel.getId() + "'>Delete</a></td>"*/
-                            + "</tr>");
-                }
-            %>--%>
-        </table>
         <div class="row px-3 text-center">
             <h2 class="display-5 fw-bold"><i class="fa-solid fa-utensils"></i> Menu</h2>
         </div>
@@ -105,27 +79,27 @@
                 </thead>
                 <tbody class="align-middle">
                 <tr>
-                   <%-- <%
+                    <%
 
 
                         for (Artikel artikel : artikels) {
                             String voorraad="";
                             if(artikel.getBeschikbaar()==true)
                             {
-                                voorraad="Op voorraad";
+                                voorraad= "<button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#addToCart'>Voeg toe</button>";
                             }else
                             {
                                 voorraad="Niet op voorraad";
                             }
                             out.print("<tr>"
                                     + "<td>" + artikel.getNaam() + "</td>"
-                                    + "<td>" + artikel.getPrijs() + "</td>"
-                                    +"<td>" + voorraad + "</td>"
-                                    + "<td><a href='/studenten/detail?id=" + artikel.getId() + "'>Details</a> | <a href='/studenten/edit?id="
-                                    + artikel.getId() + "'>Edit</a> | <a href='/studenten/delete?id=" + artikel.getId() + "'>Delete</a></td>"
+                                    + "<td><center>" + "€" + artikel.getPrijs() + "</center></td>"
+                                    +"<td><center>" + voorraad + "</center></td>"
+                                    //+ "<td><a href='/studenten/detail?id=" + artikel.getId() + "'>Details</a> | <a href='/studenten/edit?id="
+                                   // + artikel.getId() + "'>Edit</a> | <a href='/studenten/delete?id=" + artikel.getId() + "'>Delete</a></td>"
                                     + "</tr>");
                         }
-                    %>--%>
+                    %><%--
                     <td>Kinder Friet</td>
                     <td class="text-center">€2.00</td>
                     <td class="text-center">
@@ -217,11 +191,11 @@
             <table class="table table-bordered border-dark">
                 <h3 class="p-1">Burgers <i class="fa-solid fa-burger"></i></h3>
                 <thead>
-                <%--                <tr>
+                &lt;%&ndash;                <tr>
                                     <th scope="col">Grootte</th>
                                     <th scope="col">Prijs</th>
                                     <th scope="col">Bestellen</th>
-                                </tr>--%>
+                                </tr>&ndash;%&gt;
                 </thead>
                 <tbody class="align-middle">
                 <tr>
@@ -272,7 +246,7 @@
                     <td class="text-center">€4.00</td>
                     <td class="text-center">
                         <button type="button" class="btn btn-primary">Voeg toe</button>
-                    </td>
+                    </td>--%>
                 </tr>
                 </tbody>
             </table>

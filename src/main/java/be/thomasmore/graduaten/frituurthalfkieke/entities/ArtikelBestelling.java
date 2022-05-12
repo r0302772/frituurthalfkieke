@@ -14,8 +14,8 @@ public class ArtikelBestelling {
     private  double aantal;
 
     //relatie naar Artikel
-    @OneToMany(mappedBy = "artikelbestelling")
-private List<Artikel> artikelen;
+    //@OneToMany(mappedBy = "artikelbestelling")
+//private List<Artikel> artikelen;
 
     //@OneToMany(mappedBy = "bestlling")
     //private  List<Bestelling> bestellingen;

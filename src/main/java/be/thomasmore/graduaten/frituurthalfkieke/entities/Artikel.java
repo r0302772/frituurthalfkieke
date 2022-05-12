@@ -12,9 +12,9 @@ public class Artikel {
     private  double prijs;
     private  boolean beschikbaar;
 //relatie
-    @ManyToOne
-    @JoinColumn(name = "artikelbestelling_id")
-    private  ArtikelBestelling artikelbestelling ;
+    //@ManyToOne
+    //@JoinColumn(name = "artikelbestelling_id")
+    //private  ArtikelBestelling artikelbestelling ;
 
 
     public  Artikel(){}
