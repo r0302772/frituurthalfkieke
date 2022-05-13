@@ -1,4 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.Artikel" %>
+<%@ page import="java.util.List" %>
+<%
+    List<Artikel> artikels = (List<Artikel>) request.getAttribute("artikels");
+%>
 <html lang="nl" class="h-100">
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -136,7 +141,7 @@
                 </div>
             </div>
         </div>
-        <%--Niew Artikel MODAL--%>
+        <%--Niew categorie MODAL--%>
         <div class="modal fade" id="nieuweCategorie" tabindex="-1" aria-labelledby="nieuweCategorieLabel"
              aria-hidden="true">
             <div class="modal-dialog">
@@ -172,13 +177,27 @@
             <table class="table table-bordered border-dark">
                 <h3 class="p-1">Frieten <img src="/images/fries.png" style="width: 25px;"></h3>
                 <thead>
-                <%--                <tr>
-                                    <th scope="col">Grootte</th>
-                                    <th scope="col">Prijs</th>
-                                    <th scope="col">Bestellen</th>
-                                </tr>--%>
                 </thead>
                 <tbody class="align-middle">
+                <%
+                    for (Artikel artikel : artikels) {
+                        out.print("<tr>"
+                                + "<td>" + artikel.getNaam() + "</td>"
+                                + "<td class=\"text-center\">" + "€" + artikel.getPrijs() + "</td>"
+                                + "<td class=\"text-center\">" + artikel.getBeschikbaar() + "</td>"
+                                + "<td class=\"text-center\">" +
+                                "<div class=\"row gap-3\">" +
+                                "<div class=\"col\">" +
+                                "<a type=\"button\" class=\"btn btn-primary\" href='/artikelsbeheren/bewerken?id="+ artikel.getId() + "'>Bewerken</a>" +
+                                "</div>" +
+                                "<div class=\"col\">" +
+                                "<a type=\"button\" class=\"btn btn-danger\" href='/artikelsbeheren/delete?id="+ artikel.getId() +"'>Delete</a>" +
+                                "</div>" +
+                                "</div>" +
+                                "</td>"
+                                + "</tr>");
+                    }
+                %>
                 <tr>
                     <td>Kinder Friet</td>
                     <td class="text-center">€2.00</td>

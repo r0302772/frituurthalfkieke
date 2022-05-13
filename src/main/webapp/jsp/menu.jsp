@@ -65,31 +65,23 @@
 
     <main>
         <table>
-       <%--     <tr>
+            <tr>
                 <th>Naam</th>
-                <th>Prijs</th>
-                <th>Voorraad</th>
-            </tr>--%>
-        <%--    <%
-                for (Artikel artikel : artikels) {
-                    String voorraad="";
-                    /*if(artikel.getBeschikbaar()==true)
-                    {
-                        voorraad="Op voorraad";
-                    }else
-                    {
-                        voorraad="Niet op voorraad";
-                    }*/
+                <th>Klas</th>
+                <th>Acties</th>
+            </tr>
+            <%
+                for (Artikel student : artikels) {
                     out.print("<tr>"
-                            + "<td>" + artikel.getNaam() + "</td>"
-                            + "<td>" + artikel.getPrijs() + "</td>"
-                            +"<td>" + voorraad + "</td>"
-                            /*+ "<td><a href='/artikels/detail?id=" + artikel.getId() + "'>Details</a> | <a href='/artikels/edit?id="
-                            + artikel.getId() + "'>Edit</a> | <a href='/artikels/delete?id=" + artikel.getId() + "'>Delete</a></td>"*/
+                            + "<td>" + student.getNaam() + " " + student.getNaam() + "</td>"
+                            + "<td>" + student.getPrijs() + "</td>"
+                            + "<td><a href='/studenten/detail?id=" + student.getId() + "'>Details</a> | <a href='/studenten/edit?id="
+                            + student.getId() + "'>Edit</a> | <a href='/studenten/delete?id=" + student.getId() + "'>Delete</a></td>"
                             + "</tr>");
                 }
-            %>--%>
+            %>
         </table>
+
         <div class="row px-3 text-center">
             <h2 class="display-5 fw-bold"><i class="fa-solid fa-utensils"></i> Menu</h2>
         </div>

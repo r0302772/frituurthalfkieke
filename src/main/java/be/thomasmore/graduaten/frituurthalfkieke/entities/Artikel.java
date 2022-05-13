@@ -8,28 +8,34 @@ public class Artikel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private  String naam;
-    private  double prijs;
-    private  boolean beschikbaar;
+    private String naam;
+    private double prijs;
+    private boolean beschikbaar;
+/*    private String opmerking;*/
 //relatie
-    @ManyToOne
+/*    @ManyToOne
     @JoinColumn(name = "artikelbestelling_id")
-    private  ArtikelBestelling artikelbestelling ;
+    private  ArtikelBestelling artikelbestelling ;*/
 
 
-    public  Artikel(){}
+    public Artikel() {
+    }
 
-    public Artikel(Long id, String naam, double prijs, boolean beschikbaar) {
+    public Artikel(Long id, String naam, double prijs, boolean beschikbaar/*, String opmerking*/) {
         this.id = id;
         this.naam = naam;
         this.prijs = prijs;
         this.beschikbaar = beschikbaar;
+/*        this.opmerking = opmerking;*/
     }
-    public Artikel(String naam, double prijs, boolean beschikbaar) {
+
+    public Artikel(String naam, double prijs, boolean beschikbaar/*, String opmerking*/) {
         this.naam = naam;
         this.prijs = prijs;
         this.beschikbaar = beschikbaar;
+/*        this.opmerking = opmerking;*/
     }
+
     public Long getId() {
         return id;
     }
@@ -62,6 +68,11 @@ public class Artikel {
         this.beschikbaar = beschikbaar;
     }
 
+/*    public String getOpmerking() {
+        return opmerking;
+    }
 
-
+    public void setOpmerking(String opmerking) {
+        this.opmerking = opmerking;
+    }*/
 }

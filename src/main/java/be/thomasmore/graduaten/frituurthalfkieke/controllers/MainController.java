@@ -37,10 +37,10 @@ public class MainController {
         return "login";
     }
 
-    @RequestMapping("/artikelsbeheren")
+/*    @RequestMapping("/artikelsbeheren")
     public String navigateToArtikelsbeheren() {
         return "artikelsbeheren";
-    }
+    }*/
 
     @RequestMapping("/tijdslotenbeheren")
     public String navigateToTijdslotenbeheren() {
