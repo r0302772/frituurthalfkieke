@@ -69,78 +69,77 @@
         </div>
         <%--Nieuw Artikel--%>
         <div>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                    data-bs-target="#nieuwArtikel"><i class="bi bi-plus"></i> Nieuw Artikel
-            </button>
+            <a type="button" class="btn btn-primary" href='/artikelsbeheren/toevoegen'><i class="bi bi-plus"></i> Nieuw
+                Artikel</a>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                     data-bs-target="#nieuweCategorie"><i class="bi bi-plus"></i> Nieuwe categorie
             </button>
         </div>
         <%--Niew Artikel MODAL--%>
-        <div class="modal fade" id="nieuwArtikel" tabindex="-1" aria-labelledby="nieuwArtikelLabel"
-             aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="nieuwArtikelLabel">Nieuw Artikel</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row pb-3">
-                            <div class="col">
-                                <label for="naamNieuwArtikel" class="form-label"><strong>Artikel</strong></label>
-                                <input type="text" class="form-control" id="naamNieuwArtikel"
-                                       value="" required>
+        <%--        <div class="modal fade" id="nieuwArtikel" tabindex="-1" aria-labelledby="nieuwArtikelLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="nieuwArtikelLabel">Nieuw Artikel</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
                             </div>
-                            <div class="col">
-                                <label for="prijsNieuwArtikel" class="form-label"><strong>Prijs</strong></label>
-                                <input type="number" class="form-control" id="prijsNieuwArtikel" min=0 required>
-                            </div>
-                        </div>
-                        <div class="row pb-3">
-                            <div class="col">
-                                <label for="categorieNieuwArtikel" class="form-label"><strong>Categorie</strong></label>
-                                <select class="form-select" aria-label="Select categorie" id="categorieNieuwArtikel"
-                                        required>
-                                    <option disabled selected>Selecteer categorie.</option>
-                                    <option value="frieten">Frieten</option>
-                                    <option value="burgers">Burgers</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row pb-3">
-                            <div class="col">
-                                <label for="info"
-                                       class="form-label"><strong>Opmerking</strong></label>
-                                <textarea class="form-control" id="infoNieuwArtikel" rows="3"
-                                          placeholder="Bv. Extra info over de ingredienten. Bevat gluten."></textarea>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value=""
-                                           id="voorraadNieuwArtikelCheck"
-                                           checked>
-                                    <label class="form-check-label" for="voorraadNieuwArtikelCheck">
-                                        Op voorraad
-                                    </label>
+                            <div class="modal-body">
+                                <div class="row pb-3">
+                                    <div class="col">
+                                        <label for="naamNieuwArtikel" class="form-label"><strong>Artikel</strong></label>
+                                        <input type="text" class="form-control" id="naamNieuwArtikel"
+                                               value="" required>
+                                    </div>
+                                    <div class="col">
+                                        <label for="prijsNieuwArtikel" class="form-label"><strong>Prijs</strong></label>
+                                        <input type="number" class="form-control" id="prijsNieuwArtikel" min=0 required>
+                                    </div>
+                                </div>
+                                <div class="row pb-3">
+                                    <div class="col">
+                                        <label for="categorieNieuwArtikel" class="form-label"><strong>Categorie</strong></label>
+                                        <select class="form-select" aria-label="Select categorie" id="categorieNieuwArtikel"
+                                                required>
+                                            <option disabled selected>Selecteer categorie.</option>
+                                            <option value="frieten">Frieten</option>
+                                            <option value="burgers">Burgers</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row pb-3">
+                                    <div class="col">
+                                        <label for="info"
+                                               class="form-label"><strong>Opmerking</strong></label>
+                                        <textarea class="form-control" id="infoNieuwArtikel" rows="3"
+                                                  placeholder="Bv. Extra info over de ingredienten. Bevat gluten."></textarea>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                   id="voorraadNieuwArtikelCheck"
+                                                   checked>
+                                            <label class="form-check-label" for="voorraadNieuwArtikelCheck">
+                                                Op voorraad
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                    Annuleer
+                                </button>
+                                <button type="button" class="btn btn-primary">
+                                    Bevestig
+                                </button>
+                            </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                            Annuleer
-                        </button>
-                        <button type="button" class="btn btn-primary">
-                            Bevestig
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
+                </div>--%>
         <%--Niew categorie MODAL--%>
         <div class="modal fade" id="nieuweCategorie" tabindex="-1" aria-labelledby="nieuweCategorieLabel"
              aria-hidden="true">
@@ -175,7 +174,7 @@
         <div class="row p-3">
             <%--Frietentabel--%>
             <table class="table table-bordered border-dark">
-                <h3 class="p-1">Frieten <img src="/images/fries.png" style="width: 25px;"></h3>
+                <%--<h3 class="p-1">Frieten <img src="/images/fries.png" style="width: 25px;"></h3>--%>
                 <thead>
                 </thead>
                 <tbody class="align-middle">
@@ -188,180 +187,133 @@
                                 + "<td class=\"text-center\">" +
                                 "<div class=\"row gap-3\">" +
                                 "<div class=\"col\">" +
-                                "<a type=\"button\" class=\"btn btn-primary\" href='/artikelsbeheren/bewerken?id="+ artikel.getId() + "'>Bewerken</a>" +
+                                "<a type=\"button\" class=\"btn btn-primary\" href='/artikelsbeheren/bewerken?id=" + artikel.getId() + "'>Bewerken</a>" +
                                 "</div>" +
                                 "<div class=\"col\">" +
-                                "<a type=\"button\" class=\"btn btn-danger\" href='/artikelsbeheren/delete?id="+ artikel.getId() +"'>Delete</a>" +
+                                "<a type=\"button\" class=\"btn btn-danger\" href='/artikelsbeheren/delete?id=" + artikel.getId() + "'>Delete</a>" +
                                 "</div>" +
                                 "</div>" +
                                 "</td>"
                                 + "</tr>");
                     }
                 %>
-                <tr>
-                    <td>Kinder Friet</td>
-                    <td class="text-center">€2.00</td>
-                    <td class="text-center">Op voorraad</td>
-                    <td class="text-center">
-                        <div class="row gap-3">
-                            <div class="col">
-                                <%--Bewerk artikel--%>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                        data-bs-target="#bewerkArtikel">Bewerken
-                                </button>
-                            </div>
-                            <div class="col">
-                                <%--Delete artikel--%>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#deleteArtikel">Delete
-                                </button>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <%--Bewerk artikel MODAL--%>
-                <div class="modal fade" id="bewerkArtikel" tabindex="-1" aria-labelledby="bewerkArtikelLabel"
-                     aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <form>
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="bewerkArtikelLabel">Kinder Friet</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="row pb-3">
-                                        <div class="col">
-                                            <label for="naamArtikel" class="form-label"><strong>Artikel</strong></label>
-                                            <input type="text" class="form-control" id="naamArtikel"
-                                                   value="Kinder Friet" required>
-                                        </div>
-                                        <div class="col">
-                                            <label for="prijsArtikel" class="form-label"><strong>Prijs</strong></label>
-                                            <input type="number" class="form-control" id="prijsArtikel" min=0
-                                                   value=2 required>
-                                        </div>
-                                    </div>
-                                    <div class="row pb-3">
-                                        <div class="col">
-                                            <label for="categorieArtikel"
-                                                   class="form-label"><strong>Categorie</strong></label>
-                                            <select class="form-select" aria-label="Select categorie bewerk"
-                                                    id="categorieArtikel" required>
-                                                <option disabled>Selecteer categorie.</option>
-                                                <option value="frieten" selected>Frieten</option>
-                                                <option value="burgers">Burgers</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="row pb-3">
-                                        <div class="col">
-                                            <label for="info"
-                                                   class="form-label"><strong>Opmerking</strong></label>
-                                            <textarea class="form-control" id="info" rows="3"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                       id="voorraadCheck"
-                                                       checked>
-                                                <label class="form-check-label" for="voorraadCheck">
-                                                    Op voorraad
-                                                </label>
+                <%--                <tr>
+                                    <td>Kinder Friet</td>
+                                    <td class="text-center">€2.00</td>
+                                    <td class="text-center">Op voorraad</td>
+                                    <td class="text-center">
+                                        <div class="row gap-3">
+                                            <div class="col">
+                                                &lt;%&ndash;Bewerk artikel&ndash;%&gt;
+                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                        data-bs-target="#bewerkArtikel">Bewerken
+                                                </button>
+                                            </div>
+                                            <div class="col">
+                                                &lt;%&ndash;Delete artikel&ndash;%&gt;
+                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                                        data-bs-target="#deleteArtikel">Delete
+                                                </button>
                                             </div>
                                         </div>
+                                    </td>
+                                </tr>
+                                &lt;%&ndash;Bewerk artikel MODAL&ndash;%&gt;
+                                <div class="modal fade" id="bewerkArtikel" tabindex="-1" aria-labelledby="bewerkArtikelLabel"
+                                     aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <form>
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="bewerkArtikelLabel">Kinder Friet</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="row pb-3">
+                                                        <div class="col">
+                                                            <label for="naamArtikel" class="form-label"><strong>Artikel</strong></label>
+                                                            <input type="text" class="form-control" id="naamArtikel"
+                                                                   value="Kinder Friet" required>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="prijsArtikel" class="form-label"><strong>Prijs</strong></label>
+                                                            <input type="number" class="form-control" id="prijsArtikel" min=0
+                                                                   value=2 required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row pb-3">
+                                                        <div class="col">
+                                                            <label for="categorieArtikel"
+                                                                   class="form-label"><strong>Categorie</strong></label>
+                                                            <select class="form-select" aria-label="Select categorie bewerk"
+                                                                    id="categorieArtikel" required>
+                                                                <option disabled>Selecteer categorie.</option>
+                                                                <option value="frieten" selected>Frieten</option>
+                                                                <option value="burgers">Burgers</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row pb-3">
+                                                        <div class="col">
+                                                            <label for="info"
+                                                                   class="form-label"><strong>Opmerking</strong></label>
+                                                            <textarea class="form-control" id="info" rows="3"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" value=""
+                                                                       id="voorraadCheck"
+                                                                       checked>
+                                                                <label class="form-check-label" for="voorraadCheck">
+                                                                    Op voorraad
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                        Annuleer
+                                                    </button>
+                                                    <button type="button" class="btn btn-primary">
+                                                        Bevestig
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                        Annuleer
-                                    </button>
-                                    <button type="button" class="btn btn-primary">
-                                        Bevestig
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <%--Delete artikel MODAL--%>
-                <div class="modal fade" id="deleteArtikel" tabindex="-1" aria-labelledby="deleteArtikelLabel"
-                     aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <form>
-                                <div class="modal-header">
-                                    <h5 class="modal-title text-danger" id="deleteArtikelLabel"><i
-                                            class="bi bi-exclamation-triangle-fill"></i> Waarschuwing</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <p><strong>U staat op het punt om "Kinder Friet" te verwijderen! <br>
-                                        Bent u zeker?</strong></p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                        Annuleer
-                                    </button>
-                                    <button type="button" class="btn btn-primary">
-                                        Bevestig
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <tr>
-                    <td>Medium Friet</td>
-                    <td class="text-center">€2.50</td>
-                    <td class="text-center">Op voorraad</td>
-                    <td class="text-center">
-                        <div class="row gap-3">
-                            <div class="col">
-                                <button type="button" class="btn btn-primary">Bewerken</button>
-                            </div>
-                            <div class="col">
-                                <button type="button" class="btn btn-danger">Delete</button>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Grote Friet</td>
-                    <td class="text-center">€3.00</td>
-                    <td class="text-center">Op voorraad</td>
-                    <td class="text-center">
-                        <div class="row gap-3">
-                            <div class="col">
-                                <button type="button" class="btn btn-primary">Bewerken</button>
-                            </div>
-                            <div class="col">
-                                <button type="button" class="btn btn-danger">Delete</button>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Friet Stoofvlees
-                    </td>
-                    <td class="text-center">€4.00</td>
-                    <td class="text-center">Op voorraad</td>
-                    <td class="text-center">
-                        <div class="row gap-3">
-                            <div class="col">
-                                <button type="button" class="btn btn-primary">Bewerken</button>
-                            </div>
-                            <div class="col">
-                                <button type="button" class="btn btn-danger">Delete</button>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
+                                &lt;%&ndash;Delete artikel MODAL&ndash;%&gt;
+                                <div class="modal fade" id="deleteArtikel" tabindex="-1" aria-labelledby="deleteArtikelLabel"
+                                     aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <form>
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title text-danger" id="deleteArtikelLabel"><i
+                                                            class="bi bi-exclamation-triangle-fill"></i> Waarschuwing</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p><strong>U staat op het punt om "Kinder Friet" te verwijderen! <br>
+                                                        Bent u zeker?</strong></p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                        Annuleer
+                                                    </button>
+                                                    <button type="button" class="btn btn-primary">
+                                                        Bevestig
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>--%>
                 </tbody>
             </table>
         </div>
@@ -369,7 +321,7 @@
         <div class="row p-3">
             <%--Burgerstabel--%>
             <table class="table table-bordered border-dark">
-                <h3 class="p-1">Burgers <i class="fa-solid fa-burger"></i></h3>
+                <%--<h3 class="p-1">Burgers <i class="fa-solid fa-burger"></i></h3>--%>
                 <thead>
                 <%--                <tr>
                                     <th scope="col">Grootte</th>
@@ -381,81 +333,10 @@
                 <tr>
                     <td>
                         Bicky Classic
+                        <%--Dit moet de opmerking worden in de database--%>
                         <p class="fw-light">Runds, Bicky Uitjes, Bicky Saus</p>
                     </td>
                     <td class="text-center">€3.00</td>
-                    <td class="text-center">Op voorraad</td>
-                    <td class="text-center">
-                        <div class="row gap-3">
-                            <div class="col">
-                                <button type="button" class="btn btn-primary">Bewerken</button>
-                            </div>
-                            <div class="col">
-                                <button type="button" class="btn btn-danger">Delete</button>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Bicky Cheese
-                        <p class="fw-light">Runds, Bicky Uitjes, Bicky Saus, Kaas</p>
-                    </td>
-                    <td class="text-center">€3.50</td>
-                    <td class="text-center text-danger">Niet op voorraad</td>
-                    <td class="text-center">
-                        <div class="row gap-3">
-                            <div class="col">
-                                <button type="button" class="btn btn-primary">Bewerken</button>
-                            </div>
-                            <div class="col">
-                                <button type="button" class="btn btn-danger">Delete</button>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Bicky Chicken
-                        <p class="fw-light">Kip, Bicky Uitjes, Bicky Saus</p>
-                    </td>
-                    <td class="text-center">€3.50</td>
-                    <td class="text-center">Op voorraad</td>
-                    <td class="text-center">
-                        <div class="row gap-3">
-                            <div class="col">
-                                <button type="button" class="btn btn-primary">Bewerken</button>
-                            </div>
-                            <div class="col">
-                                <button type="button" class="btn btn-danger">Delete</button>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Cheeseburger
-                        <p class="fw-light">Runds, Groenten, Kaas, Saus</p>
-                    </td>
-                    <td class="text-center">€4.00</td>
-                    <td class="text-center">Op voorraad</td>
-                    <td class="text-center">
-                        <div class="row gap-3">
-                            <div class="col">
-                                <button type="button" class="btn btn-primary">Bewerken</button>
-                            </div>
-                            <div class="col">
-                                <button type="button" class="btn btn-danger">Delete</button>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Chickenburger
-                        <p class="fw-light">Kip, Groenten, Saus</p>
-                    </td>
-                    <td class="text-center">€4.00</td>
                     <td class="text-center">Op voorraad</td>
                     <td class="text-center">
                         <div class="row gap-3">

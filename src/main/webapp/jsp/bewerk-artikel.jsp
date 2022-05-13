@@ -67,7 +67,7 @@
             <h2 class="display-5 fw-bold"><i class="bi bi-pencil-square"></i> Artikel Bewerken</h2>
         </div>
         <div class="modal-content">
-            <form action="/artikels/bewerken/result" method="get">
+            <form action="/artikelsbeheren/bewerken/result" method="get">
                 <input type="hidden" id="id" name="id" value="<%=artikel.getId()%>">
                 <div class="modal-header">
                     <h5 class="modal-title" id="bewerkArtikelLabel"><%=artikel.getNaam()%>
@@ -78,15 +78,15 @@
                 <div class="modal-body">
                     <div class="row pb-3">
                         <div class="col">
-                            <label for="naamArtikel" class="form-label"><strong>Artikel</strong></label>
-                            <input type="text" name="<%=artikel.getNaam()%>" value="<%=artikel.getNaam()%>"
-                                   class="form-control" id="naamArtikel" required>
+                            <label for="naam" class="form-label"><strong>Artikel</strong></label>
+                            <input type="text" name="naam" value="<%=artikel.getNaam()%>"
+                                   class="form-control" id="naam" required>
                         </div>
                         <div class="col">
-                            <label for="prijsArtikel" class="form-label"><strong>Prijs</strong></label>
-                            <input type="text" name="<%=artikel.getPrijs()%>" value="<%=artikel.getPrijs()%>"
+                            <label for="prijs" class="form-label"><strong>Prijs</strong></label>
+                            <input type="text" name="prijs" value="<%=artikel.getPrijs()%>"
                                    class="form-control"
-                                   id="prijsArtikel" required>
+                                   id="prijs" required>
                         </div>
                     </div>
                     <%--<div class="row pb-3">
@@ -113,11 +113,11 @@
                             <%--hier nog een if-else voor de voorraad--%>
                             <div class="form-check">
                                 <% if (artikel.getBeschikbaar()) {%>
-                                <input class="form-check-input" type="checkbox" value=""
-                                       id="voorraadCheck"
-                                       checked><%}else {%> <input class="form-check-input" type="checkbox" value=""
-                                                   id="voorraadCheck"> <%}%>
-                                <label class="form-check-label" for="voorraadCheck">
+                                <input class="form-check-input" type="checkbox" name="beschikbaar" value=""
+                                       id="beschikbaar" checked> <%} else {%>
+                                <input class="form-check-input" type="checkbox" name="beschikbaar" value=""
+                                       id="beschikbaar"> <% }%>
+                                <label class="form-check-label" for="beschikbaar">
                                     Op voorraad
                                 </label>
                             </div>
@@ -131,6 +131,15 @@
                     <input type="submit" value="Bevestig" class="btn btn-primary">
                 </div>
             </form>
+            <%--Beschikbaar blijft om de een of andere reden op false staan, je kan een artikel op false zetten maar niet terug op true...--%>
+            <%
+                String s[] = request.getParameterValues("beschikbaar");
+                if (s != null && s.length != 0) {
+                    artikel.setBeschikbaar(true);
+                } else {
+                    artikel.setBeschikbaar(false);
+                }
+            %>
         </div>
     </main>
 

@@ -1,6 +1,7 @@
 package be.thomasmore.graduaten.frituurthalfkieke.entities;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 
 @Entity
@@ -9,8 +10,8 @@ public class Artikel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String naam;
-    private double prijs;
-    private boolean beschikbaar;
+    private BigDecimal prijs;
+    private Boolean beschikbaar;
 /*    private String opmerking;*/
 //relatie
 /*    @ManyToOne
@@ -21,7 +22,7 @@ public class Artikel {
     public Artikel() {
     }
 
-    public Artikel(Long id, String naam, double prijs, boolean beschikbaar/*, String opmerking*/) {
+    public Artikel(Long id, String naam, BigDecimal prijs, Boolean beschikbaar/*, String opmerking*/) {
         this.id = id;
         this.naam = naam;
         this.prijs = prijs;
@@ -29,7 +30,7 @@ public class Artikel {
 /*        this.opmerking = opmerking;*/
     }
 
-    public Artikel(String naam, double prijs, boolean beschikbaar/*, String opmerking*/) {
+    public Artikel(String naam, BigDecimal prijs, Boolean beschikbaar/*, String opmerking*/) {
         this.naam = naam;
         this.prijs = prijs;
         this.beschikbaar = beschikbaar;
@@ -52,19 +53,19 @@ public class Artikel {
         this.naam = naam;
     }
 
-    public double getPrijs() {
+    public BigDecimal getPrijs() {
         return prijs;
     }
 
-    public void setPrijs(double prijs) {
+    public void setPrijs(BigDecimal prijs) {
         this.prijs = prijs;
     }
 
-    public boolean getBeschikbaar() {
+    public Boolean getBeschikbaar() {
         return beschikbaar;
     }
 
-    public void setBeschikbaar(boolean beschikbaar) {
+    public void setBeschikbaar(Boolean beschikbaar) {
         this.beschikbaar = beschikbaar;
     }
 
