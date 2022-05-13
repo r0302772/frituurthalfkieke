@@ -49,8 +49,9 @@ public class ArtikelController {
         String naam = request.getParameter("naam");
         BigDecimal prijs = new BigDecimal(request.getParameter("prijs"));
         Boolean beschikbaar = Boolean.parseBoolean(request.getParameter("beschikbaar"));
+        String opmerking = request.getParameter("opmerking");
 
-        Artikel artikel = new Artikel(naam, prijs, beschikbaar);
+        Artikel artikel = new Artikel(naam, prijs, beschikbaar, opmerking);
         artikelRepository.save(artikel);
 
         List<Artikel> artikels = artikelRepository.findAll();
@@ -76,6 +77,7 @@ public class ArtikelController {
         artikel.setNaam(request.getParameter("naam"));
         artikel.setPrijs(new BigDecimal(request.getParameter("prijs")));
         artikel.setBeschikbaar(Boolean.parseBoolean(request.getParameter("beschikbaar")));
+        artikel.setOpmerking(request.getParameter("opmerking"));
 
         artikelRepository.save(artikel);
 

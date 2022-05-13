@@ -12,7 +12,7 @@ public class Artikel {
     private String naam;
     private BigDecimal prijs;
     private Boolean beschikbaar;
-/*    private String opmerking;*/
+    private String opmerking;
 //relatie
 /*    @ManyToOne
     @JoinColumn(name = "artikelbestelling_id")
@@ -22,7 +22,7 @@ public class Artikel {
     public Artikel() {
     }
 
-    public Artikel(Long id, String naam, BigDecimal prijs, Boolean beschikbaar/*, String opmerking*/) {
+    public Artikel(Long id, String naam, BigDecimal prijs, Boolean beschikbaar, String opmerking) {
         this.id = id;
         this.naam = naam;
         this.prijs = prijs;
@@ -30,11 +30,11 @@ public class Artikel {
 /*        this.opmerking = opmerking;*/
     }
 
-    public Artikel(String naam, BigDecimal prijs, Boolean beschikbaar/*, String opmerking*/) {
+    public Artikel(String naam, BigDecimal prijs, Boolean beschikbaar, String opmerking) {
         this.naam = naam;
         this.prijs = prijs;
         this.beschikbaar = beschikbaar;
-/*        this.opmerking = opmerking;*/
+        this.opmerking = opmerking;
     }
 
     public Long getId() {
@@ -69,11 +69,11 @@ public class Artikel {
         this.beschikbaar = beschikbaar;
     }
 
-/*    public String getOpmerking() {
+    public String getOpmerking() {
         return opmerking;
     }
 
     public void setOpmerking(String opmerking) {
         this.opmerking = opmerking;
-    }*/
+    }
 }

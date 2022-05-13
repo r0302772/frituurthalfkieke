@@ -99,9 +99,9 @@
                               </div>--%>
           <div class="row pb-3">
             <div class="col">
-              <label for="info"
+              <label for="opmerking"
                      class="form-label"><strong>Opmerking</strong></label>
-              <textarea class="form-control" id="info" rows="3"></textarea>
+              <textarea class="form-control" id="opmerking" name="opmerking" rows="3"></textarea>
             </div>
           </div>
           <div class="row">

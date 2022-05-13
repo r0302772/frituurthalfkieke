@@ -29,6 +29,6 @@ CREATE TABLE ARTIKEL
     naam        VARCHAR(50) NOT NULL,
     prijs       DECIMAL     NOT NULL,
     beschikbaar BIT         NOT NULL,
---     opmerking   VARCHAR(100),
+    opmerking   VARCHAR(100),
     PRIMARY KEY (id)
 );

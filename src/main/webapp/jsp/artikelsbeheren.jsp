@@ -181,10 +181,14 @@
                 <%
                     for (Artikel artikel : artikels) {
                         out.print("<tr>"
-                                + "<td>" + artikel.getNaam() + "</td>"
-                                + "<td class=\"text-center\">" + "€" + artikel.getPrijs() + "</td>"
-                                + "<td class=\"text-center\">" + artikel.getBeschikbaar() + "</td>"
-                                + "<td class=\"text-center\">" +
+                                + "<td>" + artikel.getNaam()
+                                + "<p class=\"fw-light\">" + artikel.getOpmerking() + "</p>"
+                                + "</td>"
+                                + "<td class=\"text-center\">" + "€" + artikel.getPrijs() + "</td>");
+                        if (artikel.getBeschikbaar())
+                             {out.print("<td class=\"text-center\">Op voorraad</td>");}
+                        else {out.print("<td class=\"text-center text-danger\">Niet op voorraad</td>");}
+                                out.print("<td class=\"text-center\">" +
                                 "<div class=\"row gap-3\">" +
                                 "<div class=\"col\">" +
                                 "<a type=\"button\" class=\"btn btn-primary\" href='/artikelsbeheren/bewerken?id=" + artikel.getId() + "'>Bewerken</a>" +
@@ -197,158 +201,6 @@
                                 + "</tr>");
                     }
                 %>
-                <%--                <tr>
-                                    <td>Kinder Friet</td>
-                                    <td class="text-center">€2.00</td>
-                                    <td class="text-center">Op voorraad</td>
-                                    <td class="text-center">
-                                        <div class="row gap-3">
-                                            <div class="col">
-                                                &lt;%&ndash;Bewerk artikel&ndash;%&gt;
-                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                        data-bs-target="#bewerkArtikel">Bewerken
-                                                </button>
-                                            </div>
-                                            <div class="col">
-                                                &lt;%&ndash;Delete artikel&ndash;%&gt;
-                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                                        data-bs-target="#deleteArtikel">Delete
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                &lt;%&ndash;Bewerk artikel MODAL&ndash;%&gt;
-                                <div class="modal fade" id="bewerkArtikel" tabindex="-1" aria-labelledby="bewerkArtikelLabel"
-                                     aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <form>
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="bewerkArtikelLabel">Kinder Friet</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="row pb-3">
-                                                        <div class="col">
-                                                            <label for="naamArtikel" class="form-label"><strong>Artikel</strong></label>
-                                                            <input type="text" class="form-control" id="naamArtikel"
-                                                                   value="Kinder Friet" required>
-                                                        </div>
-                                                        <div class="col">
-                                                            <label for="prijsArtikel" class="form-label"><strong>Prijs</strong></label>
-                                                            <input type="number" class="form-control" id="prijsArtikel" min=0
-                                                                   value=2 required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row pb-3">
-                                                        <div class="col">
-                                                            <label for="categorieArtikel"
-                                                                   class="form-label"><strong>Categorie</strong></label>
-                                                            <select class="form-select" aria-label="Select categorie bewerk"
-                                                                    id="categorieArtikel" required>
-                                                                <option disabled>Selecteer categorie.</option>
-                                                                <option value="frieten" selected>Frieten</option>
-                                                                <option value="burgers">Burgers</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row pb-3">
-                                                        <div class="col">
-                                                            <label for="info"
-                                                                   class="form-label"><strong>Opmerking</strong></label>
-                                                            <textarea class="form-control" id="info" rows="3"></textarea>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" value=""
-                                                                       id="voorraadCheck"
-                                                                       checked>
-                                                                <label class="form-check-label" for="voorraadCheck">
-                                                                    Op voorraad
-                                                                </label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                                        Annuleer
-                                                    </button>
-                                                    <button type="button" class="btn btn-primary">
-                                                        Bevestig
-                                                    </button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                &lt;%&ndash;Delete artikel MODAL&ndash;%&gt;
-                                <div class="modal fade" id="deleteArtikel" tabindex="-1" aria-labelledby="deleteArtikelLabel"
-                                     aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <form>
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title text-danger" id="deleteArtikelLabel"><i
-                                                            class="bi bi-exclamation-triangle-fill"></i> Waarschuwing</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p><strong>U staat op het punt om "Kinder Friet" te verwijderen! <br>
-                                                        Bent u zeker?</strong></p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                                        Annuleer
-                                                    </button>
-                                                    <button type="button" class="btn btn-primary">
-                                                        Bevestig
-                                                    </button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>--%>
-                </tbody>
-            </table>
-        </div>
-        <hr>
-        <div class="row p-3">
-            <%--Burgerstabel--%>
-            <table class="table table-bordered border-dark">
-                <%--<h3 class="p-1">Burgers <i class="fa-solid fa-burger"></i></h3>--%>
-                <thead>
-                <%--                <tr>
-                                    <th scope="col">Grootte</th>
-                                    <th scope="col">Prijs</th>
-                                    <th scope="col">Bestellen</th>
-                                </tr>--%>
-                </thead>
-                <tbody class="align-middle">
-                <tr>
-                    <td>
-                        Bicky Classic
-                        <%--Dit moet de opmerking worden in de database--%>
-                        <p class="fw-light">Runds, Bicky Uitjes, Bicky Saus</p>
-                    </td>
-                    <td class="text-center">€3.00</td>
-                    <td class="text-center">Op voorraad</td>
-                    <td class="text-center">
-                        <div class="row gap-3">
-                            <div class="col">
-                                <button type="button" class="btn btn-primary">Bewerken</button>
-                            </div>
-                            <div class="col">
-                                <button type="button" class="btn btn-danger">Delete</button>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
                 </tbody>
             </table>
         </div>
