@@ -2,10 +2,8 @@ package be.thomasmore.graduaten.frituurthalfkieke.entities;
 
 import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Categorie {
@@ -13,7 +11,9 @@ public class Categorie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private  String naam;
+    @OneToMany(mappedBy ="categorie")
 
+    private Set<Artikel> artikels;
 
     public Long getId() {
         return id;

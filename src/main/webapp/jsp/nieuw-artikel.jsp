@@ -1,5 +1,11 @@
 <%@ page import="javax.swing.*" %>
+<%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.Categorie" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+  List<Categorie> categorien = (List<Categorie>) request.getAttribute("categorien");
+
+%>
 <html>
 <head>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -85,18 +91,22 @@
                      id="prijs" required>
             </div>
           </div>
-          <%--<div class="row pb-3">
+          <div class="row pb-3">
                                   <div class="col">
-                                      <label for="categorieArtikel"
+                                      <label for="categorie"
                                              class="form-label"><strong>Categorie</strong></label>
-                                      <select class="form-select" aria-label="Select categorie bewerk"
-                                              id="categorieArtikel" required>
-                                          <option disabled>Selecteer categorie.</option>
-                                          <option value="frieten" selected>Frieten</option>
-                                          <option value="burgers">Burgers</option>
+                                    <select name="categorie" class="form-select" aria-label="Select categorie"
+                                            id="categorie" required>
+                                      <option selected disabled>Selecteer categorie.</option>
+                                    <%for(Categorie categorie: categorien){
+                                      out.print("<option value=\""+ categorie.getId() +"\">"+ categorie.getNaam()+"</option>");
+                                    }%>
+
+
+
                                       </select>
                                   </div>
-                              </div>--%>
+                              </div>
           <div class="row pb-3">
             <div class="col">
               <label for="opmerking"

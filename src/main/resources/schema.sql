@@ -20,6 +20,15 @@ CREATE TABLE BESTELLING(
 
     PRIMARY KEY (id) );*/
 
+DROP TABLE IF EXISTS Categorie;
+
+CREATE TABLE Categorie
+(
+    id          INT         NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    naam        VARCHAR(50) NOT NULL,
+
+    PRIMARY KEY (id)
+);
 
 DROP TABLE IF EXISTS ARTIKEL;
 
@@ -30,16 +39,9 @@ CREATE TABLE ARTIKEL
     prijs       DECIMAL     NOT NULL,
     beschikbaar BIT         NOT NULL,
     opmerking   VARCHAR(100),
-    PRIMARY KEY (id)
+    categorie_id int ,
+    PRIMARY KEY (id),
+constraint fkArtikel_Categorie FOREIGN  key(categorie_id)  references Categorie(Id)
 );
 
 
-DROP TABLE IF EXISTS Categorie;
-
-CREATE TABLE Categorie
-(
-    id          INT         NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    naam        VARCHAR(50) NOT NULL,
-
-    PRIMARY KEY (id)
-);

@@ -1,7 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.Artikel" %>
 <%@ page import="java.util.List" %>
+<%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.Categorie" %>
 <%
+    List<Categorie> categorien = (List<Categorie>) request.getAttribute("categorien");
     List<Artikel> artikels = (List<Artikel>) request.getAttribute("artikels");
 %>
 <html lang="nl" class="h-100">
@@ -69,138 +71,50 @@
         </div>
         <%--Nieuw Artikel--%>
         <div>
-            <a type="button" class="btn btn-primary" href='/artikelsbeheren/artikel/toevoegen'><i class="bi bi-plus"></i> Nieuw
+            <a type="button" class="btn btn-primary" href='/artikelsbeheren/artikel/toevoegen'><i
+                    class="bi bi-plus"></i> Nieuw
                 Artikel</a>
-            <a type="button" class="btn btn-primary" href='/categorie'><i class="bi bi-plus"></i> Overzicht categoriën</a>
-        </div>
-        <%--Niew Artikel MODAL--%>
-        <%--        <div class="modal fade" id="nieuwArtikel" tabindex="-1" aria-labelledby="nieuwArtikelLabel"
-                     aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="nieuwArtikelLabel">Nieuw Artikel</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row pb-3">
-                                    <div class="col">
-                                        <label for="naamNieuwArtikel" class="form-label"><strong>Artikel</strong></label>
-                                        <input type="text" class="form-control" id="naamNieuwArtikel"
-                                               value="" required>
-                                    </div>
-                                    <div class="col">
-                                        <label for="prijsNieuwArtikel" class="form-label"><strong>Prijs</strong></label>
-                                        <input type="number" class="form-control" id="prijsNieuwArtikel" min=0 required>
-                                    </div>
-                                </div>
-                                <div class="row pb-3">
-                                    <div class="col">
-                                        <label for="categorieNieuwArtikel" class="form-label"><strong>Categorie</strong></label>
-                                        <select class="form-select" aria-label="Select categorie" id="categorieNieuwArtikel"
-                                                required>
-                                            <option disabled selected>Selecteer categorie.</option>
-                                            <option value="frieten">Frieten</option>
-                                            <option value="burgers">Burgers</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row pb-3">
-                                    <div class="col">
-                                        <label for="info"
-                                               class="form-label"><strong>Opmerking</strong></label>
-                                        <textarea class="form-control" id="infoNieuwArtikel" rows="3"
-                                                  placeholder="Bv. Extra info over de ingredienten. Bevat gluten."></textarea>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                   id="voorraadNieuwArtikelCheck"
-                                                   checked>
-                                            <label class="form-check-label" for="voorraadNieuwArtikelCheck">
-                                                Op voorraad
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                    Annuleer
-                                </button>
-                                <button type="button" class="btn btn-primary">
-                                    Bevestig
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>--%>
-        <%--Niew categorie MODAL--%>
-        <div class="modal fade" id="nieuweCategorie" tabindex="-1" aria-labelledby="nieuweCategorieLabel"
-             aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="nieuweCategorieLabel">Nieuw Categorie</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row pb-3">
-                            <div class="col">
-                                <label for="naamNieuweCategorie" class="form-label"><strong>Naam</strong></label>
-                                <input type="text" class="form-control" id="naamNieuweCategorie"
-                                       value="" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                            Annuleer
-                        </button>
-                        <button type="button" class="btn btn-primary">
-                            Bevestig
-                        </button>
-                    </div>
-                </div>
-            </div>
+            <a type="button" class="btn btn-primary" href='/categorie'> Overzicht
+                categoriën</a>
         </div>
 
         <div class="row p-3">
-            <%--Frietentabel--%>
-            <table class="table table-bordered border-dark">
-                <%--<h3 class="p-1">Frieten <img src="/images/fries.png" style="width: 25px;"></h3>--%>
-                <thead>
-                </thead>
-                <tbody class="align-middle">
-                <%
-                    for (Artikel artikel : artikels) {
-                        out.print("<tr>"
-                                + "<td>" + artikel.getNaam()
-                                + "<p class=\"fw-light\">" + artikel.getOpmerking() + "</p>"
-                                + "</td>"
-                                + "<td class=\"text-center\">" + "€" + artikel.getPrijs() + "</td>");
-                        if (artikel.getBeschikbaar())
-                             {out.print("<td class=\"text-center\">Op voorraad</td>");}
-                        else {out.print("<td class=\"text-center text-danger\">Niet op voorraad</td>");}
-                                out.print("<td class=\"text-center\">" +
-                                "<div class=\"row gap-3\">" +
-                                "<div class=\"col\">" +
-                                "<a type=\"button\" class=\"btn btn-primary\" href='/artikelsbeheren/artikel/bewerken?id=" + artikel.getId() + "'>Bewerken</a>" +
-                                "</div>" +
-                                "<div class=\"col\">" +
-                                "<a type=\"button\" class=\"btn btn-danger\" href='/artikelsbeheren/artikel/delete?id=" + artikel.getId() + "'>Delete</a>" +
-                                "</div>" +
-                                "</div>" +
-                                "</td>"
-                                + "</tr>");
+
+
+            <% for (Categorie categorie : categorien) {
+                out.print("<table class=\"table table-bordered border-dark\">" +
+                        "<h3 class=\"p-1\">" + categorie.getNaam() + "</h3><thead></thead>"
+                +"<tbody class=\"align-middle\">");
+
+                for (Artikel artikel : artikels) {
+
+                    out.print("<tr>"
+                            + "<td>" + artikel.getNaam()
+                            + "<p class=\"fw-light\">" + artikel.getOpmerking() + "</p>"
+                            + "</td>"
+                            + "<td class=\"text-center\">" + "€" + artikel.getPrijs() + "</td>");
+                    if (artikel.getBeschikbaar()) {
+                        out.print("<td class=\"text-center\">Op voorraad</td>");
+                    } else {
+                        out.print("<td class=\"text-center text-danger\">Niet op voorraad</td>");
                     }
-                %>
-                </tbody>
-            </table>
+                    out.print("<td class=\"text-center\">" +
+                            "<div class=\"row gap-3\">" +
+                            "<div class=\"col\">" +
+                            "<a type=\"button\" class=\"btn btn-primary\" href='/artikelsbeheren/artikel/bewerken?id=" + artikel.getId() + "'>Bewerken</a>" +
+                            "</div>" +
+                            "<div class=\"col\">" +
+                            "<a type=\"button\" class=\"btn btn-danger\" href='/artikelsbeheren/artikel/delete?id=" + artikel.getId() + "'>Delete</a>" +
+                            "</div>" +
+                            "</div>" +
+                            "</td>"
+                            + "</tr>");
+                }
+                out.print(" </tbody></table>");}
+
+            %>
+
+
         </div>
     </main>
 
