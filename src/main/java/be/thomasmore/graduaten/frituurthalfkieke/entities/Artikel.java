@@ -14,9 +14,11 @@ public class Artikel {
     private Boolean beschikbaar;
     private String opmerking;
 //relatie
-/*    @ManyToOne
-    @JoinColumn(name = "artikelbestelling_id")
-    private  ArtikelBestelling artikelbestelling ;*/
+
+    //@ManyToOne
+    //@JoinColumn(name = "artikelbestelling_id")
+    //private  ArtikelBestelling artikelbestelling ;
+
 
 
     public Artikel() {
