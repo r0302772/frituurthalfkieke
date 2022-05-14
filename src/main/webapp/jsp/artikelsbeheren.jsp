@@ -66,28 +66,24 @@
     </header>
 
     <main>
+        <%--Titel--%>
         <div class="row px-3 text-center">
             <h2 class="display-5 fw-bold"><i class="fa-solid fa-warehouse"></i> Artikels Beheren</h2>
         </div>
         <%--Nieuw Artikel--%>
         <div>
-            <a type="button" class="btn btn-primary" href='/artikelsbeheren/artikel/toevoegen'><i
-                    class="bi bi-plus"></i> Nieuw
-                Artikel</a>
-            <a type="button" class="btn btn-primary" href='/categorie'> Overzicht
-                categoriën</a>
+            <a type="button" class="btn btn-primary" href='/artikelsbeheren/artikel/toevoegen'>
+                <i class="bi bi-plus"></i> Nieuw Artikel</a>
+            <a type="button" class="btn btn-primary" href='/categorie'> Overzicht categoriën</a>
         </div>
-
+        <%--Begin tabel--%>
         <div class="row p-3">
-
-
             <% for (Categorie categorie : categorien) {
                 out.print("<table class=\"table table-bordered border-dark\">" +
                         "<h3 class=\"p-1\">" + categorie.getNaam() + "</h3><thead></thead>"
-                +"<tbody class=\"align-middle\">");
+                        + "<tbody class=\"align-middle\">");
 
                 for (Artikel artikel : artikels) {
-
                     out.print("<tr>"
                             + "<td>" + artikel.getNaam()
                             + "<p class=\"fw-light\">" + artikel.getOpmerking() + "</p>"
@@ -110,11 +106,10 @@
                             "</td>"
                             + "</tr>");
                 }
-                out.print(" </tbody></table>");}
+                out.print(" </tbody></table>");
+            }
 
             %>
-
-
         </div>
     </main>
 

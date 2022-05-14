@@ -22,9 +22,9 @@ public class ArtikelController {
            return "menu";
        }*/
     private ArtikelRepository artikelRepository;
-    private  CategorieRepository categorieRepository;
+    private CategorieRepository categorieRepository;
 
-    public ArtikelController(ArtikelRepository artikelRepository,CategorieRepository categorieRepository) {
+    public ArtikelController(ArtikelRepository artikelRepository, CategorieRepository categorieRepository) {
         this.artikelRepository = artikelRepository;
         this.categorieRepository = categorieRepository;
     }
@@ -40,7 +40,7 @@ public class ArtikelController {
     public String navigateToArtikelsbeheren(Model model) {
         List<Artikel> artikels = artikelRepository.findAll();
         List<Categorie> categorien = categorieRepository.findAll();
-        model.addAttribute("categorien",categorien);
+        model.addAttribute("categorien", categorien);
         model.addAttribute("artikels", artikels);
         return "artikelsbeheren";
     }
@@ -48,7 +48,7 @@ public class ArtikelController {
     @RequestMapping("/artikelsbeheren/artikel/toevoegen")
     public String navigateToToevoegen(Model model) {
         List<Categorie> categorien = categorieRepository.findAll();
-        model.addAttribute("categorien",categorien);
+        model.addAttribute("categorien", categorien);
         return "nieuw-artikel";
     }
 
@@ -58,9 +58,9 @@ public class ArtikelController {
         BigDecimal prijs = new BigDecimal(request.getParameter("prijs"));
         Boolean beschikbaar = Boolean.parseBoolean(request.getParameter("beschikbaar"));
         String opmerking = request.getParameter("opmerking");
-        Categorie categorie = new Categorie ( request.getParameter("categorie"));
-
-        Artikel artikel = new Artikel(naam, prijs, beschikbaar, opmerking,categorie);
+//        Dit werkt nog niet...
+        Categorie categorie = new Categorie(Long.parseLong(request.getParameter("categorie")));
+        Artikel artikel = new Artikel(naam, prijs, beschikbaar, opmerking, categorie);
         artikelRepository.save(artikel);
 
         List<Artikel> artikels = artikelRepository.findAll();
@@ -85,11 +85,10 @@ public class ArtikelController {
         artikel.setId(id);
         artikel.setNaam(request.getParameter("naam"));
         artikel.setPrijs(new BigDecimal(request.getParameter("prijs")));
-        String beschikbaarheid =request.getParameter("beschikbaar");
-        if (beschikbaarheid != null){
+        String beschikbaarheid = request.getParameter("beschikbaar");
+        if (beschikbaarheid != null) {
             artikel.setBeschikbaar(true);
-        }
-        else {
+        } else {
             artikel.setBeschikbaar(false);
         }
         artikel.setOpmerking(request.getParameter("opmerking"));

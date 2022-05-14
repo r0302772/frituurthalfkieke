@@ -1,6 +1,9 @@
 <%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.Artikel" %>
+<%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.Categorie" %>
+<%@ page import="java.util.List" %>
 <%
     Artikel artikel = (Artikel) request.getAttribute("artikel");
+    List<Categorie> categorien = (List<Categorie>) request.getAttribute("categorien");
 %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -70,39 +73,43 @@
             <form action="/artikelsbeheren/artikel/bewerken/result" method="get">
                 <input type="hidden" id="id" name="id" value="<%=artikel.getId()%>">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="bewerkArtikelLabel"><%=artikel.getNaam()%>
-                    </h5>
-                    <%--<button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>--%>
+                    <h5 class="modal-title" id="bewerkArtikelLabel"><%=artikel.getNaam()%></h5>
                 </div>
                 <div class="modal-body">
                     <div class="row pb-3">
                         <div class="col">
+                            <%--Naam--%>
                             <label for="naam" class="form-label"><strong>Artikel</strong></label>
                             <input type="text" name="naam" value="<%=artikel.getNaam()%>"
                                    class="form-control" id="naam" required>
                         </div>
                         <div class="col">
+                            <%--Prijs--%>
                             <label for="prijs" class="form-label"><strong>Prijs</strong></label>
                             <input type="text" name="prijs" value="<%=artikel.getPrijs()%>"
                                    class="form-control"
                                    id="prijs" required>
                         </div>
                     </div>
-                    <%--<div class="row pb-3">
-                                            <div class="col">
-                                                <label for="categorieArtikel"
-                                                       class="form-label"><strong>Categorie</strong></label>
-                                                <select class="form-select" aria-label="Select categorie bewerk"
-                                                        id="categorieArtikel" required>
-                                                    <option disabled>Selecteer categorie.</option>
-                                                    <option value="frieten" selected>Frieten</option>
-                                                    <option value="burgers">Burgers</option>
-                                                </select>
-                                            </div>
-                                        </div>--%>
                     <div class="row pb-3">
                         <div class="col">
+                            <%--Selectbox categorien--%>
+                            <label for="categorie"
+                                   class="form-label"><strong>Categorie</strong></label>
+                            <select name="categorie" class="form-select" aria-label="Select categorie"
+                                    id="categorie" required>
+                                <option selected disabled>Selecteer categorie.</option>
+                                <%
+                                    for (Categorie categorie : categorien) {
+                                        out.print("<option value=\"" + categorie.getId() + "\">" + categorie.getNaam() + "</option>");
+                                    }
+                                %>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row pb-3">
+                        <div class="col">
+                            <%--Opmerking--%>
                             <label for="opmerking"
                                    class="form-label"><strong>Opmerking</strong></label>
                             <textarea class="form-control" id="opmerking" rows="3"
@@ -111,7 +118,7 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <%--hier nog een if-else voor de voorraad--%>
+                            <%--Op voorraad--%>
                             <div class="form-check">
                                 <% if (artikel.getBeschikbaar()) {%>
                                 <input class="form-check-input" type="checkbox" name="beschikbaar" value=""
@@ -126,13 +133,11 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <a class="btn btn-secondary" href="/artikelsbeheren">
-                        Annuleer
-                    </a>
+                    <%--Bevestigen of annuleren--%>
+                    <a class="btn btn-secondary" href="/artikelsbeheren">Annuleer</a>
                     <input type="submit" value="Bevestig" class="btn btn-primary">
                 </div>
             </form>
-            <%--Beschikbaar blijft om de een of andere reden op false staan, je kan een artikel op false zetten maar niet terug op true...--%>
             <%
                 String s[] = request.getParameterValues("beschikbaar");
                 if (s != null && s.length != 0) {
