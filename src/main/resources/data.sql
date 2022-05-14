@@ -15,17 +15,28 @@ VALUES ('Els','Wouters','3PR');*/
 
 
 INSERT INTO ARTIKEL(naam, prijs, beschikbaar, opmerking)
-VALUES ('Kleine friet', 2.50, 1,'');
+VALUES ('Kleine friet', 2.50, 1, '');
 INSERT INTO ARTIKEL(naam, prijs, beschikbaar, opmerking)
-VALUES ('Medium friet', 3.00, 1,'');
+VALUES ('Medium friet', 3.00, 1, '');
 INSERT INTO ARTIKEL(naam, prijs, beschikbaar, opmerking)
-VALUES ('Grote friet', 3.50, 0,'');
+VALUES ('Grote friet', 3.50, 0, '');
 INSERT INTO ARTIKEL(naam, prijs, beschikbaar, opmerking)
 VALUES ('Bicky Burger', 3.00, 1, 'Runds, Bicky Uitjes, Bicky Saus');
 INSERT INTO ARTIKEL(naam, prijs, beschikbaar, opmerking)
 VALUES ('Bicky Cheese', 3.50, 0, 'Runds, Bicky Uitjes, Bicky Saus, Kaas');
 INSERT INTO ARTIKEL(naam, prijs, beschikbaar, opmerking)
 VALUES ('Bicky Chicken', 4.00, 1, 'Kip, Bicky Uitjes, Bicky Saus');
+
+insert into Categorie(naam)
+Values ('Snacks');
+insert into Categorie(naam)
+Values ('Burgers');
+insert into Categorie(naam)
+Values ('Koude schotels');
+insert into Categorie(naam)
+Values ('Frieten');
+insert into Categorie(naam)
+Values('Dranken');
 
 /*INSERT INTO BESTELLING(voornaamKlant, familienaamKlant, emailKlant, telefoonKlant)
 VALUES ('Erik','Vanlooy','ErikVanlooy@gmail.com','0470928299');*/
