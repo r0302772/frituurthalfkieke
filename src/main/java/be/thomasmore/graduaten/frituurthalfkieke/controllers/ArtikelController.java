@@ -76,7 +76,13 @@ public class ArtikelController {
         artikel.setId(id);
         artikel.setNaam(request.getParameter("naam"));
         artikel.setPrijs(new BigDecimal(request.getParameter("prijs")));
-        artikel.setBeschikbaar(Boolean.parseBoolean(request.getParameter("beschikbaar")));
+        String beschikbaarheid =request.getParameter("beschikbaar");
+        if (beschikbaarheid != null){
+            artikel.setBeschikbaar(true);
+        }
+        else {
+            artikel.setBeschikbaar(false);
+        }
         artikel.setOpmerking(request.getParameter("opmerking"));
 
         artikelRepository.save(artikel);
