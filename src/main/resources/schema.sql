@@ -32,3 +32,14 @@ CREATE TABLE ARTIKEL
     opmerking   VARCHAR(100),
     PRIMARY KEY (id)
 );
+
+
+DROP TABLE IF EXISTS Categorie;
+
+CREATE TABLE Categorie
+(
+    id          INT         NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    naam        VARCHAR(50) NOT NULL,
+
+    PRIMARY KEY (id)
+);

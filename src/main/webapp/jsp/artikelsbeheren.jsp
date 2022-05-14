@@ -69,11 +69,9 @@
         </div>
         <%--Nieuw Artikel--%>
         <div>
-            <a type="button" class="btn btn-primary" href='/artikelsbeheren/toevoegen'><i class="bi bi-plus"></i> Nieuw
+            <a type="button" class="btn btn-primary" href='/artikelsbeheren/artikel/toevoegen'><i class="bi bi-plus"></i> Nieuw
                 Artikel</a>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                    data-bs-target="#nieuweCategorie"><i class="bi bi-plus"></i> Nieuwe categorie
-            </button>
+            <a type="button" class="btn btn-primary" href='/categorie'><i class="bi bi-plus"></i> Overzicht categoriën</a>
         </div>
         <%--Niew Artikel MODAL--%>
         <%--        <div class="modal fade" id="nieuwArtikel" tabindex="-1" aria-labelledby="nieuwArtikelLabel"
@@ -191,10 +189,10 @@
                                 out.print("<td class=\"text-center\">" +
                                 "<div class=\"row gap-3\">" +
                                 "<div class=\"col\">" +
-                                "<a type=\"button\" class=\"btn btn-primary\" href='/artikelsbeheren/bewerken?id=" + artikel.getId() + "'>Bewerken</a>" +
+                                "<a type=\"button\" class=\"btn btn-primary\" href='/artikelsbeheren/artikel/bewerken?id=" + artikel.getId() + "'>Bewerken</a>" +
                                 "</div>" +
                                 "<div class=\"col\">" +
-                                "<a type=\"button\" class=\"btn btn-danger\" href='/artikelsbeheren/delete?id=" + artikel.getId() + "'>Delete</a>" +
+                                "<a type=\"button\" class=\"btn btn-danger\" href='/artikelsbeheren/artikel/delete?id=" + artikel.getId() + "'>Delete</a>" +
                                 "</div>" +
                                 "</div>" +
                                 "</td>"

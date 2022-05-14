@@ -64,7 +64,7 @@
       <h2 class="display-5 fw-bold"><i class="bi bi-plus"></i> Nieuw Artikel</h2>
     </div>
     <div class="modal-content">
-      <form action="/artikelsbeheren/toevoegen/result" method="get">
+      <form action="/artikelsbeheren/artikel/toevoegen/result" method="get">
         <div class="modal-header">
           <h5 class="modal-title" id="bewerkArtikelLabel">Nieuw Artikel
           </h5>

@@ -39,12 +39,12 @@ public class ArtikelController {
         return "artikelsbeheren";
     }
 
-    @RequestMapping("/artikelsbeheren/toevoegen")
+    @RequestMapping("/artikelsbeheren/artikel/toevoegen")
     public String navigateToToevoegen() {
         return "nieuw-artikel";
     }
 
-    @RequestMapping("/artikelsbeheren/toevoegen/result")
+    @RequestMapping("/artikelsbeheren/artikel/toevoegen/result")
     public String getToevoegenResult(Model model, HttpServletRequest request) {
         String naam = request.getParameter("naam");
         BigDecimal prijs = new BigDecimal(request.getParameter("prijs"));
@@ -60,7 +60,7 @@ public class ArtikelController {
         return "artikelsbeheren";
     }
 
-    @RequestMapping("/artikelsbeheren/bewerken")
+    @RequestMapping("/artikelsbeheren/artikel/bewerken")
     public String navigateToBewerken(Model model, HttpServletRequest request) {
         Long id = Long.parseLong(request.getParameter("id"));
         Artikel artikel = artikelRepository.getById(id);
@@ -68,7 +68,7 @@ public class ArtikelController {
         return "bewerk-artikel";
     }
 
-    @RequestMapping("/artikelsbeheren/bewerken/result")
+    @RequestMapping("/artikelsbeheren/artikel/bewerken/result")
     public String getBewerkenResult(Model model, HttpServletRequest request) {
         Long id = Long.parseLong(request.getParameter("id"));
         Artikel artikel = artikelRepository.getById(id);
@@ -93,7 +93,7 @@ public class ArtikelController {
         return "artikelsbeheren";
     }
 
-    @RequestMapping("/artikelsbeheren/delete")
+    @RequestMapping("/artikelsbeheren/artikel/delete")
     public String navigateToDeleteStudent(Model model, HttpServletRequest request) {
         Long id = Long.parseLong(request.getParameter("id"));
         Artikel artikel = artikelRepository.getById(id);
@@ -101,7 +101,7 @@ public class ArtikelController {
         return "delete-artikel";
     }
 
-    @RequestMapping("/artikelsbeheren/delete/result")
+    @RequestMapping("/artikelsbeheren/artikel/delete/result")
     public String getDeleteResult(Model model, HttpServletRequest request) {
         Long id = Long.parseLong(request.getParameter("id"));
         Artikel artikel = artikelRepository.getById(id);
