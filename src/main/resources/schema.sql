@@ -1,11 +1,13 @@
-DROP TABLE IF EXISTS STUDENT;
+/*DROP TABLE IF EXISTS STUDENT;
 
-CREATE TABLE STUDENT(
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    voornaam VARCHAR (50) NOT NULL,
-    familienaam VARCHAR (50) NOT NULL,
-    klas VARCHAR (10) NOT NULL, PRIMARY KEY (id)
-);
+CREATE TABLE STUDENT
+(
+    id          INT         NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    voornaam    VARCHAR(50) NOT NULL,
+    familienaam VARCHAR(50) NOT NULL,
+    klas        VARCHAR(10) NOT NULL,
+    PRIMARY KEY (id)
+);*/
 
 /*DROP TABLE IF EXISTS BESTELLING
 
@@ -21,9 +23,25 @@ CREATE TABLE BESTELLING(
 
 DROP TABLE IF EXISTS ARTIKEL;
 
-CREATE TABLE ARTIKEL(
-                           id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                           naam VARCHAR(50) NOT NULL,
-                           prijs DECIMAL(7,2) NOT NULL,
-                           beschikbaar BIT NOT NULL,
-                           PRIMARY KEY (id));
+CREATE TABLE ARTIKEL
+(
+    id          INT         NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    naam        VARCHAR(50) NOT NULL,
+    prijs       DECIMAL     NOT NULL,
+    beschikbaar BIT         NOT NULL,
+    opmerking   VARCHAR(100),
+    PRIMARY KEY (id)
+);
+
+
+DROP TABLE IF EXISTS Categorie;
+
+CREATE TABLE Categorie
+(
+    id          INT         NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    naam        VARCHAR(50) NOT NULL,
+
+    PRIMARY KEY (id)
+);
+
+

@@ -64,6 +64,7 @@
     </header>
 
     <main>
+
         <div class="row px-3 text-center">
             <h2 class="display-5 fw-bold"><i class="fa-solid fa-utensils"></i> Menu</h2>
         </div>
