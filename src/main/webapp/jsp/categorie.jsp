@@ -52,7 +52,6 @@
         <hr>
     </header>
 
-
     <main>
         <div class="row p-3 text-center">
             <h2 class="display-5 fw-bold"> Overzicht Categoriën</h2>

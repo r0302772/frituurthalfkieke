@@ -70,7 +70,7 @@
             <h2 class="display-5 fw-bold"><i class="bi bi-pencil-square"></i> Artikel Bewerken</h2>
         </div>
         <div class="modal-content">
-            <form action="/artikelsbeheren/artikel/bewerken/result" method="get">
+            <form action="/artikel/bewerken/result" method="get">
                 <input type="hidden" id="id" name="id" value="<%=artikel.getId()%>">
                 <div class="modal-header">
                     <h5 class="modal-title" id="bewerkArtikelLabel"><%=artikel.getNaam()%></h5>

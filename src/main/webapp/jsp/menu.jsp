@@ -66,49 +66,52 @@
     </header>
 
     <main>
-
         <div class="row px-3 text-center">
             <h2 class="display-5 fw-bold"><i class="fa-solid fa-utensils"></i> Menu</h2>
         </div>
         <div class="row p-3">
             <% for (Categorie categorie : categorien) {
-                out.print(
-                        "<table class=\"table table-bordered border-dark\">" +
-                                "<h3 class=\"p-1\">" + categorie.getNaam() + "</h3>" +
-                                "<thead></thead>" +
-                                "<tbody class=\"align-middle\">"
-                );
-
-                for (Artikel artikel : artikels) {
+                if (categorie.getArtikels().stream().count() != 0) {
                     out.print(
-                            "<tr>" +
-                                    "<td>" + artikel.getNaam() +
-                                    "<p class=\"fw-light\">" + artikel.getOpmerking() + "</p>" +
-                                    "</td>" +
-                                    "<td class=\"text-center\">" + "€" + artikel.getPrijs() + "</td>"
+                            "<table class=\"table table-bordered border-dark\">" +
+                                    "<h3 class=\"p-1\">" + categorie.getNaam() + "</h3>" +
+                                    "<thead></thead>" +
+                                    "<tbody class=\"align-middle\">"
                     );
 
-                    if (artikel.getBeschikbaar()) {
-                        out.print(
-                                "<td class=\"text-center text-danger\">" +
-                                        "<a type=\"button\" class=\"btn btn-primary\" href='/artikel/toevoegen-aan-winkelwagen?id=" + artikel.getId() + "'>" +
-                                        "Voeg toe" +
-                                        "</a>" +
-                                        "</td>"
-                        );
-                    } else {
-                        out.print(
-                                "<td class=\"text-center text-danger\">Niet op voorraad</td>"
-                        );
+                    for (Artikel artikel : artikels) {
+                        if (artikel.getCategorie() == categorie) {
+                            out.print(
+                                    "<tr>" +
+                                            "<td class=\"col-6\">" + artikel.getNaam() +
+                                            "<p class=\"fw-light\">" + artikel.getOpmerking() + "</p>" +
+                                            "</td>" +
+                                            "<td class=\"text-center col-3\">" + "€" + artikel.getPrijs() + "</td>"
+                            );
+
+                            if (artikel.getBeschikbaar()) {
+                                out.print(
+                                        "<td class=\"text-center text-danger col-3\">" +
+                                                "<a type=\"button\" class=\"btn btn-primary\" href='/artikel/toevoegen-aan-winkelwagen?id=" + artikel.getId() + "'>" +
+                                                "Voeg toe" +
+                                                "</a>" +
+                                                "</td>"
+                                );
+                            } else {
+                                out.print(
+                                        "<td class=\"text-center text-danger col-3\">Niet op voorraad</td>"
+                                );
+                            }
+
+                            out.print("</tr>");
+                        }
                     }
 
-                    out.print("</tr>");
+                    out.print(
+                            "</tbody>" +
+                                    "</table>"
+                    );
                 }
-
-                out.print(
-                        "</tbody>" +
-                                "</table>"
-                );
             }
 
             %>

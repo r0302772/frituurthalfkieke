@@ -69,7 +69,7 @@
             <h2 class="display-5 fw-bold"><i class="bi bi-plus"></i> Nieuw Artikel</h2>
         </div>
         <div class="modal-content">
-            <form action="/artikelsbeheren/artikel/toevoegen/result" method="get">
+            <form action="/artikel/toevoegen/result" method="get">
                 <div class="modal-header">
                     <h5 class="modal-title" id="bewerkArtikelLabel">Nieuw Artikel
                     </h5>
@@ -134,7 +134,6 @@
                     <input type="submit" value="Bevestig" class="btn btn-primary">
                 </div>
             </form>
-            <%--Beschikbaar blijft om de een of andere reden op false staan, je kan een artikel op false zetten maar niet terug op true...--%>
             <%
                 String s[] = request.getParameterValues("beschikbaar");
                 if (s != null && s.length != 0) {

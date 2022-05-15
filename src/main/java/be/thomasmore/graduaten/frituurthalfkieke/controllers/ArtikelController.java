@@ -12,15 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 public class ArtikelController {
-    /*   @RequestMapping("/menu")
-       public String navigateToMenu(){
-
-           return "menu";
-       }*/
     private ArtikelRepository artikelRepository;
     private CategorieRepository categorieRepository;
 
@@ -42,12 +38,39 @@ public class ArtikelController {
     public String navigateToArtikelToevoegenAanWinkelwagen(Model model, HttpServletRequest request) {
         Long id = Long.parseLong(request.getParameter("id"));
         Artikel artikel = artikelRepository.getById(id);
-        List<Artikel> sauzen = artikelRepository.findAll();
-//Hier moet de categorie met naam Sauzen doorgestuurd worden
+
+        List<Artikel> sauzen = artikelRepository.findArtikelsByCategorieNaam("Sauzen");
 
         model.addAttribute("sauzen", sauzen);
         model.addAttribute("artikel", artikel);
+
         return "artikel-toevoegen-winkelwagen";
+    }
+
+    @RequestMapping("/artikel/toevoegen-aan-winkelwagen/result")
+    public String navigateToArtikelToevoegenAanWinkelwagenResult(Model model, HttpServletRequest request) {
+        Long id = Long.parseLong(request.getParameter("id"));
+        Artikel artikel = artikelRepository.getById(id);
+
+        List<Artikel> artikels = artikelRepository.findAll();
+        List<Categorie> categorien = categorieRepository.findAll();
+        List<Artikel> sauzen = new ArrayList<>();
+
+        for (Categorie categorie : categorien) {
+            if (categorie.getNaam() == "Sauzen") {
+                for (Artikel artikelsaus : artikels) {
+                    if (artikel.getCategorie() == categorie) {
+                        sauzen.add(artikelsaus);
+                    }
+                }
+            }
+        }
+
+        model.addAttribute("artikel", artikel);
+
+        model.addAttribute("categorien", categorien);
+        model.addAttribute("artikels", artikels);
+        return "menu";
     }
 
     @RequestMapping("/artikelsbeheren")
@@ -59,14 +82,14 @@ public class ArtikelController {
         return "artikelsbeheren";
     }
 
-    @RequestMapping("/artikelsbeheren/artikel/toevoegen")
+    @RequestMapping("/artikel/toevoegen")
     public String navigateToToevoegen(Model model) {
         List<Categorie> categorien = categorieRepository.findAll();
         model.addAttribute("categorien", categorien);
         return "nieuw-artikel";
     }
 
-    @RequestMapping("/artikelsbeheren/artikel/toevoegen/result")
+    @RequestMapping("/artikel/toevoegen/result")
     public String getToevoegenResult(Model model, HttpServletRequest request) {
         String naam = request.getParameter("naam");
         BigDecimal prijs = new BigDecimal(request.getParameter("prijs"));
@@ -82,18 +105,19 @@ public class ArtikelController {
 
         Artikel artikel = new Artikel(naam, prijs, beschikbaar, opmerking, categorie);
 
+        artikelRepository.save(artikel);
+
         List<Categorie> categorien = categorieRepository.findAll();
         model.addAttribute("categorien", categorien);
         List<Artikel> artikels = artikelRepository.findAll();
         model.addAttribute("artikels", artikels);
 
         //nog iets om te voorkomen dat er artikels met dezelfde naam in de db worden gestoken
-        artikelRepository.save(artikel);
 
         return "artikelsbeheren";
     }
 
-    @RequestMapping("/artikelsbeheren/artikel/bewerken")
+    @RequestMapping("/artikel/bewerken")
     public String navigateToBewerken(Model model, HttpServletRequest request) {
         Long id = Long.parseLong(request.getParameter("id"));
         Artikel artikel = artikelRepository.getById(id);
@@ -103,7 +127,7 @@ public class ArtikelController {
         return "bewerk-artikel";
     }
 
-    @RequestMapping("/artikelsbeheren/artikel/bewerken/result")
+    @RequestMapping("/artikel/bewerken/result")
     public String getBewerkenResult(Model model, HttpServletRequest request) {
         Long id = Long.parseLong(request.getParameter("id"));
         Artikel artikel = artikelRepository.getById(id);
@@ -133,7 +157,7 @@ public class ArtikelController {
         return "artikelsbeheren";
     }
 
-    @RequestMapping("/artikelsbeheren/artikel/delete")
+    @RequestMapping("/artikel/delete")
     public String navigateToDeleteStudent(Model model, HttpServletRequest request) {
         Long id = Long.parseLong(request.getParameter("id"));
         Artikel artikel = artikelRepository.getById(id);
@@ -141,15 +165,18 @@ public class ArtikelController {
         return "delete-artikel";
     }
 
-    @RequestMapping("/artikelsbeheren/artikel/delete/result")
+    @RequestMapping("/artikel/delete/result")
     public String getDeleteResult(Model model, HttpServletRequest request) {
         Long id = Long.parseLong(request.getParameter("id"));
         Artikel artikel = artikelRepository.getById(id);
 
         artikelRepository.delete(artikel);
 
+        List<Categorie> categorien = categorieRepository.findAll();
+        model.addAttribute("categorien", categorien);
         List<Artikel> artikels = artikelRepository.findAll();
         model.addAttribute("artikels", artikels);
+
         return "artikelsbeheren";
     }
 }
