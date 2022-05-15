@@ -1,4 +1,3 @@
-<%@ page import="javax.swing.*" %>
 <%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.Categorie" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -119,7 +118,7 @@
                         <div class="col">
                             <%--Op voorraad--%>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="beschikbaar" value="1"
+                                <input class="form-check-input" type="checkbox" name="beschikbaar" value=""
                                        id="beschikbaar" checked>
                                 <label class="form-check-label" for="beschikbaar">
                                     Op voorraad
