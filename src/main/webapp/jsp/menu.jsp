@@ -73,6 +73,7 @@
             <% for (Categorie categorie : categorien) {
                 if (categorie.getArtikels().stream().count() != 0) {
                     out.print(
+                            "<div class=\"row pb-3\">" +
                             "<table class=\"table table-bordered border-dark\">" +
                                     "<h3 class=\"p-1\">" + categorie.getNaam() + "</h3>" +
                                     "<thead></thead>" +
@@ -109,7 +110,9 @@
 
                     out.print(
                             "</tbody>" +
-                                    "</table>"
+                                    "</table>" +
+                                    "</div>" +
+                                    "<hr>"
                     );
                 }
             }

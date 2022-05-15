@@ -27,25 +27,15 @@ public class MainController {
         return "bevestigingbestelling";
     }
 
-    @RequestMapping("/login")
-    public String navigateToLogin() {
-        return "login";
-    }
-
-/*    @RequestMapping("/artikelsbeheren")
-    public String navigateToArtikelsbeheren() {
-        return "artikelsbeheren";
-    }*/
-
     @RequestMapping("/tijdslotenbeheren")
     public String navigateToTijdslotenbeheren() {
         return "tijdslotenbeheren";
     }
 
-    @RequestMapping("/bestellingenbeheren")
+/*    @RequestMapping("/bestellingenbeheren")
     public String navigateToBestellingenbeheren() {
         return "bestellingenbeheren";
-    }
+    }*/
 
     @RequestMapping("/scriptlet")
     public String navigateToScriptlet() {

@@ -24,7 +24,7 @@
                         <a class="nav-link" href="/login"><i class="bi bi-box-arrow-in-right"></i> Inloggen</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/"><i class="bi bi-box-arrow-left"></i> Uitloggen</a>
+                        <a class="nav-link" href="/loguit"><i class="bi bi-box-arrow-left"></i> Uitloggen</a>
                     </li>
                 </ul>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">

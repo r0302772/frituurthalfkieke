@@ -31,7 +31,7 @@
                         <a class="nav-link" href="/login"><i class="bi bi-box-arrow-in-right"></i> Inloggen</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/"><i class="bi bi-box-arrow-left"></i> Uitloggen</a>
+                        <a class="nav-link" href="/loguit"><i class="bi bi-box-arrow-left"></i> Uitloggen</a>
                     </li>
                 </ul>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
@@ -81,7 +81,8 @@
             <% for (Categorie categorie : categorien) {
 
                 out.print(
-                        "<table class=\"table table-bordered border-dark\">" +
+                        "<div class=\"row pb-3\">" +
+                                "<table class=\"table table-bordered border-dark\">" +
                                 "<h3 class=\"p-1\">" + categorie.getNaam() + "</h3>" +
                                 "<thead></thead>" +
                                 "<tbody class=\"align-middle\">"
@@ -127,7 +128,9 @@
 
                 out.print(
                         "</tbody>" +
-                                "</table>"
+                                "</table>" +
+                                "</div>" +
+                                "<hr>"
                 );
 
             }
