@@ -43,5 +43,3 @@ CREATE TABLE ARTIKEL
     PRIMARY KEY (id),
 constraint fkArtikel_Categorie FOREIGN  key(categorie_id)  references Categorie(Id)
 );
-
-

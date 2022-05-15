@@ -15,9 +15,11 @@ public class Artikel {
     private String opmerking;
 
 //relatie
-/*    @ManyToOne
-    @JoinColumn(name = "artikelbestelling_id")
-    private  ArtikelBestelling artikelbestelling ;*/
+
+    //@ManyToOne
+    //@JoinColumn(name = "artikelbestelling_id")
+    //private  ArtikelBestelling artikelbestelling ;
+
 
     @ManyToOne
     @JoinColumn(name = "categorie_id", nullable = false)
