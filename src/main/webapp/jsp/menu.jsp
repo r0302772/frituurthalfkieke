@@ -1,7 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.Artikel" %>
 <%@ page import="java.util.List" %>
+<%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.Categorie" %>
 <%
+    List<Categorie> categorien = (List<Categorie>) request.getAttribute("categorien");
     List<Artikel> artikels = (List<Artikel>) request.getAttribute("artikels");
 %>
 <html lang="nl" class="h-100">
@@ -69,188 +71,47 @@
             <h2 class="display-5 fw-bold"><i class="fa-solid fa-utensils"></i> Menu</h2>
         </div>
         <div class="row p-3">
-            <table class="table table-bordered border-dark">
-                <h3 class="p-1">Frieten <img src="/images/fries.png" style="width: 25px;"></h3>
-                <thead>
-                <%--                <tr>
-                                    <th scope="col">Grootte</th>
-                                    <th scope="col">Prijs</th>
-                                    <th scope="col">Bestellen</th>
-                                </tr>--%>
-                </thead>
-                <tbody class="align-middle">
-                <tr>
-                    <%
+            <% for (Categorie categorie : categorien) {
+                out.print(
+                        "<table class=\"table table-bordered border-dark\">" +
+                                "<h3 class=\"p-1\">" + categorie.getNaam() + "</h3>" +
+                                "<thead></thead>" +
+                                "<tbody class=\"align-middle\">"
+                );
 
+                for (Artikel artikel : artikels) {
+                    out.print(
+                            "<tr>" +
+                                    "<td>" + artikel.getNaam() +
+                                    "<p class=\"fw-light\">" + artikel.getOpmerking() + "</p>" +
+                                    "</td>" +
+                                    "<td class=\"text-center\">" + "€" + artikel.getPrijs() + "</td>"
+                    );
 
-                        for (Artikel artikel : artikels) {
-                            String voorraad="";
-                            if(artikel.getBeschikbaar()==true)
-                            {
-                                voorraad= "<button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#addToCart'>Voeg toe</button>";
-                            }else
-                            {
-                                voorraad="Niet op voorraad";
-                            }
-                            out.print("<tr>"
-                                    + "<td>" + artikel.getNaam() + "</td>"
-                                    + "<td><center>" + "€" + artikel.getPrijs() + "</center></td>"
-                                    +"<td><center>" + voorraad + "</center></td>"
-                                    //+ "<td><a href='/studenten/detail?id=" + artikel.getId() + "'>Details</a> | <a href='/studenten/edit?id="
-                                   // + artikel.getId() + "'>Edit</a> | <a href='/studenten/delete?id=" + artikel.getId() + "'>Delete</a></td>"
-                                    + "</tr>");
-                        }
-                    %><%--
-                    <td>Kinder Friet</td>
-                    <td class="text-center">€2.00</td>
-                    <td class="text-center">
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#addToCart">Voeg toe
-                        </button>
-                        <div class="modal fade" id="addToCart" tabindex="-1" aria-labelledby="addToCartLabel"
-                             aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <form>
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Kinder Friet</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <label for="saus" class="form-label"><strong>Saus: </strong></label>
-                                            <select class="form-select" aria-label="select saus" id="saus" required>
-                                                <option selected disabled value="">Kies een saus.</option>
-                                                <option value="Geen saus">Geen saus</option>
-                                                <option value="Gewone mayo">Gewone mayo</option>
-                                                <option value="Hollandse mayo">Hollandse mayo</option>
-                                                <option value="Tomatenketchup">Tomatenketchup</option>
-                                                <option value="Curryketchup">Curryketchup</option>
-                                                <option value="Tartaar">Tartaar</option>
-                                                <option value="Andalouse">Andalouse</option>
-                                                <option value="Joppiesaus">Joppiesaus</option>
-                                            </select>
-                                            <hr>
-                                            <label for="kruiden" class="form-label"><strong>Kruiden: </strong></label>
-                                            <select class="form-select" aria-label="select kruiden" id="kruiden"
-                                                    required>
-                                                <option selected disabled value="">Kies kruiden.</option>
-                                                <option value="Geen kruiden">Geen kruiden</option>
-                                                <option value="Zout">Zout</option>
-                                                <option value="Sate">Sate</option>
-                                                <option value="Zout + Sate">Zout + Sate</option>
-                                            </select>
-                                            <hr>
-                                            <label for="opmerking"
-                                                   class="form-label"><strong>Opmerking: </strong></label>
-                                            <textarea class="form-control" id="opmerking" rows="3"
-                                                      placeholder="Bv. Bij een grote bestelling, de naam van de persoon, zo bewaard u zelf ook het overzicht van uw winkelwagen."></textarea>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                                Annuleer
-                                            </button>
-                                            <button type="button" class="btn btn-primary">
-                                                Bevestig
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Medium Friet</td>
-                    <td class="text-center">€2.50</td>
-                    <td class="text-center">
-                        <button type="button" class="btn btn-primary">Voeg toe</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Grote Friet</td>
-                    <td class="text-center">€3.00</td>
-                    <td class="text-center">
-                        <button type="button" class="btn btn-primary">Voeg toe</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Friet Stoofvlees
-                        <p class="text-danger">Nieuw</p>
-                    </td>
-                    <td class="text-center">€4.00</td>
-                    <td class="text-center">
-                        <button type="button" class="btn btn-primary">Voeg toe</button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <hr>
-        <div class="row p-3">
-            <table class="table table-bordered border-dark">
-                <h3 class="p-1">Burgers <i class="fa-solid fa-burger"></i></h3>
-                <thead>
-                &lt;%&ndash;                <tr>
-                                    <th scope="col">Grootte</th>
-                                    <th scope="col">Prijs</th>
-                                    <th scope="col">Bestellen</th>
-                                </tr>&ndash;%&gt;
-                </thead>
-                <tbody class="align-middle">
-                <tr>
-                    <td>
-                        Bicky Classic
-                        <p class="fw-light">Runds, Bicky Uitjes, Bicky Saus</p>
-                    </td>
-                    <td class="text-center">€3.00</td>
-                    <td class="text-center">
-                        <button type="button" class="btn btn-primary">Voeg toe</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Bicky Cheese
-                        <p class="fw-light">Runds, Bicky Uitjes, Bicky Saus, Kaas</p>
-                    </td>
-                    <td class="text-center">€3.50</td>
-                    <td class="text-center">
-                        <p class="text-danger">Niet op voorraad...</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Bicky Chicken
-                        <p class="fw-light">Kip, Bicky Uitjes, Bicky Saus</p>
-                    </td>
-                    <td class="text-center">€3.50</td>
-                    <td class="text-center">
-                        <button type="button" class="btn btn-primary">Voeg toe</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Cheeseburger
-                        <p class="fw-light">Runds, Groenten, Kaas, Saus</p>
-                    </td>
-                    <td class="text-center">€4.00</td>
-                    <td class="text-center">
-                        <button type="button" class="btn btn-primary">Voeg toe</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Chickenburger
-                        <p class="fw-light">Kip, Groenten, Saus</p>
-                    </td>
-                    <td class="text-center">€4.00</td>
-                    <td class="text-center">
-                        <button type="button" class="btn btn-primary">Voeg toe</button>
-                    </td>--%>
-                </tr>
-                </tbody>
-            </table>
+                    if (artikel.getBeschikbaar()) {
+                        out.print(
+                                "<td class=\"text-center text-danger\">" +
+                                        "<a type=\"button\" class=\"btn btn-primary\" href='/artikel/toevoegen-aan-winkelwagen?id=" + artikel.getId() + "'>" +
+                                        "Voeg toe" +
+                                        "</a>" +
+                                        "</td>"
+                        );
+                    } else {
+                        out.print(
+                                "<td class=\"text-center text-danger\">Niet op voorraad</td>"
+                        );
+                    }
+
+                    out.print("</tr>");
+                }
+
+                out.print(
+                        "</tbody>" +
+                                "</table>"
+                );
+            }
+
+            %>
         </div>
     </main>
 

@@ -79,54 +79,57 @@
         <%--Begin tabel--%>
         <div class="row p-3">
             <% for (Categorie categorie : categorien) {
-                out.print(
-                        "<table class=\"table table-bordered border-dark\">" +
-                                "<h3 class=\"p-1\">" + categorie.getNaam() + "</h3>" +
-                                "<thead></thead>" +
-                                "<tbody class=\"align-middle\">"
-                );
 
-                for (Artikel artikel : artikels) {
                     out.print(
-                            "<tr>" +
-                                    "<td>" + artikel.getNaam() +
-                                    "<p class=\"fw-light\">" + artikel.getOpmerking() + "</p>" +
-                                    "</td>" +
-                                    "<td class=\"text-center\">" + "€" + artikel.getPrijs() + "</td>"
+                            "<table class=\"table table-bordered border-dark\">" +
+                                    "<h3 class=\"p-1\">" + categorie.getNaam() + "</h3>" +
+                                    "<thead></thead>" +
+                                    "<tbody class=\"align-middle\">"
                     );
 
-                    if (artikel.getBeschikbaar()) {
+                    for (Artikel artikel : artikels) {
+                        if (artikel.getCategorie() == categorie) {
+                            out.print(
+                                    "<tr>" +
+                                            "<td>" + artikel.getNaam() +
+                                            "<p class=\"fw-light\">" + artikel.getOpmerking() + "</p>" +
+                                            "</td>" +
+                                            "<td class=\"text-center\">" + "€" + artikel.getPrijs() + "</td>"
+                            );
+
+                        if (artikel.getBeschikbaar()) {
+                            out.print(
+                                    "<td class=\"text-center\">Op voorraad</td>"
+                            );
+                        } else {
+                            out.print(
+                                    "<td class=\"text-center text-danger\">Niet op voorraad</td>"
+                            );
+                        }
+
                         out.print(
-                                "<td class=\"text-center\">Op voorraad</td>"
+                                "<td class=\"text-center\">" +
+                                        "<div class=\"row gap-3\">" +
+                                        "<div class=\"col\">" +
+                                        "<a type=\"button\" class=\"btn btn-primary\" href='/artikelsbeheren/artikel/bewerken?id=" + artikel.getId() + "'>Bewerken" +
+                                        "</a>" +
+                                        "</div>" +
+                                        "<div class=\"col\">" +
+                                        "<a type=\"button\" class=\"btn btn-danger\" href='/artikelsbeheren/artikel/delete?id=" + artikel.getId() + "'>Delete" +
+                                        "</a>" +
+                                        "</div>" +
+                                        "</div>" +
+                                        "</td>" +
+                                        "</tr>"
                         );
-                    } else {
-                        out.print(
-                                "<td class=\"text-center text-danger\">Niet op voorraad</td>"
-                        );
-                    }
+                    }}
 
                     out.print(
-                            "<td class=\"text-center\">" +
-                                    "<div class=\"row gap-3\">" +
-                                    "<div class=\"col\">" +
-                                    "<a type=\"button\" class=\"btn btn-primary\" href='/artikelsbeheren/artikel/bewerken?id=" + artikel.getId() + "'>Bewerken" +
-                                    "</a>" +
-                                    "</div>" +
-                                    "<div class=\"col\">" +
-                                    "<a type=\"button\" class=\"btn btn-danger\" href='/artikelsbeheren/artikel/delete?id=" + artikel.getId() + "'>Delete" +
-                                    "</a>" +
-                                    "</div>" +
-                                    "</div>" +
-                                    "</td>" +
-                                    "</tr>");
-                }
+                            "</tbody>" +
+                                    "</table>"
+                    );
 
-                out.print(
-                        "</tbody>" +
-                                "</table>"
-                );
             }
-
             %>
         </div>
     </main>

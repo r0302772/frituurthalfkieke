@@ -98,10 +98,19 @@
                                    class="form-label"><strong>Categorie</strong></label>
                             <select name="categorie" class="form-select" aria-label="Select categorie"
                                     id="categorie" required>
-                                <option selected disabled>Selecteer categorie.</option>
+                                <option disabled>Selecteer categorie.</option>
                                 <%
                                     for (Categorie categorie : categorien) {
-                                        out.print("<option value=\"" + categorie.getId() + "\">" + categorie.getNaam() + "</option>");
+                                        if (artikel.getCategorie() == categorie){
+                                            out.print(
+                                                    "<option selected value=\"" + categorie.getId() + "\">" + categorie.getNaam() + "</option>"
+                                            );
+                                        }
+                                        else {
+                                        out.print(
+                                                "<option value=\"" + categorie.getId() + "\">" + categorie.getNaam() + "</option>"
+                                        );
+                                        }
                                     }
                                 %>
                             </select>

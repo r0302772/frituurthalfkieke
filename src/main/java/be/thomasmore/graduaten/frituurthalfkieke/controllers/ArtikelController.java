@@ -32,8 +32,22 @@ public class ArtikelController {
     @RequestMapping("/menu")
     public String navigateToMenu(Model model) {
         List<Artikel> artikels = artikelRepository.findAll();
+        List<Categorie> categorien = categorieRepository.findAll();
+        model.addAttribute("categorien", categorien);
         model.addAttribute("artikels", artikels);
         return "menu";
+    }
+
+    @RequestMapping("/artikel/toevoegen-aan-winkelwagen")
+    public String navigateToArtikelToevoegenAanWinkelwagen(Model model, HttpServletRequest request) {
+        Long id = Long.parseLong(request.getParameter("id"));
+        Artikel artikel = artikelRepository.getById(id);
+        List<Artikel> sauzen = artikelRepository.findAll();
+//Hier moet de categorie met naam Sauzen doorgestuurd worden
+
+        model.addAttribute("sauzen", sauzen);
+        model.addAttribute("artikel", artikel);
+        return "artikel-toevoegen-winkelwagen";
     }
 
     @RequestMapping("/artikelsbeheren")
@@ -56,17 +70,25 @@ public class ArtikelController {
     public String getToevoegenResult(Model model, HttpServletRequest request) {
         String naam = request.getParameter("naam");
         BigDecimal prijs = new BigDecimal(request.getParameter("prijs"));
-        Boolean beschikbaar = Boolean.parseBoolean(request.getParameter("beschikbaar"));
+        Boolean beschikbaar = Boolean.TRUE;
+        String beschikbaarheid = request.getParameter("beschikbaar");
+        if (beschikbaarheid == null) {
+            beschikbaar = false;
+        }
         String opmerking = request.getParameter("opmerking");
-        //Dit werkt nog niet...
+
         Long categorie_id = Long.parseLong(request.getParameter("categorie"));
         Categorie categorie = categorieRepository.getById(categorie_id);
-        //
-        Artikel artikel = new Artikel(naam, prijs, beschikbaar, opmerking, categorie);
-        artikelRepository.save(artikel);
 
+        Artikel artikel = new Artikel(naam, prijs, beschikbaar, opmerking, categorie);
+
+        List<Categorie> categorien = categorieRepository.findAll();
+        model.addAttribute("categorien", categorien);
         List<Artikel> artikels = artikelRepository.findAll();
         model.addAttribute("artikels", artikels);
+
+        //nog iets om te voorkomen dat er artikels met dezelfde naam in de db worden gestoken
+        artikelRepository.save(artikel);
 
         return "artikelsbeheren";
     }
@@ -75,6 +97,8 @@ public class ArtikelController {
     public String navigateToBewerken(Model model, HttpServletRequest request) {
         Long id = Long.parseLong(request.getParameter("id"));
         Artikel artikel = artikelRepository.getById(id);
+        List<Categorie> categorien = categorieRepository.findAll();
+        model.addAttribute("categorien", categorien);
         model.addAttribute("artikel", artikel);
         return "bewerk-artikel";
     }
@@ -94,10 +118,15 @@ public class ArtikelController {
             artikel.setBeschikbaar(false);
         }
         artikel.setOpmerking(request.getParameter("opmerking"));
-//        artikel.setCategorie();
+
+        Long categorie_id = Long.parseLong(request.getParameter("categorie"));
+        Categorie categorie = categorieRepository.getById(categorie_id);
+        artikel.setCategorie(categorie);
 
         artikelRepository.save(artikel);
 
+        List<Categorie> categorien = categorieRepository.findAll();
+        model.addAttribute("categorien", categorien);
         List<Artikel> artikels = artikelRepository.findAll();
         model.addAttribute("artikels", artikels);
 
