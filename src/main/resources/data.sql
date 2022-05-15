@@ -14,7 +14,7 @@ INSERT INTO STUDENT(voornaam, familienaam, klas)
 VALUES ('Els','Wouters','3PR');*/
 
 insert into Categorie(naam)
-Values ('Snacks');
+Values ('Sauzen');
 insert into Categorie(naam)
 Values ('Burgers');
 insert into Categorie(naam)
@@ -23,6 +23,11 @@ insert into Categorie(naam)
 Values ('Frieten');
 insert into Categorie(naam)
 Values('Dranken');
+
+INSERT INTO ARTIKEL(naam, prijs, beschikbaar, opmerking,categorie_id)
+VALUES ('Ketchup', 2.50, 1, '',5);
+INSERT INTO ARTIKEL(naam, prijs, beschikbaar, opmerking,categorie_id)
+VALUES ('Mayo', 2.50, 1, '',5);
 
 INSERT INTO ARTIKEL(naam, prijs, beschikbaar, opmerking,categorie_id)
 VALUES ('Kleine friet', 2.50, 1, '',4);

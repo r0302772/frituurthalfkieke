@@ -21,7 +21,7 @@ public class Artikel {
     //private  ArtikelBestelling artikelbestelling ;
 
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "categorie_id", nullable = false)
 
     private Categorie categorie;

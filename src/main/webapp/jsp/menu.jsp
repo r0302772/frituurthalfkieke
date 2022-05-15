@@ -91,7 +91,7 @@
                     if (artikel.getBeschikbaar()) {
                         out.print(
                                 "<td class=\"text-center text-danger\">" +
-                                        "<a type=\"button\" class=\"btn btn-primary\" href='/artikelsbeheren/artikel/bewerken?id=" + artikel.getId() + "'>" +
+                                        "<a type=\"button\" class=\"btn btn-primary\" href='/artikel/toevoegen-aan-winkelwagen?id=" + artikel.getId() + "'>" +
                                         "Voeg toe" +
                                         "</a>" +
                                         "</td>"

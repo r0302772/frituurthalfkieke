@@ -38,6 +38,18 @@ public class ArtikelController {
         return "menu";
     }
 
+    @RequestMapping("/artikel/toevoegen-aan-winkelwagen")
+    public String navigateToArtikelToevoegenAanWinkelwagen(Model model, HttpServletRequest request) {
+        Long id = Long.parseLong(request.getParameter("id"));
+        Artikel artikel = artikelRepository.getById(id);
+        List<Artikel> sauzen = artikelRepository.findAll();
+//Hier moet de categorie met naam Sauzen doorgestuurd worden
+
+        model.addAttribute("sauzen", sauzen);
+        model.addAttribute("artikel", artikel);
+        return "artikel-toevoegen-winkelwagen";
+    }
+
     @RequestMapping("/artikelsbeheren")
     public String navigateToArtikelsbeheren(Model model) {
         List<Artikel> artikels = artikelRepository.findAll();
@@ -60,13 +72,15 @@ public class ArtikelController {
         BigDecimal prijs = new BigDecimal(request.getParameter("prijs"));
         Boolean beschikbaar = Boolean.parseBoolean(request.getParameter("beschikbaar"));
         String opmerking = request.getParameter("opmerking");
-        //Dit werkt nog niet...
+        
         Long categorie_id = Long.parseLong(request.getParameter("categorie"));
         Categorie categorie = categorieRepository.getById(categorie_id);
-        //
+
         Artikel artikel = new Artikel(naam, prijs, beschikbaar, opmerking, categorie);
         artikelRepository.save(artikel);
 
+        List<Categorie> categorien = categorieRepository.findAll();
+        model.addAttribute("categorien", categorien);
         List<Artikel> artikels = artikelRepository.findAll();
         model.addAttribute("artikels", artikels);
 
