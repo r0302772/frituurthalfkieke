@@ -32,6 +32,8 @@ public class ArtikelController {
     @RequestMapping("/menu")
     public String navigateToMenu(Model model) {
         List<Artikel> artikels = artikelRepository.findAll();
+        List<Categorie> categorien = categorieRepository.findAll();
+        model.addAttribute("categorien", categorien);
         model.addAttribute("artikels", artikels);
         return "menu";
     }
