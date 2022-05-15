@@ -1,9 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.Artikel" %>
 <%@ page import="java.util.List" %>
-<%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.Categorie" %>
 <%
-    List<Categorie> categorien = (List<Categorie>) request.getAttribute("categorien");
+    Artikel artikel = (Artikel) request.getAttribute("artikel");
     List<Artikel> artikels = (List<Artikel>) request.getAttribute("artikels");
 %>
 <html lang="nl" class="h-100">
@@ -12,7 +11,7 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <script src="https://kit.fontawesome.com/29addfb8ae.js" crossorigin="anonymous"></script>
-    <title>Frituur t'Half Kieke | Artikels Beheren</title>
+    <title>Frituur t'Half Kieke | Menu</title>
     <link rel="icon" type="image/x-icon" href="/images/drumstick-bite-solid.svg">
 </head>
 <body class="d-flex h-100">
@@ -66,68 +65,50 @@
     </header>
 
     <main>
-        <%--Titel--%>
         <div class="row px-3 text-center">
-            <h2 class="display-5 fw-bold"><i class="fa-solid fa-warehouse"></i> Artikels Beheren</h2>
+            <h2 class="display-5 fw-bold"><i class="bi bi-plus"></i> Voeg toe </h2>
         </div>
-        <%--Nieuw Artikel--%>
-        <div>
-            <a type="button" class="btn btn-primary" href='/artikelsbeheren/artikel/toevoegen'>
-                <i class="bi bi-plus"></i> Nieuw Artikel</a>
-            <a type="button" class="btn btn-primary" href='/categorie'> Overzicht categoriën</a>
-        </div>
-        <%--Begin tabel--%>
         <div class="row p-3">
-            <% for (Categorie categorie : categorien) {
-                out.print(
-                        "<table class=\"table table-bordered border-dark\">" +
-                                "<h3 class=\"p-1\">" + categorie.getNaam() + "</h3>" +
-                                "<thead></thead>" +
-                                "<tbody class=\"align-middle\">"
-                );
+            <div class="modal-content">
+                <form action="/artikel/toevoegen-aan-winkelmand/result" method="get">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Kinder Friet</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <label for="saus" class="form-label"><strong>Saus: </strong></label>
+                        <select class="form-select" aria-label="Select saus" id="saus" required>
+                            <option selected disabled>Kies een saus.</option>
+                            <option value="0">Geen saus</option>
 
-                for (Artikel artikel : artikels) {
-                    out.print(
-                            "<tr>" +
-                                    "<td>" + artikel.getNaam() +
-                                    "<p class=\"fw-light\">" + artikel.getOpmerking() + "</p>" +
-                                    "</td>" +
-                                    "<td class=\"text-center\">" + "€" + artikel.getPrijs() + "</td>"
-                    );
-
-                    if (artikel.getBeschikbaar()) {
-                        out.print(
-                                "<td class=\"text-center\">Op voorraad</td>"
-                        );
-                    } else {
-                        out.print(
-                                "<td class=\"text-center text-danger\">Niet op voorraad</td>"
-                        );
-                    }
-
-                    out.print(
-                            "<td class=\"text-center\">" +
-                                    "<div class=\"row gap-3\">" +
-                                    "<div class=\"col\">" +
-                                    "<a type=\"button\" class=\"btn btn-primary\" href='/artikelsbeheren/artikel/bewerken?id=" + artikel.getId() + "'>Bewerken" +
-                                    "</a>" +
-                                    "</div>" +
-                                    "<div class=\"col\">" +
-                                    "<a type=\"button\" class=\"btn btn-danger\" href='/artikelsbeheren/artikel/delete?id=" + artikel.getId() + "'>Delete" +
-                                    "</a>" +
-                                    "</div>" +
-                                    "</div>" +
-                                    "</td>" +
-                                    "</tr>");
-                }
-
-                out.print(
-                        "</tbody>" +
-                                "</table>"
-                );
-            }
-
-            %>
+                        </select>
+                        <hr>
+                        <label for="kruiden" class="form-label"><strong>Kruiden: </strong></label>
+                        <select class="form-select" aria-label="select kruiden" id="kruiden"
+                                required>
+                            <option selected disabled value="">Kies kruiden.</option>
+                            <option value="Geen kruiden">Geen kruiden</option>
+                            <option value="Zout">Zout</option>
+                            <option value="Sate">Sate</option>
+                            <option value="Zout + Sate">Zout + Sate</option>
+                        </select>
+                        <hr>
+                        <label for="opmerking"
+                               class="form-label"><strong>Opmerking: </strong></label>
+                        <textarea class="form-control" id="opmerking" rows="3"
+                                  placeholder="Bv. Bij een grote bestelling, de naam van de persoon, zo bewaard u zelf ook het overzicht van uw winkelwagen."></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            Annuleer
+                        </button>
+                        <button type="button" class="btn btn-primary">
+                            Bevestig
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     </main>
 
