@@ -58,8 +58,10 @@ public class ArtikelController {
         BigDecimal prijs = new BigDecimal(request.getParameter("prijs"));
         Boolean beschikbaar = Boolean.parseBoolean(request.getParameter("beschikbaar"));
         String opmerking = request.getParameter("opmerking");
-//        Dit werkt nog niet...
-        Categorie categorie = new Categorie(Long.parseLong(request.getParameter("categorie")));
+        //Dit werkt nog niet...
+        Long categorie_id = Long.parseLong(request.getParameter("categorie"));
+        Categorie categorie = categorieRepository.getById(categorie_id);
+        //
         Artikel artikel = new Artikel(naam, prijs, beschikbaar, opmerking, categorie);
         artikelRepository.save(artikel);
 
@@ -92,6 +94,7 @@ public class ArtikelController {
             artikel.setBeschikbaar(false);
         }
         artikel.setOpmerking(request.getParameter("opmerking"));
+//        artikel.setCategorie();
 
         artikelRepository.save(artikel);
 
