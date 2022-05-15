@@ -1,11 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.Artikel" %>
 <%@ page import="java.util.List" %>
-<%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.Categorie" %>
 <%
     Artikel artikel = (Artikel) request.getAttribute("artikel");
     List<Artikel> sauzen = (List<Artikel>) request.getAttribute("sauzen");
-//    Categorie categorie = (Categorie) request.getAttribute("categorie");
 %>
 <html lang="nl" class="h-100">
 <head>
@@ -84,11 +82,11 @@
                             <option selected disabled>Kies een saus.</option>
                             <option value="0">Geen saus</option>
                             <%
-                                for(Artikel saus : sauzen){
-                                out.print("<option value=\"" + saus.getId() + "\">" + saus.getNaam() + "</option>");
+                                for (Artikel saus : sauzen) {
+                                    out.print(
+                                            "<option value=\"" + saus.getId() + "\">" + saus.getNaam() + "</option>"
+                                    );
                                 }
-
-
                             %>
                         </select>
                         <hr>
@@ -103,7 +101,7 @@
                             <option value="Zout + Sate">Zout + Sate</option>
                         </select>
                         <hr>
-                            <%--Opmerking--%>
+                        <%--Opmerking--%>
                         <label for="opmerking"
                                class="form-label"><strong>Opmerking: </strong></label>
                         <textarea class="form-control" id="opmerking" rows="3"

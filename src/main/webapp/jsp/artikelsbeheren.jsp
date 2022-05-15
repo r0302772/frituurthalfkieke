@@ -72,7 +72,7 @@
         </div>
         <%--Nieuw Artikel--%>
         <div>
-            <a type="button" class="btn btn-primary" href='/artikelsbeheren/artikel/toevoegen'>
+            <a type="button" class="btn btn-primary" href='/artikel/toevoegen'>
                 <i class="bi bi-plus"></i> Nieuw Artikel</a>
             <a type="button" class="btn btn-primary" href='/categorie'> Overzicht categoriën</a>
         </div>
@@ -80,54 +80,55 @@
         <div class="row p-3">
             <% for (Categorie categorie : categorien) {
 
-                    out.print(
-                            "<table class=\"table table-bordered border-dark\">" +
-                                    "<h3 class=\"p-1\">" + categorie.getNaam() + "</h3>" +
-                                    "<thead></thead>" +
-                                    "<tbody class=\"align-middle\">"
-                    );
+                out.print(
+                        "<table class=\"table table-bordered border-dark\">" +
+                                "<h3 class=\"p-1\">" + categorie.getNaam() + "</h3>" +
+                                "<thead></thead>" +
+                                "<tbody class=\"align-middle\">"
+                );
 
-                    for (Artikel artikel : artikels) {
-                        if (artikel.getCategorie() == categorie) {
-                            out.print(
-                                    "<tr>" +
-                                            "<td>" + artikel.getNaam() +
-                                            "<p class=\"fw-light\">" + artikel.getOpmerking() + "</p>" +
-                                            "</td>" +
-                                            "<td class=\"text-center\">" + "€" + artikel.getPrijs() + "</td>"
-                            );
+                for (Artikel artikel : artikels) {
+                    if (artikel.getCategorie() == categorie) {
+                        out.print(
+                                "<tr>" +
+                                        "<td class=\"col-6\">" + artikel.getNaam() +
+                                        "<p class=\"fw-light\">" + artikel.getOpmerking() + "</p>" +
+                                        "</td>" +
+                                        "<td class=\"text-center col-1\">" + "€" + artikel.getPrijs() + "</td>"
+                        );
 
                         if (artikel.getBeschikbaar()) {
                             out.print(
-                                    "<td class=\"text-center\">Op voorraad</td>"
+                                    "<td class=\"text-center col-2\">Op voorraad</td>"
                             );
                         } else {
                             out.print(
-                                    "<td class=\"text-center text-danger\">Niet op voorraad</td>"
+                                    "<td class=\"text-center text-danger col-2\">Niet op voorraad</td>"
                             );
                         }
 
                         out.print(
-                                "<td class=\"text-center\">" +
+                                "<td class=\"text-center col-3\">" +
                                         "<div class=\"row gap-3\">" +
                                         "<div class=\"col\">" +
-                                        "<a type=\"button\" class=\"btn btn-primary\" href='/artikelsbeheren/artikel/bewerken?id=" + artikel.getId() + "'>Bewerken" +
+                                        "<a type=\"button\" class=\"btn btn-primary\" href='/artikel/bewerken?id=" + artikel.getId() + "'>Bewerken" +
                                         "</a>" +
                                         "</div>" +
                                         "<div class=\"col\">" +
-                                        "<a type=\"button\" class=\"btn btn-danger\" href='/artikelsbeheren/artikel/delete?id=" + artikel.getId() + "'>Delete" +
+                                        "<a type=\"button\" class=\"btn btn-danger\" href='/artikel/delete?id=" + artikel.getId() + "'>Delete" +
                                         "</a>" +
                                         "</div>" +
                                         "</div>" +
                                         "</td>" +
                                         "</tr>"
                         );
-                    }}
+                    }
+                }
 
-                    out.print(
-                            "</tbody>" +
-                                    "</table>"
-                    );
+                out.print(
+                        "</tbody>" +
+                                "</table>"
+                );
 
             }
             %>

@@ -67,7 +67,7 @@
             <h2 class="display-5 fw-bold"><i class="bi bi-trash-fill"></i> Artikel Verwijderen</h2>
         </div>
         <div class="modal-content">
-            <form action="/artikelsbeheren/artikel/delete/result" method="get">
+            <form action="/artikel/delete/result" method="get">
                 <input type="hidden" id="id" name="id" value="<%=artikel.getId()%>">
                 <div class="modal-header">
                     <h5 class="modal-title text-danger" id="deleteArtikelLabel"><i
