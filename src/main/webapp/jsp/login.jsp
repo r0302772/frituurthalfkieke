@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="nl" class="h-100">
 <head>
@@ -61,27 +62,29 @@
     <main class="px-3">
         <h1 class="display-5 fw-bold text-center">Login</h1>
         <div class="row justify-content-center">
-            <form class="col-lg-4">
+            <form:form method="post" action="/login" class="col-lg-4">
                 <div class="d-grid gap-3">
                     <div>
-                        <label for="gebruikersnaam" class="form-label">Gebruikersnaam</label>
-                        <input type="text" class="form-control" id="gebruikersnaam" value="" required>
+                        <label for="username" class="form-label">Gebruikersnaam</label>
+                        <input name="username" type="text" class="form-control" id="username" autofocus required>
                     </div>
                     <div>
-                        <label for="wachtwoord" class="form-label">Wachtwoord</label>
-                        <input type="password" class="form-control" id="wachtwoord" value="" required>
+                        <label for="password" class="form-label">Wachtwoord</label>
+                        <input name="password" type="password" class="form-control" id="password" required>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="remember-me" class="form-check-input" id="remember-me">
+                        <label for="remember-me" class="form-label">Onthoud mij</label>
                     </div>
                     <div class="text-center">
-                        <%--                <button class="btn btn-primary" type="submit">Inloggen</button>--%>
-                        <a class="btn btn-primary btn-lg" href="/bestellingenbeheren">Inloggen</a>
+                        <button type="submit" class="btn btn-primary btn-lg">Inloggen</button>
                     </div>
                     <div class="text-center">
-                        <button class="btn btn-link">Wachtwoord/gebruikersnaam vergeten?</button>
+                        <button class="btn btn-link">Wachtwoord vergeten?</button>
                     </div>
                 </div>
-            </form>
+            </form:form>
         </div>
-
     </main>
 
     <footer class="mt-auto text-center pt-3">
