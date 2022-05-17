@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="nl" class="h-100">
 <head>
@@ -20,12 +21,14 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <ul class="navbar-nav navbar-collapse">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login"><i class="bi bi-box-arrow-in-right"></i> Inloggen</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/loguit"><i class="bi bi-box-arrow-left"></i> Uitloggen</a>
-                    </li>
+                    <form:form method="post" action="/logout" class="nav-item">
+                        <li class="nav-item">
+                            <a class="btn" href="/login">Inloggen</a>
+                        </li>
+                        <li class="nav-item">
+                            <input class="btn" type="submit" value="Uitloggen"/>
+                        </li>
+                    </form:form>
                 </ul>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <ul class="navbar-nav">

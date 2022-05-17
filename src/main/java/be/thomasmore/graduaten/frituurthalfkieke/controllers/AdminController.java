@@ -2,6 +2,7 @@ package be.thomasmore.graduaten.frituurthalfkieke.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -10,6 +11,7 @@ public class AdminController {
 
     @GetMapping("login")
     public String navigateToLogin() {
+
         return "login";
     }
 
@@ -18,8 +20,4 @@ public class AdminController {
         return "bestellingenbeheren";
     }
 
-    @GetMapping("loguit")
-    public String navigateToLoguit() {
-        return "index";
-    }
 }
