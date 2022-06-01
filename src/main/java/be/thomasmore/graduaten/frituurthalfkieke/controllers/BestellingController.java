@@ -16,8 +16,8 @@ public class BestellingController {
 
     private BestellingRepository bestellingRepository;
 
-    public BestellingController(BestellingRepository studentRepository) {
-        this.bestellingRepository = studentRepository;
+    public BestellingController(BestellingRepository bestellingRepository) {
+        this.bestellingRepository = bestellingRepository;
     }
 
     @RequestMapping("/bestelling")

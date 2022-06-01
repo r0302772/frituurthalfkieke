@@ -3,7 +3,7 @@
 <%@ page import="java.util.List" %>
 <%
     Artikel artikel = (Artikel) request.getAttribute("artikel");
-    List<Artikel> sauzen = (List<Artikel>) request.getAttribute("sauzen");
+/*    List<Artikel> sauzen = (List<Artikel>) request.getAttribute("sauzen");*/
 %>
 <html lang="nl" class="h-100">
 <head>
@@ -26,12 +26,14 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <ul class="navbar-nav navbar-collapse">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login"><i class="bi bi-box-arrow-in-right"></i> Inloggen</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/"><i class="bi bi-box-arrow-left"></i> Uitloggen</a>
-                    </li>
+                    <form:form method="post" action="/logout" class="nav-item">
+                        <li class="nav-item">
+                            <a class="btn" href="/login">Inloggen</a>
+                        </li>
+                        <li class="nav-item">
+                            <input class="btn" type="submit" value="Uitloggen"/>
+                        </li>
+                    </form:form>
                 </ul>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <ul class="navbar-nav">
@@ -70,28 +72,28 @@
         </div>
         <div class="row p-3">
             <div class="modal-content">
-                <form action="/artikel/toevoegen-aan-winkelmand/result" method="get">
+                <form action="winkelwagen/artikel-toevoegen-aan-winkelwagen/result" method="get">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel"><%=artikel.getNaam()%>
                         </h5>
                     </div>
                     <div class="modal-body">
-                        <%--Selectbox Sauzen--%>
-                        <label for="artikel" class="form-label"><strong>Saus: </strong></label>
+
+<%--                        <label for="artikel" class="form-label"><strong>Saus: </strong></label>
                         <select class="form-select" name="artikel" aria-label="Select saus" id="artikel" required>
-                            <option selected disabled>Kies een saus.</option>
-                            <option value="0">Geen saus</option>
-                            <%
-                                for (Artikel saus : sauzen) {
+                            <option selected disabled value="">Kies een saus.</option>
+                            <option value="0">Geen saus</option>);
+
+                               <% for (Artikel saus : sauzen) {
                                     out.print(
                                             "<option value=\"" + saus.getId() + "\">" + saus.getNaam() + "</option>"
                                     );
-                                }
-                            %>
-                        </select>
+                                }%>
+
+                        </select>--%>
                         <hr>
-                        <%--Selectbox Kruiden--%>
-                        <label for="kruiden" class="form-label"><strong>Kruiden: </strong></label>
+
+<%--                        <label for="kruiden" class="form-label"><strong>Kruiden: </strong></label>
                         <select class="form-select" aria-label="select kruiden" id="kruiden"
                                 required>
                             <option selected disabled value="">Kies kruiden.</option>
@@ -99,7 +101,8 @@
                             <option value="Zout">Zout</option>
                             <option value="Sate">Sate</option>
                             <option value="Zout + Sate">Zout + Sate</option>
-                        </select>
+                        </select>--%>
+
                         <hr>
                         <%--Opmerking--%>
                         <label for="opmerking"
@@ -109,17 +112,15 @@
                     </div>
                     <div class="modal-footer">
                         <a type="button" class="btn btn-secondary" href="/menu">Annuleer</a>
-                        <input type="submit" class="btn btn-primary" value="Bevestig"/>
+<%--                        <input type="submit" class="btn btn-primary" value="Bevestig"/>--%>
+                        <a href="${pageContext.request.contextPath }/winkelwagen/artikel-toevoegen-aan-winkelwagen/result/${artikel.id}">Buy Now</a>
                     </div>
                 </form>
             </div>
         </div>
     </main>
 
-    <footer class="mt-auto text-center pt-3">
-        <hr>
-        <p>Frituur t'Half Kieke - Copyright &copy; 2022 - <a href="/login">Admin</a></p>
-    </footer>
+    <jsp:include page="footer.jsp" />
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

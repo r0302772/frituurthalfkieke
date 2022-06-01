@@ -17,11 +17,6 @@ public class MainController {
         return "contact";
     }
 
-    @RequestMapping("/winkelwagen")
-    public String navigateToWinkelmand() {
-        return "winkelwagen";
-    }
-
     @RequestMapping("/bevestigingbestelling")
     public String navigateToBevestigingbestelling() {
         return "bevestigingbestelling";

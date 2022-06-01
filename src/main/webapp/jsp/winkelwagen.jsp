@@ -20,12 +20,14 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <ul class="navbar-nav navbar-collapse">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login"><i class="bi bi-box-arrow-in-right"></i> Inloggen</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/"><i class="bi bi-box-arrow-left"></i> Uitloggen</a>
-                    </li>
+                    <form:form method="post" action="/logout" class="nav-item">
+                        <li class="nav-item">
+                            <a class="btn" href="/login">Inloggen</a>
+                        </li>
+                        <li class="nav-item">
+                            <input class="btn" type="submit" value="Uitloggen"/>
+                        </li>
+                    </form:form>
                 </ul>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <ul class="navbar-nav">
@@ -58,13 +60,13 @@
         <hr>
     </header>
 
-    <main>
+<%--    <main>
         <div class="row p-3 text-center">
             <h2 class="display-5 fw-bold"><i class="bi bi-cart-fill"></i> Winkelwagen</h2>
         </div>
         <form>
             <div class="row">
-                <%--Winkelwagen STAP 1--%>
+                &lt;%&ndash;Winkelwagen STAP 1&ndash;%&gt;
                 <div class="col-12 border">
                     <div class="row p-3 bg-secondary text-white">
                         <h4>Winkelwagen (Stap 1/2)</h4>
@@ -77,7 +79,7 @@
                     <hr>
                     <a href="/menu" class="btn btn-primary">TERUG NAAR MENU</a>
                     <div class="row p-1">
-                        <%--Bestelling--%>
+                        &lt;%&ndash;Bestelling&ndash;%&gt;
                         <table class="table table-borderless">
                             <thead>
                             <tr>
@@ -89,7 +91,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <%--Grote friet snelly eddy--%>
+                            &lt;%&ndash;Grote friet snelly eddy&ndash;%&gt;
                             <tr>
                                 <td>
                                     <button class="btn" type="button"><i class="bi bi-x-circle-fill"></i></button>
@@ -113,7 +115,7 @@
                                     <hr>
                                 </td>
                             </tr>
-                            <%--Curryworst speciaal Kelly--%>
+                            &lt;%&ndash;Curryworst speciaal Kelly&ndash;%&gt;
                             <tr>
                                 <td>
                                     <button class="btn" type="button"><i class="bi bi-x-circle-fill"></i></button>
@@ -138,7 +140,7 @@
                                 </td>
                             </tr>
                             </tbody>
-                            <%--Totaal--%>
+                            &lt;%&ndash;Totaal&ndash;%&gt;
                             <tfoot class="bg-secondary bg-opacity-10">
                             <td colspan="5">
                                 TOTAAL: €5.OO
@@ -147,7 +149,7 @@
                         </table>
                     </div>
                 </div>
-                <%--Uw gegevens STAP 2--%>
+                &lt;%&ndash;Uw gegevens STAP 2&ndash;%&gt;
                 <div class="col-12 border">
                     <div class="row p-3 bg-secondary text-white">
                         <h4>Uw gegevens (Stap 2/2)</h4>
@@ -158,7 +160,7 @@
                                 <i class="bi bi-person-fill"></i>
                             </div>
                             <div class="col">
-                                <%--Voornaam en achternaam--%>
+                                &lt;%&ndash;Voornaam en achternaam&ndash;%&gt;
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="row pt-3">
@@ -185,7 +187,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <%--gsm en email--%>
+                                &lt;%&ndash;gsm en email&ndash;%&gt;
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="row pt-3">
@@ -214,7 +216,7 @@
                                 <hr>
                             </div>
                         </div>
-                        <%--Afhalen--%>
+                        &lt;%&ndash;Afhalen&ndash;%&gt;
                         <div class="row">
                             <div class="col-auto">
                                 <i class="bi bi-calendar-event-fill"></i>
@@ -228,12 +230,12 @@
                                 <div class="row">
                                     <div class="col">
                                         <input type="date" id="start" name="trip-start" class="form-control">
-<%--                                        <select class="form-select" aria-label="select date" required="">
+&lt;%&ndash;                                        <select class="form-select" aria-label="select date" required="">
                                             <option selected disabled value="">Kies een datum.</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
                                             <option value="3">Three</option>
-                                        </select>--%>
+                                        </select>&ndash;%&gt;
                                     </div>
                                     <div class="col">
                                         <select class="form-select" aria-label="select time" required="">
@@ -260,23 +262,54 @@
                             </div>
                         </div>
                         <div class="row d-grid p-3">
-                            <%--<button type="submit" class="btn btn-primary btn-lg">BESTELLEN</button>--%>
+                            &lt;%&ndash;<button type="submit" class="btn btn-primary btn-lg">BESTELLEN</button>&ndash;%&gt;
                             <a href="/bevestigingbestelling" class="btn btn-primary btn-lg">BESTELLEN</a>
                         </div>
                     </div>
                 </div>
             </div>
         </form>
-    </main>
+    </main>--%>
 
-    <footer class="mt-auto text-center pt-3">
-        <hr>
-        <p>Frituur t'Half Kieke - Copyright &copy; 2022 - <a href="/login">Admin</a></p>
-    </footer>
+    <h3>Cart Page</h3>
+    <table cellpadding="2" cellspacing="2" border="1">
+        <tr>
+            <th>Option</th>
+            <th>Id</th>
+            <th>Name</th>
+
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Sub Total</th>
+        </tr>
+        <c:set var="total" value="0"></c:set>
+        <c:forEach var="item" items="${sessionScope.winkelwagen }">
+            <c:set var="total"
+                   value="${total + item.product.price * item.quantity }"></c:set>
+            <tr>
+                <td align="center"><a
+                        href="${pageContext.request.contextPath }/cart/remove/${item.product.id }"
+                        onclick="return confirm('Are you sure?')">Remove</a></td>
+                <td>${item.product.id }</td>
+                <td>${item.product.name }</td>
+
+                <td>${item.product.price }</td>
+                <td>${item.quantity }</td>
+                <td>${item.product.price * item.quantity }</td>
+            </tr>
+        </c:forEach>
+        <tr>
+            <td colspan="6" align="right">Sum</td>
+            <td>${total }</td>
+        </tr>
+    </table>
+
+    <jsp:include page="footer.jsp" />
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 </body>
+
 </html>
