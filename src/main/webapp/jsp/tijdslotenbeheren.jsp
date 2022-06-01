@@ -532,10 +532,7 @@
         </div>
     </main>
 
-    <footer class="mt-auto text-center pt-3">
-        <hr>
-        <p>Frituur t'Half Kieke - Copyright &copy; 2022 - <a href="/login">Admin</a></p>
-    </footer>
+    <jsp:include page="footer.jsp" />
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

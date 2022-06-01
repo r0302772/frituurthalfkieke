@@ -93,7 +93,7 @@
                             if (artikel.getBeschikbaar()) {
                                 out.print(
                                         "<td class=\"text-center text-danger col-3\">" +
-                                                "<a type=\"button\" class=\"btn btn-primary\" href='/artikel/toevoegen-aan-winkelwagen?id=" + artikel.getId() + "'>" +
+                                                "<a type=\"button\" class=\"btn btn-primary\" href='/artikel-toevoegen-aan-winkelwagen?id=" + artikel.getId() + "'>" +
                                                 "Voeg toe" +
                                                 "</a>" +
                                                 "</td>"
@@ -121,10 +121,7 @@
         </div>
     </main>
 
-    <footer class="mt-auto text-center pt-3">
-        <hr>
-        <p>Frituur t'Half Kieke - Copyright &copy; 2022 - <a href="/login">Admin</a></p>
-    </footer>
+    <jsp:include page="footer.jsp" />
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
