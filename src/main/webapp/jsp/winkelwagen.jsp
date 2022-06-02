@@ -281,6 +281,9 @@
 
             <th>Prijs</th>
             <th>Hoeveelheid</th>
+            <th>Saus</th>
+            <th>Kruiden</th>
+            <th>Opmerking</th>
             <th>Sub Totaal</th>
         </tr>
         <c:set var="total" value="0"></c:set>
@@ -296,7 +299,11 @@
 
                 <td>${ItemWinkelwagen.artikel.prijs }</td>
                 <td>${ItemWinkelwagen.hoeveelheid }</td>
+                <td>${ItemWinkelwagen.saus.naam}</td>
+                <td>${ItemWinkelwagen.kruiden}</td>
+                <td>${ItemWinkelwagen.opmerking}</td>
                 <td>${ItemWinkelwagen.artikel.prijs * ItemWinkelwagen.hoeveelheid }</td>
+
             </tr>
         </c:forEach>
         <tr>

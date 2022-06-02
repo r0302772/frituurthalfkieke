@@ -3,7 +3,8 @@
 <%@ page import="java.util.List" %>
 <%
     Artikel artikel = (Artikel) request.getAttribute("artikel");
-List<Artikel> sauzen = (List<Artikel>) request.getAttribute("sauzen");
+    List<Artikel> sauzen = (List<Artikel>) request.getAttribute("sauzen");
+
 %>
 <html lang="nl" class="h-100">
 <head>
@@ -72,29 +73,43 @@ List<Artikel> sauzen = (List<Artikel>) request.getAttribute("sauzen");
         </div>
         <div class="row p-3">
             <div class="modal-content">
-                <form id="bevestigen" action="${pageContext.request.contextPath }/winkelwagen/artikel-toevoegen-aan-winkelwagen/result/${artikel.id}" method="get">
+                <form action="${pageContext.request.contextPath }/winkelwagen/artikel-toevoegen-aan-winkelwagen/result"
+                      method="get">
+                    <input name="selectedArtikel" type="hidden" value="<%=artikel.getId()%>"/>
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel"><%=artikel.getNaam()%>
                         </h5>
                     </div>
                     <div class="modal-body">
+                        <div class="row mb-2">
 
-                        <label for="artikel" class="form-label"><strong>Saus: </strong></label>
-                        <select class="form-select" name="artikel" aria-label="Select saus" id="artikel" required>
+                            <label for="hoeveelheid" class="form-label"><strong>Hoeveelheid: </strong></label>
+
+
+                            <div class="col-1">
+                                <input class="form-control" id="hoeveelheid" type="number" name="hoeveelheid" value=1
+                                       min=1>
+                            </div>
+                        </div>
+
+
+                        <label for="saus" class="form-label"><strong>Saus: </strong></label>
+                        <select class="form-select" name="selectedSaus" aria-label="Select saus" id="saus" required>
                             <option selected disabled value="">Kies een saus.</option>
-                            <option value="0">Geen saus</option>);
+                            <option id="saus" value="0">Geen saus</option>
+                            );
 
-                               <% for (Artikel saus : sauzen) {
-                                    out.print(
-                                            "<option value=\"" + saus.getId() + "\">" + saus.getNaam() + "</option>"
-                                    );
-                                }%>
+                            <% for (Artikel saus : sauzen) {
+                                out.print(
+                                        "<option  value=\"" + saus.getId() + "\">" + saus.getNaam() + "</option>"
+                                );
+                            }%>
 
                         </select>
                         <hr>
 
                         <label for="kruiden" class="form-label"><strong>Kruiden: </strong></label>
-                        <select class="form-select" aria-label="select kruiden" id="kruiden"
+                        <select class="form-select" name="selectedKruiden" aria-label="select kruiden" id="kruiden"
                                 required>
                             <option selected disabled value="">Kies kruiden.</option>
                             <option value="Geen kruiden">Geen kruiden</option>
@@ -107,20 +122,20 @@ List<Artikel> sauzen = (List<Artikel>) request.getAttribute("sauzen");
                         <%--Opmerking--%>
                         <label for="opmerking"
                                class="form-label"><strong>Opmerking: </strong></label>
-                        <textarea class="form-control" id="opmerking" rows="3"
+                        <textarea name='opmerking' class="form-control" id="opmerking" rows="3"
                                   placeholder="Bv. Bij een grote bestelling, de naam van de persoon, zo bewaard u zelf ook het overzicht van uw winkelwagen."></textarea>
                     </div>
                     <div class="modal-footer">
                         <a type="button" class="btn btn-secondary" href="/menu">Annuleer</a>
-<%--                        <input type="submit" class="btn btn-primary" value="Bevestig"/>--%>
-                        <input type="submit" class="btn btn-primary"  value="Bevestig"/>
+                        <%--                        <input type="submit" class="btn btn-primary" value="Bevestig"/>--%>
+                        <input type="submit" class="btn btn-primary" value="Bevestig"/>
                     </div>
                 </form>
             </div>
         </div>
     </main>
 
-    <jsp:include page="footer.jsp" />
+    <jsp:include page="footer.jsp"/>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

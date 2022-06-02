@@ -8,6 +8,7 @@ import be.thomasmore.graduaten.frituurthalfkieke.repositories.CategorieRepositor
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -33,36 +34,34 @@ public class WinkelwagenController {
         return "winkelwagen";
     }
 
-    @RequestMapping("/artikel-toevoegen-aan-winkelwagen/result/{id}")
-    public String navigateToArtikelToevoegenAanWinkelwagenResult(@PathVariable("id") String id,Model model, HttpSession session) {
-//        Long id = Long.parseLong(request.getParameter("id"));
-        Artikel artikel = artikelRepository.getById(Long.parseLong(id));
+    @RequestMapping( "/artikel-toevoegen-aan-winkelwagen/result")
+    public String navigateToArtikelToevoegenAanWinkelwagenResult(Model model, HttpSession session,  HttpServletRequest request) {
+        Long artikelId = Long.parseLong(request.getParameter("selectedArtikel"));
+        Artikel artikel = artikelRepository.getById(artikelId);
 
+        Long sausId = Long.parseLong(request.getParameter("selectedSaus"));
+        String kruiden = request.getParameter("selectedKruiden");
+        String opmerking = request.getParameter("opmerking");
+        Artikel saus = artikelRepository.getById(sausId);
         List<Artikel> artikels = artikelRepository.findAll();
         List<Categorie> categorien = categorieRepository.findAll();
-
         if (session.getAttribute("winkelwagen") == null) {
             List<ItemWinkelwagen> winkelwagen = new ArrayList<ItemWinkelwagen>();
             //winkelwagen.add(new ItemWinkelwagen(artikelRepository.getById(Long.parseLong(id)), 1));
-            winkelwagen.add(new ItemWinkelwagen(artikel,1));
+            winkelwagen.add(new ItemWinkelwagen(artikel,1,saus,kruiden,opmerking));
             session.setAttribute("winkelwagen", winkelwagen);
         } else {
             List<ItemWinkelwagen> winkelwagen = (List<ItemWinkelwagen>) session.getAttribute("winkelwagen");
-            int index = this.exists(Long.parseLong(id), winkelwagen);
-            if (index == -1) {
-               // winkelwagen.add(new ItemWinkelwagen(artikelRepository.getById(Long.parseLong(id)), 1));
-                winkelwagen.add(new ItemWinkelwagen(artikel,1));
-            } else {
-                int hoeveelheid = winkelwagen.get(index).getHoeveelheid() + 1;
-                winkelwagen.get(index).setHoeveelheid(hoeveelheid);
-            }
-            session.setAttribute("winkelwagen", winkelwagen);
 
+
+                // winkelwagen.add(new ItemWinkelwagen(artikelRepository.getById(Long.parseLong(id)), 1));
+                winkelwagen.add(new ItemWinkelwagen(artikel,1,saus,kruiden,opmerking));
+
+            session.setAttribute("winkelwagen", winkelwagen);
         }
 
-model.addAttribute("artikel", artikel);
-
-       model.addAttribute("categorien", categorien);
+        model.addAttribute("artikel", artikel);
+        model.addAttribute("categorien", categorien);
         model.addAttribute("artikels", artikels);
         return "menu";
     }
@@ -73,14 +72,7 @@ model.addAttribute("artikel", artikel);
         List<ItemWinkelwagen> winkelwagen = (List<ItemWinkelwagen>) session.getAttribute("winkelwagen");
 
         int index = this.exists(Long.parseLong(id), winkelwagen);
-
-       if(winkelwagen.get(index).getHoeveelheid()>1){
-           int hoeveelheid = winkelwagen.get(index).getHoeveelheid() - 1;
-           winkelwagen.get(index).setHoeveelheid(hoeveelheid);
-       }else {
            winkelwagen.remove(index);
-       }
-
         session.setAttribute("winkelwagen", winkelwagen);
         return "winkelwagen";
     }

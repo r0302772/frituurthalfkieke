@@ -53,17 +53,21 @@ private String opmerking;
     public ItemWinkelwagen() {
     }
 
- /*   public ItemWinkelwagen(Artikel artikel, int hoeveelheid, Artikel saus, String kruiden, String opmerking) {
+    public ItemWinkelwagen(Artikel artikel, int hoeveelheid, Artikel saus, String kruiden, String opmerking) {
         this.artikel = artikel;
         this.hoeveelheid = hoeveelheid;
         this.saus = saus;
         this.kruiden=kruiden;
         this.opmerking=opmerking;
-    }*/
+    }
+ public ItemWinkelwagen(Artikel artikel, int hoeveelheid) {
+     this.artikel = artikel;
+     this.hoeveelheid = hoeveelheid;
 
-    public ItemWinkelwagen(Artikel artikel, int hoeveelheid) {
+ }
+    public ItemWinkelwagen(Artikel artikel, int hoeveelheid, Artikel saus) {
         this.artikel = artikel;
         this.hoeveelheid = hoeveelheid;
-
+        this.saus=saus;
     }
 }
