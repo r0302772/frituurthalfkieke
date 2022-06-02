@@ -299,7 +299,13 @@
 
                 <td>${ItemWinkelwagen.artikel.prijs }</td>
                 <td>${ItemWinkelwagen.hoeveelheid }</td>
-                <td>${ItemWinkelwagen.saus.naam}</td>
+                <td>
+                    <ul>
+<%--                        <c:forEach var="saus" items="${ItemWinkelwagen.sauzen}">--%>
+<%--                           <li>test<li>--%>
+<%--                        </c:forEach>--%>
+                    </ul>
+                </td>
                 <td>${ItemWinkelwagen.kruiden}</td>
                 <td>${ItemWinkelwagen.opmerking}</td>
                 <td>${ItemWinkelwagen.artikel.prijs * ItemWinkelwagen.hoeveelheid }</td>

@@ -39,23 +39,29 @@ public class WinkelwagenController {
         Long artikelId = Long.parseLong(request.getParameter("selectedArtikel"));
         Artikel artikel = artikelRepository.getById(artikelId);
 
-        Long sausId = Long.parseLong(request.getParameter("selectedSaus"));
+        String[] sausIdStrings = request.getParameterValues("selectedSaus");
+        List<Artikel> sauzen= new ArrayList<Artikel>();
+        for (String sausid: sausIdStrings)
+        {
+            Artikel saus = artikelRepository.getById(Long.parseLong(sausid));
+            sauzen.add(saus);
+        }
         String kruiden = request.getParameter("selectedKruiden");
         String opmerking = request.getParameter("opmerking");
-        Artikel saus = artikelRepository.getById(sausId);
+
         List<Artikel> artikels = artikelRepository.findAll();
         List<Categorie> categorien = categorieRepository.findAll();
         if (session.getAttribute("winkelwagen") == null) {
             List<ItemWinkelwagen> winkelwagen = new ArrayList<ItemWinkelwagen>();
-            //winkelwagen.add(new ItemWinkelwagen(artikelRepository.getById(Long.parseLong(id)), 1));
-            winkelwagen.add(new ItemWinkelwagen(artikel,1,saus,kruiden,opmerking));
+
+            winkelwagen.add(new ItemWinkelwagen(artikel,1,sauzen,kruiden,opmerking));
             session.setAttribute("winkelwagen", winkelwagen);
         } else {
             List<ItemWinkelwagen> winkelwagen = (List<ItemWinkelwagen>) session.getAttribute("winkelwagen");
 
 
                 // winkelwagen.add(new ItemWinkelwagen(artikelRepository.getById(Long.parseLong(id)), 1));
-                winkelwagen.add(new ItemWinkelwagen(artikel,1,saus,kruiden,opmerking));
+            winkelwagen.add(new ItemWinkelwagen(artikel,1,sauzen,kruiden,opmerking));
 
             session.setAttribute("winkelwagen", winkelwagen);
         }

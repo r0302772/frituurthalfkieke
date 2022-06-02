@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.Artikel" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.Locale" %>
 <%
     Artikel artikel = (Artikel) request.getAttribute("artikel");
     List<Artikel> sauzen = (List<Artikel>) request.getAttribute("sauzen");
@@ -92,21 +93,22 @@
                             </div>
                         </div>
 
-
+                        <div <%if(artikel.getCategorie().getNaam().equalsIgnoreCase("Sauzen")){
+                                    out.print("style='display: none;'");
+                        }%>>
                         <label for="saus" class="form-label"><strong>Saus: </strong></label>
-                        <select class="form-select" name="selectedSaus" aria-label="Select saus" id="saus" required>
-                            <option selected disabled value="">Kies een saus.</option>
-                            <option id="saus" value="0">Geen saus</option>
-                            );
+                        <fieldset aria-label="Select saus" id="saus" required>
+
 
                             <% for (Artikel saus : sauzen) {
                                 out.print(
-                                        "<option  value=\"" + saus.getId() + "\">" + saus.getNaam() + "</option>"
+                                        "<input name=\"selectedSaus\"  type='checkbox' class='form-check-input'  value=\"" + saus.getId() + "\">" + saus.getNaam() + "</input>"
                                 );
                             }%>
 
-                        </select>
-                        <hr>
+                        </fieldset>
+
+
 
                         <label for="kruiden" class="form-label"><strong>Kruiden: </strong></label>
                         <select class="form-select" name="selectedKruiden" aria-label="select kruiden" id="kruiden"
@@ -117,8 +119,8 @@
                             <option value="Sate">Sate</option>
                             <option value="Zout + Sate">Zout + Sate</option>
                         </select>
+                        </div>
 
-                        <hr>
                         <%--Opmerking--%>
                         <label for="opmerking"
                                class="form-label"><strong>Opmerking: </strong></label>

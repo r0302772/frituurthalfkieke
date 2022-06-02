@@ -1,14 +1,15 @@
 package be.thomasmore.graduaten.frituurthalfkieke.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ItemWinkelwagen {
     private Artikel artikel;
     private int hoeveelheid;
 
-    private Artikel saus;
+    private List<Artikel> sauzen = new ArrayList<>();
     private String kruiden;
-private String opmerking;
+    private String opmerking;
 
     public String getOpmerking() {
         return opmerking;
@@ -18,12 +19,12 @@ private String opmerking;
         this.opmerking = opmerking;
     }
 
-    public Artikel getSaus() {
-        return saus;
+    public List<Artikel>  Getsauzen() {
+        return sauzen;
     }
 
-    public void setSaus(Artikel saus) {
-        this.saus = saus;
+    public void setSaus(List<Artikel> sauzen) {
+        this.sauzen = sauzen;
     }
 
     public String getKruiden() {
@@ -53,10 +54,10 @@ private String opmerking;
     public ItemWinkelwagen() {
     }
 
-    public ItemWinkelwagen(Artikel artikel, int hoeveelheid, Artikel saus, String kruiden, String opmerking) {
+    public ItemWinkelwagen(Artikel artikel, int hoeveelheid, List<Artikel> sauzen, String kruiden, String opmerking) {
         this.artikel = artikel;
         this.hoeveelheid = hoeveelheid;
-        this.saus = saus;
+        this.sauzen = sauzen;
         this.kruiden=kruiden;
         this.opmerking=opmerking;
     }
@@ -65,9 +66,5 @@ private String opmerking;
      this.hoeveelheid = hoeveelheid;
 
  }
-    public ItemWinkelwagen(Artikel artikel, int hoeveelheid, Artikel saus) {
-        this.artikel = artikel;
-        this.hoeveelheid = hoeveelheid;
-        this.saus=saus;
-    }
+
 }
