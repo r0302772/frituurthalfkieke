@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -22,6 +23,11 @@ public class WinkelwagenController {
     private ArtikelRepository artikelRepository;
     private CategorieRepository categorieRepository;
 
+    public  WinkelwagenController(ArtikelRepository artikelRepository, CategorieRepository categorieRepository){
+        this.artikelRepository = artikelRepository;
+        this.categorieRepository = categorieRepository;
+    }
+
     @RequestMapping()
     public String navigateToWinkelwagen() {
         return "winkelwagen";
@@ -30,20 +36,22 @@ public class WinkelwagenController {
     @RequestMapping("/artikel-toevoegen-aan-winkelwagen/result/{id}")
     public String navigateToArtikelToevoegenAanWinkelwagenResult(@PathVariable("id") String id,Model model, HttpSession session) {
 //        Long id = Long.parseLong(request.getParameter("id"));
-//        Artikel artikel = artikelRepository.getById(id);
+        Artikel artikel = artikelRepository.getById(Long.parseLong(id));
 
         List<Artikel> artikels = artikelRepository.findAll();
         List<Categorie> categorien = categorieRepository.findAll();
 
         if (session.getAttribute("winkelwagen") == null) {
             List<ItemWinkelwagen> winkelwagen = new ArrayList<ItemWinkelwagen>();
-            winkelwagen.add(new ItemWinkelwagen(artikelRepository.getById(Long.parseLong(id)), 1));
+            //winkelwagen.add(new ItemWinkelwagen(artikelRepository.getById(Long.parseLong(id)), 1));
+            winkelwagen.add(new ItemWinkelwagen(artikel,1));
             session.setAttribute("winkelwagen", winkelwagen);
         } else {
             List<ItemWinkelwagen> winkelwagen = (List<ItemWinkelwagen>) session.getAttribute("winkelwagen");
             int index = this.exists(Long.parseLong(id), winkelwagen);
             if (index == -1) {
-                winkelwagen.add(new ItemWinkelwagen(artikelRepository.getById(Long.parseLong(id)), 1));
+               // winkelwagen.add(new ItemWinkelwagen(artikelRepository.getById(Long.parseLong(id)), 1));
+                winkelwagen.add(new ItemWinkelwagen(artikel,1));
             } else {
                 int hoeveelheid = winkelwagen.get(index).getHoeveelheid() + 1;
                 winkelwagen.get(index).setHoeveelheid(hoeveelheid);
@@ -52,11 +60,29 @@ public class WinkelwagenController {
 
         }
 
-//model.addAttribute("artikel", artikel);
+model.addAttribute("artikel", artikel);
 
-        model.addAttribute("categorien", categorien);
+       model.addAttribute("categorien", categorien);
         model.addAttribute("artikels", artikels);
         return "menu";
+    }
+
+    @RequestMapping(value = "/verwijderen/{id}")
+    public String remove(@PathVariable("id") String id, HttpSession session){
+        Artikel artikel = artikelRepository.getById(Long.parseLong(id));
+        List<ItemWinkelwagen> winkelwagen = (List<ItemWinkelwagen>) session.getAttribute("winkelwagen");
+
+        int index = this.exists(Long.parseLong(id), winkelwagen);
+
+       if(winkelwagen.get(index).getHoeveelheid()>1){
+           int hoeveelheid = winkelwagen.get(index).getHoeveelheid() - 1;
+           winkelwagen.get(index).setHoeveelheid(hoeveelheid);
+       }else {
+           winkelwagen.remove(index);
+       }
+
+        session.setAttribute("winkelwagen", winkelwagen);
+        return "winkelwagen";
     }
 
     private int exists(Long id, List<ItemWinkelwagen> cart) {

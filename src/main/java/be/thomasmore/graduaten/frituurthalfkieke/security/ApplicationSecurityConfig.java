@@ -33,7 +33,8 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                 .and()
                 .authorizeRequests()
-                .antMatchers("/", "/menu", "/winkelwagen", "/contact", "/artikel-toevoegen-aan-winkelwagen", "/winkelwagen/*")
+                .antMatchers("/", "/menu", "/winkelwagen", "/contact", "/artikel-toevoegen-aan-winkelwagen",
+                        "/winkelwagen/artikel-toevoegen-aan-winkelwagen/result/*", "/winkelwagen/verwijderen/*")
                 .permitAll()
                 .anyRequest()
                 .authenticated()

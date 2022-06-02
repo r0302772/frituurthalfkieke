@@ -3,7 +3,7 @@
 <%@ page import="java.util.List" %>
 <%
     Artikel artikel = (Artikel) request.getAttribute("artikel");
-/*    List<Artikel> sauzen = (List<Artikel>) request.getAttribute("sauzen");*/
+List<Artikel> sauzen = (List<Artikel>) request.getAttribute("sauzen");
 %>
 <html lang="nl" class="h-100">
 <head>
@@ -72,14 +72,14 @@
         </div>
         <div class="row p-3">
             <div class="modal-content">
-                <form action="winkelwagen/artikel-toevoegen-aan-winkelwagen/result" method="get">
+                <form id="bevestigen" action="${pageContext.request.contextPath }/winkelwagen/artikel-toevoegen-aan-winkelwagen/result/${artikel.id}" method="get">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel"><%=artikel.getNaam()%>
                         </h5>
                     </div>
                     <div class="modal-body">
 
-<%--                        <label for="artikel" class="form-label"><strong>Saus: </strong></label>
+                        <label for="artikel" class="form-label"><strong>Saus: </strong></label>
                         <select class="form-select" name="artikel" aria-label="Select saus" id="artikel" required>
                             <option selected disabled value="">Kies een saus.</option>
                             <option value="0">Geen saus</option>);
@@ -90,10 +90,10 @@
                                     );
                                 }%>
 
-                        </select>--%>
+                        </select>
                         <hr>
 
-<%--                        <label for="kruiden" class="form-label"><strong>Kruiden: </strong></label>
+                        <label for="kruiden" class="form-label"><strong>Kruiden: </strong></label>
                         <select class="form-select" aria-label="select kruiden" id="kruiden"
                                 required>
                             <option selected disabled value="">Kies kruiden.</option>
@@ -101,7 +101,7 @@
                             <option value="Zout">Zout</option>
                             <option value="Sate">Sate</option>
                             <option value="Zout + Sate">Zout + Sate</option>
-                        </select>--%>
+                        </select>
 
                         <hr>
                         <%--Opmerking--%>
@@ -113,7 +113,7 @@
                     <div class="modal-footer">
                         <a type="button" class="btn btn-secondary" href="/menu">Annuleer</a>
 <%--                        <input type="submit" class="btn btn-primary" value="Bevestig"/>--%>
-                        <a href="${pageContext.request.contextPath }/winkelwagen/artikel-toevoegen-aan-winkelwagen/result/${artikel.id}">Buy Now</a>
+                        <input type="submit" class="btn btn-primary"  value="Bevestig"/>
                     </div>
                 </form>
             </div>

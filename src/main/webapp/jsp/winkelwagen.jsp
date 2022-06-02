@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html lang="nl" class="h-100">
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -271,39 +272,40 @@
         </form>
     </main>--%>
 
-    <h3>Cart Page</h3>
+    <h3>Winkelmand</h3>
     <table cellpadding="2" cellspacing="2" border="1">
         <tr>
             <th>Option</th>
-            <th>Id</th>
-            <th>Name</th>
 
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Sub Total</th>
+            <th>Artikel</th>
+
+            <th>Prijs</th>
+            <th>Hoeveelheid</th>
+            <th>Sub Totaal</th>
         </tr>
         <c:set var="total" value="0"></c:set>
-        <c:forEach var="item" items="${sessionScope.winkelwagen }">
-            <c:set var="total"
-                   value="${total + item.product.price * item.quantity }"></c:set>
+        <c:forEach var="ItemWinkelwagen" items="${sessionScope.winkelwagen }">
+            <c:set var="totaal"
+                   value="${totaal + ItemWinkelwagen.artikel.prijs * ItemWinkelwagen.hoeveelheid }"></c:set>
             <tr>
                 <td align="center"><a
-                        href="${pageContext.request.contextPath }/cart/remove/${item.product.id }"
-                        onclick="return confirm('Are you sure?')">Remove</a></td>
-                <td>${item.product.id }</td>
-                <td>${item.product.name }</td>
+                        href="${pageContext.request.contextPath }/winkelwagen/verwijderen/${ItemWinkelwagen.artikel.id }"
+                        onclick="return confirm('Bent u zeker dat u dit artikel wil verwijderen?')">Verwijderen</a></td>
 
-                <td>${item.product.price }</td>
-                <td>${item.quantity }</td>
-                <td>${item.product.price * item.quantity }</td>
+                <td>${ItemWinkelwagen.artikel.naam}</td>
+
+                <td>${ItemWinkelwagen.artikel.prijs }</td>
+                <td>${ItemWinkelwagen.hoeveelheid }</td>
+                <td>${ItemWinkelwagen.artikel.prijs * ItemWinkelwagen.hoeveelheid }</td>
             </tr>
         </c:forEach>
         <tr>
-            <td colspan="6" align="right">Sum</td>
-            <td>${total }</td>
+            <td colspan="6" align="right">Totaal</td>
+            <td>${totaal }</td>
         </tr>
     </table>
-
+<br>
+    <a href="${pageContext.request.contextPath }/menu">Ga verder met winkelen</a>
     <jsp:include page="footer.jsp" />
 </div>
 
