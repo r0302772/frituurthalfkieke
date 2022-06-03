@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class WinkelwagenController {
     private ArtikelRepository artikelRepository;
     private CategorieRepository categorieRepository;
 
-    public  WinkelwagenController(ArtikelRepository artikelRepository, CategorieRepository categorieRepository){
+    public WinkelwagenController(ArtikelRepository artikelRepository, CategorieRepository categorieRepository) {
         this.artikelRepository = artikelRepository;
         this.categorieRepository = categorieRepository;
     }
@@ -34,36 +35,47 @@ public class WinkelwagenController {
         return "winkelwagen";
     }
 
-    @RequestMapping( "/artikel-toevoegen-aan-winkelwagen/result")
-    public String navigateToArtikelToevoegenAanWinkelwagenResult(Model model, HttpSession session,  HttpServletRequest request) {
+    @RequestMapping("/artikel-toevoegen-aan-winkelwagen/result")
+    public String navigateToArtikelToevoegenAanWinkelwagenResult(Model model, HttpSession session, HttpServletRequest request) {
         Long artikelId = Long.parseLong(request.getParameter("selectedArtikel"));
         Artikel artikel = artikelRepository.getById(artikelId);
 
         String[] sausIdStrings = request.getParameterValues("selectedSaus");
-        List<Artikel> sauzen= new ArrayList<Artikel>();
-        for (String sausid: sausIdStrings)
-        {
+        List<Artikel> sauzen = new ArrayList<Artikel>();
+        if (sausIdStrings!=null){
+        for (String sausid : sausIdStrings) {
             Artikel saus = artikelRepository.getById(Long.parseLong(sausid));
             sauzen.add(saus);
+        }}
+        else {
+            sauzen.add(new Artikel("geen saus", new BigDecimal(0),true,""));
         }
         String kruiden = request.getParameter("selectedKruiden");
         String opmerking = request.getParameter("opmerking");
+        Integer hoeveelheid = Integer.parseInt(request.getParameter("hoeveelheid"));
 
         List<Artikel> artikels = artikelRepository.findAll();
         List<Categorie> categorien = categorieRepository.findAll();
         if (session.getAttribute("winkelwagen") == null) {
             List<ItemWinkelwagen> winkelwagen = new ArrayList<ItemWinkelwagen>();
 
-            winkelwagen.add(new ItemWinkelwagen(artikel,1,sauzen,kruiden,opmerking));
-            session.setAttribute("winkelwagen", winkelwagen);
+
+                winkelwagen.add(new ItemWinkelwagen(artikel, hoeveelheid, sauzen, kruiden, opmerking));
+                session.setAttribute("winkelwagen", winkelwagen);
+
+
         } else {
+
             List<ItemWinkelwagen> winkelwagen = (List<ItemWinkelwagen>) session.getAttribute("winkelwagen");
 
+            // winkelwagen.add(new ItemWinkelwagen(artikelRepository.getById(Long.parseLong(id)), 1));
+         
 
-                // winkelwagen.add(new ItemWinkelwagen(artikelRepository.getById(Long.parseLong(id)), 1));
-            winkelwagen.add(new ItemWinkelwagen(artikel,1,sauzen,kruiden,opmerking));
+                winkelwagen.add(new ItemWinkelwagen(artikel, hoeveelheid, sauzen, kruiden, opmerking));
+                session.setAttribute("winkelwagen", winkelwagen);
 
-            session.setAttribute("winkelwagen", winkelwagen);
+
+
         }
 
         model.addAttribute("artikel", artikel);
@@ -73,12 +85,12 @@ public class WinkelwagenController {
     }
 
     @RequestMapping(value = "/verwijderen/{id}")
-    public String remove(@PathVariable("id") String id, HttpSession session){
+    public String remove(@PathVariable("id") String id, HttpSession session) {
         Artikel artikel = artikelRepository.getById(Long.parseLong(id));
         List<ItemWinkelwagen> winkelwagen = (List<ItemWinkelwagen>) session.getAttribute("winkelwagen");
 
         int index = this.exists(Long.parseLong(id), winkelwagen);
-           winkelwagen.remove(index);
+        winkelwagen.remove(index);
         session.setAttribute("winkelwagen", winkelwagen);
         return "winkelwagen";
     }

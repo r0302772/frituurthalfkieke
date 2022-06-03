@@ -2,10 +2,7 @@ package be.thomasmore.graduaten.frituurthalfkieke.entities;
 
 import be.thomasmore.graduaten.frituurthalfkieke.controllers.BestellingController;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Bestelling {
@@ -20,7 +17,10 @@ private String telefoonKlant;
 
 //private Set<Artikel> artikels = new HashSet<>();
 
-//private Set<Tijdslot> tijdsloten;
+    @ManyToOne()
+    @JoinColumn(name = "tijdslot_id", nullable = false)
+
+    private Tijdslot tijdslot;
 public Bestelling(){};
 
 public Bestelling(Long id, String voornaamKlant, String familienaamKlant, String emailKlant, String telefoonKlant)

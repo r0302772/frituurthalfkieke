@@ -1,10 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.Artikel" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Locale" %>
 <%
     Artikel artikel = (Artikel) request.getAttribute("artikel");
-    List<Artikel> sauzen = (List<Artikel>) request.getAttribute("sauzen");
+    ArrayList<Artikel> sauzen = (ArrayList<Artikel>) request.getAttribute("sauzen");
 
 %>
 <html lang="nl" class="h-100">
@@ -97,12 +98,14 @@
                                     out.print("style='display: none;'");
                         }%>>
                         <label for="saus" class="form-label"><strong>Saus: </strong></label>
-                        <fieldset aria-label="Select saus" id="saus" required>
+                        <fieldset aria-label="Select saus" id="saus" >
 
 
                             <% for (Artikel saus : sauzen) {
-                                out.print(
-                                        "<input name=\"selectedSaus\"  type='checkbox' class='form-check-input'  value=\"" + saus.getId() + "\">" + saus.getNaam() + "</input>"
+                                out.print( "<div class='form-check form-check-inline'>" +
+                                        "<input name=\"selectedSaus\"  type='checkbox' class='form-check-input'  value=\"" + saus.getId() + "\">" +
+                                        "<label class='form-check-label'>" + saus.getNaam() +
+                                        "</label> </div>"
                                 );
                             }%>
 
@@ -112,9 +115,8 @@
 
                         <label for="kruiden" class="form-label"><strong>Kruiden: </strong></label>
                         <select class="form-select" name="selectedKruiden" aria-label="select kruiden" id="kruiden"
-                                required>
-                            <option selected disabled value="">Kies kruiden.</option>
-                            <option value="Geen kruiden">Geen kruiden</option>
+                                >
+                            <option selected value="Geen kruiden">Geen kruiden.</option>
                             <option value="Zout">Zout</option>
                             <option value="Sate">Sate</option>
                             <option value="Zout + Sate">Zout + Sate</option>

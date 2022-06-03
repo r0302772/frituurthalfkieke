@@ -45,6 +45,13 @@ public class Artikel {
         this.opmerking = opmerking;
         this.categorie = categorie;
     }
+    public Artikel(String naam, BigDecimal prijs, Boolean beschikbaar, String opmerking) {
+        this.naam = naam;
+        this.prijs = prijs;
+        this.beschikbaar = beschikbaar;
+        this.opmerking = opmerking;
+
+    }
 
     public Long getId() {
         return id;

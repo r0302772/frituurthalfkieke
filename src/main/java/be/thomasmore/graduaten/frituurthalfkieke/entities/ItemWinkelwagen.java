@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ItemWinkelwagen {
     private Artikel artikel;
-    private int hoeveelheid;
+    private Integer hoeveelheid;
 
     private List<Artikel> sauzen = new ArrayList<>();
     private String kruiden;
@@ -66,5 +66,13 @@ public class ItemWinkelwagen {
      this.hoeveelheid = hoeveelheid;
 
  }
+
+    public ItemWinkelwagen(Artikel artikel, int hoeveelheid, String kruiden, String opmerking) {
+        this.artikel = artikel;
+        this.hoeveelheid = hoeveelheid;
+
+        this.kruiden=kruiden;
+        this.opmerking=opmerking;
+    }
 
 }
