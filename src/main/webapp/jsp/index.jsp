@@ -11,55 +11,7 @@
 </head>
 <body class="d-flex h-100">
 <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
-    <header class="mb-auto">
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/"><i class="fa-solid fa-drumstick-bite"></i> Frituur t'Half Kieke</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <ul class="navbar-nav navbar-collapse">
-                    <form:form method="post" action="/logout" class="nav-item">
-                        <li class="nav-item">
-                            <a class="btn" href="/login">Inloggen</a>
-                        </li>
-                        <li class="nav-item">
-                            <input class="btn" type="submit" value="Uitloggen"/>
-                        </li>
-                    </form:form>
-                </ul>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/artikelsbeheren"><i class="fa-solid fa-warehouse"></i>
-                                Artikels</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/bestellingenbeheren"><i class="fa-solid fa-cash-register"></i>
-                                Bestellingen</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/tijdslotenbeheren"><i class="bi bi-lock-fill"></i> Tijdsloten</a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/menu"><i class="fa-solid fa-utensils"></i> Menu</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/contact"><i class="fa-solid fa-address-book"></i> Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/winkelwagen"><i class="bi bi-cart-fill"></i> Winkelwagen</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <hr>
-    </header>
+    <jsp:include page="header.jsp" />
 
     <main class="px-3 text-center">
         <h1><i class="fa-solid fa-drumstick-bite"></i></h1>
