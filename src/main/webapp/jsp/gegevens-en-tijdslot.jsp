@@ -97,48 +97,48 @@
                     </div>
                 </div>
                 <%--Afhalen--%>
-<%--                <div class="row">
-                    <div class="col-auto">
-                        <i class="bi bi-calendar-event-fill"></i>
-                    </div>
-                    <div class="col">
-                        <div class="row">
-                            <div class="col pb-3">
-                                AFHALEN
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <input type="date" id="start" name="trip-start" class="form-control">
-                            </div>
-                            <div class="col">
-                                <select class="form-select" aria-label="select time" required="">
-                                    <option selected disabled value="">Kies een uur.</option>
-                                    <option value="1">9u-9u15</option>
-                                    <option value="2">9u15-9u30</option>
-                                    <option value="3">9u30-9u45</option>
-                                    <option value="3">9u45-10u</option>
-                                </select>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-auto">
-                        <i class="bi bi-info-circle-fill text-danger h5"></i>
-                    </div>
-                    <div class="col">
-                        <h5 class="text-danger"> Zijn er geen vrije
-                            tijdstippen meer, gelieve niet te bellen, telefonisch worden er geen bestellingen
-                            meer
-                            opgenomen.
-                        </h5>
-                    </div>
-                </div>--%>
+                <%--                <div class="row">
+                                    <div class="col-auto">
+                                        <i class="bi bi-calendar-event-fill"></i>
+                                    </div>
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="col pb-3">
+                                                AFHALEN
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <input type="date" id="start" name="trip-start" class="form-control">
+                                            </div>
+                                            <div class="col">
+                                                <select class="form-select" aria-label="select time" required="">
+                                                    <option selected disabled value="">Kies een uur.</option>
+                                                    <option value="1">9u-9u15</option>
+                                                    <option value="2">9u15-9u30</option>
+                                                    <option value="3">9u30-9u45</option>
+                                                    <option value="3">9u45-10u</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-auto">
+                                        <i class="bi bi-info-circle-fill text-danger h5"></i>
+                                    </div>
+                                    <div class="col">
+                                        <h5 class="text-danger"> Zijn er geen vrije
+                                            tijdstippen meer, gelieve niet te bellen, telefonisch worden er geen bestellingen
+                                            meer
+                                            opgenomen.
+                                        </h5>
+                                    </div>
+                                </div>--%>
                 <div class="row d-grid p-3">
-                    <button type="submit" class="btn btn-primary btn-lg">BESTELLEN</button>
-                    <%--                        <a href="/bevestigingbestelling" class="btn btn-primary btn-lg">BESTELLEN</a>--%>
+                    <%--<button type="submit" class="btn btn-primary btn-lg">BESTELLEN</button>--%>
+                    <a href="/winkelwagen/bevestiging-bestelling" class="btn btn-primary btn-lg">BESTELLEN</a>
                 </div>
             </div>
         </div>

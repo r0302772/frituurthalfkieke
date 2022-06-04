@@ -17,19 +17,9 @@ public class MainController {
         return "contact";
     }
 
-    @RequestMapping("/bevestigingbestelling")
-    public String navigateToBevestigingbestelling() {
-        return "bevestigingbestelling";
-    }
-
 /*    @RequestMapping("/tijdslotenbeheren")
     public String navigateToTijdslotenbeheren() {
         return "tijdslotenbeheren";
-    }*/
-
-/*    @RequestMapping("/bestellingenbeheren")
-    public String navigateToBestellingenbeheren() {
-        return "bestellingenbeheren";
     }*/
 
 }

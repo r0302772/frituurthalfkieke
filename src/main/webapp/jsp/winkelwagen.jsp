@@ -92,7 +92,7 @@
             </div>
             <div class="row d-grid p-3">
                 <%--<button type="submit" class="btn btn-primary btn-lg">NAAR STAP 2/2</button>--%>
-                <a href="/winkelwagen/bestellingbevestigen" class="btn btn-primary btn-lg">NAAR STAP 2/2</a>
+                <a href="/winkelwagen/gegevens-en-tijdslot" class="btn btn-primary btn-lg">NAAR STAP 2/2</a>
             </div>
         </div>
         <%--        </form:form>--%>

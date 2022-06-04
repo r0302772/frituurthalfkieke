@@ -1,16 +1,16 @@
 package be.thomasmore.graduaten.frituurthalfkieke.controllers;
 
 import be.thomasmore.graduaten.frituurthalfkieke.entities.Artikel;
+import be.thomasmore.graduaten.frituurthalfkieke.entities.ArtikelBestelling;
 import be.thomasmore.graduaten.frituurthalfkieke.entities.Categorie;
 import be.thomasmore.graduaten.frituurthalfkieke.entities.ItemWinkelwagen;
+import be.thomasmore.graduaten.frituurthalfkieke.repositories.ArtikelBestellingRepository;
 import be.thomasmore.graduaten.frituurthalfkieke.repositories.ArtikelRepository;
 import be.thomasmore.graduaten.frituurthalfkieke.repositories.CategorieRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -97,8 +97,29 @@ public class WinkelwagenController {
         return -1;
     }
 
-    @RequestMapping("/bestellingbevestigen")
-    public String navigateToBestellingBevestigen() {
-        return "bestellingbevestigen";
+    @RequestMapping("/gegevens-en-tijdslot")
+    public String navigateToGegevensEnTijdslot() {
+
+        return "gegevens-en-tijdslot";
+    }
+
+    @RequestMapping("/bevestiging-bestelling")
+    public String navigateToBevestigingbestelling(Model model, HttpSession session, HttpServletRequest request) {
+/*        //winkelwagen uit de session halen?
+        session.getAttribute("winkelwagen");
+        List<ArtikelBestelling> artikelsBestelling = new ArrayList<>();
+        //als de winkelwagen niet null (leeg) is
+        if (session.getAttribute("winkelwagen") != null) {
+            //for each item in de sessionwinkelwagen
+            for (String sausid : session.getAttribute("winkelwagen")) {
+                ArtikelBestelling artikelBestelling = new ArtikelBestelling(paramshier);
+                ArtikelBestellingRepository.save();
+            }
+        } else {
+
+        }*/
+//model.addAttribute("tijdslot", tijdslot)
+
+        return "bevestigingbestelling";
     }
 }
