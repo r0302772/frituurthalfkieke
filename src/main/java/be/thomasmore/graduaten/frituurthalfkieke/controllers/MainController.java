@@ -22,29 +22,14 @@ public class MainController {
         return "bevestigingbestelling";
     }
 
-    @RequestMapping("/tijdslotenbeheren")
+/*    @RequestMapping("/tijdslotenbeheren")
     public String navigateToTijdslotenbeheren() {
         return "tijdslotenbeheren";
-    }
+    }*/
 
 /*    @RequestMapping("/bestellingenbeheren")
     public String navigateToBestellingenbeheren() {
         return "bestellingenbeheren";
     }*/
 
-    @RequestMapping("/scriptlet")
-    public String navigateToScriptlet() {
-        return "scriptlet";
-    }
-
-    @RequestMapping("/expression")
-    public String navigateToExpression() {
-        return "expression";
-    }
-
-    @RequestMapping("/model")
-    public String navigateToModel(Model model) {
-        model.addAttribute("naamStudent", "Jan Verbeek");
-        return "model";
-    }
 }

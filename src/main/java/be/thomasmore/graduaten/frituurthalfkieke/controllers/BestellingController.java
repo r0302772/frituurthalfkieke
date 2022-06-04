@@ -1,9 +1,7 @@
 package be.thomasmore.graduaten.frituurthalfkieke.controllers;
 
 import be.thomasmore.graduaten.frituurthalfkieke.entities.Bestelling;
-import be.thomasmore.graduaten.frituurthalfkieke.entities.Student;
 import be.thomasmore.graduaten.frituurthalfkieke.repositories.BestellingRepository;
-import be.thomasmore.graduaten.frituurthalfkieke.repositories.StudentRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
