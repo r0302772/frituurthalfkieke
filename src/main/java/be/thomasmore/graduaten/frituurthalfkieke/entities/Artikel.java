@@ -1,7 +1,10 @@
 package be.thomasmore.graduaten.frituurthalfkieke.entities;
 
+import org.springframework.web.bind.annotation.Mapping;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.HashSet;
 import java.util.Set;
 
 
@@ -15,20 +18,20 @@ public class Artikel {
     private Boolean beschikbaar;
     private String opmerking;
 
-    //relatie
-    @ManyToMany
-    @JoinTable(
-            name = "ArtikelBestelling",
-            joinColumns = @JoinColumn(name = "artikel_id"),
-            inverseJoinColumns = @JoinColumn(name = "bestelling_id"))
+    //<editor-fold desc="Relaties">
 
-    Set<Bestelling> besteldeArtikels;
+    //Relatie ArtikelBestelling
+    @OneToMany(mappedBy = "artikel")
+    Set<ArtikelBestelling> artikelBestellingen;
 
+    //Relatie Categorie
     @ManyToOne()
     @JoinColumn(name = "categorie_id", nullable = false)
-
     private Categorie categorie;
 
+    //</editor-fold>
+
+    //<editor-fold desc="Constructors">
     public Artikel() {
     }
 
@@ -54,9 +57,10 @@ public class Artikel {
         this.prijs = prijs;
         this.beschikbaar = beschikbaar;
         this.opmerking = opmerking;
-
     }
+    //</editor-fold>
 
+    //<editor-fold desc="Getters en Setters">
     public Long getId() {
         return id;
     }
@@ -105,5 +109,5 @@ public class Artikel {
         this.categorie = categorie;
     }
 
-
+    //</editor-fold>
 }

@@ -52,20 +52,20 @@ public class WinkelwagenController {
         }
         String kruiden = request.getParameter("selectedKruiden");
         String opmerking = request.getParameter("opmerking");
-        Integer hoeveelheid = Integer.parseInt(request.getParameter("hoeveelheid"));
+        Integer aantal = Integer.parseInt(request.getParameter("aantal"));
 
         List<Artikel> artikels = artikelRepository.findAll();
         List<Categorie> categorien = categorieRepository.findAll();
         if (session.getAttribute("winkelwagen") == null) {
             List<ItemWinkelwagen> winkelwagen = new ArrayList<ItemWinkelwagen>();
 
-            winkelwagen.add(new ItemWinkelwagen(artikel, hoeveelheid, sauzen, kruiden, opmerking));
+            winkelwagen.add(new ItemWinkelwagen(artikel, aantal, sauzen, kruiden, opmerking));
             session.setAttribute("winkelwagen", winkelwagen);
         } else {
             List<ItemWinkelwagen> winkelwagen = (List<ItemWinkelwagen>) session.getAttribute("winkelwagen");
             // winkelwagen.add(new ItemWinkelwagen(artikelRepository.getById(Long.parseLong(id)), 1));
 
-            winkelwagen.add(new ItemWinkelwagen(artikel, hoeveelheid, sauzen, kruiden, opmerking));
+            winkelwagen.add(new ItemWinkelwagen(artikel, aantal, sauzen, kruiden, opmerking));
             session.setAttribute("winkelwagen", winkelwagen);
         }
 

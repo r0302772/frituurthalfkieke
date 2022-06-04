@@ -37,11 +37,11 @@
                     <div class="modal-body">
                         <div class="row mb-2">
 
-                            <label for="hoeveelheid" class="form-label"><strong>Hoeveelheid: </strong></label>
+                            <label for="aantal" class="form-label"><strong>Aantal: </strong></label>
 
 
                             <div class="col-1">
-                                <input class="form-control" id="hoeveelheid" type="number" name="hoeveelheid" value=1
+                                <input class="form-control" id="aantal" type="number" name="aantal" value=1
                                        min=1>
                             </div>
                         </div>

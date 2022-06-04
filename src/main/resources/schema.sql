@@ -1,14 +1,3 @@
-/*DROP TABLE IF EXISTS STUDENT;
-
-CREATE TABLE STUDENT
-(
-    id          INT         NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    voornaam    VARCHAR(50) NOT NULL,
-    familienaam VARCHAR(50) NOT NULL,
-    klas        VARCHAR(10) NOT NULL,
-    PRIMARY KEY (id)
-);*/
-
 /*DROP TABLE IF EXISTS BESTELLING
 
 CREATE TABLE BESTELLING(
@@ -44,13 +33,4 @@ CREATE TABLE ARTIKEL
 constraint fkArtikel_Categorie FOREIGN  key(categorie_id)  references Categorie(Id)
 );
 
-/*
-DROP TABLE IF EXISTS WINKELWAGEN;
-
-CREATE TABLE WINKELWAGEN
-(
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    artikelId int,
-    constraint fkWinkelwagen_Artikel foreign key (artikelId) references ARTIKEL(id)
-);*/
 

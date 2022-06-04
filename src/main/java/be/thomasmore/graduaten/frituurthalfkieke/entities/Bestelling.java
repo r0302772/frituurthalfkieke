@@ -16,14 +16,20 @@ public class Bestelling {
     private String telefoonKlant;
 //private Long tijdslotId;
 
-    @ManyToMany(mappedBy = "besteldeArtikels")
-    Set<Artikel> bestellingen;
+    //<editor-fold desc="Relaties">
+
+    //Relatie ArtikelBestelling
+    @OneToMany(mappedBy = "bestelling")
+    Set<ArtikelBestelling> artikelBestellingen;
 
     @ManyToOne()
     @JoinColumn(name = "tijdslot_id", nullable = false)
 
     private Tijdslot tijdslot;
 
+    //</editor-fold>
+
+    //<editor-fold desc="Constructors">
     public Bestelling() {
     }
 
@@ -35,7 +41,6 @@ public class Bestelling {
         this.familienaamKlant = familienaamKlant;
         this.emailKlant = emailKlant;
         this.telefoonKlant = telefoonKlant;
-
     }
 
     public Bestelling(String voornaamKlant, String familienaamKlant, String emailKlant, String telefoonKlant) {
@@ -45,6 +50,9 @@ public class Bestelling {
         this.telefoonKlant = telefoonKlant;
     }
 
+    //</editor-fold>
+
+    //<editor-fold desc="Getters en Setters">
     public Long getId() {
         return id;
     }
@@ -84,4 +92,6 @@ public class Bestelling {
     public void setTelefoonKlant(String telefoonKlant) {
         this.telefoonKlant = telefoonKlant;
     }
+
+    //</editor-fold>
 }
