@@ -3,35 +3,40 @@ package be.thomasmore.graduaten.frituurthalfkieke.entities;
 import be.thomasmore.graduaten.frituurthalfkieke.controllers.BestellingController;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Bestelling {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id;
-private String voornaamKlant;
-private String familienaamKlant;
-private String emailKlant;
-private String telefoonKlant;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String voornaamKlant;
+    private String familienaamKlant;
+    private String emailKlant;
+    private String telefoonKlant;
 //private Long tijdslotId;
 
-//private Set<Artikel> artikels = new HashSet<>();
+    @ManyToMany(mappedBy = "besteldeArtikels")
+    Set<Artikel> bestellingen;
 
     @ManyToOne()
     @JoinColumn(name = "tijdslot_id", nullable = false)
 
     private Tijdslot tijdslot;
-public Bestelling(){};
 
-public Bestelling(Long id, String voornaamKlant, String familienaamKlant, String emailKlant, String telefoonKlant)
-{
-    this.id = id;
-    this.voornaamKlant=voornaamKlant;
-    this.familienaamKlant=familienaamKlant;
-    this.emailKlant=emailKlant;
-    this.telefoonKlant=telefoonKlant;
+    public Bestelling() {
+    }
 
-}
+    ;
+
+    public Bestelling(Long id, String voornaamKlant, String familienaamKlant, String emailKlant, String telefoonKlant) {
+        this.id = id;
+        this.voornaamKlant = voornaamKlant;
+        this.familienaamKlant = familienaamKlant;
+        this.emailKlant = emailKlant;
+        this.telefoonKlant = telefoonKlant;
+
+    }
 
     public Bestelling(String voornaamKlant, String familienaamKlant, String emailKlant, String telefoonKlant) {
         this.voornaamKlant = voornaamKlant;

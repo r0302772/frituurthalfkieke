@@ -2,6 +2,7 @@ package be.thomasmore.graduaten.frituurthalfkieke.entities;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class ArtikelBestelling {
@@ -15,6 +16,8 @@ public class ArtikelBestelling {
 
     private String kruiden;
     private String opmerking;
+
+
 
 //    //relatie naar Artikel
 //    @OneToMany(mappedBy = "artikelbestelling")

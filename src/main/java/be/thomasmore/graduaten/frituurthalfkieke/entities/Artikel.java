@@ -2,6 +2,7 @@ package be.thomasmore.graduaten.frituurthalfkieke.entities;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Set;
 
 
 @Entity
@@ -14,12 +15,14 @@ public class Artikel {
     private Boolean beschikbaar;
     private String opmerking;
 
-//relatie
+    //relatie
+    @ManyToMany
+    @JoinTable(
+            name = "ArtikelBestelling",
+            joinColumns = @JoinColumn(name = "artikel_id"),
+            inverseJoinColumns = @JoinColumn(name = "bestelling_id"))
 
-    //@ManyToOne
-    //@JoinColumn(name = "artikelbestelling_id")
-    //private  ArtikelBestelling artikelbestelling ;
-
+    Set<Bestelling> besteldeArtikels;
 
     @ManyToOne()
     @JoinColumn(name = "categorie_id", nullable = false)
@@ -29,7 +32,7 @@ public class Artikel {
     public Artikel() {
     }
 
-    public Artikel(Long id, String naam, BigDecimal prijs, Boolean beschikbaar, String opmerking,Categorie categorie) {
+    public Artikel(Long id, String naam, BigDecimal prijs, Boolean beschikbaar, String opmerking, Categorie categorie) {
         this.id = id;
         this.naam = naam;
         this.prijs = prijs;
@@ -38,13 +41,14 @@ public class Artikel {
         this.categorie = categorie;
     }
 
-    public Artikel(String naam, BigDecimal prijs, Boolean beschikbaar, String opmerking,Categorie categorie) {
+    public Artikel(String naam, BigDecimal prijs, Boolean beschikbaar, String opmerking, Categorie categorie) {
         this.naam = naam;
         this.prijs = prijs;
         this.beschikbaar = beschikbaar;
         this.opmerking = opmerking;
         this.categorie = categorie;
     }
+
     public Artikel(String naam, BigDecimal prijs, Boolean beschikbaar, String opmerking) {
         this.naam = naam;
         this.prijs = prijs;
