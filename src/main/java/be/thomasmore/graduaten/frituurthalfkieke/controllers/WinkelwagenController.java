@@ -42,13 +42,13 @@ public class WinkelwagenController {
 
         String[] sausIdStrings = request.getParameterValues("selectedSaus");
         List<Artikel> sauzen = new ArrayList<Artikel>();
-        if (sausIdStrings!=null){
-        for (String sausid : sausIdStrings) {
-            Artikel saus = artikelRepository.getById(Long.parseLong(sausid));
-            sauzen.add(saus);
-        }}
-        else {
-            sauzen.add(new Artikel("geen saus", new BigDecimal(0),true,""));
+        if (sausIdStrings != null) {
+            for (String sausid : sausIdStrings) {
+                Artikel saus = artikelRepository.getById(Long.parseLong(sausid));
+                sauzen.add(saus);
+            }
+        } else {
+            sauzen.add(new Artikel("Geen saus", new BigDecimal(0), true, ""));
         }
         String kruiden = request.getParameter("selectedKruiden");
         String opmerking = request.getParameter("opmerking");
@@ -59,28 +59,20 @@ public class WinkelwagenController {
         if (session.getAttribute("winkelwagen") == null) {
             List<ItemWinkelwagen> winkelwagen = new ArrayList<ItemWinkelwagen>();
 
-
-                winkelwagen.add(new ItemWinkelwagen(artikel, hoeveelheid, sauzen, kruiden, opmerking));
-                session.setAttribute("winkelwagen", winkelwagen);
-
-
+            winkelwagen.add(new ItemWinkelwagen(artikel, hoeveelheid, sauzen, kruiden, opmerking));
+            session.setAttribute("winkelwagen", winkelwagen);
         } else {
-
             List<ItemWinkelwagen> winkelwagen = (List<ItemWinkelwagen>) session.getAttribute("winkelwagen");
-
             // winkelwagen.add(new ItemWinkelwagen(artikelRepository.getById(Long.parseLong(id)), 1));
-         
 
-                winkelwagen.add(new ItemWinkelwagen(artikel, hoeveelheid, sauzen, kruiden, opmerking));
-                session.setAttribute("winkelwagen", winkelwagen);
-
-
-
+            winkelwagen.add(new ItemWinkelwagen(artikel, hoeveelheid, sauzen, kruiden, opmerking));
+            session.setAttribute("winkelwagen", winkelwagen);
         }
 
         model.addAttribute("artikel", artikel);
         model.addAttribute("categorien", categorien);
         model.addAttribute("artikels", artikels);
+
         return "menu";
     }
 
@@ -92,6 +84,7 @@ public class WinkelwagenController {
         int index = this.exists(Long.parseLong(id), winkelwagen);
         winkelwagen.remove(index);
         session.setAttribute("winkelwagen", winkelwagen);
+
         return "winkelwagen";
     }
 
@@ -102,5 +95,10 @@ public class WinkelwagenController {
             }
         }
         return -1;
+    }
+
+    @RequestMapping("/bestellingbevestigen")
+    public String navigateToBestellingBevestigen() {
+        return "bestellingbevestigen";
     }
 }

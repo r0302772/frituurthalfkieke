@@ -34,7 +34,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/", "/menu", "/winkelwagen", "/contact", "/artikel-toevoegen-aan-winkelwagen",
-                        "/winkelwagen/artikel-toevoegen-aan-winkelwagen/*", "/winkelwagen/verwijderen/*")
+                        "/winkelwagen/artikel-toevoegen-aan-winkelwagen/*", "/winkelwagen/verwijderen/*","/winkelwagen/bestellingbevestigen")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
