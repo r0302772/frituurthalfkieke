@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <header class="mb-auto">
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
@@ -10,10 +11,10 @@
 
                 <form:form method="post" action="/logout" class="navbar-nav navbar-collapse">
                     <li class="nav-item">
-                        <a class="btn text-muted" href="/login">Inloggen</a>
+                        <a class="btn btn-light" href="/login">Inloggen</a>
                     </li>
                     <li class="nav-item">
-                        <input class="btn text-muted" type="submit" value="Uitloggen"/>
+                        <input class="btn btn-secondary" type="submit" value="Uitloggen"/>
                     </li>
                 </form:form>
 
