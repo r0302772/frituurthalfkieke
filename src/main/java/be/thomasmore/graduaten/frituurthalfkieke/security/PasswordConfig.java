@@ -1,3 +1,4 @@
+/*
 package be.thomasmore.graduaten.frituurthalfkieke.security;
 
 import org.springframework.context.annotation.Bean;
@@ -13,3 +14,4 @@ public class PasswordConfig {
         return new BCryptPasswordEncoder(10);
     }
 }
+*/

@@ -29,6 +29,7 @@ INSERT INTO ARTIKEL(naam, prijs, beschikbaar, opmerking, categorie_id)
 VALUES ('Bicky Chicken', 4.00, 1, 'Kip, Bicky Uitjes, Bicky Saus', 2);
 
 
+
 /*INSERT INTO BESTELLING(voornaamKlant, familienaamKlant, emailKlant, telefoonKlant)
 VALUES ('Erik','Vanlooy','ErikVanlooy@gmail.com','0470928299');*/
 INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
@@ -123,4 +124,15 @@ INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
 VALUES('11:00','12:00', '2022-06-10',0,3);
 
 
+
+INSERT INTO BESTELLING(voornaam, achternaam, email, gsm)
+VALUES ('Thomas','Vanlooy','ErikVanlooy@gmail.com','0470928299');
+INSERT INTO BESTELLING(voornaam, achternaam, email, gsm)
+VALUES ('Luc','Bravo','LucBravo@gmail.com','0470928295');
+INSERT INTO BESTELLING(voornaam, achternaam, email, gsm)
+VALUES ('Bart','Theunis','BartTheunis@gmail.com','0470955699');
+INSERT INTO BESTELLING(voornaam, achternaam, email, gsm)
+VALUES ('Louis','Vanlooy','LouisVanlooy@gmail.com','0470933399');
+INSERT INTO BESTELLING(voornaam, achternaam, email, gsm)
+VALUES ('Thomas','Verdonck','LouisVanlooy@gmail.com','0470933399');
 
