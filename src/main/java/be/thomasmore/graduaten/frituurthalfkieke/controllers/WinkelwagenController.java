@@ -141,7 +141,7 @@ public class WinkelwagenController {
                     ArtikelBestelling artikelBestellingSaus = new ArtikelBestelling();
                     artikelBestellingSaus.setBestelling(bestelling);
                     artikelBestellingSaus.setArtikel(saus);
-                    artikelBestellingSaus.setparentArtikelBestelling(artikelBestelling);
+                    artikelBestellingSaus.setParentArtikelBestelling(artikelBestelling);
 
                     artikelBestellingRepository.save(artikelBestelling);
                 }
