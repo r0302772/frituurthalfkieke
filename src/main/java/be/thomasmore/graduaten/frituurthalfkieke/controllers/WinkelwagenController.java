@@ -29,8 +29,7 @@ public class WinkelwagenController {
     public WinkelwagenController(ArtikelRepository artikelRepository,
                                  CategorieRepository categorieRepository,
                                  ArtikelBestellingRepository artikelBestellingRepository,
-                                 BestellingRepository bestellingRepository)
-    {
+                                 BestellingRepository bestellingRepository) {
         this.artikelRepository = artikelRepository;
         this.categorieRepository = categorieRepository;
         this.artikelBestellingRepository = artikelBestellingRepository;
@@ -116,13 +115,12 @@ public class WinkelwagenController {
         List<ItemWinkelwagen> winkelwagen = (List<ItemWinkelwagen>) session.getAttribute("winkelwagen");
         //als de winkelwagen niet null (leeg) is
         if (winkelwagen != null) {
-            String voornaamKlant = request.getParameter("voornaamKlant");
-            String achternaamKlant = request.getParameter("achternaamKlant");
-            String emailKlant = request.getParameter("emailKlant");
-            String gsmKlant = request.getParameter("gsmKlant");
+            String voornaam = request.getParameter("voornaam");
+            String achternaam = request.getParameter("achternaam");
+            String email = request.getParameter("email");
+            String gsm = request.getParameter("gsm");
 
-            Bestelling bestelling = new Bestelling(voornaamKlant,achternaamKlant,gsmKlant,emailKlant);
-
+            Bestelling bestelling = new Bestelling(voornaam, achternaam, email, gsm);
 
             bestellingRepository.save(bestelling);
 
@@ -137,13 +135,17 @@ public class WinkelwagenController {
 
                 artikelBestellingRepository.save(artikelBestelling);
 
-                for (Artikel saus : item.Getsauzen()) {
-                    ArtikelBestelling artikelBestellingSaus = new ArtikelBestelling();
-                    artikelBestellingSaus.setBestelling(bestelling);
-                    artikelBestellingSaus.setArtikel(saus);
-                    artikelBestellingSaus.setParentArtikelBestelling(artikelBestelling);
+                if (item.Getsauzen().get(0).getId() != null) {
+                    for (Artikel saus : item.Getsauzen()) {
+                        ArtikelBestelling artikelBestellingSaus = new ArtikelBestelling();
+                        artikelBestellingSaus.setBestelling(bestelling);
+                        artikelBestellingSaus.setAantal(1);
+                        artikelBestellingSaus.setArtikel(saus);
+                        artikelBestellingSaus.setOpmerking(saus.getOpmerking());
+                        artikelBestellingSaus.setparentartikelbestelling(artikelBestelling);
 
-                    artikelBestellingRepository.save(artikelBestelling);
+                        artikelBestellingRepository.save(artikelBestellingSaus);
+                    }
                 }
             }
         } else {
@@ -151,7 +153,11 @@ public class WinkelwagenController {
             model.addAttribute("error", "Er zit niets in uw winkelwagen!");
             return "gegevens-en-tijdslot";
         }
-//model.addAttribute("tijdslot", tijdslot)
+
+        //winkelwagen terug leegmaken
+        ((List<?>) session.getAttribute("winkelwagen")).clear();
+
+        //model.addAttribute("tijdslot", tijdslot);
 
         return "bevestigingbestelling";
     }

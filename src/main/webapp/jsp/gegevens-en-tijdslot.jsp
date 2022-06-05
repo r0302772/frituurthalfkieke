@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%
     String error = (String) request.getAttribute("error");
 %>
@@ -13,15 +12,6 @@
     <title>Frituur t'Half Kieke | Winkelwagen</title>
 
     <link rel="icon" type="image/x-icon" href="/images/drumstick-bite-solid.svg">
-    <%--    <link rel="stylesheet"
-              href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css">
-        <link rel="stylesheet"
-              href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.js"></script>--%>
-
 
 </head>
 <body class="d-flex h-100">
@@ -32,128 +22,132 @@
         <div class="row p-3 text-center">
             <h2 class="display-5 fw-bold"><i class="bi bi-cart-fill"></i> Winkelwagen</h2>
         </div>
-                <form:form method="get" action="/winkelwagen/bevestiging-bestelling" class="row">
-        <div class="col-12 border px-3">
-            <div class="row p-3 bg-secondary text-white">
-                <h4>Stap 2/2</h4>
-            </div>
-            <div class="row">
+        <form method="get" action="${pageContext.request.contextPath}/winkelwagen/bevestiging-bestelling" class="row">
+            <div class="col-12 border px-3">
+                <div class="row p-3 bg-secondary text-white">
+                    <h4>Stap 2/2</h4>
+                </div>
                 <div class="row">
-                    <div class="col-auto p-3">
-                        <i class="bi bi-person-fill"></i>
-                    </div>
-                    <div class="col">
-                        <%--Voornaam en achternaam--%>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="row pt-3">
-                                    <div class="col-auto pe-1">
-                                        <label for="voornaamKlant" class="form-label">Voornaam: </label>
-                                    </div>
-                                    <div class="col">
-                                        <input type="text" class="form-control" name="voornaamKlant" id="voornaamKlant" placeholder=""
-                                               value=""
-                                               required>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row pt-3">
-                                    <div class="col-auto pe-1">
-                                        <label for="achternaamKlant" class="form-label">Achternaam: </label>
-                                    </div>
-                                    <div class="col">
-                                        <input type="text" class="form-control" name="achternaamKlant" id="achternaamKlant" placeholder=""
-                                               value=""
-                                               required>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="row">
+                        <div class="col-auto p-3">
+                            <i class="bi bi-person-fill"></i>
                         </div>
-                        <%--gsm en email--%>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="row pt-3">
-                                    <div class="col-auto pe-1">
-                                        <label for="gsmKlant" class="form-label">GSM: </label>
+                        <div class="col">
+                            <%--Voornaam en achternaam--%>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row pt-3">
+                                        <div class="col-auto pe-1">
+                                            <label for="voornaam" class="form-label">Voornaam: </label>
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" class="form-control" name="voornaam"
+                                                   id="voornaam" placeholder=""
+                                                   value=""
+                                                   required>
+                                        </div>
                                     </div>
-                                    <div class="col">
-                                        <input type="text" class="form-control" name="gsmKlant" id="gsmKlant" placeholder="" value=""
-                                               required>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row pt-3">
+                                        <div class="col-auto pe-1">
+                                            <label for="achternaam" class="form-label">Achternaam: </label>
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" class="form-control" name="achternaam"
+                                                   id="achternaam" placeholder=""
+                                                   value=""
+                                                   required>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="row pt-3">
-                                    <div class="col-auto pe-1">
-                                        <label for="emailKlant" class="form-label">Email: </label>
+                            <%--gsm en email--%>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row pt-3">
+                                        <div class="col-auto pe-1">
+                                            <label for="gsm" class="form-label">GSM: </label>
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" class="form-control" name="gsm" id="gsm"
+                                                   placeholder="" value=""
+                                                   required>
+                                        </div>
                                     </div>
-                                    <div class="col">
-                                        <input type="email" class="form-control" name="emailKlant" id="emailKlant" placeholder=""
-                                               value=""
-                                               required>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row pt-3">
+                                        <div class="col-auto pe-1">
+                                            <label for="email" class="form-label">Email: </label>
+                                        </div>
+                                        <div class="col">
+                                            <input type="email" class="form-control" name="email" id="email"
+                                                   placeholder=""
+                                                   value=""
+                                                   required>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <hr>
                         </div>
-                        <hr>
                     </div>
-                </div>
-                <%--Afhalen--%>
-                <%--                <div class="row">
-                                    <div class="col-auto">
-                                        <i class="bi bi-calendar-event-fill"></i>
-                                    </div>
-                                    <div class="col">
-                                        <div class="row">
-                                            <div class="col pb-3">
-                                                AFHALEN
-                                            </div>
+                    <%--Afhalen--%>
+                    <%--                <div class="row">
+                                        <div class="col-auto">
+                                            <i class="bi bi-calendar-event-fill"></i>
                                         </div>
-                                        <div class="row">
-                                            <div class="col">
-                                                <input type="date" id="start" name="trip-start" class="form-control">
+                                        <div class="col">
+                                            <div class="row">
+                                                <div class="col pb-3">
+                                                    AFHALEN
+                                                </div>
                                             </div>
-                                            <div class="col">
-                                                <select class="form-select" aria-label="select time" required="">
-                                                    <option selected disabled value="">Kies een uur.</option>
-                                                    <option value="1">9u-9u15</option>
-                                                    <option value="2">9u15-9u30</option>
-                                                    <option value="3">9u30-9u45</option>
-                                                    <option value="3">9u45-10u</option>
-                                                </select>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <input type="date" id="start" name="trip-start" class="form-control">
+                                                </div>
+                                                <div class="col">
+                                                    <select class="form-select" aria-label="select time" required="">
+                                                        <option selected disabled value="">Kies een uur.</option>
+                                                        <option value="1">9u-9u15</option>
+                                                        <option value="2">9u15-9u30</option>
+                                                        <option value="3">9u30-9u45</option>
+                                                        <option value="3">9u45-10u</option>
+                                                    </select>
+                                                </div>
                                             </div>
+                                            <hr>
                                         </div>
-                                        <hr>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <i class="bi bi-info-circle-fill text-danger h5"></i>
-                                    </div>
-                                    <div class="col">
-                                        <h5 class="text-danger"> Zijn er geen vrije
-                                            tijdstippen meer, gelieve niet te bellen, telefonisch worden er geen bestellingen
-                                            meer
-                                            opgenomen.
-                                        </h5>
-                                    </div>
-                                </div>--%>
-                <div class="row d-grid p-3">
-                    <button type="submit" class="btn btn-primary btn-lg">BESTELLEN</button>
-<%--                    <a href="/winkelwagen/bevestiging-bestelling" class="btn btn-primary btn-lg">BESTELLEN</a>--%>
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            <i class="bi bi-info-circle-fill text-danger h5"></i>
+                                        </div>
+                                        <div class="col">
+                                            <h5 class="text-danger"> Zijn er geen vrije
+                                                tijdstippen meer, gelieve niet te bellen, telefonisch worden er geen bestellingen
+                                                meer
+                                                opgenomen.
+                                            </h5>
+                                        </div>
+                                    </div>--%>
+                    <div class="row d-grid p-3">
+                        <button type="submit" class="btn btn-primary btn-lg">BESTELLEN</button>
+                        <%--                    <a href="/winkelwagen/bevestiging-bestelling" class="btn btn-primary btn-lg">BESTELLEN</a>--%>
+                    </div>
+                    <%
+                        if (error != null) {
+                            out.print(
+                                    "<div class='row'><h5 class='text-danger'><i class=\"bi bi-info-circle-fill\"></i> " + error + "</h5></div>"
+                            );
+                        }
+                    %>
                 </div>
-                <%
-                    if (error != null) {
-                        out.print(
-                                "<div class='row'><h5 class='text-danger'><i class=\"bi bi-info-circle-fill\"></i> " + error + "</h5></div>"
-                        );
-                    }
-                %>
             </div>
-        </div>
 
-                </form:form>
+        </form>
     </main>
 
     <%-- <div class="container-fluid px-0 px-sm-4 mx-auto mt-4">
