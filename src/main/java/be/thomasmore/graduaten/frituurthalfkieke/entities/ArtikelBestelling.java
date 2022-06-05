@@ -38,42 +38,29 @@ public class ArtikelBestelling {
 
     //<editor-fold desc="Constructors">
 
-    public ArtikelBestelling(Integer aantal, String kruiden, String opmerking, Artikel artikel, Bestelling bestelling, ArtikelBestelling parentArtikelBestelling) {
-        this.aantal = aantal;
-        this.kruiden = kruiden;
-        this.opmerking = opmerking;
-        this.artikel = artikel;
-        this.bestelling = bestelling;
-        this.parentArtikelBestelling = parentArtikelBestelling;
-    }
-
-    public ArtikelBestelling(Artikel artikel, Bestelling bestelling, Integer aantal, String kruiden, String opmerking) {
-        this.artikel = artikel;
-        this.bestelling = bestelling;
-        this.aantal = aantal;
-        this.kruiden = kruiden;
-        this.opmerking = opmerking;
-    }
-
-    public ArtikelBestelling(Artikel artikel, Bestelling bestelling, ArtikelBestelling parentArtikelBestelling) {
-        this.artikel = artikel;
-        this.bestelling = bestelling;
-        this.parentArtikelBestelling = parentArtikelBestelling;
-    }
-
     public ArtikelBestelling() {
 
     }
 
+
+    //</editor-fold>
+
+    public ArtikelBestelling getParentArtikelBestelling() {
+        return parentArtikelBestelling;
+    }
+
+
+    public void setParentArtikelBestelling(ArtikelBestelling parentArtikelBestelling) {
+        this.parentArtikelBestelling = parentArtikelBestelling;
+    }
 
     public ArtikelBestelling(Integer aantal, String kruiden, Artikel artikel, Bestelling bestelling) {
         this.aantal = aantal;
         this.kruiden = kruiden;
         this.artikel = artikel;
         this.bestelling = bestelling;
-    }
 
-    //</editor-fold>
+    }
 
     //<editor-fold desc="Getters en Setters">
     public Long getId() {
@@ -128,9 +115,6 @@ public class ArtikelBestelling {
         return parentArtikelBestelling;
     }
 
-    public void setparentArtikelBestelling(ArtikelBestelling artikelBestelling) {
-        this.parentArtikelBestelling = artikelBestelling;
-    }
 
     public Integer getAantal() {
         return aantal;

@@ -40,7 +40,7 @@ public class BestellingController {
 
     //Form in winkelwagen of bevestiging bestelling????
 
-    @RequestMapping("/bestelling/toevoegen/result")
+/*    @RequestMapping("/bestelling/toevoegen/result")
     public String getResult(Model model, HttpServletRequest request) {
         String voornaamKlant = request.getParameter("voornaam");
         String familienaamKlant = request.getParameter("familienaam");
@@ -53,7 +53,7 @@ public class BestellingController {
         List<Bestelling> bestellingen = bestellingRepository.findAll();
         model.addAttribute("bestellingen", bestellingen);
         return "bestelling";
-    }
+    }*/
 }
 
 

@@ -22,7 +22,8 @@ public class Artikel {
 
     //Relatie ArtikelBestelling
     @OneToMany(mappedBy = "artikel")
-    Set<ArtikelBestelling> artikelBestellingen;
+    private Set<ArtikelBestelling> artikelBestellingen = new HashSet<>();
+
 
     //Relatie Categorie
     @ManyToOne()
@@ -61,6 +62,15 @@ public class Artikel {
     //</editor-fold>
 
     //<editor-fold desc="Getters en Setters">
+
+    public Set<ArtikelBestelling> getArtikelBestellingen() {
+        return artikelBestellingen;
+    }
+
+    public void setArtikelBestellingen(Set<ArtikelBestelling> artikelBestellingen) {
+        this.artikelBestellingen = artikelBestellingen;
+    }
+
     public Long getId() {
         return id;
     }
