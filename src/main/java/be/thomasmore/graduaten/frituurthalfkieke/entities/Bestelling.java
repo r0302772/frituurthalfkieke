@@ -32,6 +32,9 @@ public class Bestelling {
 
     //<editor-fold desc="Constructors">
 
+    public Bestelling() {
+    }
+
     public Bestelling(String voornaamKlant, String achternaamKlant, String emailKlant, String gsmKlant) {
         this.voornaamKlant = voornaamKlant;
         this.achternaamKlant = achternaamKlant;
