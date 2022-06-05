@@ -54,17 +54,51 @@
                         int count = 0;
                         for (List<Tijdslot> item: Listtijdsloten
                             ){
-                            out.println("<tr>");
-                            out.println("<th scope=\"row\" class=\"text-center align-middle\" rowspan=" + (item.size() + 1) + ">" + getDayOfweek(count) + "<a href=" +  "/tijdslot/blokkeren/" + count +"\" class=\"btn btn-danger\">Blokeer</a>" + "</th>");
+                            out.print("<tr");
+                            if(item.get(0).getGeblokeerd()){
+                                out.print(" class=\"table-danger\"");
+
+                            }
+                            out.print(">");
+                            int rowspan = 1;
+                            if(item != null ){rowspan = item.size()+1;}
+                            out.println("<th scope=\"row\" class=\"text-center align-middle\" rowspan=" + rowspan + ">"
+
+                                    + getDayOfweek(count));
+                            if(item!=null) {
+                                if(item.get(0).getGeblokeerd()){
+                                    out.println(
+                                            "<a href=\"" + "/tijdslot/deblokkeren/" + count + "\" class=\"ml-5 btn btn-primary\">Deblokkeer</a>"
+                                                    + "</th>");
+                                }
+                                else{
+                                out.println(
+                                        "<a href=\"" + "/tijdslot/blokkeren/" + count + "\" class=\"ml-2 btn btn-danger\">Blokkeer</a>"
+                                                + "</th>");
+                                }
+                            }
+
+
                             count++;
 
                             for (Tijdslot tijdslot : item
                                  ) {
-                                out.println("<tr>");
-                                out.println("<td class=\"col-1\">" +tijdslot.getStartuur() + "<td>");
-                                out.println("<td class=\"col-1\">" +tijdslot.getEinduur() + "<td>");
-                                out.println("<td class=\"col-1\"><input type=\"number\" value=\"" +tijdslot.getAantal() + "\"><td>");
-                                out.println("</tr>");
+
+                                    out.print("<tr");
+                                    if(item.get(0).getGeblokeerd()){
+                                        out.print(" class=\"table-danger\"");
+                                    }
+                                    out.print(">");
+                                    out.println("<td class=\"col-1\">" +tijdslot.getStartuur() + "<td>");
+                                    out.println("<td class=\"col-1\">" +tijdslot.getEinduur() + "<td>");
+                                    out.print("<td class=\"col-1\"><input type=\"number\" min=\"0\" value=\"");
+                                    out.print(tijdslot.getAantal());
+                                    if(item.get(0).getGeblokeerd()){
+                                        out.print("disabled=\"disabled\"");
+                                    }
+                                    out.print("\"><td>");
+                                    out.println("</tr>");
+
 
 
                             }
