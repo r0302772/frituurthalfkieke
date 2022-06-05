@@ -40,7 +40,11 @@ public class Bestelling {
     }
 
     public Bestelling() {
+    timeslots
+
     }
+
+
     //</editor-fold>
 
     //<editor-fold desc="Getters en Setters">

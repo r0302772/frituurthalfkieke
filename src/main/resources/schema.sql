@@ -52,3 +52,15 @@ CREATE TABLE Artikel_Bestelling
     CONSTRAINT FK_Artikel_Bestelling FOREIGN KEY (artikel_id) REFERENCES ARTIKEL (id),
     CONSTRAINT FK_Bestelling_Artikel FOREIGN KEY (bestelling_id) REFERENCES Bestelling (id)
 );
+
+DROP TABLE IF EXISTS TIJDSLOT;
+
+CREATE TABLE TIJDSLOT(
+    id                       INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    startuur                TIME,
+    einduur                TIME,
+    datum                    DATE,
+    aantal                   INT,
+    geblokeerd              BIT,
+    PRIMARY KEY (id)
+);

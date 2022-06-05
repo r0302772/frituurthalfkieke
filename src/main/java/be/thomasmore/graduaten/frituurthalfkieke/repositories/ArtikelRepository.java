@@ -11,6 +11,7 @@ public interface ArtikelRepository extends JpaRepository<Artikel, Long> {
 
     List<Artikel> findArtikelsByCategorieNaam(String naam);
 
+
     Artikel findArtikelByNaam(String naam);
 
 

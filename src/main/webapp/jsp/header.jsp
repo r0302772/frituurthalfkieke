@@ -28,9 +28,9 @@
                         <a class="nav-link" href="/bestellingenbeheren"><i class="fa-solid fa-cash-register"></i>
                             Bestellingen</a>
                     </li>
-<%--                    <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href="/tijdslotenbeheren"><i class="bi bi-lock-fill"></i> Tijdsloten</a>
-                    </li>--%>
+                    </li>
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item">
