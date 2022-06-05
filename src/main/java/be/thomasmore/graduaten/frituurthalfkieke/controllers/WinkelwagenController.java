@@ -3,7 +3,6 @@ package be.thomasmore.graduaten.frituurthalfkieke.controllers;
 import be.thomasmore.graduaten.frituurthalfkieke.entities.*;
 import be.thomasmore.graduaten.frituurthalfkieke.repositories.ArtikelBestellingRepository;
 import be.thomasmore.graduaten.frituurthalfkieke.repositories.ArtikelRepository;
-import be.thomasmore.graduaten.frituurthalfkieke.repositories.BestellingRepository;
 import be.thomasmore.graduaten.frituurthalfkieke.repositories.CategorieRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,17 +23,10 @@ public class WinkelwagenController {
     private CategorieRepository categorieRepository;
     private ArtikelBestellingRepository artikelBestellingRepository;
 
-    private BestellingRepository bestellingRepository;
-
-    public WinkelwagenController(ArtikelRepository artikelRepository,
-                                 CategorieRepository categorieRepository,
-                                 ArtikelBestellingRepository artikelBestellingRepository,
-                                 BestellingRepository bestellingRepository)
-    {
+    public WinkelwagenController(ArtikelRepository artikelRepository, CategorieRepository categorieRepository, ArtikelBestellingRepository artikelBestellingRepository) {
         this.artikelRepository = artikelRepository;
         this.categorieRepository = categorieRepository;
         this.artikelBestellingRepository = artikelBestellingRepository;
-        this.bestellingRepository = bestellingRepository;
     }
 
     @RequestMapping()
@@ -116,35 +108,17 @@ public class WinkelwagenController {
         List<ItemWinkelwagen> winkelwagen = (List<ItemWinkelwagen>) session.getAttribute("winkelwagen");
         //als de winkelwagen niet null (leeg) is
         if (winkelwagen != null) {
-            String voornaamKlant = request.getParameter("voornaamKlant");
-            String achternaamKlant = request.getParameter("achternaamKlant");
-            String emailKlant = request.getParameter("emailKlant");
-            String gsmKlant = request.getParameter("gsmKlant");
-
-            Bestelling bestelling = new Bestelling(voornaamKlant,achternaamKlant,gsmKlant,emailKlant);
-
-
-            bestellingRepository.save(bestelling);
-
+            Bestelling bestelling = new Bestelling();
             //for each item in de sessionwinkelwagen
             for (ItemWinkelwagen item : winkelwagen) {
-                ArtikelBestelling artikelBestelling = new ArtikelBestelling();
-                artikelBestelling.setBestelling(bestelling);
-                artikelBestelling.setArtikel(item.getArtikel());
-                artikelBestelling.setAantal(item.getAantal());
-                artikelBestelling.setKruiden(item.getKruiden());
-                artikelBestelling.setOpmerking(item.getOpmerking());
+                ArtikelBestelling artikelBestelling = new ArtikelBestelling(
+                        item.getAantal(),
+                        item.getKruiden(),
+                        item.getArtikel(),
+                        bestelling
+                );
 
                 artikelBestellingRepository.save(artikelBestelling);
-
-                for (Artikel saus : item.Getsauzen()) {
-                    ArtikelBestelling artikelBestellingSaus = new ArtikelBestelling();
-                    artikelBestellingSaus.setBestelling(bestelling);
-                    artikelBestellingSaus.setArtikel(saus);
-                    artikelBestellingSaus.setParentArtikelBestelling(artikelBestelling);
-
-                    artikelBestellingRepository.save(artikelBestelling);
-                }
             }
         } else {
             //foutmelding omdat de winkelwagen leeg is

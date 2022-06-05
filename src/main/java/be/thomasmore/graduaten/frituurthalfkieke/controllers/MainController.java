@@ -17,9 +17,6 @@ public class MainController {
         return "contact";
     }
 
-/*    @RequestMapping("/tijdslotenbeheren")
-    public String navigateToTijdslotenbeheren() {
-        return "tijdslotenbeheren";
-    }*/
+
 
 }
