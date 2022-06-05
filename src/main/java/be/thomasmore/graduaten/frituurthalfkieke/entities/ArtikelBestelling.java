@@ -34,21 +34,19 @@ public class ArtikelBestelling {
     @JoinColumn(
             name = "parentArtikelBestelling_id"
     )
-    private ArtikelBestelling artikelBestelling;
+    private ArtikelBestelling parentArtikelBestelling;
 
     //</editor-fold>
 
     //<editor-fold desc="Constructors">
 
-    public ArtikelBestelling(Long id, Integer aantal, String kruiden, String opmerking, Artikel artikel, Bestelling bestelling, Set<ArtikelBestelling> artikelBestellingen, ArtikelBestelling artikelBestelling) {
-        this.id = id;
+    public ArtikelBestelling(Integer aantal, String kruiden, String opmerking, Artikel artikel, Bestelling bestelling, ArtikelBestelling parentArtikelBestelling) {
         this.aantal = aantal;
         this.kruiden = kruiden;
         this.opmerking = opmerking;
         this.artikel = artikel;
         this.bestelling = bestelling;
-        this.artikelBestellingen = artikelBestellingen;
-        this.artikelBestelling = artikelBestelling;
+        this.parentArtikelBestelling = parentArtikelBestelling;
     }
 
     public ArtikelBestelling(Artikel artikel, Bestelling bestelling, Integer aantal, String kruiden, String opmerking) {
@@ -62,11 +60,18 @@ public class ArtikelBestelling {
     public ArtikelBestelling(Artikel artikel, Bestelling bestelling, ArtikelBestelling artikelBestelling) {
         this.artikel = artikel;
         this.bestelling = bestelling;
-        this.artikelBestelling = artikelBestelling;
+        this.parentArtikelBestelling = parentArtikelBestelling;
     }
 
     public ArtikelBestelling() {
 
+    }
+
+    public ArtikelBestelling(Integer aantal, String kruiden, Artikel artikel, Bestelling bestelling) {
+        this.aantal = aantal;
+        this.kruiden = kruiden;
+        this.artikel = artikel;
+        this.bestelling = bestelling;
     }
 
     //</editor-fold>
@@ -120,12 +125,12 @@ public class ArtikelBestelling {
         this.artikelBestellingen = artikelBestellingen;
     }
 
-    public ArtikelBestelling getArtikelBestelling() {
-        return artikelBestelling;
+    public ArtikelBestelling getparentArtikelBestelling() {
+        return parentArtikelBestelling;
     }
 
-    public void setArtikelBestelling(ArtikelBestelling artikelBestelling) {
-        this.artikelBestelling = artikelBestelling;
+    public void setparentArtikelBestelling(ArtikelBestelling artikelBestelling) {
+        this.parentArtikelBestelling = artikelBestelling;
     }
 
     public Integer getAantal() {

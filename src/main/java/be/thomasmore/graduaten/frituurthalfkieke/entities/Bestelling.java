@@ -11,9 +11,9 @@ public class Bestelling {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String voornaamKlant;
-    private String familienaamKlant;
+    private String achternaamKlant;
     private String emailKlant;
-    private String telefoonKlant;
+    private String gsmKlant;
 //private Long tijdslotId;
 
     //<editor-fold desc="Relaties">
@@ -35,19 +35,19 @@ public class Bestelling {
 
     ;
 
-    public Bestelling(Long id, String voornaamKlant, String familienaamKlant, String emailKlant, String telefoonKlant) {
+    public Bestelling(Long id, String voornaamKlant, String achternaamKlant, String emailKlant, String gsmKlant) {
         this.id = id;
         this.voornaamKlant = voornaamKlant;
-        this.familienaamKlant = familienaamKlant;
+        this.achternaamKlant = achternaamKlant;
         this.emailKlant = emailKlant;
-        this.telefoonKlant = telefoonKlant;
+        this.gsmKlant = gsmKlant;
     }
 
-    public Bestelling(String voornaamKlant, String familienaamKlant, String emailKlant, String telefoonKlant) {
+    public Bestelling(String voornaamKlant, String achternaamKlant, String emailKlant, String gsmKlant) {
         this.voornaamKlant = voornaamKlant;
-        this.familienaamKlant = familienaamKlant;
+        this.achternaamKlant = achternaamKlant;
         this.emailKlant = emailKlant;
-        this.telefoonKlant = telefoonKlant;
+        this.gsmKlant = gsmKlant;
     }
 
     //</editor-fold>
@@ -70,11 +70,11 @@ public class Bestelling {
     }
 
     public String getFamilienaamKlant() {
-        return familienaamKlant;
+        return achternaamKlant;
     }
 
     public void setFamilienaamKlant(String familienaamKlant) {
-        this.familienaamKlant = familienaamKlant;
+        this.achternaamKlant = familienaamKlant;
     }
 
     public String getEmailKlant() {
@@ -86,11 +86,11 @@ public class Bestelling {
     }
 
     public String getTelefoonKlant() {
-        return telefoonKlant;
+        return gsmKlant;
     }
 
     public void setTelefoonKlant(String telefoonKlant) {
-        this.telefoonKlant = telefoonKlant;
+        this.gsmKlant = telefoonKlant;
     }
 
     //</editor-fold>

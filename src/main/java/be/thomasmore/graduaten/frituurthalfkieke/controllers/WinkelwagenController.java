@@ -1,9 +1,6 @@
 package be.thomasmore.graduaten.frituurthalfkieke.controllers;
 
-import be.thomasmore.graduaten.frituurthalfkieke.entities.Artikel;
-import be.thomasmore.graduaten.frituurthalfkieke.entities.ArtikelBestelling;
-import be.thomasmore.graduaten.frituurthalfkieke.entities.Categorie;
-import be.thomasmore.graduaten.frituurthalfkieke.entities.ItemWinkelwagen;
+import be.thomasmore.graduaten.frituurthalfkieke.entities.*;
 import be.thomasmore.graduaten.frituurthalfkieke.repositories.ArtikelBestellingRepository;
 import be.thomasmore.graduaten.frituurthalfkieke.repositories.ArtikelRepository;
 import be.thomasmore.graduaten.frituurthalfkieke.repositories.CategorieRepository;
@@ -24,10 +21,12 @@ public class WinkelwagenController {
 
     private ArtikelRepository artikelRepository;
     private CategorieRepository categorieRepository;
+    private ArtikelBestellingRepository artikelBestellingRepository;
 
-    public WinkelwagenController(ArtikelRepository artikelRepository, CategorieRepository categorieRepository) {
+    public WinkelwagenController(ArtikelRepository artikelRepository, CategorieRepository categorieRepository, ArtikelBestellingRepository artikelBestellingRepository) {
         this.artikelRepository = artikelRepository;
         this.categorieRepository = categorieRepository;
+        this.artikelBestellingRepository = artikelBestellingRepository;
     }
 
     @RequestMapping()
@@ -105,19 +104,27 @@ public class WinkelwagenController {
 
     @RequestMapping("/bevestiging-bestelling")
     public String navigateToBevestigingbestelling(Model model, HttpSession session, HttpServletRequest request) {
-/*        //winkelwagen uit de session halen?
-        session.getAttribute("winkelwagen");
-        List<ArtikelBestelling> artikelsBestelling = new ArrayList<>();
+        //winkelwagen uit de session halen?
+        List<ItemWinkelwagen> winkelwagen = (List<ItemWinkelwagen>) session.getAttribute("winkelwagen");
         //als de winkelwagen niet null (leeg) is
-        if (session.getAttribute("winkelwagen") != null) {
+        if (winkelwagen != null) {
+            Bestelling bestelling = new Bestelling();
             //for each item in de sessionwinkelwagen
-            for (String sausid : session.getAttribute("winkelwagen")) {
-                ArtikelBestelling artikelBestelling = new ArtikelBestelling(paramshier);
-                ArtikelBestellingRepository.save();
+            for (ItemWinkelwagen item : winkelwagen) {
+                ArtikelBestelling artikelBestelling = new ArtikelBestelling(
+                        item.getAantal(),
+                        item.getKruiden(),
+                        item.getArtikel(),
+                        bestelling
+                );
+
+                artikelBestellingRepository.save(artikelBestelling);
             }
         } else {
-
-        }*/
+            //foutmelding omdat de winkelwagen leeg is
+            model.addAttribute("error", "Er zit niets in uw winkelwagen!");
+            return "gegevens-en-tijdslot";
+        }
 //model.addAttribute("tijdslot", tijdslot)
 
         return "bevestigingbestelling";

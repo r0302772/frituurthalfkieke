@@ -1,6 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%
+    String error = (String) request.getAttribute("error");
+%>
 <html lang="nl" class="h-100">
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -45,24 +48,24 @@
                             <div class="col-md-6">
                                 <div class="row pt-3">
                                     <div class="col-auto pe-1">
-                                        <label for="voornaam" class="form-label">Voornaam: </label>
+                                        <label for="voornaamKlant" class="form-label">Voornaam: </label>
                                     </div>
                                     <div class="col">
-                                        <input type="text" class="form-control" id="voornaam" placeholder=""
+                                        <input type="text" class="form-control" name="voornaamKlant" id="voornaamKlant" placeholder=""
                                                value=""
-                                               required="">
+                                               required>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="row pt-3">
                                     <div class="col-auto pe-1">
-                                        <label for="achternaam" class="form-label">Achternaam: </label>
+                                        <label for="achternaamKlant" class="form-label">Achternaam: </label>
                                     </div>
                                     <div class="col">
-                                        <input type="text" class="form-control" id="achternaam" placeholder=""
+                                        <input type="text" class="form-control" name="achternaamKlant" id="achternaamKlant" placeholder=""
                                                value=""
-                                               required="">
+                                               required>
                                     </div>
                                 </div>
                             </div>
@@ -72,23 +75,23 @@
                             <div class="col-md-6">
                                 <div class="row pt-3">
                                     <div class="col-auto pe-1">
-                                        <label for="gsm" class="form-label">GSM: </label>
+                                        <label for="gsmKlant" class="form-label">GSM: </label>
                                     </div>
                                     <div class="col">
-                                        <input type="text" class="form-control" id="gsm" placeholder="" value=""
-                                               required="">
+                                        <input type="text" class="form-control" name="gsmKlant" id="gsmKlant" placeholder="" value=""
+                                               required>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="row pt-3">
                                     <div class="col-auto pe-1">
-                                        <label for="email" class="form-label">Email: </label>
+                                        <label for="emailKlant" class="form-label">Email: </label>
                                     </div>
                                     <div class="col">
-                                        <input type="email" class="form-control" id="email" placeholder=""
+                                        <input type="email" class="form-control" name="emailKlant" id="emailKlant" placeholder=""
                                                value=""
-                                               required="">
+                                               required>
                                     </div>
                                 </div>
                             </div>
@@ -140,6 +143,13 @@
                     <%--<button type="submit" class="btn btn-primary btn-lg">BESTELLEN</button>--%>
                     <a href="/winkelwagen/bevestiging-bestelling" class="btn btn-primary btn-lg">BESTELLEN</a>
                 </div>
+                <%
+                    if (error != null) {
+                        out.print(
+                                "<div class='row'><h5 class='text-danger'><i class=\"bi bi-info-circle-fill\"></i> " + error + "</h5></div>"
+                        );
+                    }
+                %>
             </div>
         </div>
 
