@@ -40,7 +40,7 @@ public class Bestelling {
     }
 
     public Bestelling() {
-    timeslots
+
 
     }
 

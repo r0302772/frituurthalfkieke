@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface ArtikelBestellingRepository extends JpaRepository<ArtikelBestelling, Long> {
     List<ArtikelBestelling> findArtikelsBestellingByBestellingId(Long bestellingId);
+    List<ArtikelBestelling> findArtikelBestellingByParentArtikelBestellingId(Long parentartikelbestelling);
 }

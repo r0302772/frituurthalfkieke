@@ -3,11 +3,16 @@
 <%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.ArtikelBestelling" %>
 <%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.Artikel" %>
 <%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.Categorie" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
+<%@ page import="java.time.LocalDateTime" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     List<Bestelling> bestellingen = (List<Bestelling>) request.getAttribute("bestellingen");
     List<Artikel> artikels = (List<Artikel>) request.getAttribute("artikels");
     List<Categorie> categorien = (List<Categorie>) request.getAttribute("categorien");
+
+    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM");
+    LocalDateTime now = LocalDateTime.now();
 %>
 <html lang="nl" class="h-100">
 <head>
@@ -29,8 +34,8 @@
 
         <div class="row p-3">
             <%--Wanneer--%>
-            <div class="col-md border-end">
-                <h4>Tijdslot</h4>
+            <div class="col-md-3 border-end">
+                <h4>Tijdsloten <%=dtf.format(now)%> </h4>
                 <hr>
                 <nav>
                     <div class="nav flex-column nav-pills" id="nav-tabWanneer" role="tablist">
@@ -48,7 +53,6 @@
                 </nav>
             </div>
             <%--Bestellingen--%>
-
             <div class="col-md border-end">
                 <h4>Bestellingen</h4>
                 <hr>
@@ -58,7 +62,7 @@
                         <nav>
                             <div class="nav flex-column nav-pills" id="nav-tabOrdersVolgendeWeek" role="tablist">
                             <% for (Bestelling bestelling : bestellingen) {
-                                out.print("<a href='/bestelling/detail?id=" + bestelling.getId() + "'" +
+                                out.print("<a href='#'" +
                                         "class='nav-link' " +
                                         "id='nav-order1-tab' " +
                                         "data-bs-toggle='tab' " +
@@ -67,8 +71,8 @@
                                         "role='tab'" +
                                         "aria-controls='nav-order1'" +
                                         "aria-selected='true'>" +
-                                        "Tijdslot hier | " + bestelling.getAchternaam() + " " + bestelling.getVoornaam() +
-                                        "</a>"
+                                        bestelling.getAchternaam() + " " + bestelling.getVoornaam() +
+                                        "</a><a class='nav-link btn-danger' href='/bestelling/detail?id=" + bestelling.getId() + "'>Details</a>"
 
                                 );
                             } %>
@@ -81,11 +85,6 @@
                     </div>
                 </div>
             </div>
-            <%--Details--%>
-                <div class="col-md border-end">
-                    <h4>Details</h4>
-                    <hr>
-                </div>
         </div>
     </main>
 

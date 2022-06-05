@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -50,9 +51,18 @@ public class BestellingController {
         Bestelling bestelling = bestellingRepository.getById(id);
 
         List<ArtikelBestelling> artikelBestellingList = artikelBestellingRepository.findArtikelsBestellingByBestellingId(id);
+        List<ArtikelBestelling> sauzen = new ArrayList<>();
 
+        for (ArtikelBestelling artikelBestelling : artikelBestellingList){
+            if (artikelBestelling.getparentartikelbestelling() == null){
+                sauzen = artikelBestellingRepository.findArtikelBestellingByParentArtikelBestellingId(artikelBestelling.getId());
+            }
+        }
+
+        model.addAttribute("sauzen", sauzen);
         model.addAttribute("bestelling", bestelling);
         model.addAttribute("artikelBestellingList", artikelBestellingList);
+
         return "details-bestelling";
     }
 
