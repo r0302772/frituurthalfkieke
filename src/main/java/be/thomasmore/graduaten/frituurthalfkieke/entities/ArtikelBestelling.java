@@ -45,11 +45,6 @@ public class ArtikelBestelling {
 
     //</editor-fold>
 
-    public ArtikelBestelling getParentArtikelBestelling() {
-        return parentartikelbestelling;
-    }
-
-
     public void setparentartikelbestelling(ArtikelBestelling parentartikelbestelling) {
         this.parentartikelbestelling = parentartikelbestelling;
     }

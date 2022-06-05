@@ -6,10 +6,8 @@
 <%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.Artikel" %>
 <%
     Bestelling bestelling = (Bestelling) request.getAttribute("bestelling");
-    List<ArtikelBestelling> artikelBestellingList = (List<ArtikelBestelling>) request.getAttribute("artikelBestellingList");
+    List<ArtikelBestelling> artikels = (List<ArtikelBestelling>) request.getAttribute("artikels");
     List<ArtikelBestelling> sauzen = (List<ArtikelBestelling>) request.getAttribute("sauzen");
-    List<Categorie> categorien = (List<Categorie>) request.getAttribute("categorien");
-    List<Artikel> artikels = (List<Artikel>) request.getAttribute("artikels");
 %>
 <html lang="nl" class="h-100">
 <head>
@@ -44,9 +42,9 @@
 
             <tbody>
             <c:set var="total" value="0"></c:set>
-            <c:forEach var="artikelBestelling" items="${artikelBestellingList}">
+            <c:forEach var="artikel" items="${artikels}">
                 <c:set var="totaal"
-                       value="${totaal + artikelBestelling.artikel.prijs * artikelBestelling.aantal}"></c:set>
+                       value="${totaal + artikel.artikel.prijs * artikel.aantal}"></c:set>
                 <tr>
 <%--                    <td>
                         <a class="btn"
@@ -55,15 +53,15 @@
                             <i class="bi bi-x-circle-fill"></i>
                         </a>
                     </td>--%>
-                    <td>${artikelBestelling.aantal } ${artikelBestelling.artikel.naam}</td>
+                    <td>${artikel.aantal } ${artikel.artikel.naam}</td>
                     <td>
                         <c:forEach var="saus" items="${sauzen}">
                             <p>${saus.artikel.naam}</p>
                         </c:forEach>
                     </td>
-                    <td>${artikelBestelling.kruiden}</td>
-                    <td>${artikelBestelling.opmerking}</td>
-                    <td>${artikelBestelling.artikel.prijs} * ${artikelBestelling.aantal} = ${artikelBestelling.artikel.prijs * artikelBestelling.aantal}</td>
+                    <td>${artikel.kruiden}</td>
+                    <td>${artikel.opmerking}</td>
+                    <td>${artikel.aantal} * ${artikel.artikel.prijs} = ${artikel.artikel.prijs * artikel.aantal}</td>
                 </tr>
             </c:forEach>
             </tbody>
@@ -76,7 +74,7 @@
         </table>
 
 
-        <div class="tab-content" id="nav-tabDetailsContent">
+<%--        <div class="tab-content" id="nav-tabDetailsContent">
             <div class="tab-pane fade show" id="nav-order1" role="tabpanel"
                  aria-labelledby="nav-order1-tab">
                 <div class="row">
@@ -151,7 +149,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>--%>
     </main>
 
     <jsp:include page="footer.jsp"/>
