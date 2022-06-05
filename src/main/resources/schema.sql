@@ -39,9 +39,9 @@ DROP TABLE IF EXISTS ArtikelBestelling;
 
 CREATE TABLE ArtikelBestelling
 (
-    id                         INT         NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    aantal                     INT         NOT NULL,
-    kruiden                    VARCHAR(50) NOT NULL,
+    id                         INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    aantal                     INT,
+    kruiden                    VARCHAR(50),
     opmerking                  VARCHAR(100),
 
     artikel_id                 INT,

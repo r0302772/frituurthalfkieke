@@ -32,7 +32,7 @@
         <div class="row p-3 text-center">
             <h2 class="display-5 fw-bold"><i class="bi bi-cart-fill"></i> Winkelwagen</h2>
         </div>
-        <%--        <form:form method="post" class="row">--%>
+                <form:form method="get" action="/winkelwagen/bevestiging-bestelling" class="row">
         <div class="col-12 border px-3">
             <div class="row p-3 bg-secondary text-white">
                 <h4>Stap 2/2</h4>
@@ -140,8 +140,8 @@
                                     </div>
                                 </div>--%>
                 <div class="row d-grid p-3">
-                    <%--<button type="submit" class="btn btn-primary btn-lg">BESTELLEN</button>--%>
-                    <a href="/winkelwagen/bevestiging-bestelling" class="btn btn-primary btn-lg">BESTELLEN</a>
+                    <button type="submit" class="btn btn-primary btn-lg">BESTELLEN</button>
+<%--                    <a href="/winkelwagen/bevestiging-bestelling" class="btn btn-primary btn-lg">BESTELLEN</a>--%>
                 </div>
                 <%
                     if (error != null) {
@@ -153,7 +153,7 @@
             </div>
         </div>
 
-        <%--        </form:form>--%>
+                </form:form>
     </main>
 
     <%-- <div class="container-fluid px-0 px-sm-4 mx-auto mt-4">

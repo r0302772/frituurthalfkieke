@@ -28,7 +28,7 @@ public class ArtikelBestelling {
     private Bestelling bestelling;
 
     //Recursieve relatie
-    @OneToMany(mappedBy = "artikelBestelling")
+    @OneToMany(mappedBy = "parentArtikelBestelling")
     private Set<ArtikelBestelling> artikelBestellingen = new HashSet<>();
     @ManyToOne
     @JoinColumn(
@@ -40,41 +40,20 @@ public class ArtikelBestelling {
 
     //<editor-fold desc="Constructors">
 
-    public ArtikelBestelling(Integer aantal, String kruiden, String opmerking, Artikel artikel, Bestelling bestelling, ArtikelBestelling parentArtikelBestelling) {
-        this.aantal = aantal;
-        this.kruiden = kruiden;
-        this.opmerking = opmerking;
-        this.artikel = artikel;
-        this.bestelling = bestelling;
-        this.parentArtikelBestelling = parentArtikelBestelling;
-    }
-
-    public ArtikelBestelling(Artikel artikel, Bestelling bestelling, Integer aantal, String kruiden, String opmerking) {
-        this.artikel = artikel;
-        this.bestelling = bestelling;
-        this.aantal = aantal;
-        this.kruiden = kruiden;
-        this.opmerking = opmerking;
-    }
-
-    public ArtikelBestelling(Artikel artikel, Bestelling bestelling, ArtikelBestelling artikelBestelling) {
-        this.artikel = artikel;
-        this.bestelling = bestelling;
-        this.parentArtikelBestelling = parentArtikelBestelling;
-    }
-
     public ArtikelBestelling() {
 
     }
 
-    public ArtikelBestelling(Integer aantal, String kruiden, Artikel artikel, Bestelling bestelling) {
-        this.aantal = aantal;
-        this.kruiden = kruiden;
-        this.artikel = artikel;
-        this.bestelling = bestelling;
-    }
 
     //</editor-fold>
+
+    public ArtikelBestelling getParentArtikelBestelling() {
+        return parentArtikelBestelling;
+    }
+
+    public void setParentArtikelBestelling(ArtikelBestelling parentArtikelBestelling) {
+        this.parentArtikelBestelling = parentArtikelBestelling;
+    }
 
     //<editor-fold desc="Getters en Setters">
     public Long getId() {

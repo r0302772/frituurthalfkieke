@@ -3,6 +3,7 @@ package be.thomasmore.graduaten.frituurthalfkieke.entities;
 import be.thomasmore.graduaten.frituurthalfkieke.controllers.BestellingController;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -20,28 +21,16 @@ public class Bestelling {
 
     //Relatie ArtikelBestelling
     @OneToMany(mappedBy = "bestelling")
-    Set<ArtikelBestelling> artikelBestellingen;
+    private Set<ArtikelBestelling> artikelBestellingen = new HashSet<>();
 
-    @ManyToOne()
+/*    @ManyToOne()
     @JoinColumn(name = "tijdslot_id", nullable = false)
 
-    private Tijdslot tijdslot;
+    private Tijdslot tijdslot;*/
 
     //</editor-fold>
 
     //<editor-fold desc="Constructors">
-    public Bestelling() {
-    }
-
-    ;
-
-    public Bestelling(Long id, String voornaamKlant, String achternaamKlant, String emailKlant, String gsmKlant) {
-        this.id = id;
-        this.voornaamKlant = voornaamKlant;
-        this.achternaamKlant = achternaamKlant;
-        this.emailKlant = emailKlant;
-        this.gsmKlant = gsmKlant;
-    }
 
     public Bestelling(String voornaamKlant, String achternaamKlant, String emailKlant, String gsmKlant) {
         this.voornaamKlant = voornaamKlant;
@@ -53,6 +42,15 @@ public class Bestelling {
     //</editor-fold>
 
     //<editor-fold desc="Getters en Setters">
+
+    public Set<ArtikelBestelling> getArtikelBestellingen() {
+        return artikelBestellingen;
+    }
+
+    public void setArtikelBestellingen(Set<ArtikelBestelling> artikelBestellingen) {
+        this.artikelBestellingen = artikelBestellingen;
+    }
+
     public Long getId() {
         return id;
     }
@@ -69,12 +67,12 @@ public class Bestelling {
         this.voornaamKlant = voornaamKlant;
     }
 
-    public String getFamilienaamKlant() {
+    public String getAchternaamKlant() {
         return achternaamKlant;
     }
 
-    public void setFamilienaamKlant(String familienaamKlant) {
-        this.achternaamKlant = familienaamKlant;
+    public void setAchternaamKlant(String achternaamKlant) {
+        this.achternaamKlant = achternaamKlant;
     }
 
     public String getEmailKlant() {
@@ -85,12 +83,12 @@ public class Bestelling {
         this.emailKlant = emailKlant;
     }
 
-    public String getTelefoonKlant() {
+    public String getGsmKlant() {
         return gsmKlant;
     }
 
-    public void setTelefoonKlant(String telefoonKlant) {
-        this.gsmKlant = telefoonKlant;
+    public void setGsmKlant(String gsmKlant) {
+        this.gsmKlant = gsmKlant;
     }
 
     //</editor-fold>
