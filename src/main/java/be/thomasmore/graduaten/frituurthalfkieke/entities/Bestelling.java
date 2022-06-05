@@ -11,10 +11,10 @@ public class Bestelling {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String voornaamKlant;
-    private String achternaamKlant;
-    private String emailKlant;
-    private String gsmKlant;
+    private String voornaam;
+    private String achternaam;
+    private String email;
+    private String gsm;
 //private Long tijdslotId;
 
     //<editor-fold desc="Relaties">
@@ -32,11 +32,11 @@ public class Bestelling {
 
     //<editor-fold desc="Constructors">
 
-    public Bestelling(String voornaamKlant, String achternaamKlant, String emailKlant, String gsmKlant) {
-        this.voornaamKlant = voornaamKlant;
-        this.achternaamKlant = achternaamKlant;
-        this.emailKlant = emailKlant;
-        this.gsmKlant = gsmKlant;
+    public Bestelling(String voornaam, String achternaam, String email, String gsm) {
+        this.voornaam = voornaam;
+        this.achternaam = achternaam;
+        this.email = email;
+        this.gsm = gsm;
     }
 
     //</editor-fold>
@@ -59,37 +59,36 @@ public class Bestelling {
         this.id = id;
     }
 
-    public String getVoornaamKlant() {
-        return voornaamKlant;
+    public String getVoornaam() {
+        return voornaam;
     }
 
-    public void setVoornaamKlant(String voornaamKlant) {
-        this.voornaamKlant = voornaamKlant;
+    public void setVoornaam(String voornaam) {
+        this.voornaam = voornaam;
     }
 
-    public String getAchternaamKlant() {
-        return achternaamKlant;
+    public String getAchternaam() {
+        return achternaam;
     }
 
-    public void setAchternaamKlant(String achternaamKlant) {
-        this.achternaamKlant = achternaamKlant;
+    public void setAchternaam(String achternaam) {
+        this.achternaam = achternaam;
     }
 
-    public String getEmailKlant() {
-        return emailKlant;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmailKlant(String emailKlant) {
-        this.emailKlant = emailKlant;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getGsmKlant() {
-        return gsmKlant;
+    public String getGsm() {
+        return gsm;
     }
 
-    public void setGsmKlant(String gsmKlant) {
-        this.gsmKlant = gsmKlant;
+    public void setGsm(String gsm) {
+        this.gsm = gsm;
     }
-
     //</editor-fold>
 }

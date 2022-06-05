@@ -28,11 +28,11 @@ public class ArtikelBestelling {
     private Bestelling bestelling;
 
     //Recursieve relatie
-    @OneToMany(mappedBy = "parentArtikelBestelling")
+    @OneToMany(mappedBy = "parentartikelbestelling")
     private Set<ArtikelBestelling> artikelBestellingen = new HashSet<>();
 
     @ManyToOne
-    private ArtikelBestelling parentArtikelBestelling;
+    private ArtikelBestelling parentartikelbestelling;
 
     //</editor-fold>
 
@@ -46,12 +46,12 @@ public class ArtikelBestelling {
     //</editor-fold>
 
     public ArtikelBestelling getParentArtikelBestelling() {
-        return parentArtikelBestelling;
+        return parentartikelbestelling;
     }
 
 
-    public void setParentArtikelBestelling(ArtikelBestelling parentArtikelBestelling) {
-        this.parentArtikelBestelling = parentArtikelBestelling;
+    public void setparentartikelbestelling(ArtikelBestelling parentartikelbestelling) {
+        this.parentartikelbestelling = parentartikelbestelling;
     }
 
     public ArtikelBestelling(Integer aantal, String kruiden, Artikel artikel, Bestelling bestelling) {
@@ -111,8 +111,8 @@ public class ArtikelBestelling {
         this.artikelBestellingen = artikelBestellingen;
     }
 
-    public ArtikelBestelling getparentArtikelBestelling() {
-        return parentArtikelBestelling;
+    public ArtikelBestelling getparentartikelbestelling() {
+        return parentartikelbestelling;
     }
 
 
