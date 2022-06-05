@@ -1,7 +1,13 @@
 package be.thomasmore.graduaten.frituurthalfkieke.controllers;
 
+import be.thomasmore.graduaten.frituurthalfkieke.entities.Artikel;
+import be.thomasmore.graduaten.frituurthalfkieke.entities.ArtikelBestelling;
 import be.thomasmore.graduaten.frituurthalfkieke.entities.Bestelling;
+import be.thomasmore.graduaten.frituurthalfkieke.entities.Categorie;
+import be.thomasmore.graduaten.frituurthalfkieke.repositories.ArtikelBestellingRepository;
+import be.thomasmore.graduaten.frituurthalfkieke.repositories.ArtikelRepository;
 import be.thomasmore.graduaten.frituurthalfkieke.repositories.BestellingRepository;
+import be.thomasmore.graduaten.frituurthalfkieke.repositories.CategorieRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,47 +19,44 @@ import java.util.List;
 public class BestellingController {
 
     private BestellingRepository bestellingRepository;
+    private ArtikelBestellingRepository artikelBestellingRepository;
+    private ArtikelRepository artikelRepository;
+    private CategorieRepository categorieRepository;
 
-    public BestellingController(BestellingRepository bestellingRepository) {
+    public BestellingController(BestellingRepository bestellingRepository, ArtikelBestellingRepository artikelBestellingRepository,
+                                ArtikelRepository artikelRepository, CategorieRepository categorieRepository) {
         this.bestellingRepository = bestellingRepository;
+        this.artikelBestellingRepository = artikelBestellingRepository;
+        this.artikelRepository = artikelRepository;
+        this.categorieRepository = categorieRepository;
     }
 
-    @RequestMapping("/bestelling")
-    public String navigateToBestelling(Model model) {
+    @RequestMapping("/bestellingenbeheren")
+    public String navigateToBestellingenBeheren(Model model, HttpServletRequest request) {
         List<Bestelling> bestellingen = bestellingRepository.findAll();
+
+//        List<Artikel> artikels = artikelRepository.findAll();
+//        List<Categorie> categorien = categorieRepository.findAll();
+
         model.addAttribute("bestellingen", bestellingen);
-        return "bestelling";
+//        model.addAttribute("artikels", artikels);
+//        model.addAttribute("categorien", categorien);
+        return "bestellingenbeheren";
     }
 
     @RequestMapping("/bestelling/detail")
     public String navigateToBestellingDetails(Model model, HttpServletRequest request) {
         Long id = Long.parseLong(request.getParameter("id"));
         Bestelling bestelling = bestellingRepository.getById(id);
+
+        List<ArtikelBestelling> artikelBestellingList = artikelBestellingRepository.findArtikelsBestellingByBestellingId(id);
+
         model.addAttribute("bestelling", bestelling);
-        return "bestelling";
+        model.addAttribute("artikelBestellingList", artikelBestellingList);
+        return "details-bestelling";
     }
 
-    /*@RequestMapping("/bestelling/toevoegen")
-    public String navigateToAdStudentForm() {
-        return "bevestigingbestelling";
-    } */
 
-    //Form in winkelwagen of bevestiging bestelling????
-
-/*    @RequestMapping("/bestelling/toevoegen/result")
-    public String getResult(Model model, HttpServletRequest request) {
-        String voornaamKlant = request.getParameter("voornaam");
-        String familienaamKlant = request.getParameter("familienaam");
-        String emailKlant = request.getParameter("email");
-        String telefoonKlant = request.getParameter("telefoon");
-
-        Bestelling bestelling = new Bestelling(voornaamKlant, familienaamKlant, emailKlant,telefoonKlant);
-        bestellingRepository.save(bestelling);
-
-        List<Bestelling> bestellingen = bestellingRepository.findAll();
-        model.addAttribute("bestellingen", bestellingen);
-        return "bestelling";
-    }*/
 }
 
 

@@ -39,6 +39,8 @@ public class Bestelling {
         this.gsm = gsm;
     }
 
+    public Bestelling() {
+    }
     //</editor-fold>
 
     //<editor-fold desc="Getters en Setters">
