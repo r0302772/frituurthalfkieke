@@ -2,10 +2,26 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List" %>
 <%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.Categorie" %>
-<%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.Artikel" %>
+<%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.Tijdslot" %>
 
 <%
-    List<Tijdslot> tijdsloten = (List<tijdsloten>) request.getAttribute("tijdsloten");
+    List<Tijdslot> tijdsloten = (List<Tijdslot>) request.getAttribute("tijdsloten");
+    List<List<Tijdslot>> Listtijdsloten = (List<List<Tijdslot>>) request.getAttribute("listtijdsloten");
+
+%>
+<%!
+    public String getDayOfweek(int counter){
+        switch(counter){
+            case 0: return "Maandag";
+            case 1: return "Dinsdag";
+            case 2: return "Woensdag";
+            case 3: return "Donderdag";
+            case 4: return "Vrijdag";
+            case 5: return "Zaterdag";
+            case 6: return "Zondag";
+        }
+        return "";
+    };
 %>
 <html lang="nl" class="h-100">
 <head>
@@ -23,25 +39,37 @@
     <main class="px-3">
         <div class="row px-3 text-center">
             <h2 class="display-5 fw-bold"><i class="bi bi-stopwatch"></i> Tijdsloten</h2>
+        </div>
+        <div class="row p-3">
+            <div class="col"><button class="btn btn-primary"><</button></div>
+            <div class="col"><button class="btn btn-primary">></button></div>
 
         </div>
         <div class="row p-3">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col">Maandag</th>
-                    <th scope="col">Dinsdag</th>
-                    <th scope="col">Woensdag</th>
-                    <th scope="col">Donderdag</th>
-                    <th scope="col">Vrijdag</th>
-                    <th scope="col">Zaterdag</th>
-                    <th scope="col">Zondag</th>
-                </tr>
-                </thead>
+            <table class="table" >
+
                 <tbody>
-                    <% for (Tijdslot tijdslot: tijdsloten
-                            ) { switch (tijdslot.getDatum().getDay()) {
-                        case 1:
+
+                    <% if(Listtijdsloten != null){
+                        int count = 0;
+                        for (List<Tijdslot> item: Listtijdsloten
+                            ){
+                            out.println("<tr>");
+                            out.println("<th scope=\"row\" class=\"text-center align-middle\" rowspan=" + (item.size() + 1) + ">" + getDayOfweek(count) + "<a href=" +  "/tijdslot/blokkeren/" + count +"\" class=\"btn btn-danger\">Blokeer</a>" + "</th>");
+                            count++;
+
+                            for (Tijdslot tijdslot : item
+                                 ) {
+                                out.println("<tr>");
+                                out.println("<td class=\"col-1\">" +tijdslot.getStartuur() + "<td>");
+                                out.println("<td class=\"col-1\">" +tijdslot.getEinduur() + "<td>");
+                                out.println("<td class=\"col-1\"><input type=\"number\" value=\"" +tijdslot.getAantal() + "\"><td>");
+                                out.println("</tr>");
+
+
+                            }
+                            out.println("</tr>");
+
                     }
 
 } %>

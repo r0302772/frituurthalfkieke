@@ -3,10 +3,10 @@ DROP TABLE IF EXISTS Bestelling;
 CREATE TABLE Bestelling
 (
     id              INT         NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    voornaam   VARCHAR(50) NOT NULL,
-    achternaam VARCHAR(50) NOT NULL,
-    email      VARCHAR(50) NOT NULL,
-    gsm        VARCHAR(50) NOT NULL,
+    voornaamKlant   VARCHAR(50) NOT NULL,
+    achternaamKlant VARCHAR(50) NOT NULL,
+    emailKlant      VARCHAR(50) NOT NULL,
+    gsmKlant        VARCHAR(50) NOT NULL,
 
     PRIMARY KEY (id)
 );
@@ -35,9 +35,9 @@ CREATE TABLE ARTIKEL
     CONSTRAINT FK_Artikel_Categorie FOREIGN KEY (categorie_id) REFERENCES Categorie (id)
 );
 
-DROP TABLE IF EXISTS Artikel_Bestelling;
+DROP TABLE IF EXISTS ArtikelBestelling;
 
-CREATE TABLE Artikel_Bestelling
+CREATE TABLE ArtikelBestelling
 (
     id                         INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     aantal                     INT,
@@ -46,9 +46,21 @@ CREATE TABLE Artikel_Bestelling
 
     artikel_id                 INT,
     bestelling_id              INT,
-    parent_Artikel_Bestelling_id INT,
+    parentArtikelBestelling_id INT,
     PRIMARY KEY (id),
-    CONSTRAINT FK_Parent_Artikel_Bestelling FOREIGN KEY (parent_Artikel_Bestelling_id) REFERENCES Artikel_Bestelling (id),
+    CONSTRAINT FK_ParentArtikelBestelling FOREIGN KEY (parentArtikelBestelling_id) REFERENCES ArtikelBestelling (id),
     CONSTRAINT FK_Artikel_Bestelling FOREIGN KEY (artikel_id) REFERENCES ARTIKEL (id),
     CONSTRAINT FK_Bestelling_Artikel FOREIGN KEY (bestelling_id) REFERENCES Bestelling (id)
+);
+
+DROP TABLE IF EXISTS TIJDSLOT;
+
+CREATE TABLE TIJDSLOT(
+    id                       INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    startuur                TIME,
+    einduur                TIME,
+    datum                    DATE,
+    aantal                   INT,
+    geblokeerd              BIT,
+    PRIMARY KEY (id)
 );

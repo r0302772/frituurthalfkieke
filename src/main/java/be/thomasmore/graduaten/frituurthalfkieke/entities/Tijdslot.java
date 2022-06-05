@@ -1,8 +1,9 @@
-/*
 package be.thomasmore.graduaten.frituurthalfkieke.entities;
 
 import javax.persistence.*;
+import java.sql.Time;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,9 +13,21 @@ public class Tijdslot {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private LocalDateTime tijdslot;
+    private Time startuur;
+    private Time einduur;
+    private Date datum;
 
-    private Boolean slot;
+    public int getAantal() {
+        return aantal;
+    }
+
+    public void setAantal(int aantal) {
+        this.aantal = aantal;
+    }
+
+    private int aantal;
+    private Boolean geblokeerd;
+
 
 //    @OneToMany(mappedBy = "tijdslot")
 //    private Set<Bestelling> bestellingen = new HashSet<>();
@@ -23,11 +36,13 @@ public class Tijdslot {
 
     }
 
-    public Tijdslot(Long id, LocalDateTime tijdslot, Boolean slot) {
-        this.id = id;
-        this.tijdslot = tijdslot;
-        this.slot = slot;
+    public Tijdslot(Time startuur, Time einduur, Date datum, Boolean geblokeerd) {
+        this.startuur = startuur;
+        this.einduur = einduur;
+        this.datum = datum;
+        this.geblokeerd = geblokeerd;
     }
+
 
     public Long getId() {
         return id;
@@ -37,23 +52,38 @@ public class Tijdslot {
         this.id = id;
     }
 
-    public LocalDateTime getTijdslot() {
-        return tijdslot;
+    public Time getStartuur() {
+        return startuur;
     }
 
-    public void setTijdslot(LocalDateTime tijdslot) {
-        this.tijdslot = tijdslot;
+    public void setStartuur(Time startuur) {
+        this.startuur = startuur;
     }
 
-    public Boolean getSlot() {
-        return slot;
+    public Time getEinduur() {
+        return einduur;
     }
 
-    public void setSlot(Boolean slot) {
-        this.slot = slot;
+    public void setEinduur(Time einduur) {
+        this.einduur = einduur;
     }
 
-//    public Set<Bestelling> getBestellingen() {
+    public Date getDatum() {
+        return datum;
+    }
+
+    public void setDatum(Date datum) {
+        this.datum = datum;
+    }
+
+    public Boolean getGeblokeerd() {
+        return geblokeerd;
+    }
+
+    public void setGeblokeerd(Boolean geblokeerd) {
+        this.geblokeerd = geblokeerd;
+    }
+    //    public Set<Bestelling> getBestellingen() {
 //        return bestellingen;
 //    }
 //
@@ -61,4 +91,3 @@ public class Tijdslot {
 //        this.bestellingen = bestellingen;
 //    }
 }
-*/
