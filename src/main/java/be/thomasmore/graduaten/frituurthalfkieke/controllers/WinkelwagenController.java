@@ -1,16 +1,13 @@
 package be.thomasmore.graduaten.frituurthalfkieke.controllers;
 
-import be.thomasmore.graduaten.frituurthalfkieke.entities.Artikel;
-import be.thomasmore.graduaten.frituurthalfkieke.entities.Categorie;
-import be.thomasmore.graduaten.frituurthalfkieke.entities.ItemWinkelwagen;
+import be.thomasmore.graduaten.frituurthalfkieke.entities.*;
+import be.thomasmore.graduaten.frituurthalfkieke.repositories.ArtikelBestellingRepository;
 import be.thomasmore.graduaten.frituurthalfkieke.repositories.ArtikelRepository;
 import be.thomasmore.graduaten.frituurthalfkieke.repositories.CategorieRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -24,10 +21,12 @@ public class WinkelwagenController {
 
     private ArtikelRepository artikelRepository;
     private CategorieRepository categorieRepository;
+    private ArtikelBestellingRepository artikelBestellingRepository;
 
-    public WinkelwagenController(ArtikelRepository artikelRepository, CategorieRepository categorieRepository) {
+    public WinkelwagenController(ArtikelRepository artikelRepository, CategorieRepository categorieRepository, ArtikelBestellingRepository artikelBestellingRepository) {
         this.artikelRepository = artikelRepository;
         this.categorieRepository = categorieRepository;
+        this.artikelBestellingRepository = artikelBestellingRepository;
     }
 
     @RequestMapping()
@@ -52,20 +51,20 @@ public class WinkelwagenController {
         }
         String kruiden = request.getParameter("selectedKruiden");
         String opmerking = request.getParameter("opmerking");
-        Integer hoeveelheid = Integer.parseInt(request.getParameter("hoeveelheid"));
+        Integer aantal = Integer.parseInt(request.getParameter("aantal"));
 
         List<Artikel> artikels = artikelRepository.findAll();
         List<Categorie> categorien = categorieRepository.findAll();
         if (session.getAttribute("winkelwagen") == null) {
             List<ItemWinkelwagen> winkelwagen = new ArrayList<ItemWinkelwagen>();
 
-            winkelwagen.add(new ItemWinkelwagen(artikel, hoeveelheid, sauzen, kruiden, opmerking));
+            winkelwagen.add(new ItemWinkelwagen(artikel, aantal, sauzen, kruiden, opmerking));
             session.setAttribute("winkelwagen", winkelwagen);
         } else {
             List<ItemWinkelwagen> winkelwagen = (List<ItemWinkelwagen>) session.getAttribute("winkelwagen");
             // winkelwagen.add(new ItemWinkelwagen(artikelRepository.getById(Long.parseLong(id)), 1));
 
-            winkelwagen.add(new ItemWinkelwagen(artikel, hoeveelheid, sauzen, kruiden, opmerking));
+            winkelwagen.add(new ItemWinkelwagen(artikel, aantal, sauzen, kruiden, opmerking));
             session.setAttribute("winkelwagen", winkelwagen);
         }
 
@@ -97,8 +96,37 @@ public class WinkelwagenController {
         return -1;
     }
 
-    @RequestMapping("/bestellingbevestigen")
-    public String navigateToBestellingBevestigen() {
-        return "bestellingbevestigen";
+    @RequestMapping("/gegevens-en-tijdslot")
+    public String navigateToGegevensEnTijdslot() {
+
+        return "gegevens-en-tijdslot";
+    }
+
+    @RequestMapping("/bevestiging-bestelling")
+    public String navigateToBevestigingbestelling(Model model, HttpSession session, HttpServletRequest request) {
+        //winkelwagen uit de session halen?
+        List<ItemWinkelwagen> winkelwagen = (List<ItemWinkelwagen>) session.getAttribute("winkelwagen");
+        //als de winkelwagen niet null (leeg) is
+        if (winkelwagen != null) {
+            Bestelling bestelling = new Bestelling();
+            //for each item in de sessionwinkelwagen
+            for (ItemWinkelwagen item : winkelwagen) {
+                ArtikelBestelling artikelBestelling = new ArtikelBestelling(
+                        item.getAantal(),
+                        item.getKruiden(),
+                        item.getArtikel(),
+                        bestelling
+                );
+
+                artikelBestellingRepository.save(artikelBestelling);
+            }
+        } else {
+            //foutmelding omdat de winkelwagen leeg is
+            model.addAttribute("error", "Er zit niets in uw winkelwagen!");
+            return "gegevens-en-tijdslot";
+        }
+//model.addAttribute("tijdslot", tijdslot)
+
+        return "bevestigingbestelling";
     }
 }

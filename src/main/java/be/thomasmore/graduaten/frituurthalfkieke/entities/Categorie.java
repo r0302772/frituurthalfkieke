@@ -10,10 +10,35 @@ public class Categorie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String naam;
-    @OneToMany(mappedBy = "categorie")
 
+    //<editor-fold desc="Relaties">
+    @OneToMany(mappedBy = "categorie")
     private Set<Artikel> artikels = new HashSet<>();
 
+    //</editor-fold>
+
+    //<editor-fold desc="Constructors">
+
+    public Categorie(Long id, String naam) {
+        this.id = id;
+        this.naam = naam;
+    }
+
+    public Categorie(Long id) {
+        this.id = id;
+    }
+
+    public Categorie(String naam) {
+        this.naam = naam;
+    }
+
+    public Categorie() {
+
+    }
+
+    //</editor-fold>
+
+    //<editor-fold desc="Getters en Setters">
     public Long getId() {
         return id;
     }
@@ -30,23 +55,6 @@ public class Categorie {
         this.naam = naam;
     }
 
-    public Categorie(Long id, String naam) {
-        this.id = id;
-        this.naam = naam;
-    }
-
-    public Categorie(Long id) {
-        this.id = id;
-    }
-
-    public Categorie() {
-
-    }
-
-    public Categorie(String naam) {
-        this.naam = naam;
-    }
-
     public Set<Artikel> getArtikels() {
         return artikels;
     }
@@ -54,4 +62,6 @@ public class Categorie {
     public void setArtikels(Set<Artikel> artikels) {
         this.artikels = artikels;
     }
+
+    //</editor-fold>
 }

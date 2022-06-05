@@ -60,7 +60,7 @@
                     <c:set var="total" value="0"></c:set>
                     <c:forEach var="ItemWinkelwagen" items="${sessionScope.winkelwagen }">
                         <c:set var="totaal"
-                               value="${totaal + ItemWinkelwagen.artikel.prijs * ItemWinkelwagen.hoeveelheid }"></c:set>
+                               value="${totaal + ItemWinkelwagen.artikel.prijs * ItemWinkelwagen.aantal }"></c:set>
                         <tr class="">
                             <td>
                                 <a class="btn"
@@ -69,7 +69,7 @@
                                     <i class="bi bi-x-circle-fill"></i>
                                 </a>
                             </td>
-                            <td>${ItemWinkelwagen.hoeveelheid } ${ItemWinkelwagen.artikel.naam}</td>
+                            <td>${ItemWinkelwagen.aantal } ${ItemWinkelwagen.artikel.naam}</td>
                             <td>${ItemWinkelwagen.artikel.prijs }</td>
                             <td>
                                 <c:forEach var="saus" items="${ItemWinkelwagen.Getsauzen()}">
@@ -78,7 +78,7 @@
                             </td>
                             <td>${ItemWinkelwagen.kruiden}</td>
                             <td>${ItemWinkelwagen.opmerking}</td>
-                            <td>${ItemWinkelwagen.artikel.prijs * ItemWinkelwagen.hoeveelheid }</td>
+                            <td>${ItemWinkelwagen.artikel.prijs * ItemWinkelwagen.aantal }</td>
                         </tr>
                     </c:forEach>
                     </tbody>
@@ -92,7 +92,7 @@
             </div>
             <div class="row d-grid p-3">
                 <%--<button type="submit" class="btn btn-primary btn-lg">NAAR STAP 2/2</button>--%>
-                <a href="/winkelwagen/bestellingbevestigen" class="btn btn-primary btn-lg">NAAR STAP 2/2</a>
+                <a href="/winkelwagen/gegevens-en-tijdslot" class="btn btn-primary btn-lg">NAAR STAP 2/2</a>
             </div>
         </div>
         <%--        </form:form>--%>
@@ -107,7 +107,7 @@
                 <th>Artikel</th>
 
                 <th>Prijs</th>
-                <th>Hoeveelheid</th>
+                <th>Aantal</th>
                 <th>Saus</th>
                 <th>Kruiden</th>
                 <th>Opmerking</th>
@@ -116,7 +116,7 @@
             <c:set var="total" value="0"></c:set>
             <c:forEach var="ItemWinkelwagen" items="${sessionScope.winkelwagen }">
                 <c:set var="totaal"
-                       value="${totaal + ItemWinkelwagen.artikel.prijs * ItemWinkelwagen.hoeveelheid }"></c:set>
+                       value="${totaal + ItemWinkelwagen.artikel.prijs * ItemWinkelwagen.aantal }"></c:set>
                 <tr>
                     <td align="center"><a
                             href="${pageContext.request.contextPath }/winkelwagen/verwijderen/${ItemWinkelwagen.artikel.id }"
@@ -125,7 +125,7 @@
                     <td>${ItemWinkelwagen.artikel.naam}</td>
 
                     <td>${ItemWinkelwagen.artikel.prijs }</td>
-                    <td>${ItemWinkelwagen.hoeveelheid }</td>
+                    <td>${ItemWinkelwagen.aantal }</td>
                     <td>
     <ul>
                             <c:forEach var="saus" items="${ItemWinkelwagen.Getsauzen()}">
@@ -135,7 +135,7 @@
                     </td>
                     <td>${ItemWinkelwagen.kruiden}</td>
                     <td>${ItemWinkelwagen.opmerking}</td>
-                    <td>${ItemWinkelwagen.artikel.prijs * ItemWinkelwagen.hoeveelheid }</td>
+                    <td>${ItemWinkelwagen.artikel.prijs * ItemWinkelwagen.aantal }</td>
 
                 </tr>
             </c:forEach>
