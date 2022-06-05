@@ -19,7 +19,7 @@
 </head>
 <body class="d-flex h-100">
 <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
-    <jsp:include page="header.jsp" />
+    <jsp:include page="header.jsp"/>
 
     <main>
         <div class="row px-3 text-center">
@@ -36,46 +36,42 @@
                     </div>
                     <div class="modal-body">
                         <div class="row mb-2">
-
                             <label for="aantal" class="form-label"><strong>Aantal: </strong></label>
-
-
                             <div class="col-1">
                                 <input class="form-control" id="aantal" type="number" name="aantal" value=1
                                        min=1>
                             </div>
                         </div>
 
-                        <div <%if(artikel.getCategorie().getNaam().equalsIgnoreCase("Sauzen")){
-                                    out.print("style='display: none;'");
-                        }%>>
-                        <label for="saus" class="form-label"><strong>Saus: </strong></label>
-                        <fieldset aria-label="Select saus" id="saus" >
-
-
-                            <% for (Artikel saus : sauzen) {
-                                out.print( "<div class='form-check form-check-inline'>" +
-                                        "<input name=\"selectedSaus\"  type='checkbox' class='form-check-input'  value=\"" + saus.getId() + "\">" +
-                                        "<label class='form-check-label'>" + saus.getNaam() +
-                                        "</label> </div>"
-                                );
-                            }%>
-
-                        </fieldset>
-
-
-
-                        <label for="kruiden" class="form-label"><strong>Kruiden: </strong></label>
-                        <select class="form-select" name="selectedKruiden" aria-label="select kruiden" id="kruiden"
-                                >
-                            <option selected value="Geen kruiden">Geen kruiden.</option>
-                            <option value="Zout">Zout</option>
-                            <option value="Sate">Sate</option>
-                            <option value="Zout + Sate">Zout + Sate</option>
-                        </select>
+                        <div <%
+                            if (artikel.getCategorie().getNaam().equalsIgnoreCase("Sauzen")) {
+                                out.print("class='row mb-2' style='display: none;'");
+                            }
+                        %>>
+                            <div class="row mb-2">
+                                <label for="saus" class="form-label"><strong>Saus: </strong></label>
+                                <fieldset aria-label="Select saus" id="saus">
+                                    <% for (Artikel saus : sauzen) {
+                                        out.print("<div class='form-check form-check-inline'>" +
+                                                "<input name=\"selectedSaus\"  type='checkbox' class='form-check-input'  value=\"" + saus.getId() + "\">" +
+                                                "<label class='form-check-label'>" + saus.getNaam() +
+                                                "</label> </div>"
+                                        );
+                                    }%>
+                                </fieldset>
+                            </div>
+                            <div class="mb-2">
+                                <label for="kruiden" class="form-label"><strong>Kruiden: </strong></label>
+                                <select class="form-select" name="selectedKruiden" aria-label="select kruiden"
+                                        id="kruiden">
+                                    <option selected value="Geen kruiden">Geen kruiden.</option>
+                                    <option value="Zout">Zout</option>
+                                    <option value="Sate">Sate</option>
+                                    <option value="Zout + Sate">Zout + Sate</option>
+                                </select>
+                            </div>
                         </div>
 
-                        <%--Opmerking--%>
                         <label for="opmerking"
                                class="form-label"><strong>Opmerking: </strong></label>
                         <textarea name='opmerking' class="form-control" id="opmerking" rows="3"

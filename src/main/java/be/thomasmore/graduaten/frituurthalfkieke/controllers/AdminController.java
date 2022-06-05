@@ -138,9 +138,4 @@ public class AdminController {
         return "artikelsbeheren";
     }
 
-    @GetMapping("bestellingenbeheren")
-    public String navigateToBestellingenbeheren() {
-        return "bestellingenbeheren";
-    }
-
 }

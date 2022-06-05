@@ -3,6 +3,7 @@ package be.thomasmore.graduaten.frituurthalfkieke.entities;
 import be.thomasmore.graduaten.frituurthalfkieke.controllers.BestellingController;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -10,49 +11,48 @@ public class Bestelling {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String voornaamKlant;
-    private String achternaamKlant;
-    private String emailKlant;
-    private String gsmKlant;
+    private String voornaam;
+    private String achternaam;
+    private String email;
+    private String gsm;
 //private Long tijdslotId;
 
     //<editor-fold desc="Relaties">
 
     //Relatie ArtikelBestelling
     @OneToMany(mappedBy = "bestelling")
-    Set<ArtikelBestelling> artikelBestellingen;
+    private Set<ArtikelBestelling> artikelBestellingen = new HashSet<>();
 
-    @ManyToOne()
+/*    @ManyToOne()
     @JoinColumn(name = "tijdslot_id", nullable = false)
 
-    private Tijdslot tijdslot;
+    private Tijdslot tijdslot;*/
 
     //</editor-fold>
 
     //<editor-fold desc="Constructors">
+
+    public Bestelling(String voornaam, String achternaam, String email, String gsm) {
+        this.voornaam = voornaam;
+        this.achternaam = achternaam;
+        this.email = email;
+        this.gsm = gsm;
+    }
+
     public Bestelling() {
     }
-
-    ;
-
-    public Bestelling(Long id, String voornaamKlant, String achternaamKlant, String emailKlant, String gsmKlant) {
-        this.id = id;
-        this.voornaamKlant = voornaamKlant;
-        this.achternaamKlant = achternaamKlant;
-        this.emailKlant = emailKlant;
-        this.gsmKlant = gsmKlant;
-    }
-
-    public Bestelling(String voornaamKlant, String achternaamKlant, String emailKlant, String gsmKlant) {
-        this.voornaamKlant = voornaamKlant;
-        this.achternaamKlant = achternaamKlant;
-        this.emailKlant = emailKlant;
-        this.gsmKlant = gsmKlant;
-    }
-
     //</editor-fold>
 
     //<editor-fold desc="Getters en Setters">
+
+    public Set<ArtikelBestelling> getArtikelBestellingen() {
+        return artikelBestellingen;
+    }
+
+    public void setArtikelBestellingen(Set<ArtikelBestelling> artikelBestellingen) {
+        this.artikelBestellingen = artikelBestellingen;
+    }
+
     public Long getId() {
         return id;
     }
@@ -61,37 +61,36 @@ public class Bestelling {
         this.id = id;
     }
 
-    public String getVoornaamKlant() {
-        return voornaamKlant;
+    public String getVoornaam() {
+        return voornaam;
     }
 
-    public void setVoornaamKlant(String voornaamKlant) {
-        this.voornaamKlant = voornaamKlant;
+    public void setVoornaam(String voornaam) {
+        this.voornaam = voornaam;
     }
 
-    public String getFamilienaamKlant() {
-        return achternaamKlant;
+    public String getAchternaam() {
+        return achternaam;
     }
 
-    public void setFamilienaamKlant(String familienaamKlant) {
-        this.achternaamKlant = familienaamKlant;
+    public void setAchternaam(String achternaam) {
+        this.achternaam = achternaam;
     }
 
-    public String getEmailKlant() {
-        return emailKlant;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmailKlant(String emailKlant) {
-        this.emailKlant = emailKlant;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getTelefoonKlant() {
-        return gsmKlant;
+    public String getGsm() {
+        return gsm;
     }
 
-    public void setTelefoonKlant(String telefoonKlant) {
-        this.gsmKlant = telefoonKlant;
+    public void setGsm(String gsm) {
+        this.gsm = gsm;
     }
-
     //</editor-fold>
 }

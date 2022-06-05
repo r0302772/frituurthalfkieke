@@ -1,3 +1,4 @@
+/*
 package be.thomasmore.graduaten.frituurthalfkieke.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,3 +71,4 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
         );
     }
 }
+*/

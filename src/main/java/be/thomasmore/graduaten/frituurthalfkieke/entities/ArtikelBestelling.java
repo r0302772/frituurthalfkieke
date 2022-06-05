@@ -28,52 +28,39 @@ public class ArtikelBestelling {
     private Bestelling bestelling;
 
     //Recursieve relatie
-    @OneToMany(mappedBy = "parentArtikelBestelling")
+    @OneToMany(mappedBy = "parentartikelbestelling")
     private Set<ArtikelBestelling> artikelBestellingen = new HashSet<>();
 
     @ManyToOne
-    private ArtikelBestelling parentArtikelBestelling;
+    private ArtikelBestelling parentartikelbestelling;
 
     //</editor-fold>
 
     //<editor-fold desc="Constructors">
-
-    public ArtikelBestelling(Integer aantal, String kruiden, String opmerking, Artikel artikel, Bestelling bestelling, ArtikelBestelling parentArtikelBestelling) {
-        this.aantal = aantal;
-        this.kruiden = kruiden;
-        this.opmerking = opmerking;
-        this.artikel = artikel;
-        this.bestelling = bestelling;
-        this.parentArtikelBestelling = parentArtikelBestelling;
-    }
-
-    public ArtikelBestelling(Artikel artikel, Bestelling bestelling, Integer aantal, String kruiden, String opmerking) {
-        this.artikel = artikel;
-        this.bestelling = bestelling;
-        this.aantal = aantal;
-        this.kruiden = kruiden;
-        this.opmerking = opmerking;
-    }
-
-    public ArtikelBestelling(Artikel artikel, Bestelling bestelling, ArtikelBestelling parentArtikelBestelling) {
-        this.artikel = artikel;
-        this.bestelling = bestelling;
-        this.parentArtikelBestelling = parentArtikelBestelling;
-    }
 
     public ArtikelBestelling() {
 
     }
 
 
+    //</editor-fold>
+
+    public ArtikelBestelling getParentArtikelBestelling() {
+        return parentartikelbestelling;
+    }
+
+
+    public void setparentartikelbestelling(ArtikelBestelling parentartikelbestelling) {
+        this.parentartikelbestelling = parentartikelbestelling;
+    }
+
     public ArtikelBestelling(Integer aantal, String kruiden, Artikel artikel, Bestelling bestelling) {
         this.aantal = aantal;
         this.kruiden = kruiden;
         this.artikel = artikel;
         this.bestelling = bestelling;
-    }
 
-    //</editor-fold>
+    }
 
     //<editor-fold desc="Getters en Setters">
     public Long getId() {
@@ -124,13 +111,10 @@ public class ArtikelBestelling {
         this.artikelBestellingen = artikelBestellingen;
     }
 
-    public ArtikelBestelling getparentArtikelBestelling() {
-        return parentArtikelBestelling;
+    public ArtikelBestelling getparentartikelbestelling() {
+        return parentartikelbestelling;
     }
 
-    public void setparentArtikelBestelling(ArtikelBestelling artikelBestelling) {
-        this.parentArtikelBestelling = artikelBestelling;
-    }
 
     public Integer getAantal() {
         return aantal;

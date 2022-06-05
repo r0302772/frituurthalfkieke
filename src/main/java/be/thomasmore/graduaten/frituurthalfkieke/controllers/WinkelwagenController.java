@@ -3,6 +3,7 @@ package be.thomasmore.graduaten.frituurthalfkieke.controllers;
 import be.thomasmore.graduaten.frituurthalfkieke.entities.*;
 import be.thomasmore.graduaten.frituurthalfkieke.repositories.ArtikelBestellingRepository;
 import be.thomasmore.graduaten.frituurthalfkieke.repositories.ArtikelRepository;
+import be.thomasmore.graduaten.frituurthalfkieke.repositories.BestellingRepository;
 import be.thomasmore.graduaten.frituurthalfkieke.repositories.CategorieRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,10 +24,16 @@ public class WinkelwagenController {
     private CategorieRepository categorieRepository;
     private ArtikelBestellingRepository artikelBestellingRepository;
 
-    public WinkelwagenController(ArtikelRepository artikelRepository, CategorieRepository categorieRepository, ArtikelBestellingRepository artikelBestellingRepository) {
+    private BestellingRepository bestellingRepository;
+
+    public WinkelwagenController(ArtikelRepository artikelRepository,
+                                 CategorieRepository categorieRepository,
+                                 ArtikelBestellingRepository artikelBestellingRepository,
+                                 BestellingRepository bestellingRepository) {
         this.artikelRepository = artikelRepository;
         this.categorieRepository = categorieRepository;
         this.artikelBestellingRepository = artikelBestellingRepository;
+        this.bestellingRepository = bestellingRepository;
     }
 
     @RequestMapping()
@@ -108,24 +115,49 @@ public class WinkelwagenController {
         List<ItemWinkelwagen> winkelwagen = (List<ItemWinkelwagen>) session.getAttribute("winkelwagen");
         //als de winkelwagen niet null (leeg) is
         if (winkelwagen != null) {
-            Bestelling bestelling = new Bestelling();
+            String voornaam = request.getParameter("voornaam");
+            String achternaam = request.getParameter("achternaam");
+            String email = request.getParameter("email");
+            String gsm = request.getParameter("gsm");
+
+            Bestelling bestelling = new Bestelling(voornaam, achternaam, email, gsm);
+
+            bestellingRepository.save(bestelling);
+
             //for each item in de sessionwinkelwagen
             for (ItemWinkelwagen item : winkelwagen) {
-                ArtikelBestelling artikelBestelling = new ArtikelBestelling(
-                        item.getAantal(),
-                        item.getKruiden(),
-                        item.getArtikel(),
-                        bestelling
-                );
+                ArtikelBestelling artikelBestelling = new ArtikelBestelling();
+                artikelBestelling.setBestelling(bestelling);
+                artikelBestelling.setArtikel(item.getArtikel());
+                artikelBestelling.setAantal(item.getAantal());
+                artikelBestelling.setKruiden(item.getKruiden());
+                artikelBestelling.setOpmerking(item.getOpmerking());
 
                 artikelBestellingRepository.save(artikelBestelling);
+
+                if (item.Getsauzen().get(0).getId() != null) {
+                    for (Artikel saus : item.Getsauzen()) {
+                        ArtikelBestelling artikelBestellingSaus = new ArtikelBestelling();
+                        artikelBestellingSaus.setBestelling(bestelling);
+                        artikelBestellingSaus.setAantal(1);
+                        artikelBestellingSaus.setArtikel(saus);
+                        artikelBestellingSaus.setOpmerking(saus.getOpmerking());
+                        artikelBestellingSaus.setparentartikelbestelling(artikelBestelling);
+
+                        artikelBestellingRepository.save(artikelBestellingSaus);
+                    }
+                }
             }
         } else {
             //foutmelding omdat de winkelwagen leeg is
             model.addAttribute("error", "Er zit niets in uw winkelwagen!");
             return "gegevens-en-tijdslot";
         }
-//model.addAttribute("tijdslot", tijdslot)
+
+        //winkelwagen terug leegmaken
+        ((List<?>) session.getAttribute("winkelwagen")).clear();
+
+        //model.addAttribute("tijdslot", tijdslot);
 
         return "bevestigingbestelling";
     }
