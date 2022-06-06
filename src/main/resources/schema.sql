@@ -20,7 +20,7 @@ CREATE TABLE Bestelling
     achternaam  VARCHAR(50) NOT NULL,
     email       VARCHAR(50) NOT NULL,
     gsm         VARCHAR(50) NOT NULL,
-    beschikbaar BIT         NOT NULL,
+    afgehaald   BIT         NOT NULL,
 
     tijdslot_id INT         NOT NULL,
     PRIMARY KEY (id),

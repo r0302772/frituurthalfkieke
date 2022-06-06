@@ -24,19 +24,20 @@ public class Bestelling {
     private Set<ArtikelBestelling> artikelBestellingen = new HashSet<>();
 
 
-@ManyToOne()
-@JoinColumn(name = "tijdslot_Id", nullable = true)
-private Tijdslot tijdslot;
+    @ManyToOne()
+    @JoinColumn(name = "tijdslot_Id", nullable = true)
+    private Tijdslot tijdslot;
 
     //</editor-fold>
 
     //<editor-fold desc="Constructors">
 
-    public Bestelling(String voornaam, String achternaam, String email, String gsm) {
+    public Bestelling(String voornaam, String achternaam, String email, String gsm, Boolean afgehaald) {
         this.voornaam = voornaam;
         this.achternaam = achternaam;
         this.email = email;
         this.gsm = gsm;
+        this.afgehaald = afgehaald;
     }
 
     public Bestelling() {
