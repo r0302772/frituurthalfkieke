@@ -1,13 +1,13 @@
-<%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.Bestelling" %>
 <%@ page import="java.util.List" %>
-<%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.ArtikelBestelling" %>
-<%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.Artikel" %>
-<%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.Categorie" %>
+<%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.*" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Date" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     List<Bestelling> bestellingen = (List<Bestelling>) request.getAttribute("bestellingen");
-    List<Artikel> artikels = (List<Artikel>) request.getAttribute("artikels");
-    List<Categorie> categorien = (List<Categorie>) request.getAttribute("categorien");
+    SimpleDateFormat date = new SimpleDateFormat("dd-MM-yyyy");
+    Date datum = (Date) request.getAttribute("datum");
+    String formatedDate = date.format(datum);
 %>
 <html lang="nl" class="h-100">
 <head>
@@ -26,30 +26,20 @@
         <div class="row p-3 text-center">
             <h2 class="display-5 fw-bold"><i class="fa-solid fa-cash-register"></i> Bestellingen Beheren</h2>
         </div>
-
-        <div class="row p-3">
-            <%--Wanneer--%>
-            <div class="col-md border-end">
-                <h4>Tijdslot</h4>
-                <hr>
-                <nav>
-                    <div class="nav flex-column nav-pills" id="nav-tabWanneer" role="tablist">
-                        <button class="nav-link active" id="nav-vandaag-tab" data-bs-toggle="tab"
-                                data-bs-target="#nav-vandaag" type="button" role="tab" aria-controls="nav-vandaag"
-                                aria-selected="true">
-                            Vandaag <span class="badge bg-secondary">0</span>
-                        </button>
-                        <button class="nav-link" id="nav-volgendeWeek-tab" data-bs-toggle="tab"
-                                data-bs-target="#nav-volgendeWeek"
-                                type="button" role="tab" aria-controls="nav-volgendeWeek" aria-selected="false">
-                            Volgende week <span class="badge bg-danger">2</span>
-                        </button>
-                    </div>
-                </nav>
+        <form method="get" action="/bestellingenbeheren/ga-naar-datum"
+              class="row">
+            <div class="row text-center justify-content-center">
+                <h4 class="display-6"><%=formatedDate%>
+                </h4>
+                <div class="col-md-3 d-grid gap-2">
+                    <input type="date" id="selectedDatum" name="selectedDatum" class="form-control"
+                           required>
+                    <button type="submit" class="btn btn-primary btn-lg">GA NAAR DATUM</button>
+                </div>
             </div>
-            <%--Bestellingen--%>
-
-            <div class="col-md border-end">
+        </form>
+        <div class="row p-3">
+            <div class="col">
                 <h4>Bestellingen</h4>
                 <hr>
                 <div class="tab-content" id="nav-tabWanneerContent">
@@ -57,21 +47,38 @@
                          aria-labelledby="nav-vandaag-tab">
                         <nav>
                             <div class="nav flex-column nav-pills" id="nav-tabOrdersVolgendeWeek" role="tablist">
-                            <% for (Bestelling bestelling : bestellingen) {
-                                out.print("<a href='/bestelling/detail?id=" + bestelling.getId() + "'" +
-                                        "class='nav-link' " +
-                                        "id='nav-order1-tab' " +
-                                        "data-bs-toggle='tab' " +
-                                        "data-bs-target='#nav-order1' " +
-                                        "type='button' " +
-                                        "role='tab'" +
-                                        "aria-controls='nav-order1'" +
-                                        "aria-selected='true'>" +
-                                        "Tijdslot hier | " + bestelling.getAchternaam() + " " + bestelling.getVoornaam() +
-                                        "</a>"
-
-                                );
-                            } %>
+                                <table class='table table-borderded'>
+                                    <tbody>
+                                    <% for (Bestelling bestelling : bestellingen) {
+                                        out.print(
+                                                "<tr>" +
+                                                        "<td>" +
+                                                        bestelling.getTijdslot().getStartuur() + " - " +
+                                                        bestelling.getTijdslot().getEinduur() +
+                                                        "</td>" +
+                                                        "<td>" +
+                                                        bestelling.getAchternaam() + " " + bestelling.getVoornaam() +
+                                                        "</td>" +
+                                                        "<td>" +
+                                                        "<a href='/bestelling/detail?id=" + bestelling.getId() + "'>Details</a>" +
+                                                        "</td>" +
+                                                        "<td><p class="
+                                        );
+                                        if (bestelling.getAfgehaald()) {
+                                            out.print(
+                                                    "'btn btn-success disabled'>JA</p>"
+                                            );
+                                        } else {
+                                            out.print(
+                                                    "'btn btn-danger disabled'>NEE</p>"
+                                            );
+                                        }
+                                        out.print("</td>" +
+                                                "</tr>"
+                                        );
+                                    } %>
+                                    </tbody>
+                                </table>
                             </div>
                         </nav>
                     </div>
@@ -81,11 +88,6 @@
                     </div>
                 </div>
             </div>
-            <%--Details--%>
-                <div class="col-md border-end">
-                    <h4>Details</h4>
-                    <hr>
-                </div>
         </div>
     </main>
 
