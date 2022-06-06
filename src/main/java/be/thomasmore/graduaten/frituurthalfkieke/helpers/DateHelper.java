@@ -12,7 +12,7 @@ public class DateHelper {
         LocalDate start = getMondayOfCurrentWeek(null);
         LocalDate selectedDate =start.with(TemporalAdjusters.nextOrSame(DayOfWeek.valueOf(dayOfTheWeek)));
         List<Date> result =new ArrayList<>();
-        while( selectedDate.isBefore( stop ) ) {
+        while( selectedDate.isBefore( stop ) || selectedDate.equals(stop) ) {
             result.add(java.sql.Date.valueOf(selectedDate));
             // Set up the next loop.
             selectedDate = selectedDate.plusWeeks( 1 );

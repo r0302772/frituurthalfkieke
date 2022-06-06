@@ -6,6 +6,7 @@ import be.thomasmore.graduaten.frituurthalfkieke.repositories.TijdslotRepository
 import org.apache.tomcat.jni.Local;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.ui.Model;
 import javax.servlet.http.HttpServletRequest;
@@ -53,8 +54,9 @@ public class TijdslotController {
                 timeslot.setGeblokeerd(true);
                 tijdslotRepository.save(timeslot);
             }
-            getTijdslotDate(model,request, tijdslotRepository);
+
         }
+        getTijdslotDate(model,request, tijdslotRepository);
         return "/tijdslotenbeheren";
     }
     @RequestMapping("/tijdslotenbeheren")
@@ -64,6 +66,12 @@ public class TijdslotController {
 
         getTijdslotDate(model,request, tijdslotRepository);
         return "tijdslotenbeheren";
+    }
+
+    @RequestMapping("/tijdslot/update/{Id}/{Amount}")
+    public String updateTijdsloten(Model model, HttpServletRequest request, @PathVariable("Id") int id, @PathVariable("Amount") int amount){
+
+       return "";
     }
 
     public void getTijdslotDate(Model model,HttpServletRequest request, TijdslotRepository tijdslotRepository){
