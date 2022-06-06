@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.math.BigDecimal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -102,31 +105,30 @@ public class WinkelwagenController {
         return -1;
     }
 
-    @RequestMapping("/gegevens-en-tijdslot")
-    public String navigateToGegevensEnTijdslot() {
-
-        return "gegevens-en-tijdslot";
-    }
-
     @RequestMapping("/bevestiging-bestelling")
     public String navigateToBevestigingbestelling(Model model, HttpSession session, HttpServletRequest request) {
         //winkelwagen uit de session halen?
         List<ItemWinkelwagen> winkelwagen = (List<ItemWinkelwagen>) session.getAttribute("winkelwagen");
         //als de winkelwagen niet null (leeg) is
-        if (winkelwagen == null) {
+        if (winkelwagen.size() == 0) {
             //foutmelding omdat de winkelwagen leeg is
             model.addAttribute("error", "Er zit niets in uw winkelwagen!");
-            return "gegevens-en-tijdslot";
+
+            return "winkelwagen";
         }
 
         String voornaam = request.getParameter("voornaam");
         String achternaam = request.getParameter("achternaam");
         String email = request.getParameter("email");
         String gsm = request.getParameter("gsm");
+        Long tijdslot_id = Long.parseLong(request.getParameter("selectedTijdslot"));
+        Tijdslot tijdslot = tijdslotRepository.getById(tijdslot_id);
 
-        Bestelling bestelling = new Bestelling(voornaam, achternaam, email, gsm, false);
+        Bestelling bestelling = new Bestelling(voornaam, achternaam, email, gsm, false, tijdslot);
 
         bestellingRepository.save(bestelling);
+
+        tijdslot.setAantal(tijdslot.getAantal() - 1);
 
         //for each item in de sessionwinkelwagen
         for (ItemWinkelwagen item : winkelwagen) {
@@ -156,8 +158,45 @@ public class WinkelwagenController {
         //winkelwagen terug leegmaken
         ((List<?>) session.getAttribute("winkelwagen")).clear();
 
-        //model.addAttribute("tijdslot", tijdslot);
+        model.addAttribute("selectedTijdslot", tijdslot);
+        model.addAttribute("datum", tijdslot.getDatum());
 
         return "bevestigingbestelling";
+    }
+
+    @RequestMapping("/datum-kiezen")
+    public String navigateToDatumKiezen(Model model, HttpSession session, HttpServletRequest request) {
+        List<ItemWinkelwagen> winkelwagen = (List<ItemWinkelwagen>) session.getAttribute("winkelwagen");
+        if (winkelwagen == null) {
+            //foutmelding omdat de winkelwagen leeg is
+            model.addAttribute("error", "Er zit niets in uw winkelwagen!");
+
+            return "winkelwagen";
+        }
+        return "datum-kiezen";
+    }
+
+    @RequestMapping("/datum-kiezen/result")
+    public String navigateToDatumKiezenResult(Model model, HttpSession session, HttpServletRequest request) {
+        //Van request (string) naar LocalDate
+        String startDatumString = request.getParameter("selectedDatum");
+        Date datum = null;
+        try {
+            datum = (Date) new SimpleDateFormat("yyyy-MM-dd").parse(startDatumString);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+
+        List<Tijdslot> tijdsloten = tijdslotRepository.findTijdslotsByDatum(datum);
+
+        model.addAttribute("datum", datum);
+
+        if (datum == null) {
+            return "datum-kiezen";
+        }
+
+        model.addAttribute("tijdsloten", tijdsloten);
+
+        return "gegevens-en-tijdslot";
     }
 }
