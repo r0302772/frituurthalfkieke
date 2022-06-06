@@ -73,82 +73,28 @@
         </table>
 
 
-        <%--        <div class="tab-content" id="nav-tabDetailsContent">
-                    <div class="tab-pane fade show" id="nav-order1" role="tabpanel"
-                         aria-labelledby="nav-order1-tab">
-                        <div class="row">
-                            <div class="col">
-                                <p><strong>Naam: </strong><%=bestelling.getAchternaam() + " " + bestelling.getVoornaam()%>
-                                </p>
-                                <p><strong>GSM: </strong><%=bestelling.getGsm()%>
-                                </p>
-                                <p><strong>Email: </strong><%=bestelling.getEmail()%>
-                                </p>
-                                <hr>
-                                <div class="row"><% for (ArtikelBestelling artikelBestelling : artikelBestellingList) {
-                                    out.print("<div class='row'>" +
-                                            "<div class='col'>" +
-                                            "<p>" + artikelBestelling.getAantal() + " " + artikelBestelling.getArtikel().getNaam() +
-                                            "</p>" +
-                                            "<p>" + artikelBestelling.getKruiden() + "</p>" +
-                                            "<p>Zonder kruiden</p>" +
-                                            "</div>" +
-                                            "<div class='col'>" +
-                                            "€3.00" +
-                                            "</div>" +
-                                            "</div>"
-                                    );
-                                }%>
-                                    <div class="row">
-                                        <div class="col">
-                                            <p><strong>Totaal</strong></p>
-                                        </div>
-                                        <div class="col">
-                                            €5.00
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="d-grid gap-2 col-6 mx-auto">
-                                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                                            data-bs-target="#bestellingAfgehaald">Bestelling afgehaald
-                                    </button>
-                                    <div class="modal fade" id="bestellingAfgehaald" tabindex="-1"
-                                         aria-labelledby="bestellingAfgehaaldLabel"
-                                         aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <form>
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title text-danger"
-                                                            id="bestellingAfgehaaldLabel"><i
-                                                                class="bi bi-exclamation-triangle-fill"></i>
-                                                            Waarschuwing
-                                                        </h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                                aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <p><strong>Is deze bestelling afgehaald?</strong></p>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                                data-bs-dismiss="modal">
-                                                            Annuleer
-                                                        </button>
-                                                        <button type="button" class="btn btn-primary">
-                                                            Bevestig
-                                                        </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>--%>
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <h1 class="display-6">Afgehaald?</h1>
+            <%
+                if (bestelling.getAfgehaald()) {
+                    out.print(
+                            "<button type=\"button\" class=\"btn btn-success\" >JA </button>"
+                    );
+                } else {
+                    out.print(
+                            "<button type=\"button\" class=\"btn btn-success\" >NEE </button>"
+                    );
+                }
+            %>
+            <%
+                String s[] = request.getParameterValues("afgehaald");
+                if (s != null && s.length != 0) {
+                    request.setAttribute("afgehaald", true);
+                } else {
+                    request.setAttribute("afgehaald", false);
+                }
+            %>
+        </div>
     </main>
 
     <jsp:include page="footer.jsp"/>
