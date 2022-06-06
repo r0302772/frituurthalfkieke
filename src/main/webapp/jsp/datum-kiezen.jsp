@@ -21,7 +21,7 @@
             <h2 class="display-5 fw-bold"><i class="bi bi-cart-fill"></i> Winkelwagen</h2>
         </div>
             <div class="col-12 border px-3">
-                <form method="get" action="${pageContext.request.contextPath}/winkelwagen/datum-kiezen/result"
+                <form method="post" action="${pageContext.request.contextPath}/winkelwagen/datum-kiezen/result"
                       class="row">
                 <div class="row p-3 bg-secondary text-white">
                     <h4>Stap 2/3</h4>
