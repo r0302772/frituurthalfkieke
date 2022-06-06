@@ -94,7 +94,7 @@
                         </div>
                     </div>
                     <%--Afhalen--%>
-                    <%--                <div class="row">
+                                    <div class="row">
                                         <div class="col-auto">
                                             <i class="bi bi-calendar-event-fill"></i>
                                         </div>
@@ -132,7 +132,7 @@
                                                 opgenomen.
                                             </h5>
                                         </div>
-                                    </div>--%>
+                                    </div>
                     <div class="row d-grid p-3">
                         <button type="submit" class="btn btn-primary btn-lg">BESTELLEN</button>
                         <%--                    <a href="/winkelwagen/bevestiging-bestelling" class="btn btn-primary btn-lg">BESTELLEN</a>--%>

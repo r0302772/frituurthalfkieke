@@ -118,16 +118,16 @@ INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
 VALUES ('11:00', '12:00', '2022-06-10', 0, 3);
 
 
-INSERT INTO BESTELLING(voornaam, achternaam, email, gsm)
-VALUES ('Thomas', 'Vanlooy', 'ThomasVanlooy@gmail.com', '0470928299');
-INSERT INTO BESTELLING(voornaam, achternaam, email, gsm)
-VALUES ('Luc', 'Bravo', 'LucBravo@gmail.com', '0470928295');
-INSERT INTO BESTELLING(voornaam, achternaam, email, gsm)
-VALUES ('Bart', 'Theunis', 'BartTheunis@gmail.com', '0470955699');
-INSERT INTO BESTELLING(voornaam, achternaam, email, gsm)
-VALUES ('Louis', 'Vanlooy', 'LouisVanlooy@gmail.com', '0470933399');
-INSERT INTO BESTELLING(voornaam, achternaam, email, gsm)
-VALUES ('Thomas', 'Verdonck', 'LouisVanlooy@gmail.com', '0470933399');
+INSERT INTO BESTELLING(voornaam, achternaam, email, gsm, afgehaald, tijdslot_id)
+VALUES ('Thomas', 'Vanlooy', 'ThomasVanlooy@gmail.com', '0470928299', 0, 1);
+INSERT INTO BESTELLING(voornaam, achternaam, email, gsm, afgehaald, tijdslot_id)
+VALUES ('Luc', 'Bravo', 'LucBravo@gmail.com', '0470928295', 1, 2);
+INSERT INTO BESTELLING(voornaam, achternaam, email, gsm, afgehaald, tijdslot_id)
+VALUES ('Bart', 'Theunis', 'BartTheunis@gmail.com', '0470955699', 0, 2);
+INSERT INTO BESTELLING(voornaam, achternaam, email, gsm, afgehaald, tijdslot_id)
+VALUES ('Louis', 'Vanlooy', 'LouisVanlooy@gmail.com', '0470933399', 0, 3);
+INSERT INTO BESTELLING(voornaam, achternaam, email, gsm, afgehaald, tijdslot_id)
+VALUES ('Thomas', 'Verdonck', 'LouisVanlooy@gmail.com', '0470933399', 0, 21);
 
 
 INSERT INTO Artikel_Bestelling(aantal, kruiden, opmerking, artikel_id, bestelling_id, parentartikelbestelling_id)
@@ -141,4 +141,4 @@ VALUES (3, 'Geen kruiden', '', 3, 2, null);
 INSERT INTO Artikel_Bestelling(aantal, kruiden, opmerking, artikel_id, bestelling_id, parentartikelbestelling_id)
 VALUES (1, null, '', 1, 2, 4);
 INSERT INTO Artikel_Bestelling(aantal, kruiden, opmerking, artikel_id, bestelling_id, parentartikelbestelling_id)
-VALUES (1, 'Zout', '', 4, 2, null );
+VALUES (1, 'Zout', '', 4, 2, null);

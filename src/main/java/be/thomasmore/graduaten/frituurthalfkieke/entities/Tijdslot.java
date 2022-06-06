@@ -29,8 +29,8 @@ public class Tijdslot {
     private Boolean geblokeerd;
 
 
-//    @OneToMany(mappedBy = "tijdslot")
-//    private Set<Bestelling> bestellingen = new HashSet<>();
+  @OneToMany(mappedBy = "tijdslot")
+  private Set<Bestelling> bestellingen = new HashSet<>();
 
     public Tijdslot() {
 
@@ -83,11 +83,11 @@ public class Tijdslot {
     public void setGeblokeerd(Boolean geblokeerd) {
         this.geblokeerd = geblokeerd;
     }
-    //    public Set<Bestelling> getBestellingen() {
-//        return bestellingen;
-//    }
+    public Set<Bestelling> getBestellingen() {
+      return bestellingen;
+   }
 //
-//    public void setBestellingen(Set<Bestelling> bestellingen) {
-//        this.bestellingen = bestellingen;
-//    }
+   public void setBestellingen(Set<Bestelling> bestellingen) {
+        this.bestellingen = bestellingen;
+   }
 }

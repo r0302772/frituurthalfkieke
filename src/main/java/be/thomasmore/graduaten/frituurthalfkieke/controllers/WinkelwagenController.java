@@ -1,10 +1,7 @@
 package be.thomasmore.graduaten.frituurthalfkieke.controllers;
 
 import be.thomasmore.graduaten.frituurthalfkieke.entities.*;
-import be.thomasmore.graduaten.frituurthalfkieke.repositories.ArtikelBestellingRepository;
-import be.thomasmore.graduaten.frituurthalfkieke.repositories.ArtikelRepository;
-import be.thomasmore.graduaten.frituurthalfkieke.repositories.BestellingRepository;
-import be.thomasmore.graduaten.frituurthalfkieke.repositories.CategorieRepository;
+import be.thomasmore.graduaten.frituurthalfkieke.repositories.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,17 +20,19 @@ public class WinkelwagenController {
     private ArtikelRepository artikelRepository;
     private CategorieRepository categorieRepository;
     private ArtikelBestellingRepository artikelBestellingRepository;
-
+    private TijdslotRepository tijdslotRepository;
     private BestellingRepository bestellingRepository;
 
     public WinkelwagenController(ArtikelRepository artikelRepository,
                                  CategorieRepository categorieRepository,
                                  ArtikelBestellingRepository artikelBestellingRepository,
-                                 BestellingRepository bestellingRepository) {
+                                 BestellingRepository bestellingRepository,
+                                 TijdslotRepository tijdslotRepository) {
         this.artikelRepository = artikelRepository;
         this.categorieRepository = categorieRepository;
         this.artikelBestellingRepository = artikelBestellingRepository;
         this.bestellingRepository = bestellingRepository;
+        this.tijdslotRepository = tijdslotRepository;
     }
 
     @RequestMapping()
@@ -114,44 +113,44 @@ public class WinkelwagenController {
         //winkelwagen uit de session halen?
         List<ItemWinkelwagen> winkelwagen = (List<ItemWinkelwagen>) session.getAttribute("winkelwagen");
         //als de winkelwagen niet null (leeg) is
-        if (winkelwagen != null) {
-            String voornaam = request.getParameter("voornaam");
-            String achternaam = request.getParameter("achternaam");
-            String email = request.getParameter("email");
-            String gsm = request.getParameter("gsm");
-
-            Bestelling bestelling = new Bestelling(voornaam, achternaam, email, gsm);
-
-            bestellingRepository.save(bestelling);
-
-            //for each item in de sessionwinkelwagen
-            for (ItemWinkelwagen item : winkelwagen) {
-                ArtikelBestelling artikelBestelling = new ArtikelBestelling();
-                artikelBestelling.setBestelling(bestelling);
-                artikelBestelling.setArtikel(item.getArtikel());
-                artikelBestelling.setAantal(item.getAantal());
-                artikelBestelling.setKruiden(item.getKruiden());
-                artikelBestelling.setOpmerking(item.getOpmerking());
-
-                artikelBestellingRepository.save(artikelBestelling);
-
-                if (item.Getsauzen().get(0).getId() != null) {
-                    for (Artikel saus : item.Getsauzen()) {
-                        ArtikelBestelling artikelBestellingSaus = new ArtikelBestelling();
-                        artikelBestellingSaus.setBestelling(bestelling);
-                        artikelBestellingSaus.setAantal(1);
-                        artikelBestellingSaus.setArtikel(saus);
-                        artikelBestellingSaus.setOpmerking(saus.getOpmerking());
-                        artikelBestellingSaus.setparentartikelbestelling(artikelBestelling);
-
-                        artikelBestellingRepository.save(artikelBestellingSaus);
-                    }
-                }
-            }
-        } else {
+        if (winkelwagen == null) {
             //foutmelding omdat de winkelwagen leeg is
             model.addAttribute("error", "Er zit niets in uw winkelwagen!");
             return "gegevens-en-tijdslot";
+        }
+
+        String voornaam = request.getParameter("voornaam");
+        String achternaam = request.getParameter("achternaam");
+        String email = request.getParameter("email");
+        String gsm = request.getParameter("gsm");
+
+        Bestelling bestelling = new Bestelling(voornaam, achternaam, email, gsm);
+
+        bestellingRepository.save(bestelling);
+
+        //for each item in de sessionwinkelwagen
+        for (ItemWinkelwagen item : winkelwagen) {
+            ArtikelBestelling artikelBestelling = new ArtikelBestelling();
+            artikelBestelling.setBestelling(bestelling);
+            artikelBestelling.setArtikel(item.getArtikel());
+            artikelBestelling.setAantal(item.getAantal());
+            artikelBestelling.setKruiden(item.getKruiden());
+            artikelBestelling.setOpmerking(item.getOpmerking());
+
+            artikelBestellingRepository.save(artikelBestelling);
+
+            if (item.Getsauzen().get(0).getId() != null) {
+                for (Artikel saus : item.Getsauzen()) {
+                    ArtikelBestelling artikelBestellingSaus = new ArtikelBestelling();
+                    artikelBestellingSaus.setBestelling(bestelling);
+                    artikelBestellingSaus.setAantal(1);
+                    artikelBestellingSaus.setArtikel(saus);
+                    artikelBestellingSaus.setOpmerking(saus.getOpmerking());
+                    artikelBestellingSaus.setparentartikelbestelling(artikelBestelling);
+
+                    artikelBestellingRepository.save(artikelBestellingSaus);
+                }
+            }
         }
 
         //winkelwagen terug leegmaken
