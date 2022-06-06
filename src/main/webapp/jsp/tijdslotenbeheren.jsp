@@ -41,48 +41,111 @@
             <h2 class="display-5 fw-bold"><i class="bi bi-stopwatch"></i> Tijdsloten</h2>
         </div>
         <div class="row p-3">
-            <div class="col"><button class="btn btn-primary"><</button></div>
-            <div class="col"><button class="btn btn-primary">></button></div>
+            <div class="col-2"><button class="btn btn-primary" value="<"></button></div>
+            <div class="col-2"></div>
+            <div class="col-4"></div>
+            <div class="col-2"></div>
+            <div class="col-2"><button class="float-end btn btn-primary" value=">"></button></div>
 
         </div>
+
+<%--        <div class="row">--%>
+<%--            <div class="col-10"></div>--%>
+<%--            <div class="col-2"><input type="submit" value="Update" class="btn btn-primary"></div>--%>
+<%--        </div>--%>
+
         <div class="row p-3">
-            <table class="table" >
-
-                <tbody>
-
-                    <% if(Listtijdsloten != null){
-                        int count = 0;
-                        for (List<Tijdslot> item: Listtijdsloten
-                            ){
-                            out.println("<tr>");
-                            out.println("<th scope=\"row\" class=\"text-center align-middle\" rowspan=" + (item.size() + 1) + ">" + getDayOfweek(count) + "<a href=" +  "/tijdslot/blokkeren/" + count +"\" class=\"btn btn-danger\">Blokeer</a>" + "</th>");
-                            count++;
-
-                            for (Tijdslot tijdslot : item
-                                 ) {
-                                out.println("<tr>");
-                                out.println("<td class=\"col-1\">" +tijdslot.getStartuur() + "<td>");
-                                out.println("<td class=\"col-1\">" +tijdslot.getEinduur() + "<td>");
-                                out.println("<td class=\"col-1\"><input type=\"number\" value=\"" +tijdslot.getAantal() + "\"><td>");
-                                out.println("</tr>");
 
 
-                            }
-                            out.println("</tr>");
+                <table class="table" >
 
-                    }
+                    <tbody>
 
-} %>
-                </tbody>
-            </table>
+                        <% if(Listtijdsloten != null){
+                            int count = 0;
+
+                            for (List<Tijdslot> item: Listtijdsloten
+                                ){
+                                boolean first = true;
+                                out.print("<tr");
+                                if(item.size() > 0 && item.get(0).getGeblokeerd()){
+                                    out.print(" class=\"table-danger\"");
+
+                                }
+                                out.print(">\n");
+                                int rowspan = 1;
+                                if(item != null && item.size() > 0){rowspan = item.size();}
+                                out.println("<th scope=\"row\" class=\"text-center align-middle\" rowspan=" + rowspan + ">"
+
+                                        + getDayOfweek(count));
+                                if(item!=null && item.size() > 0) {
+                                    if(item.get(0).getGeblokeerd()){
+                                        out.println(
+                                                "<a href=\"" + "/tijdslot/deblokkeren/" + count + "\" class=\"ml-5 btn btn-primary\">Deblokkeer</a>"
+                                                        );
+                                    }
+                                    else{
+                                    out.println("<a href=\"" + "/tijdslot/blokkeren/" + count + "\" class=\"ml-2 btn btn-danger\">Blokkeer</a>");
+
+                                    }
+
+                                }
+                                else {
+                                    out.println("<td></td>");
+                                }
+                                out.println("</th>");
+//                                out.print("</tr>");
+
+
+
+                                for (Tijdslot tijdslot : item
+                                     ) {
+
+                                        if(!first) {
+                                            out.print("<tr");
+                                            if (item.get(0).getGeblokeerd()) {
+                                                out.print(" class=\"table-danger\"");
+                                            }
+                                            out.print(">\n");
+                                        }
+                                        else{
+                                            first = false;
+                                        }
+
+                                        out.println("<form id=\""+tijdslot.getId() "\" action=\"/tijdslot/update\" method=\"post\">");
+                                        out.println("<td class=\"col-1\">" +tijdslot.getStartuur() + "</td>");
+                                        out.println("<td class=\"col-1\">" +tijdslot.getEinduur() + "</td>");
+                                        out.print("<td class=\"col-1\"><input form=\"\"" + "type=\"number\" min=\"0\"  name=\"amounts\" value=\"");
+                                        out.print(tijdslot.getAantal());
+                                        out.print("\"");
+                                        if(tijdslot.getGeblokeerd()){
+                                            out.print(" disabled=\"disabled\"");
+                                        }
+                                        out.print("></td>");
+                                        out.println("</form>");
+                                        out.println("</tr>");
+                                }
+
+                                if(item==null || item.size() == 0) {
+                                    out.println("</tr>");
+                                }
+                                count++;
+                        }
+
+    } %>
+                    </tbody>
+                </table>
+
         </div>
+
     </main>
 
     <jsp:include page="footer.jsp" />
 </div>
 
+</body>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-</body>
 </html>
