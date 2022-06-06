@@ -57,87 +57,144 @@
         <div class="row p-3">
 
 
-                <table class="table" >
+<%--                <table class="table" >--%>
 
-                    <tbody>
+<%--                    <tbody>--%>
 
-                        <% if(Listtijdsloten != null){
-                            int count = 0;
+<%--                        <% if(Listtijdsloten != null){--%>
+<%--                            int count = 0;--%>
 
-                            for (List<Tijdslot> item: Listtijdsloten
-                                ){
-                                boolean first = true;
-                                out.print("<tr");
-                                if(item.size() > 0 && item.get(0).getGeblokeerd()){
-                                    out.print(" class=\"table-danger\"");
+<%--                            for (List<Tijdslot> item: Listtijdsloten--%>
+<%--                                ){--%>
+<%--                                boolean first = true;--%>
+<%--                                out.print("<tr");--%>
+<%--                                if(item.size() > 0 && item.get(0).getGeblokeerd()){--%>
+<%--                                    out.print(" class=\"table-danger\"");--%>
 
-                                }
-                                out.print(">\n");
-                                int rowspan = 1;
-                                if(item != null && item.size() > 0){rowspan = item.size();}
-                                out.println("<th scope=\"row\" class=\"text-center align-middle\" rowspan=" + rowspan + ">"
+<%--                                }--%>
+<%--                                out.print(">\n");--%>
+<%--                                int rowspan = 1;--%>
+<%--                                if(item != null && item.size() > 0){rowspan = item.size();}--%>
+<%--                                out.println("<th scope=\"row\" class=\"text-center align-middle\" rowspan=" + rowspan + ">"--%>
 
-                                        + getDayOfweek(count));
-                                if(item!=null && item.size() > 0) {
-                                    if(item.get(0).getGeblokeerd()){
-                                        out.println(
-                                                "<a href=\"" + "/tijdslot/deblokkeren/" + count + "\" class=\"ml-5 btn btn-primary\">Deblokkeer</a>"
-                                                        );
-                                    }
-                                    else{
-                                    out.println("<a href=\"" + "/tijdslot/blokkeren/" + count + "\" class=\"ml-2 btn btn-danger\">Blokkeer</a>");
+<%--                                        + getDayOfweek(count));--%>
+<%--                                if(item!=null && item.size() > 0) {--%>
+<%--                                    if(item.get(0).getGeblokeerd()){--%>
+<%--                                        out.println(--%>
+<%--                                                "<a href=\"" + "/tijdslot/deblokkeren/" + count + "\" class=\"ml-5 btn btn-primary\">Deblokkeer</a>"--%>
+<%--                                                        );--%>
+<%--                                    }--%>
+<%--                                    else{--%>
+<%--                                    out.println("<a href=\"" + "/tijdslot/blokkeren/" + count + "\" class=\"ml-2 btn btn-danger\">Blokkeer</a>");--%>
 
-                                    }
+<%--                                    }--%>
 
-                                }
-                                else {
-                                    out.println("<td></td>");
-                                }
-                                out.println("</th>");
-//                                out.print("</tr>");
+<%--                                }--%>
+<%--                                else {--%>
+<%--                                    out.println("<td></td>");--%>
+<%--                                }--%>
+<%--                                out.println("</th>");--%>
+<%--//                                out.print("</tr>");--%>
 
 
 
-                                for (Tijdslot tijdslot : item
-                                     ) {
+<%--                                for (Tijdslot tijdslot : item--%>
+<%--                                     ) {--%>
 
-                                        if(!first) {
-                                            out.print("<tr");
-                                            if (item.get(0).getGeblokeerd()) {
-                                                out.print(" class=\"table-danger\"");
-                                            }
-                                            out.print(">\n");
-                                        }
-                                        else{
-                                            first = false;
-                                        }
+<%--                                        if(!first) {--%>
+<%--                                            out.print("<tr");--%>
+<%--                                            if (item.get(0).getGeblokeerd()) {--%>
+<%--                                                out.print(" class=\"table-danger\"");--%>
+<%--                                            }--%>
+<%--                                            out.print(">\n");--%>
+<%--                                        }--%>
+<%--                                        else{--%>
+<%--                                            first = false;--%>
+<%--                                        }--%>
 
-                                        out.println("<form id=\""+tijdslot.getId() "\" action=\"/tijdslot/update\" method=\"post\">");
-                                        out.println("<td class=\"col-1\">" +tijdslot.getStartuur() + "</td>");
-                                        out.println("<td class=\"col-1\">" +tijdslot.getEinduur() + "</td>");
-                                        out.print("<td class=\"col-1\"><input form=\"\"" + "type=\"number\" min=\"0\"  name=\"amounts\" value=\"");
-                                        out.print(tijdslot.getAantal());
-                                        out.print("\"");
-                                        if(tijdslot.getGeblokeerd()){
-                                            out.print(" disabled=\"disabled\"");
-                                        }
-                                        out.print("></td>");
-                                        out.println("</form>");
-                                        out.println("</tr>");
-                                }
+<%--                                        out.println("<form id=\""+tijdslot.getId() + "\" action=\"/tijdslot/update\" method=\"post\">");--%>
+<%--                                        out.println("<td class=\"col-1\">" +tijdslot.getStartuur() + "</td>");--%>
+<%--                                        out.println("<td class=\"col-1\">" +tijdslot.getEinduur() + "</td>");--%>
+<%--                                        out.print("<td class=\"col-1\"><input" /*form=\"" +tijdslot.getId()*/ + " type=\"number\" min=\"0\"  name=\"amounts\" value=\"");--%>
+<%--                                        out.println(tijdslot.getAantal());--%>
+<%--                                        out.print("\"");--%>
+<%--                                        if(tijdslot.getGeblokeerd()){--%>
+<%--                                            out.print(" disabled=\"disabled\"");--%>
+<%--                                        }--%>
+<%--                                        out.print("></td>");--%>
+<%--                                        out.println("<td class=\"col-1\"><input class=\"btn btn-primary\" type=\"submit\" form=\"" + tijdslot.getId()+ "\" </td>");--%>
+<%--                                        out.println("</form>");--%>
+<%--                                        out.println("</tr>");--%>
+<%--                                }--%>
 
-                                if(item==null || item.size() == 0) {
-                                    out.println("</tr>");
-                                }
-                                count++;
+<%--                                if(item==null || item.size() == 0) {--%>
+<%--                                    out.println("</tr>");--%>
+<%--                                }--%>
+<%--                                count++;--%>
+<%--                        }--%>
+
+<%--    } %>--%>
+<%--                    </tbody>--%>
+<%--                </table>--%>
+            <%
+                int count = 0;
+                for (List<Tijdslot> DagLijst: Listtijdsloten
+                    ) {
+                out.println("<div class=\"row\"");
+                if(DagLijst.size() > 0 && DagLijst.get(0).getGeblokeerd()){
+                    out.print(" \"bg-danger\"");
+                }
+                out.println(">");
+                out.println("<div class=\"col\">");
+
+                out.println("<h2>" + getDayOfweek(count) +"<h2>");
+                out.println("</div>");
+                out.println("<div class=\"col\">");
+                if(DagLijst!=null && DagLijst.size() > 0) {
+                    if(DagLijst.get(0).getGeblokeerd()){
+                        out.println(
+                                "<a href=\"" + "/tijdslot/deblokkeren/" + count + "\" class=\"ml-5 btn btn-primary\">Deblokkeer</a>"
+                                        );
+                    }
+                    else{
+                    out.println("<a href=\"" + "/tijdslot/blokkeren/" + count + "\" class=\"ml-2 btn btn-danger\">Blokkeer</a>");
+
+                    }
+
+                }
+
+                out.println("</div>");
+                out.println("<div class=\"col\">");
+                if(DagLijst != null && DagLijst.size() > 0){
+                    for (Tijdslot tijdslot: DagLijst
+                         ) {
+                        out.println("<form id=\""+tijdslot.getId() + "\" action=\"/tijdslot/update\" method=\"post\">");
+                        out.println("<div class=\"row\">");
+
+                        out.println("<div class=\"col\">"+ tijdslot.getStartuur() + "</div>");
+                        out.println("<div class=\"col\">"+ tijdslot.getEinduur() + "</div>");
+                        out.println("<div class=\"col\"><input type=\"number\" name=\"amount\" class=\"form-control\" value=\"" + tijdslot.getAantal() + "\">"+"</div>");
+                        out.println("<input type=\"hidden\" name=\"tijdslotid\" value=\""+ tijdslot.getId()+"\">");
+                        if(!tijdslot.getGeblokeerd()){
+                            out.println("<div class=\"col\"><input class=\"btn btn-primary\" type=\"submit\" value=\"update\">"+"</div>");
                         }
 
-    } %>
-                    </tbody>
-                </table>
+                        out.println("</div>");
+                        out.println("</form>");
+
+                                            }
+
+                    }
+
+                out.println("</div>");
+                out.println("</div>");
+                out.println("<hr>");
+                count++;
+            }
+            %>
 
         </div>
-
+        <input type="hidden">
     </main>
 
     <jsp:include page="footer.jsp" />

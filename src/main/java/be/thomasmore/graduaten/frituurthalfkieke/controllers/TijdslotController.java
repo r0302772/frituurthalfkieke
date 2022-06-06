@@ -68,10 +68,16 @@ public class TijdslotController {
         return "tijdslotenbeheren";
     }
 
-    @RequestMapping("/tijdslot/update/{Id}/{Amount}")
-    public String updateTijdsloten(Model model, HttpServletRequest request, @PathVariable("Id") int id, @PathVariable("Amount") int amount){
+    @PostMapping("/tijdslot/update")
+    public String updateTijdsloten(Model model, HttpServletRequest request){
+        int amount = Integer.parseInt(request.getParameter("amount"));
+        long id = Long.parseLong(request.getParameter("tijdslotid"));
 
-       return "";
+        Tijdslot tijdslot = tijdslotRepository.getById(id);
+        tijdslot.setAantal(amount);
+        tijdslotRepository.save(tijdslot);
+        getTijdslotDate(model,request, tijdslotRepository);
+       return "tijdslotenbeheren";
     }
 
     public void getTijdslotDate(Model model,HttpServletRequest request, TijdslotRepository tijdslotRepository){
