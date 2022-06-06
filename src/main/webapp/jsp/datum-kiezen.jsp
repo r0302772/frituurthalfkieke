@@ -20,9 +20,9 @@
         <div class="row p-3 text-center">
             <h2 class="display-5 fw-bold"><i class="bi bi-cart-fill"></i> Winkelwagen</h2>
         </div>
-            <div class="col-12 border px-3">
-                <form method="post" action="${pageContext.request.contextPath}/winkelwagen/datum-kiezen/result"
-                      class="row">
+        <div class="col-12 border px-3">
+            <form method="post" action="${pageContext.request.contextPath}/winkelwagen/datum-kiezen/result"
+                  class="row">
                 <div class="row p-3 bg-secondary text-white">
                     <h4>Stap 2/3</h4>
                 </div>
@@ -36,7 +36,8 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-3">
-                                    <input type="date" id="selectedDatum" name="selectedDatum" class="form-control" required>
+                                    <input type="date" id="selectedDatum" name="selectedDatum" class="form-control"
+                                           required>
                                 </div>
                             </div>
                         </div>
@@ -45,8 +46,9 @@
                         <button type="submit" class="btn btn-primary btn-lg">NAAR STAP 3/3</button>
                         <%--                    <a href="/winkelwagen/gegevens-en-tijdslot" class="btn btn-primary btn-lg">NAAR STAP 3/3</a>--%>
                     </div>
-                </div>        </form>
-            </div>
+                </div>
+            </form>
+        </div>
 
 
     </main>

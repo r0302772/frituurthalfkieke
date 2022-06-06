@@ -72,29 +72,23 @@
             </tfoot>
         </table>
 
-
-        <div class="d-grid gap-2 col-6 mx-auto">
-            <h1 class="display-6">Afgehaald?</h1>
-            <%
-                if (bestelling.getAfgehaald()) {
-                    out.print(
-                            "<button type=\"button\" class=\"btn btn-success\" >JA </button>"
-                    );
-                } else {
-                    out.print(
-                            "<button type=\"button\" class=\"btn btn-danger\" >NEE </button>"
-                    );
-                }
-            %>
-            <%
-                String s[] = request.getParameterValues("afgehaald");
-                if (s != null && s.length != 0) {
-                    request.setAttribute("afgehaald", true);
-                } else {
-                    request.setAttribute("afgehaald", false);
-                }
-            %>
-        </div>
+        <form method="post" action="/bestelling-afgehaald">
+            <input type="hidden" id="id" name="id" value="<%=bestelling.getId()%>">
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <h1 class="display-6">Afgehaald?</h1>
+                <%
+                    if (bestelling.getAfgehaald()) {
+                        out.print(
+                                "<input name='afgehaald' type='submit' value='JA' class='btn btn-success'>"
+                        );
+                    } else {
+                        out.print(
+                                "<input name='afgehaald' type='submit' value='NEE' class='btn btn-danger'>"
+                        );
+                    }
+                %>
+            </div>
+        </form>
     </main>
 
     <jsp:include page="footer.jsp"/>
