@@ -124,7 +124,7 @@ public class WinkelwagenController {
         String email = request.getParameter("email");
         String gsm = request.getParameter("gsm");
 
-        Bestelling bestelling = new Bestelling(voornaam, achternaam, email, gsm);
+        Bestelling bestelling = new Bestelling(voornaam, achternaam, email, gsm, false);
 
         bestellingRepository.save(bestelling);
 
