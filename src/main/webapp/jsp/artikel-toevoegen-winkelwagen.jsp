@@ -28,7 +28,7 @@
         <div class="row p-3">
             <div class="modal-content">
                 <form action="${pageContext.request.contextPath }/winkelwagen/artikel-toevoegen-aan-winkelwagen/result"
-                      method="get">
+                      method="post">
                     <input name="selectedArtikel" type="hidden" value="<%=artikel.getId()%>"/>
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel"><%=artikel.getNaam()%>
