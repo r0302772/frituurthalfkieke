@@ -1,9 +1,9 @@
-/*
 package be.thomasmore.graduaten.frituurthalfkieke.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -34,9 +34,10 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                 .and()
                 .authorizeRequests()
-                .antMatchers("/", "/menu", "/winkelwagen", "/contact", "/artikel-toevoegen-aan-winkelwagen",
-                        "/winkelwagen/artikel-toevoegen-aan-winkelwagen/*", "/winkelwagen/verwijderen/*","/winkelwagen/gegevens-en-tijdslot",
-                        "/winkelwagen/bevestiging-bestelling")
+                .antMatchers(HttpMethod.POST,"/winkelwagen/artikel-toevoegen-aan-winkelwagen/result").permitAll()
+                .antMatchers("/", "/menu", "/winkelwagen", "/contact", "/artikel-toevoegen-aan-winkelwagen"
+                        , "/winkelwagen/verwijderen/*", "/winkelwagen/gegevens-en-tijdslot",
+                        "/winkelwagen/**","/winkelwagen/datum-kiezen")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
@@ -71,4 +72,3 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
         );
     }
 }
-*/

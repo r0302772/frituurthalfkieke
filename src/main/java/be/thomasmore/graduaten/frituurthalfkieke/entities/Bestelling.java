@@ -15,7 +15,7 @@ public class Bestelling {
     private String achternaam;
     private String email;
     private String gsm;
-//private Long tijdslotId;
+    private Boolean afgehaald;
 
     //<editor-fold desc="Relaties">
 
@@ -23,24 +23,28 @@ public class Bestelling {
     @OneToMany(mappedBy = "bestelling")
     private Set<ArtikelBestelling> artikelBestellingen = new HashSet<>();
 
-/*    @ManyToOne()
-    @JoinColumn(name = "tijdslot_id", nullable = false)
 
-    private Tijdslot tijdslot;*/
+    @ManyToOne()
+    @JoinColumn(name = "tijdslot_Id", nullable = true)
+    private Tijdslot tijdslot;
 
     //</editor-fold>
 
     //<editor-fold desc="Constructors">
 
-    public Bestelling(String voornaam, String achternaam, String email, String gsm) {
+    public Bestelling(String voornaam, String achternaam, String email, String gsm, Boolean afgehaald, Tijdslot tijdslot) {
         this.voornaam = voornaam;
         this.achternaam = achternaam;
         this.email = email;
         this.gsm = gsm;
+        this.afgehaald = afgehaald;
+        this.tijdslot = tijdslot;
     }
 
     public Bestelling() {
+
 //    timeslots
+
 
     }
 
@@ -55,6 +59,14 @@ public class Bestelling {
 
     public void setArtikelBestellingen(Set<ArtikelBestelling> artikelBestellingen) {
         this.artikelBestellingen = artikelBestellingen;
+    }
+
+    public Tijdslot getTijdslot() {
+        return tijdslot;
+    }
+
+    public void setTijdslot(Tijdslot tijdslot) {
+        this.tijdslot = tijdslot;
     }
 
     public Long getId() {
@@ -95,6 +107,14 @@ public class Bestelling {
 
     public void setGsm(String gsm) {
         this.gsm = gsm;
+    }
+
+    public Boolean getAfgehaald() {
+        return afgehaald;
+    }
+
+    public void setAfgehaald(Boolean afgehaald) {
+        this.afgehaald = afgehaald;
     }
     //</editor-fold>
 }
