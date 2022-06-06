@@ -72,7 +72,7 @@
             </tfoot>
         </table>
 
-        <form method="post" action="/bestelling-afgehaald">
+        <form method="get" action="/bestelling-afgehaald">
             <input type="hidden" id="id" name="id" value="<%=bestelling.getId()%>">
             <div class="d-grid gap-2 col-6 mx-auto">
                 <h1 class="display-6">Afgehaald?</h1>
