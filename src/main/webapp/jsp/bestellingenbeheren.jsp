@@ -34,15 +34,28 @@
 
         <div class="row p-3">
             <%--Wanneer--%>
-            <div class="col-md-3 border-end">
-                <h4>Tijdsloten <%=dtf.format(now)%> </h4>
+            <div class="col-md-4 border-end">
+                <h4>Tijdsloten <%=dtf.format(now)%>
+                </h4>
                 <hr>
                 <nav>
                     <div class="nav flex-column nav-pills" id="nav-tabWanneer" role="tablist">
                         <button class="nav-link active" id="nav-vandaag-tab" data-bs-toggle="tab"
                                 data-bs-target="#nav-vandaag" type="button" role="tab" aria-controls="nav-vandaag"
                                 aria-selected="true">
-                            Vandaag <span class="badge bg-secondary">0</span>
+                            Vandaag
+                            <% if (bestellingen.isEmpty()) {
+                                out.print(
+                                        "<span class=\"badge bg-secondary\">0</span>"
+                                );
+                            } else {
+                                out.print(
+                                        "<span class=\"badge bg-danger\">" +
+                                                bestellingen.size() +
+                                                "</span>"
+                                );
+                            }
+                            %>
                         </button>
                         <button class="nav-link" id="nav-volgendeWeek-tab" data-bs-toggle="tab"
                                 data-bs-target="#nav-volgendeWeek"
@@ -61,21 +74,21 @@
                          aria-labelledby="nav-vandaag-tab">
                         <nav>
                             <div class="nav flex-column nav-pills" id="nav-tabOrdersVolgendeWeek" role="tablist">
-                            <% for (Bestelling bestelling : bestellingen) {
-                                out.print("<a href='#'" +
-                                        "class='nav-link' " +
-                                        "id='nav-order1-tab' " +
-                                        "data-bs-toggle='tab' " +
-                                        "data-bs-target='#nav-order1' " +
-                                        "type='button' " +
-                                        "role='tab'" +
-                                        "aria-controls='nav-order1'" +
-                                        "aria-selected='true'>" +
-                                        bestelling.getAchternaam() + " " + bestelling.getVoornaam() +
-                                        "</a><a class='nav-link btn-danger' href='/bestelling/detail?id=" + bestelling.getId() + "'>Details</a>"
+                                <% for (Bestelling bestelling : bestellingen) {
+                                    out.print("<a href='#'" +
+                                            "class='nav-link' " +
+                                            "id='nav-order1-tab' " +
+                                            "data-bs-toggle='tab' " +
+                                            "data-bs-target='#nav-order1' " +
+                                            "type='button' " +
+                                            "role='tab'" +
+                                            "aria-controls='nav-order1'" +
+                                            "aria-selected='true'>" +
+                                            bestelling.getAchternaam() + " " + bestelling.getVoornaam() +
+                                            "<a class='nav-link bg-danger' href='/bestelling/detail?id=" + bestelling.getId() + "'>Details</a></a>"
 
-                                );
-                            } %>
+                                    );
+                                } %>
                             </div>
                         </nav>
                     </div>

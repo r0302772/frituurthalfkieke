@@ -55,7 +55,21 @@ public class BestellingController {
         List<ArtikelBestelling> artikelBestellingList = artikelBestellingRepository.findArtikelsBestellingByBestellingId(id);
         //lijst van alle artikelbestellingen met artikels in
         //lijst van alle artikelbestellingen met sauzen die aan artikels hangen in.
-        Map<ArtikelBestelling, List<ArtikelBestelling>> dict = new HashMap<>();
+        List<ArtikelBestelling> artikellijst = new ArrayList<>();
+        List<ArtikelBestelling> sauzenlijst = new ArrayList<>();
+
+        for (ArtikelBestelling artikelBestelling : artikelBestellingList) {
+            if (artikelBestelling.getparentartikelbestelling() != null) {
+                sauzenlijst.add(artikelBestelling);
+            } else {
+                artikellijst.add(artikelBestelling);
+            }
+        }
+        model.addAttribute("sauzenlijst", sauzenlijst);
+        model.addAttribute("artikellijst", artikellijst);
+
+
+/*        Map<ArtikelBestelling, List<ArtikelBestelling>> dict = new HashMap<>();
         for (ArtikelBestelling artikelBestelling : artikelBestellingList) {
             if (artikelBestelling.getparentartikelbestelling() != null) {
                 List<ArtikelBestelling> sauzenlijst = dict.get(artikelBestelling.getparentartikelbestelling());
@@ -69,7 +83,8 @@ public class BestellingController {
                 dict.put(artikelBestelling, null);
             }
         }
-        model.addAttribute("bestellingmap", dict);
+        model.addAttribute("bestellingmap", dict);*/
+
         model.addAttribute("bestelling", bestelling);
 
         return "details-bestelling";
