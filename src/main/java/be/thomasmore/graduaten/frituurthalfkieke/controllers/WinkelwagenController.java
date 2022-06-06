@@ -5,7 +5,6 @@ import be.thomasmore.graduaten.frituurthalfkieke.repositories.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
@@ -44,7 +43,7 @@ public class WinkelwagenController {
         return "winkelwagen";
     }
 
-    @PostMapping("/artikel-toevoegen-aan-winkelwagen/result")
+    @RequestMapping("/artikel-toevoegen-aan-winkelwagen/result")
     public String navigateToArtikelToevoegenAanWinkelwagenResult(Model model, HttpSession session, HttpServletRequest request) {
         Long artikelId = Long.parseLong(request.getParameter("selectedArtikel"));
         Artikel artikel = artikelRepository.getById(artikelId);
@@ -106,7 +105,7 @@ public class WinkelwagenController {
         return -1;
     }
 
-    @PostMapping("/bevestiging-bestelling")
+    @RequestMapping("/bevestiging-bestelling")
     public String navigateToBevestigingbestelling(Model model, HttpSession session, HttpServletRequest request) {
         //winkelwagen uit de session halen?
         List<ItemWinkelwagen> winkelwagen = (List<ItemWinkelwagen>) session.getAttribute("winkelwagen");
@@ -165,7 +164,7 @@ public class WinkelwagenController {
         return "bevestigingbestelling";
     }
 
-    @PostMapping("/datum-kiezen")
+    @RequestMapping("/datum-kiezen")
     public String navigateToDatumKiezen(Model model, HttpSession session, HttpServletRequest request) {
         List<ItemWinkelwagen> winkelwagen = (List<ItemWinkelwagen>) session.getAttribute("winkelwagen");
         if (winkelwagen == null) {
@@ -177,7 +176,7 @@ public class WinkelwagenController {
         return "datum-kiezen";
     }
 
-    @PostMapping("/datum-kiezen/result")
+    @RequestMapping("/datum-kiezen/result")
     public String navigateToDatumKiezenResult(Model model, HttpSession session, HttpServletRequest request) {
         //Van request (string) naar LocalDate
         String startDatumString = request.getParameter("selectedDatum");

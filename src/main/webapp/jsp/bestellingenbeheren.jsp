@@ -26,7 +26,7 @@
         <div class="row p-3 text-center">
             <h2 class="display-5 fw-bold"><i class="fa-solid fa-cash-register"></i> Bestellingen Beheren</h2>
         </div>
-        <form method="post" action="/bestellingenbeheren/ga-naar-datum"
+        <form method="get" action="/bestellingenbeheren/ga-naar-datum"
               class="row">
             <div class="row text-center justify-content-center">
                 <h4 class="display-6"><%=formatedDate%>

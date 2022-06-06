@@ -4,7 +4,6 @@ import be.thomasmore.graduaten.frituurthalfkieke.entities.*;
 import be.thomasmore.graduaten.frituurthalfkieke.repositories.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
@@ -38,7 +37,7 @@ public class BestellingController {
         this.tijdslotRepository = tijdslotRepository;
     }
 
-    @PostMapping("/bestellingenbeheren/ga-naar-datum")
+    @RequestMapping("/bestellingenbeheren/ga-naar-datum")
     public String navigateToBestellingenBeherenGaNaarDatum(Model model, HttpServletRequest request) {
         String startDatumString = request.getParameter("selectedDatum");
         java.util.Date datum = null;
