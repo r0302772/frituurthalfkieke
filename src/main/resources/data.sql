@@ -1,4 +1,3 @@
-
 insert into Categorie(naam)
 Values ('Sauzen');
 insert into Categorie(naam)
@@ -30,103 +29,116 @@ INSERT INTO ARTIKEL(naam, prijs, beschikbaar, opmerking, categorie_id)
 VALUES ('Bicky Chicken', 4.00, 1, 'Kip, Bicky Uitjes, Bicky Saus', 2);
 
 
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('07:00','08:00', '2022-05-30',0,3);
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('08:00','09:00', '2022-05-30',0,3);
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('09:00','10:00', '2022-05-30',0,3);
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('10:00','11:00', '2022-05-30',0,3);
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('11:00','12:00', '2022-05-30',0,3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('07:00', '08:00', '2022-05-30', 0, 3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('08:00', '09:00', '2022-05-30', 0, 3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('09:00', '10:00', '2022-05-30', 0, 3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('10:00', '11:00', '2022-05-30', 0, 3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('11:00', '12:00', '2022-05-30', 0, 3);
 
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('07:00','08:00', '2022-05-31',0,3);
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('08:00','09:00', '2022-05-31',0,3);
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('09:00','10:00', '2022-05-31',0,3);
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('10:00','11:00', '2022-05-31',0,3);
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('11:00','12:00', '2022-05-31' ,0,3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('07:00', '08:00', '2022-05-31', 0, 3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('08:00', '09:00', '2022-05-31', 0, 3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('09:00', '10:00', '2022-05-31', 0, 3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('10:00', '11:00', '2022-05-31', 0, 3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('11:00', '12:00', '2022-05-31', 0, 3);
 
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('07:00','08:00', '2022-06-01',0,3);
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('08:00','09:00', '2022-06-01',0,3);
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('09:00','10:00', '2022-06-01',0,3);
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('10:00','11:00', '2022-06-01',0,3);
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('11:00','12:00', '2022-06-01',0,3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('07:00', '08:00', '2022-06-01', 0, 3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('08:00', '09:00', '2022-06-01', 0, 3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('09:00', '10:00', '2022-06-01', 0, 3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('10:00', '11:00', '2022-06-01', 0, 3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('11:00', '12:00', '2022-06-01', 0, 3);
 
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('07:00','08:00', '2022-06-02',0,3);
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('08:00','09:00', '2022-06-02',0,3);
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('09:00','10:00', '2022-06-03',0,3);
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('10:00','11:00', '2022-06-04',0,3);
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('11:00','12:00', '2022-06-05',0,3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('07:00', '08:00', '2022-06-02', 0, 3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('08:00', '09:00', '2022-06-02', 0, 3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('09:00', '10:00', '2022-06-03', 0, 3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('10:00', '11:00', '2022-06-04', 0, 3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('11:00', '12:00', '2022-06-05', 0, 3);
 
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('07:00','08:00', '2022-06-06',0,3);
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('08:00','09:00', '2022-06-06',0,3);
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('09:00','10:00', '2022-06-06',0,3);
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('10:00','11:00', '2022-06-06',0,3);
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('11:00','12:00', '2022-06-06',0,3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('07:00', '08:00', '2022-06-06', 0, 3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('08:00', '09:00', '2022-06-06', 0, 3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('09:00', '10:00', '2022-06-06', 0, 3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('10:00', '11:00', '2022-06-06', 0, 3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('11:00', '12:00', '2022-06-06', 0, 3);
 
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('07:00','08:00', '2022-06-07',0,3);
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('08:00','09:00', '2022-06-07',0,3);
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('09:00','10:00', '2022-06-07',0,3);
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('10:00','11:00', '2022-06-07',0,3);
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('11:00','12:00', '2022-06-07',0,3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('07:00', '08:00', '2022-06-07', 0, 3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('08:00', '09:00', '2022-06-07', 0, 3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('09:00', '10:00', '2022-06-07', 0, 3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('10:00', '11:00', '2022-06-07', 0, 3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('11:00', '12:00', '2022-06-07', 0, 3);
 
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('07:00','08:00', '2022-06-08',0,3);
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('08:00','09:00', '2022-06-08',0,3);
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('09:00','10:00', '2022-06-08',0,3);
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('10:00','11:00', '2022-06-08',0,3);
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('11:00','12:00', '2022-06-08',0,3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('07:00', '08:00', '2022-06-08', 0, 3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('08:00', '09:00', '2022-06-08', 0, 3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('09:00', '10:00', '2022-06-08', 0, 3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('10:00', '11:00', '2022-06-08', 0, 3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('11:00', '12:00', '2022-06-08', 0, 3);
 
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('07:00','08:00', '2022-06-10',0,3);
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('08:00','09:00', '2022-06-10',0,3);
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('09:00','10:00', '2022-06-10',0,3);
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('10:00','11:00', '2022-06-10',0,3);
-INSERT INTO TIJDSLOT(startuur, einduur,datum, geblokeerd, aantal)
-VALUES('11:00','12:00', '2022-06-10',0,3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('07:00', '08:00', '2022-06-10', 0, 3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('08:00', '09:00', '2022-06-10', 0, 3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('09:00', '10:00', '2022-06-10', 0, 3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('10:00', '11:00', '2022-06-10', 0, 3);
+INSERT INTO TIJDSLOT(startuur, einduur, datum, geblokeerd, aantal)
+VALUES ('11:00', '12:00', '2022-06-10', 0, 3);
 
 
 INSERT INTO BESTELLING(voornaam, achternaam, email, gsm)
-VALUES ('Thomas','Vanlooy','ErikVanlooy@gmail.com','0470928299');
+VALUES ('Thomas', 'Vanlooy', 'ThomasVanlooy@gmail.com', '0470928299');
 INSERT INTO BESTELLING(voornaam, achternaam, email, gsm)
-VALUES ('Luc','Bravo','LucBravo@gmail.com','0470928295');
+VALUES ('Luc', 'Bravo', 'LucBravo@gmail.com', '0470928295');
 INSERT INTO BESTELLING(voornaam, achternaam, email, gsm)
-VALUES ('Bart','Theunis','BartTheunis@gmail.com','0470955699');
+VALUES ('Bart', 'Theunis', 'BartTheunis@gmail.com', '0470955699');
 INSERT INTO BESTELLING(voornaam, achternaam, email, gsm)
-VALUES ('Louis','Vanlooy','LouisVanlooy@gmail.com','0470933399');
+VALUES ('Louis', 'Vanlooy', 'LouisVanlooy@gmail.com', '0470933399');
 INSERT INTO BESTELLING(voornaam, achternaam, email, gsm)
-VALUES ('Thomas','Verdonck','LouisVanlooy@gmail.com','0470933399');
+VALUES ('Thomas', 'Verdonck', 'LouisVanlooy@gmail.com', '0470933399');
 
+
+INSERT INTO Artikel_Bestelling(aantal, kruiden, opmerking, artikel_id, bestelling_id, parentartikelbestelling_id)
+VALUES (1, 'Geen kruiden', '', 6, 1, null);
+INSERT INTO Artikel_Bestelling(aantal, kruiden, opmerking, artikel_id, bestelling_id, parentartikelbestelling_id)
+VALUES (1, null, '', 1, 1, 1);
+INSERT INTO Artikel_Bestelling(aantal, kruiden, opmerking, artikel_id, bestelling_id, parentartikelbestelling_id)
+VALUES (1, null, '', 2, 1, 1);
+INSERT INTO Artikel_Bestelling(aantal, kruiden, opmerking, artikel_id, bestelling_id, parentartikelbestelling_id)
+VALUES (3, 'Geen kruiden', '', 3, 2, null);
+INSERT INTO Artikel_Bestelling(aantal, kruiden, opmerking, artikel_id, bestelling_id, parentartikelbestelling_id)
+VALUES (1, null, '', 1, 2, 4);
+INSERT INTO Artikel_Bestelling(aantal, kruiden, opmerking, artikel_id, bestelling_id, parentartikelbestelling_id)
+VALUES (1, 'Zout', '', 4, 2, null );

@@ -2,11 +2,11 @@ DROP TABLE IF EXISTS Bestelling;
 
 CREATE TABLE Bestelling
 (
-    id              INT         NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id         INT         NOT NULL AUTO_INCREMENT PRIMARY KEY,
     voornaam   VARCHAR(50) NOT NULL,
     achternaam VARCHAR(50) NOT NULL,
     email      VARCHAR(50) NOT NULL,
-    gsm       VARCHAR(50) NOT NULL,
+    gsm        VARCHAR(50) NOT NULL,
 
     PRIMARY KEY (id)
 );
@@ -55,12 +55,13 @@ CREATE TABLE Artikel_Bestelling
 
 DROP TABLE IF EXISTS TIJDSLOT;
 
-CREATE TABLE TIJDSLOT(
-    id                       INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    startuur                TIME,
-    einduur                TIME,
-    datum                    DATE,
-    aantal                   INT,
-    geblokeerd              BIT,
+CREATE TABLE TIJDSLOT
+(
+    id         INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    startuur   TIME,
+    einduur    TIME,
+    datum      DATE,
+    aantal     INT,
+    geblokeerd BIT,
     PRIMARY KEY (id)
 );
