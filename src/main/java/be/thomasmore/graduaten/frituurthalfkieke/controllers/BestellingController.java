@@ -13,7 +13,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class BestellingController {
@@ -50,9 +53,40 @@ public class BestellingController {
         Bestelling bestelling = bestellingRepository.getById(id);
 
         List<ArtikelBestelling> artikelBestellingList = artikelBestellingRepository.findArtikelsBestellingByBestellingId(id);
+        //lijst van alle artikelbestellingen met artikels in
+        //lijst van alle artikelbestellingen met sauzen die aan artikels hangen in.
+        List<ArtikelBestelling> artikellijst = new ArrayList<>();
+        List<ArtikelBestelling> sauzenlijst = new ArrayList<>();
+
+        for (ArtikelBestelling artikelBestelling : artikelBestellingList) {
+            if (artikelBestelling.getparentartikelbestelling() != null) {
+                sauzenlijst.add(artikelBestelling);
+            } else {
+                artikellijst.add(artikelBestelling);
+            }
+        }
+        model.addAttribute("sauzenlijst", sauzenlijst);
+        model.addAttribute("artikellijst", artikellijst);
+
+
+/*        Map<ArtikelBestelling, List<ArtikelBestelling>> dict = new HashMap<>();
+        for (ArtikelBestelling artikelBestelling : artikelBestellingList) {
+            if (artikelBestelling.getparentartikelbestelling() != null) {
+                List<ArtikelBestelling> sauzenlijst = dict.get(artikelBestelling.getparentartikelbestelling());
+                if (sauzenlijst == null) {
+                    sauzenlijst = new ArrayList<>();
+                }
+
+                sauzenlijst.add(artikelBestelling);
+                dict.put(artikelBestelling.getparentartikelbestelling(), sauzenlijst);
+            } else {
+                dict.put(artikelBestelling, null);
+            }
+        }
+        model.addAttribute("bestellingmap", dict);*/
 
         model.addAttribute("bestelling", bestelling);
-        model.addAttribute("artikelBestellingList", artikelBestellingList);
+
         return "details-bestelling";
     }
 

@@ -3,11 +3,16 @@
 <%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.ArtikelBestelling" %>
 <%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.Artikel" %>
 <%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.Categorie" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
+<%@ page import="java.time.LocalDateTime" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     List<Bestelling> bestellingen = (List<Bestelling>) request.getAttribute("bestellingen");
     List<Artikel> artikels = (List<Artikel>) request.getAttribute("artikels");
     List<Categorie> categorien = (List<Categorie>) request.getAttribute("categorien");
+
+    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM");
+    LocalDateTime now = LocalDateTime.now();
 %>
 <html lang="nl" class="h-100">
 <head>
@@ -29,15 +34,28 @@
 
         <div class="row p-3">
             <%--Wanneer--%>
-            <div class="col-md border-end">
-                <h4>Tijdslot</h4>
+            <div class="col-md-4 border-end">
+                <h4>Tijdsloten <%=dtf.format(now)%>
+                </h4>
                 <hr>
                 <nav>
                     <div class="nav flex-column nav-pills" id="nav-tabWanneer" role="tablist">
                         <button class="nav-link active" id="nav-vandaag-tab" data-bs-toggle="tab"
                                 data-bs-target="#nav-vandaag" type="button" role="tab" aria-controls="nav-vandaag"
                                 aria-selected="true">
-                            Vandaag <span class="badge bg-secondary">0</span>
+                            Vandaag
+                            <% if (bestellingen.isEmpty()) {
+                                out.print(
+                                        "<span class=\"badge bg-secondary\">0</span>"
+                                );
+                            } else {
+                                out.print(
+                                        "<span class=\"badge bg-danger\">" +
+                                                bestellingen.size() +
+                                                "</span>"
+                                );
+                            }
+                            %>
                         </button>
                         <button class="nav-link" id="nav-volgendeWeek-tab" data-bs-toggle="tab"
                                 data-bs-target="#nav-volgendeWeek"
@@ -48,7 +66,6 @@
                 </nav>
             </div>
             <%--Bestellingen--%>
-
             <div class="col-md border-end">
                 <h4>Bestellingen</h4>
                 <hr>
@@ -57,21 +74,21 @@
                          aria-labelledby="nav-vandaag-tab">
                         <nav>
                             <div class="nav flex-column nav-pills" id="nav-tabOrdersVolgendeWeek" role="tablist">
-                            <% for (Bestelling bestelling : bestellingen) {
-                                out.print("<a href='/bestelling/detail?id=" + bestelling.getId() + "'" +
-                                        "class='nav-link' " +
-                                        "id='nav-order1-tab' " +
-                                        "data-bs-toggle='tab' " +
-                                        "data-bs-target='#nav-order1' " +
-                                        "type='button' " +
-                                        "role='tab'" +
-                                        "aria-controls='nav-order1'" +
-                                        "aria-selected='true'>" +
-                                        "Tijdslot hier | " + bestelling.getAchternaam() + " " + bestelling.getVoornaam() +
-                                        "</a>"
+                                <% for (Bestelling bestelling : bestellingen) {
+                                    out.print("<a href='#'" +
+                                            "class='nav-link' " +
+                                            "id='nav-order1-tab' " +
+                                            "data-bs-toggle='tab' " +
+                                            "data-bs-target='#nav-order1' " +
+                                            "type='button' " +
+                                            "role='tab'" +
+                                            "aria-controls='nav-order1'" +
+                                            "aria-selected='true'>" +
+                                            bestelling.getAchternaam() + " " + bestelling.getVoornaam() +
+                                            "<a class='nav-link bg-danger' href='/bestelling/detail?id=" + bestelling.getId() + "'>Details</a></a>"
 
-                                );
-                            } %>
+                                    );
+                                } %>
                             </div>
                         </nav>
                     </div>
@@ -81,11 +98,6 @@
                     </div>
                 </div>
             </div>
-            <%--Details--%>
-                <div class="col-md border-end">
-                    <h4>Details</h4>
-                    <hr>
-                </div>
         </div>
     </main>
 

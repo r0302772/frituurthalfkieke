@@ -8,18 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <script src="https://kit.fontawesome.com/29addfb8ae.js" crossorigin="anonymous"></script>
     <title>Frituur t'Half Kieke | Winkelwagen</title>
-
     <link rel="icon" type="image/x-icon" href="/images/drumstick-bite-solid.svg">
-    <%--    <link rel="stylesheet"
-              href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css">
-        <link rel="stylesheet"
-              href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.js"></script>--%>
-
-
 </head>
 <body class="d-flex h-100">
 <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
@@ -29,8 +18,6 @@
         <div class="row p-3 text-center">
             <h2 class="display-5 fw-bold"><i class="bi bi-cart-fill"></i> Winkelwagen</h2>
         </div>
-        <%--        <form:form method="post" class="row">--%>
-
         <div class="col-12 border px-3">
             <div class="row p-3 bg-secondary text-white">
                 <h4>Stap 1/2</h4>
@@ -91,11 +78,9 @@
                 </table>
             </div>
             <div class="row d-grid p-3">
-<%--                <button type="submit" class="btn btn-primary btn-lg">NAAR STAP 2/2</button>--%>
                 <a href="/winkelwagen/gegevens-en-tijdslot" class="btn btn-primary btn-lg">NAAR STAP 2/2</a>
             </div>
         </div>
-        <%--        </form:form>--%>
     </main>
 
     <%--
