@@ -32,12 +32,13 @@ public class Bestelling {
 
     //<editor-fold desc="Constructors">
 
-    public Bestelling(String voornaam, String achternaam, String email, String gsm, Boolean afgehaald) {
+    public Bestelling(String voornaam, String achternaam, String email, String gsm, Boolean afgehaald, Tijdslot tijdslot) {
         this.voornaam = voornaam;
         this.achternaam = achternaam;
         this.email = email;
         this.gsm = gsm;
         this.afgehaald = afgehaald;
+        this.tijdslot = tijdslot;
     }
 
     public Bestelling() {
