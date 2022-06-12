@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -180,9 +181,14 @@ public class WinkelwagenController {
     public String navigateToDatumKiezenResult(Model model, HttpSession session, HttpServletRequest request) {
         //Van request (string) naar LocalDate
         String startDatumString = request.getParameter("selectedDatum");
+        LocalDate vandaag = LocalDate.now();
         Date datum = null;
         try {
             datum = (Date) new SimpleDateFormat("yyyy-MM-dd").parse(startDatumString);
+            Date datumvandaag = (Date) new SimpleDateFormat("yyyy-MM-dd").parse(vandaag.toString());
+            if (datum.compareTo(datumvandaag) < 0) {
+                return "error";
+            }
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
