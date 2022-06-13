@@ -9,9 +9,8 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>be.thomasmore.graduaten</groupId>
-    <artifactId>frituurthalfkieke</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <artifactId>app</artifactId>
+    <packaging>jar</packaging>
     <name>frituurthalfkieke</name>
     <description>frituurthalfkieke</description>
     <properties>

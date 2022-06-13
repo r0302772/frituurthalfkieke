@@ -11,7 +11,10 @@ import java.util.List;
 public interface TijdslotRepository  extends JpaRepository<Tijdslot,Long>  {
     List<Tijdslot> findTijdslotsByDatumBetweenOrderByDatumAsc(Date start, Date end);
     List<Tijdslot> findTijdslotsByDatum(Date date);
+    List<Tijdslot> findTijdslotsByDatumOrderByStartuurAsc(Date date);
     @Query(nativeQuery = true,value = "Select Top 1 * from TIJDSLOT ORDER BY DATUM DESC")
     Tijdslot getTop1OrderByDatumDesc();
+    void deleteTijdslotsByBestellingenIsNull();
+
 
 }

@@ -3,6 +3,9 @@
 <%@ page import="java.util.List" %>
 <%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.Categorie" %>
 <%@ page import="be.thomasmore.graduaten.frituurthalfkieke.entities.Tijdslot" %>
+<%@ page import="java.time.LocalDate" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.time.ZoneId" %>
 
 <%
     List<Tijdslot> tijdsloten = (List<Tijdslot>) request.getAttribute("tijdsloten");
@@ -23,6 +26,13 @@
         return "";
     };
 %>
+<%!
+    public LocalDate convertToLocalDateViaInstant(Date dateToConvert) {
+        return dateToConvert.toInstant()
+                .atZone(ZoneId.systemDefault())
+                .toLocalDate();
+    }
+%>
 <html lang="nl" class="h-100">
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -41,11 +51,26 @@
             <h2 class="display-5 fw-bold"><i class="bi bi-stopwatch"></i> Tijdsloten</h2>
         </div>
         <div class="row p-3">
-            <div class="col-2"><button class="btn btn-primary" value="<"></button></div>
-            <div class="col-2"></div>
-            <div class="col-4"></div>
-            <div class="col-2"></div>
-            <div class="col-2"><button class="float-end btn btn-primary" value=">"></button></div>
+
+<%--                <div class="col-2"><form action="tijdslotenbeheren"><input type="submit" class="float-end btn btn-primary" value="<">--%>
+<%--                    <input type="hidden" name="startdatum" value="<%convertToLocalDateViaInstant(Listtijdsloten.get(0).get(0).getDatum()).minusDays(7);%>">--%>
+<%--                </form></div>--%>
+                <div class="col-4"></div>
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <form action="tijdslotenbeheren/settijd">
+                        <label for="interval">Interval</label>
+                        <input type="time" class="form-control" name="interval" id="interval" required>
+                        <label for="startuur">Start uur</label>
+                        <input type="time"  class="form-control"  name="startuur" id="startuur" required>
+                        <label for="einduur">Einduur</label>
+                        <input type="time" class="form-control"  name="einduur" id="einduur" required>
+                        <input class="btn btn-primary" class="form-control"  type="submit" value="Zet de tijd" >
+                    </form>
+                </div>
+
+<%--                <div class="col-2"><form action="tijdslotenbeheren"><input type="submit" class="float-end btn btn-primary" value=">">--%>
+<%--                    <input type="hidden" name="next" value="<%convertToLocalDateViaInstant(Listtijdsloten.get(0).get(0).getDatum()).plusDays(14);%>"></form></div>--%>
 
         </div>
 
@@ -168,7 +193,7 @@
                 if(DagLijst != null && DagLijst.size() > 0){
                     for (Tijdslot tijdslot: DagLijst
                          ) {
-                        out.println("<form id=\""+tijdslot.getId() + "\" action=\"/tijdslot/update\" method=\"post\">");
+                        out.println("<form id=\""+ tijdslot.getId() + "\" action=\"/tijdslot/update\" method=\"get\">");
                         out.println("<div class=\"row\">");
 
                         out.println("<div class=\"col\">"+ tijdslot.getStartuur() + "</div>");
@@ -195,7 +220,7 @@
             %>
 
         </div>
-        <input type="hidden">
+
     </main>
 
     <jsp:include page="footer.jsp" />
